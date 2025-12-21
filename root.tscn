@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b76138tmbmchy"]
+
+[ext_resource type="PackedScene" uid="uid://5vwsct7ganhj" path="res://game/maps/plains/plains.tscn" id="1_pq8q7"]
+[ext_resource type="Script" uid="uid://depkumo2rtwuu" path="res://camera_2d.gd" id="2_pyidc"]
+
+[node name="root" type="Node2D"]
+
+[node name="main_menu_screen" type="Node2D" parent="."]
+
+[node name="maps" type="Node2D" parent="."]
+
+[node name="plains" parent="maps" instance=ExtResource("1_pq8q7")]
+scale = Vector2(0.48736122, 0.564983)
+
+[node name="game_over_screen" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+script = ExtResource("2_pyidc")
