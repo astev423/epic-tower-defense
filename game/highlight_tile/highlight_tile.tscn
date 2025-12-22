@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7rytr23sysqc"]
+
+[ext_resource type="Script" uid="uid://belo55eob70yl" path="res://game/highlight_tile/highlight_tile.gd" id="1_5e476"]
+[ext_resource type="Texture2D" uid="uid://vtjh0lpl3sgq" path="res://assets/tiles/highlight_grid.png" id="2_8a57w"]
+
+[node name="HighlightTile" type="Node2D"]
+script = ExtResource("1_5e476")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_8a57w")
+centered = false
