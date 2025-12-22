@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://brhgsyc38mbba" path="res://game/towers/cannon/cannon.tscn" id="1_qcxlj"]
 
 [node name="TowerSelection" type="Node2D"]
-scale = Vector2(2, 2)
 script = ExtResource("1_hklxe")
 
 [node name="Cannon" parent="." instance=ExtResource("1_qcxlj")]
