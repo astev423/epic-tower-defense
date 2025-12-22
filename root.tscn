@@ -15,10 +15,10 @@
 [node name="GameOverScreen" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1201, 577)
-zoom = Vector2(0.48, 0.563)
+position = Vector2(960, 540)
+zoom = Vector2(0.6, 0.6)
 script = ExtResource("2_pyidc")
 
 [node name="TowerSelection" parent="." instance=ExtResource("3_vvh5c")]
-position = Vector2(2115, 7)
-scale = Vector2(2.0151682, 1.9381741)
+position = Vector2(1676, 15)
+scale = Vector2(2, 2)
