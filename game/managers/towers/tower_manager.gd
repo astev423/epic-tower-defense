@@ -6,8 +6,10 @@ enum HeldTower {
 	NONE,
 }
 
+const MAP_CONSTANTS = preload("res://game/maps/plains/plains.gd")
 const CANNON_SCENE := preload("res://game/towers/cannon/cannon.tscn")
 const IS_PLACEABLE := "placeable"
+const TOWER_GROUP := "TOWER_GROUP"
 
 @onready var select_cannon: Button = $SelectCannon
 @onready var tile_map_layer: TileMapLayer = $"../Maps/Plains/TileMapLayer"
@@ -37,17 +39,21 @@ func _process(delta: float) -> void:
 
 func attempt_placing_tower_on_grid() -> void:
 	# Can't place on the tower selection UI
-	if get_global_mouse_position().x > 2112:
+	var mouse_pos = get_global_mouse_position()
+	if (mouse_pos.x > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_HORIZONTAL_TILES
+			or mouse_pos.y > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_VERTICAL_TILES):
 		return
-	# This converts the local pos of the mouse to the tile number using local_to_map
+
+	# Get local pos so we can map it to the right tile check tile data to see if its placeable
 	var cell_position := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
-	# Get data associated with that cell, see if it has placeable marked as true in tileset
 	var is_placeable = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
-	if is_placeable and !used_tiles.has(cell_position):
+
+	if is_placeable and not used_tiles.has(cell_position):
 		var new_tower = CANNON_SCENE.instantiate()
 		get_parent().add_child(new_tower)
 		new_tower.global_position = cell_position * 64
 		used_tiles[cell_position] = new_tower
+		new_tower.add_to_group(TOWER_GROUP)
 
 
 ## Free tower if it exists and mark tiles it occupied as placeable again
@@ -55,8 +61,8 @@ func attempt_delete_tower_on_grid() -> void:
 	var cell_position := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 	if used_tiles.has(cell_position):
 		var tower = used_tiles[cell_position]
-		used_tiles.erase(cell_position)
 		tower.queue_free()
+		used_tiles.erase(cell_position)
 
 
 func make_tower_follow_mouse() -> void:

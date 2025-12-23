@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://u40i14paws08"
-path="res://.godot/imported/towerDefense_tile245.png-a634484bb16333c0b20a93f4d77d94ba.ctex"
+path="res://.godot/imported/weakling.png-e5ac4fff4779a8b477fcf13eb2ace6f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile245.png"
-dest_files=["res://.godot/imported/towerDefense_tile245.png-a634484bb16333c0b20a93f4d77d94ba.ctex"]
+source_file="res://assets/enemies/weakling/weakling.png"
+dest_files=["res://.godot/imported/weakling.png-e5ac4fff4779a8b477fcf13eb2ace6f2.ctex"]
 
 [params]
 

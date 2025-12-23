@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://5vwsct7ganhj" path="res://game/maps/plains/plains.tscn" id="1_pq8q7"]
 [ext_resource type="Script" uid="uid://depkumo2rtwuu" path="res://camera_2d.gd" id="2_pyidc"]
-[ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://ui/tower_selection/tower_selection.tscn" id="3_vvh5c"]
+[ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_manager.tscn" id="3_vvh5c"]
 
 [node name="Root" type="Node2D"]
 
@@ -19,6 +19,6 @@ position = Vector2(960, 540)
 zoom = Vector2(0.6, 0.6)
 script = ExtResource("2_pyidc")
 
-[node name="TowerSelection" parent="." instance=ExtResource("3_vvh5c")]
+[node name="TowerManager" parent="." instance=ExtResource("3_vvh5c")]
 position = Vector2(1676, 15)
 scale = Vector2(2, 2)

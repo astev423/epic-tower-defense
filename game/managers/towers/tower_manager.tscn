@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs8g4s5l46lau"]
 
-[ext_resource type="Script" uid="uid://cla2ccx7md81j" path="res://ui/tower_selection/tower_selection.gd" id="1_hklxe"]
+[ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/managers/towers/tower_manager.gd" id="1_ikrvu"]
 [ext_resource type="PackedScene" uid="uid://brhgsyc38mbba" path="res://game/towers/cannon/cannon.tscn" id="1_qcxlj"]
 
 [node name="TowerSelection" type="Node2D"]
-script = ExtResource("1_hklxe")
+script = ExtResource("1_ikrvu")
 
 [node name="Cannon" parent="." instance=ExtResource("1_qcxlj")]
 
