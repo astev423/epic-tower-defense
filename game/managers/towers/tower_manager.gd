@@ -7,7 +7,8 @@ enum HeldTower {
 }
 
 const MAP_CONSTANTS = preload("res://game/maps/plains/plains.gd")
-const CANNON_SCENE := preload("res://game/towers/cannon/cannon.tscn")
+const PLACED_CANNON_SCENE = preload("res://game/towers/cannon/cannon1.tscn")
+const DRAGGED_CANNON_SCENE = preload("res://game/managers/towers/dragged_cannon1.tscn")
 const IS_PLACEABLE := "placeable"
 const TOWER_GROUP := "TOWER_GROUP"
 
@@ -48,7 +49,7 @@ func attempt_placing_tower_on_grid() -> void:
 	var is_placeable = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
 
 	if is_placeable and not used_tiles.has(cell_position):
-		var new_tower = CANNON_SCENE.instantiate()
+		var new_tower = PLACED_CANNON_SCENE.instantiate()
 		get_parent().add_child(new_tower)
 		new_tower.global_position = cell_position * 64
 		used_tiles[cell_position] = new_tower
@@ -75,7 +76,7 @@ func on_select_cannon_pressed() -> void:
 	if held_tower_instance != null:
 		held_tower_instance.queue_free()
 
-	held_tower_instance = CANNON_SCENE.instantiate()
+	held_tower_instance = DRAGGED_CANNON_SCENE.instantiate()
 	get_parent().add_child(held_tower_instance)
 
 
@@ -84,3 +85,4 @@ func attempt_deselect_held_tower() -> void:
 
 	if held_tower_instance != null:
 		held_tower_instance.queue_free()
+		held_tower_instance = null

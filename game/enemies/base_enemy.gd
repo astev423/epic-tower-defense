@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var target_pos: Marker2D =  $"../Marker2D"
 @onready var pathfinding_manager: Node = $"../EnemyPathfinder"
 @onready var health_comp: Node = $"HealthComponent"
-@onready var movement_speed = 40000
+@onready var movement_speed = 25000
 var path_array: Array[Vector2i] = []
 
 
@@ -44,3 +44,7 @@ func _on_hitbox_area_area_entered(body: Area2D) -> void:
 
 func handle_death() -> void:
 	queue_free()
+
+
+func take_damage(amount) -> void:
+	health_comp.take_damage(amount)

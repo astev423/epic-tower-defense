@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0pkrd8q2hspc"]
+
+[ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="1_etovl"]
+
+[node name="CannonUIOnly" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_etovl")
+centered = false

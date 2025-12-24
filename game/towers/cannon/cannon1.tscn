@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://brhgsyc38mbba"]
+
+[ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="1_3lpym"]
+[ext_resource type="Script" uid="uid://c3nplydpkanoi" path="res://game/towers/cannon/cannon_1.gd" id="1_wd4qp"]
+[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/towers/range.png" id="3_qmdwl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wd4qp"]
+
+[node name="Cannon1" type="Node2D"]
+script = ExtResource("1_wd4qp")
+
+[node name="AttackRangeDisplay" type="Sprite2D" parent="."]
+position = Vector2(32, 43)
+texture = ExtResource("3_qmdwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3lpym")
+centered = false
+
+[node name="AttackRangeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRangeArea"]
+position = Vector2(33, 42)
+scale = Vector2(14.681717, 14.681717)
+shape = SubResource("CircleShape2D_wd4qp")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="AttackRangeArea" to="." method="_on_attack_range_area_body_entered"]
+[connection signal="body_exited" from="AttackRangeArea" to="." method="_on_attack_range_area_body_exited"]

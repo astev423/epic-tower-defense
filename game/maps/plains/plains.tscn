@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://5vwsct7ganhj"]
+[gd_scene load_steps=9 format=4 uid="uid://5vwsct7ganhj"]
 
 [ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/tiles/plains.png" id="1_a7kjj"]
 [ext_resource type="Script" uid="uid://cpbnq6ct620qq" path="res://game/maps/plains/plains.gd" id="1_gkfa6"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/highlight_tile/highlight_tile.tscn" id="2_y1axx"]
 [ext_resource type="PackedScene" uid="uid://wo5kcm37umfh" path="res://game/enemies/weakling/weakling.tscn" id="6_q8gya"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="7_0b5dc"]
-[ext_resource type="PackedScene" uid="uid://btjerqpl5msmm" path="res://game/towers/cannon/cannonball1.tscn" id="7_ifqn0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1axx"]
 texture = ExtResource("1_a7kjj")
@@ -91,11 +90,3 @@ rotation = 1.5707964
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1633, 122)
-
-[node name="Cannonball1" parent="." instance=ExtResource("7_ifqn0")]
-position = Vector2(204, 449)
-scale = Vector2(-6.5490537, -6.5490537)
-
-[node name="Cannonball2" parent="." instance=ExtResource("7_ifqn0")]
-position = Vector2(204.00003, 711)
-scale = Vector2(-6.5490537, -6.5490537)
