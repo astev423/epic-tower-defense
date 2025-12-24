@@ -25,16 +25,15 @@ func _ready() -> void:
 
 ## Do nothing if no selected tower, otherwise place/unselect depending on input
 func _process(delta: float) -> void:
-	if not is_instance_valid(held_tower_instance):
-		return
+	if is_instance_valid(held_tower_instance):
+		make_tower_follow_mouse()
 
-	make_tower_follow_mouse()
 	if Input.is_action_just_pressed("left_mouse"):
 		attempt_placing_tower_on_grid()
 	elif Input.is_action_just_pressed("right_mouse"):
 		attempt_delete_tower_on_grid()
 	elif Input.is_action_just_pressed("esc"):
-		deselect_held_tower()
+		attempt_deselect_held_tower()
 
 
 func attempt_placing_tower_on_grid() -> void:
@@ -80,7 +79,7 @@ func on_select_cannon_pressed() -> void:
 	get_parent().add_child(held_tower_instance)
 
 
-func deselect_held_tower() -> void:
+func attempt_deselect_held_tower() -> void:
 	held_tower = HeldTower.NONE
 
 	if held_tower_instance != null:

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://btjerqpl5msmm"]
+
+[ext_resource type="Texture2D" uid="uid://75y4bnt5eaai" path="res://assets/towers/cannon/cannonball1.png" id="1_b4woh"]
+[ext_resource type="Script" uid="uid://mwgh7r77qsqi" path="res://game/towers/cannon/cannonball_1.gd" id="1_oxbow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oxbow"]
+
+[node name="Cannonball1" type="Area2D"]
+script = ExtResource("1_oxbow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b4woh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oxbow")
