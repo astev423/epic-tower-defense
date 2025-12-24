@@ -11,6 +11,7 @@ var path_array: Array[Vector2i] = []
 func _ready() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
 	health_comp.connect("died", handle_death)
+	add_to_group("enemies")
 
 
 func _process(delta) -> void:

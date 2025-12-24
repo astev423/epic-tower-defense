@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://wo5kcm37umfh"]
+[gd_scene load_steps=7 format=3 uid="uid://wo5kcm37umfh"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/enemies/base_enemy.tscn" id="1_d7wth"]
 [ext_resource type="Texture2D" uid="uid://u40i14paws08" path="res://assets/enemies/weakling/weakling.png" id="2_8asnc"]
 [ext_resource type="Script" uid="uid://bfqv7r100vd0j" path="res://game/enemies/weakling/weakling.gd" id="2_e1f2x"]
+[ext_resource type="Script" path="res://game/shared/health_component.gd" id="4_e1f2x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8asnc"]
 
@@ -14,10 +15,16 @@ script = ExtResource("2_e1f2x")
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_8asnc")
 
+[node name="HealthComponent" parent="." index="1"]
+script = ExtResource("4_e1f2x")
+
+[node name="HitboxArea" parent="." index="2"]
+scale = Vector2(1.1617556, 1.1617556)
+
 [node name="CollisionShape2D" parent="HitboxArea" index="0"]
 scale = Vector2(1.6854734, 1.6854734)
 shape = SubResource("CircleShape2D_8asnc")
 
 [node name="CollisionShape2D" parent="." index="3"]
-scale = Vector2(1.6818906, 1.6818906)
+scale = Vector2(1.9539458, 1.9539458)
 shape = SubResource("CircleShape2D_e1f2x")

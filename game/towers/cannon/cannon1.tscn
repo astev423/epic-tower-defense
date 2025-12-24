@@ -10,17 +10,15 @@
 script = ExtResource("1_wd4qp")
 
 [node name="AttackRangeDisplay" type="Sprite2D" parent="."]
-position = Vector2(32, 43)
+scale = Vector2(1.0063938, 0.9752177)
 texture = ExtResource("3_qmdwl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3lpym")
-centered = false
 
 [node name="AttackRangeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRangeArea"]
-position = Vector2(33, 42)
 scale = Vector2(14.681717, 14.681717)
 shape = SubResource("CircleShape2D_wd4qp")
 

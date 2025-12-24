@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo5rrx1lu6px2"]
 
 [ext_resource type="Script" uid="uid://bisqcfxpunop2" path="res://game/enemies/base_enemy.gd" id="1_axhys"]
-[ext_resource type="Script" uid="uid://rwvfpjhcqkub" path="res://game/shared_components/health_component.gd" id="2_4d2sl"]
+[ext_resource type="Script" uid="uid://rwvfpjhcqkub" path="res://game/shared/health_component.gd" id="2_4d2sl"]
 
 [node name="BaseEnemy" type="CharacterBody2D"]
 script = ExtResource("1_axhys")
