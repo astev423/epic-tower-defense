@@ -85,8 +85,19 @@ tile_set = SubResource("TileSet_gkfa6")
 [node name="HighlightTile" parent="." instance=ExtResource("2_y1axx")]
 
 [node name="Weakling" parent="." instance=ExtResource("6_q8gya")]
-position = Vector2(187, 26)
+position = Vector2(154, 26)
 rotation = 1.5707964
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1633, 122)
+
+[node name="NoMoneyWarning" type="Label" parent="."]
+visible = false
+offset_left = 140.0
+offset_top = 319.0
+offset_right = 17901.0
+offset_bottom = 2855.0
+scale = Vector2(0.07727055, 0.07727055)
+theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
+theme_override_font_sizes/font_size = 1861
+text = "Not enough money!"

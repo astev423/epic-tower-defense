@@ -32,6 +32,7 @@ func _process(delta) -> void:
 func shoot_cannonball_at_enemy() -> void:
 	if enemies_in_range.is_empty():
 		attack_timer.stop()
+		cur_enemy = null
 		return
 
 	cur_enemy = enemies_in_range.keys().pick_random()

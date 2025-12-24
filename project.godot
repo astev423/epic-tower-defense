@@ -25,6 +25,15 @@ gdscript/warnings/unused_parameter=0
 window/size/always_on_top=true
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://game/enemies/": "red",
+"res://game/managers/": "yellow",
+"res://game/maps/": "green",
+"res://game/towers/": "gray"
+}
+
 [input]
 
 left_mouse={

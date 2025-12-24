@@ -3,3 +3,9 @@ extends "res://game/enemies/base_enemy.gd"
 func _ready() -> void:
 	# We need to call parent ready as well to prevent this from overriding it
 	super._ready()
+
+
+## Add money to the money manager then die
+func handle_death() -> void:
+	get_tree().call_group("money_manager", "add_money", 10)
+	queue_free()

@@ -1,13 +1,15 @@
--Show range while tower is being dragged, then don't show range once its dropped, but show range if 
-clicked on the tower, also show upgrades for tower
+-Don't let users place towers if they have no money, spawn text for 2s saying no money if they try
+
+-Make monster spawner
+
+-Show range when click on tower
 
 -Add pause and fast forward button
+
+-Make tower system modular instead of hard coded, then add a bunch of different towers
 
 -Money that you get for killing enemies and passing waves, buy towers and upgrades with money
 
 -cpu prticle fireworks when win map
 
 -Checkout popular plugins
-
--Fix up bevy version of this and see how performance compares by spawning lots of entities, or maybe make
-like a quick and easy bullet hell

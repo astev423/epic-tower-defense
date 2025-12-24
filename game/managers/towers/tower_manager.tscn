@@ -13,3 +13,12 @@ offset_right = 8.0
 offset_bottom = 8.0
 scale = Vector2(8.217913, 9.353071)
 focus_mode = 0
+
+[node name="MoneyLabel" type="Label" parent="."]
+offset_left = -87.00002
+offset_top = 502.0
+offset_right = 6456.0
+offset_bottom = 1839.0
+scale = Vector2(0.023163041, 0.022851521)
+theme_override_font_sizes/font_size = 981
+text = "Money: 300"
