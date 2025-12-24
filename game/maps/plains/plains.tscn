@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cpbnq6ct620qq" path="res://game/maps/plains/plains.gd" id="1_gkfa6"]
 [ext_resource type="PackedScene" uid="uid://blhpjj2vaixsy" path="res://game/maps/plains/plains_enemy_spawner.tscn" id="2_ifqn0"]
 [ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/highlight_tile/highlight_tile.tscn" id="2_y1axx"]
-[ext_resource type="PackedScene" uid="uid://wo5kcm37umfh" path="res://game/enemies/weakling/weakling.tscn" id="6_q8gya"]
+[ext_resource type="Script" uid="uid://ch31lf4tid3vl" path="res://game/maps/plains/plains_enemy_spawner.gd" id="3_ifqn0"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="7_0b5dc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1axx"]
@@ -73,6 +73,7 @@ sources/0 = SubResource("TileSetAtlasSource_y1axx")
 script = ExtResource("1_gkfa6")
 
 [node name="PlainsEnemySpawner" parent="." instance=ExtResource("2_ifqn0")]
+script = ExtResource("3_ifqn0")
 
 [node name="EnemyPathfinder" type="Node" parent="."]
 script = ExtResource("7_0b5dc")
@@ -83,10 +84,6 @@ tile_map_data = PackedByteArray("AAACAAAAAAAGAAcAAAACAAEAAAAGAAcAAAACAAIAAAAGAAc
 tile_set = SubResource("TileSet_gkfa6")
 
 [node name="HighlightTile" parent="." instance=ExtResource("2_y1axx")]
-
-[node name="Weakling" parent="." instance=ExtResource("6_q8gya")]
-position = Vector2(154, 26)
-rotation = 1.5707964
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1633, 122)
