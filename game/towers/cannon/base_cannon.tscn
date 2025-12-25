@@ -1,30 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://brhgsyc38mbba"]
+[gd_scene load_steps=5 format=3 uid="uid://bta8v0qgvy0ev"]
 
-[ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="1_3lpym"]
-[ext_resource type="Script" uid="uid://c3nplydpkanoi" path="res://game/towers/cannon/cannon_1.gd" id="1_wd4qp"]
-[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/towers/range.png" id="3_qmdwl"]
+[ext_resource type="Script" uid="uid://6ovd24us1fab" path="res://game/towers/cannon/base_cannon.gd" id="1_esbmq"]
+[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/towers/range.png" id="1_or2u1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wd4qp"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_esbmq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qmdwl"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_c1my6"]
 
-[node name="Cannon1" type="Node2D"]
-script = ExtResource("1_wd4qp")
+[node name="BaseCannon" type="Node2D"]
+script = ExtResource("1_esbmq")
 
 [node name="AttackRangeDisplay" type="Sprite2D" parent="."]
 scale = Vector2(1.0063938, 0.9752177)
-texture = ExtResource("3_qmdwl")
+texture = ExtResource("1_or2u1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3lpym")
+
+[node name="AttackTimer" type="Timer" parent="."]
 
 [node name="AttackRangeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRangeArea"]
 scale = Vector2(14.681717, 14.681717)
-shape = SubResource("CircleShape2D_wd4qp")
-
-[node name="AttackTimer" type="Timer" parent="."]
+shape = SubResource("CircleShape2D_esbmq")
 
 [node name="DisplayTowerInfoClickbox" type="Area2D" parent="."]
 process_mode = 3
@@ -32,7 +30,7 @@ process_mode = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DisplayTowerInfoClickbox"]
 process_mode = 3
 scale = Vector2(3.0917277, 3.0917277)
-shape = SubResource("CircleShape2D_qmdwl")
+shape = SubResource("CircleShape2D_c1my6")
 
 [connection signal="body_entered" from="AttackRangeArea" to="." method="_on_attack_range_area_body_entered"]
 [connection signal="body_exited" from="AttackRangeArea" to="." method="_on_attack_range_area_body_exited"]

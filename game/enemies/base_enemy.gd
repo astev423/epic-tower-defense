@@ -1,10 +1,17 @@
 extends CharacterBody2D
+## Abstract base class for all monsters, it generates a path for the enemy to follow, connects the enemy
+## to its health component, moves the enemy along the path, takes damage if projectile hits it, and
+## frees itself once health drops to 0 or below
+##
+## To make a new enemy just extend this class, define its movement speed and health, and add the sprite
+## and hitbox area
 
 @onready var target_pos: Marker2D =  $"../Marker2D"
 @onready var pathfinding_manager: Node = $"../EnemyPathfinder"
 @onready var health_comp: Node = $"HealthComponent"
-@onready var movement_speed = 100
 var path_array: Array[Vector2i] = []
+
+var movement_speed: float
 
 
 ## Get path array specific to that monster

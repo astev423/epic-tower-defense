@@ -2,7 +2,7 @@ extends Node2D
 
 const TILE_SIZE = 64
 const NUM_HORIZONTAL_TILES = 26
-const NUM_VERTICAL_TILES = 16
+const NUM_VERTICAL_TILES = 15
 
 @onready var money_manager = $"../MapUI/MoneyManager"
 @onready var no_money_label = $NoMoneyWarning

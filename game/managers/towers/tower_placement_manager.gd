@@ -7,7 +7,7 @@ enum HeldTower {
 }
 
 const MAP_CONSTANTS = preload("res://game/maps/plains/plains.gd")
-const PLACED_CANNON_SCENE = preload("res://game/towers/cannon/cannon1.tscn")
+const PLACED_CANNON_SCENE = preload("res://game/towers/cannon/cannon_1.tscn")
 const DRAGGED_CANNON_SCENE = preload("res://game/managers/towers/dragged_cannon1.tscn")
 const IS_PLACEABLE := "placeable"
 const TOWER_GROUP := "TOWER_GROUP"

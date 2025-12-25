@@ -1,4 +1,8 @@
 """
+-Make cannon 2 and 3, both should inherit from base cannon, only difference is sprite and stats
+
+-Show stats for tower via upgrade manager ui in bottom left
+
 -Add upgrade system for cannon
 
 -Potential bug when two cannonballs both kill enemy giving double cash per kill
