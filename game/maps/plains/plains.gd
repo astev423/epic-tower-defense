@@ -4,13 +4,13 @@ const TILE_SIZE = 64
 const NUM_HORIZONTAL_TILES = 26
 const NUM_VERTICAL_TILES = 16
 
-@onready var tower_manager = $"../TowerManager"
+@onready var money_manager = $"../MapUI/MoneyManager"
 @onready var no_money_label = $NoMoneyWarning
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	no_money_label.z_index = 100
-	tower_manager.connect("no_money", display_no_money_warning)
+	money_manager.connect("no_money", display_no_money_warning)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

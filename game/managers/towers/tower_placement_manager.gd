@@ -12,20 +12,15 @@ const DRAGGED_CANNON_SCENE = preload("res://game/managers/towers/dragged_cannon1
 const IS_PLACEABLE := "placeable"
 const TOWER_GROUP := "TOWER_GROUP"
 
-@onready var money_label: Label = $MoneyLabel
 @onready var select_cannon: Button = $SelectCannon
-@onready var tile_map_layer: TileMapLayer = $"../Plains/TileMapLayer"
-@onready var cur_money = 300
+@onready var tile_map_layer: TileMapLayer = $"../../Plains/TileMapLayer"
+@onready var money_manager: Node2D = $"../MoneyManager"
 var held_tower := HeldTower.NONE
 var held_tower_instance: Node2D = null
 var used_tiles: Dictionary = {}
 
-signal no_money()
-
 
 func _ready() -> void:
-	add_to_group("money_manager")
-	money_label.text = "Money: %d" % cur_money
 	select_cannon.pressed.connect(on_select_cannon_pressed)
 	# Allow placing towers while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -45,6 +40,8 @@ func _process(delta: float) -> void:
 
 
 func attempt_placing_tower_on_grid() -> void:
+	if held_tower_instance == null:
+		return
 	# Can't place on the tower selection UI
 	var mouse_pos = get_global_mouse_position()
 	if (mouse_pos.x > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_HORIZONTAL_TILES
@@ -55,18 +52,16 @@ func attempt_placing_tower_on_grid() -> void:
 	var cell_position := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 	var is_placeable = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
 
-	if cur_money < 100:
-		no_money.emit()
-		return
-
 	if is_placeable and not used_tiles.has(cell_position):
+		var success = money_manager.attempt_buy_tower(100)
+		if not success:
+			return
+
 		var new_tower = PLACED_CANNON_SCENE.instantiate()
 		get_parent().add_child(new_tower)
 		new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
 		used_tiles[cell_position] = new_tower
 		new_tower.add_to_group(TOWER_GROUP)
-		cur_money -= 100
-		money_label.text = "Money: %d" % cur_money
 
 
 ## Free tower if it exists and mark tiles it occupied as placeable again
@@ -99,8 +94,3 @@ func attempt_deselect_held_tower() -> void:
 	if held_tower_instance != null:
 		held_tower_instance.queue_free()
 		held_tower_instance = null
-
-
-func add_money(amount: int) -> void:
-	cur_money += amount
-	money_label.text = "Money: %d" % cur_money

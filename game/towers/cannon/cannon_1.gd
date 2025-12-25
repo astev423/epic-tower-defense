@@ -51,3 +51,8 @@ func _on_attack_range_area_body_entered(body: Node2D) -> void:
 
 func _on_attack_range_area_body_exited(body: Node2D) -> void:
 	enemies_in_range.erase(body)
+
+
+func _on_display_tower_info_clickbox_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		attack_range_display.visible = !attack_range_display.visible

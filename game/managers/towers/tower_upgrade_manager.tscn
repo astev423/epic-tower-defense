@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://rj47bvxvmw4l"]
+
+[ext_resource type="Script" uid="uid://bfhmrdaetjkdl" path="res://game/managers/towers/tower_upgrade_manager.gd" id="1_recls"]
+
+[node name="TowerUpgradeManager" type="Node2D"]
+script = ExtResource("1_recls")
