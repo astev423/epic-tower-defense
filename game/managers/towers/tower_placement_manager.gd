@@ -19,6 +19,7 @@ var held_tower := HeldTower.NONE
 var held_tower_instance: Node2D = null
 var used_tiles: Dictionary = {}
 
+signal tower_placed(new_tower)
 
 func _ready() -> void:
 	select_cannon.pressed.connect(on_select_cannon_pressed)
@@ -40,12 +41,11 @@ func _process(delta: float) -> void:
 
 
 func attempt_placing_tower_on_grid() -> void:
-	if held_tower_instance == null:
-		return
-	# Can't place on the tower selection UI
+	# Can't place on the tower selection UI and it must be currently held
 	var mouse_pos = get_global_mouse_position()
 	if (mouse_pos.x > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_HORIZONTAL_TILES
-			or mouse_pos.y > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_VERTICAL_TILES):
+			or mouse_pos.y > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_VERTICAL_TILES
+			or held_tower_instance == null):
 		return
 
 	# Get local pos so we can map it to the right tile check tile data to see if its placeable
@@ -53,15 +53,21 @@ func attempt_placing_tower_on_grid() -> void:
 	var is_placeable = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
 
 	if is_placeable and not used_tiles.has(cell_position):
-		var success = money_manager.attempt_buy_tower(100)
+		var success = money_manager.is_tower_affordable(100)
 		if not success:
 			return
 
-		var new_tower = PLACED_CANNON_SCENE.instantiate()
-		get_parent().add_child(new_tower)
-		new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
-		used_tiles[cell_position] = new_tower
-		new_tower.add_to_group(TOWER_GROUP)
+		place_tower(cell_position)
+
+
+
+func place_tower(cell_position) -> void:
+	var new_tower = PLACED_CANNON_SCENE.instantiate()
+	get_parent().add_child(new_tower)
+	new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
+	used_tiles[cell_position] = new_tower
+	new_tower.add_to_group(TOWER_GROUP)
+	tower_placed.emit(new_tower)
 
 
 ## Free tower if it exists and mark tiles it occupied as placeable again

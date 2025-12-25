@@ -15,6 +15,7 @@ const CANNONBALL1_SCENE = preload("res://game/towers/cannon/cannonball1.tscn")
 @onready var attack_range_display: Sprite2D = $"AttackRangeDisplay"
 @onready var cur_enemy: CharacterBody2D = null
 
+signal tower_clicked_on()
 
 func _ready() -> void:
 	attack_range_display.visible = false
@@ -55,4 +56,4 @@ func _on_attack_range_area_body_exited(body: Node2D) -> void:
 
 func _on_display_tower_info_clickbox_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		attack_range_display.visible = !attack_range_display.visible
+		tower_clicked_on.emit(self)

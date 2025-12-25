@@ -1,6 +1,5 @@
 """
--Make upgrade manager control which tower displays range, only one tower can display range at a time,
-if user presses esc then it removes the range highlight, also allow upgrading when paused
+-Add upgrade system for cannon
 
 -Potential bug when two cannonballs both kill enemy giving double cash per kill
 

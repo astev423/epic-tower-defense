@@ -1,9 +1,16 @@
 extends Node2D
 
+"""
+This class receives money every time an enemy dies since each enemy death calls add_money
+because we are in money manager group, maybe find way to prevent upward communication to make reading
+code easier
+"""
+
 @onready var money_label: Label = $MoneyLabel
 @onready var cur_money = 300
 
 signal no_money()
+
 
 func _ready() -> void:
 	add_to_group("money_manager")
@@ -12,13 +19,8 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 ## Tries to buy tower, if not then return false, if it does buy then decrease money and display it
-func attempt_buy_tower(cost) -> bool:
+func is_tower_affordable(cost) -> bool:
 	if cur_money < cost:
 		no_money.emit()
 		return false
