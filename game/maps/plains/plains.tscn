@@ -70,6 +70,7 @@ custom_data_layer_1/type = 2
 sources/0 = SubResource("TileSetAtlasSource_y1axx")
 
 [node name="Plains" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_gkfa6")
 
 [node name="PlainsEnemySpawner" parent="." instance=ExtResource("2_ifqn0")]

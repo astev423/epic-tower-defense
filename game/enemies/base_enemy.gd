@@ -37,7 +37,6 @@ func move_to_closest_point_on_path() -> void:
 
 func _on_hitbox_area_area_entered(body: Area2D) -> void:
 	if body.is_in_group("cannonball1"):
-		print("light")
 		health_comp.take_damage(2.5)
 	elif body.is_in_group("cannonball2"):
 		health_comp.take_damage(5)

@@ -27,6 +27,8 @@ func _ready() -> void:
 	add_to_group("money_manager")
 	money_label.text = "Money: %d" % cur_money
 	select_cannon.pressed.connect(on_select_cannon_pressed)
+	# Allow placing towers while paused
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 ## Do nothing if no selected tower, otherwise place/unselect depending on input

@@ -1,19 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://b76138tmbmchy"]
+[gd_scene load_steps=5 format=3 uid="uid://b76138tmbmchy"]
 
+[ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/maps/maps.gd" id="1_28aoi"]
 [ext_resource type="PackedScene" uid="uid://5vwsct7ganhj" path="res://game/maps/plains/plains.tscn" id="1_pq8q7"]
 [ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_manager.tscn" id="3_vvh5c"]
+[ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/maps/pause_unpause_alerter.gd" id="4_jnlp7"]
 
 [node name="Root" type="Node2D"]
 
 [node name="MainMenuScreen" type="Node2D" parent="."]
 
 [node name="Maps" type="Node2D" parent="."]
+script = ExtResource("1_28aoi")
 
 [node name="Plains" parent="Maps" instance=ExtResource("1_pq8q7")]
+process_mode = 0
 
 [node name="TowerManager" parent="Maps" instance=ExtResource("3_vvh5c")]
 position = Vector2(1676, 15)
 scale = Vector2(2, 2)
+
+[node name="PauseUnpauseAlerter" type="Node" parent="Maps"]
+script = ExtResource("4_jnlp7")
+metadata/_custom_type_script = "uid://ofb2yb8vntf0"
 
 [node name="GameOverScreen" type="Node2D" parent="."]
 
