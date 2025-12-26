@@ -16,7 +16,9 @@ extends Node2D
 var cannonball_scene: PackedScene = null
 var attacks_per_second: float
 var tower_damage: float
+var tower_range
 var tower_cost
+var upgrade_cost
 
 signal tower_clicked_on()
 
@@ -33,10 +35,13 @@ func _process(delta) -> void:
 		rotation += deg_to_rad(90)
 
 
-func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: float) -> void:
+func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: float,
+		_tower_range: float, _upgrade_cost: String) -> void:
 	attacks_per_second = _attacks_per_second
 	tower_damage = _tower_damage
 	tower_cost = _tower_cost
+	tower_range = _tower_range
+	upgrade_cost = _upgrade_cost
 
 
 func shoot_cannonball_at_enemy() -> void:

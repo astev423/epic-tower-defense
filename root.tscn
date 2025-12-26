@@ -1,13 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://b76138tmbmchy"]
+[gd_scene load_steps=8 format=3 uid="uid://b76138tmbmchy"]
 
 [ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/maps/maps.gd" id="1_28aoi"]
 [ext_resource type="PackedScene" uid="uid://5vwsct7ganhj" path="res://game/maps/plains/plains.tscn" id="1_pq8q7"]
+[ext_resource type="Texture2D" uid="uid://bxq6b0g077lhn" path="res://assets/kenney_ui-pack/PNG/Green/Default/check_square_color.png" id="1_vyht1"]
 [ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="3_vvh5c"]
 [ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/maps/pause_unpause_alerter.gd" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="4_l8v81"]
 [ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/managers/money/resource_manager.tscn" id="5_l8v81"]
 
 [node name="Root" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-545, -320)
+scale = Vector2(92.4584, 52.0596)
+texture = ExtResource("1_vyht1")
+centered = false
 
 [node name="MainMenuScreen" type="Node2D" parent="."]
 visible = false
@@ -21,10 +28,11 @@ process_mode = 0
 [node name="MapUI" type="Node2D" parent="Maps"]
 
 [node name="TowerPlacementManager" parent="Maps/MapUI" instance=ExtResource("3_vvh5c")]
-position = Vector2(1676, 15)
+position = Vector2(1665, 0)
 scale = Vector2(2, 2)
 
 [node name="TowerUpgradeManager" parent="Maps/MapUI" instance=ExtResource("4_l8v81")]
+visible = false
 position = Vector2(0, 960)
 
 [node name="ResourceManager" parent="Maps/MapUI" instance=ExtResource("5_l8v81")]

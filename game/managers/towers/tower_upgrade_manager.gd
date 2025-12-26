@@ -1,6 +1,10 @@
 extends Node2D
 
 @onready var tower_placement_manager: Node2D = $"../TowerPlacementManager"
+@onready var tower_info_label: RichTextLabel = $"TowerInfo/RichTextLabel"
+@onready var upgrade_cost_label: RichTextLabel = $"UpgradeTower/RichTextLabel"
+@onready var resource_manager: Node2D = $"../ResourceManager"
+@onready var tower_scenes: TowerScenes = TowerScenes.new()
 var current_tower_highlighted: Node2D = null
 
 # Called when the node enters the scene tree for the first time.
@@ -13,13 +17,45 @@ func _ready() -> void:
 func _process(delta) -> void:
 	if Input.is_action_just_pressed("esc"):
 		unhighlight_tower()
+		self.visible = false
 
 
 func connect_to_new_tower(new_tower) -> void:
-	new_tower.connect("tower_clicked_on", highlight_tower_clicked_on)
+	new_tower.connect("tower_clicked_on", handle_user_click_on_tower)
 
 
-func highlight_tower_clicked_on(tower) -> void:
+func handle_user_click_on_tower(tower) -> void:
+	attempt_highlight_tower_clicked_on(tower)
+	attempt_display_tower_info(tower)
+
+
+func _on_upgrade_tower_button_pressed() -> void:
+	if current_tower_highlighted.upgrade_cost == "MAX":
+		return
+
+	# ask money manager if we have enough money, if success then despawn old tower and instantiate new one
+	var success = resource_manager.is_tower_affordable(int(current_tower_highlighted.upgrade_cost))
+	if not success:
+		return
+
+	despawn_old_spawn_upgraded_tower()
+
+
+func despawn_old_spawn_upgraded_tower() -> void:
+	var upgraded_tower
+	if current_tower_highlighted.upgrade_cost == "200":
+		upgraded_tower = tower_scenes.PLACED_CANNON_2_SCENE.instantiate()
+
+	# Add new tower and free old one
+	get_parent().add_child(upgraded_tower)
+	upgraded_tower.global_position = current_tower_highlighted.global_position
+	upgraded_tower.connect("tower_clicked_on", handle_user_click_on_tower)
+	current_tower_highlighted.queue_free()
+	attempt_highlight_tower_clicked_on(upgraded_tower)
+	update_display_tower_info(upgraded_tower)
+
+
+func attempt_highlight_tower_clicked_on(tower) -> void:
 	# Unhighlight previous tower if it was highlighted and we clicked on a NEW tower
 	if current_tower_highlighted != null and current_tower_highlighted != tower:
 		current_tower_highlighted.attack_range_display.visible = false
@@ -30,6 +66,24 @@ func highlight_tower_clicked_on(tower) -> void:
 	else:
 		tower.attack_range_display.visible = true
 		current_tower_highlighted = tower
+
+
+func attempt_display_tower_info(tower) -> void:
+	if self.visible and current_tower_highlighted != tower:
+		self.visible = false
+		return
+
+	self.visible = true
+	update_display_tower_info(tower)
+
+
+func update_display_tower_info(tower) -> void:
+	tower_info_label.text = "Damage: %s   Speed: %s   Range: %s" % [
+		tower.tower_damage,
+		tower.attacks_per_second,
+		tower.tower_range
+	]
+	upgrade_cost_label.text = "Upgrade cost: %s" % tower.upgrade_cost
 
 
 func unhighlight_tower() -> void:

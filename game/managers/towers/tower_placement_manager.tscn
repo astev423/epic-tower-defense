@@ -7,9 +7,10 @@
 script = ExtResource("1_ikrvu")
 
 [node name="Cannon1UIOnly" parent="." instance=ExtResource("2_h3nq4")]
+scale = Vector2(0.80824476, 0.80824476)
 
 [node name="SelectCannon" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
-scale = Vector2(8.217913, 9.353071)
+scale = Vector2(6.642085, 7.559571)
 focus_mode = 0

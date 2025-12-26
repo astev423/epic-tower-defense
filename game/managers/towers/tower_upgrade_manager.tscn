@@ -7,20 +7,65 @@
 [node name="TowerUpgradeManager" type="Node2D"]
 script = ExtResource("1_recls")
 
-[node name="ButtonRectangleBorder" type="Sprite2D" parent="."]
+[node name="TowerInfo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonRectangleBorder" type="Sprite2D" parent="TowerInfo"]
 position = Vector2(-3.8146973e-06, -9.536743e-07)
 scale = Vector2(4.6375475, 1.8686386)
 texture = ExtResource("2_hvo7u")
 centered = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RichTextLabel" type="RichTextLabel" parent="TowerInfo"]
+layout_mode = 0
 offset_left = 51.0
-offset_top = 39.0
+offset_top = 37.000004
 offset_right = 491.1026
-offset_bottom = 60.977654
-scale = Vector2(1.8200301, 1.8200301)
+offset_bottom = 58.977657
+scale = Vector2(1.8200301, 2.50003)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_plkjl")
 theme_override_font_sizes/normal_font_size = 17
 text = "Damage: 1000    Speed:  10   Range: 1000"
 fit_content = true
+
+[node name="UpgradeTower" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 874.0
+offset_top = 1.0
+offset_right = 914.0
+offset_bottom = 41.0
+
+[node name="ButtonRectangleBorder" type="Sprite2D" parent="UpgradeTower"]
+position = Vector2(23.000002, -9.536743e-07)
+scale = Vector2(2.369792, 1.8686386)
+texture = ExtResource("2_hvo7u")
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UpgradeTower"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 32.0
+offset_right = 276.271
+offset_bottom = 53.977654
+scale = Vector2(1.5865644, 2.8593369)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_plkjl")
+theme_override_font_sizes/normal_font_size = 17
+text = "Upgrade cost: 1000"
+fit_content = true
+
+[node name="UpgradeTowerButton" type="Button" parent="UpgradeTower"]
+layout_mode = 0
+offset_left = 25.0
+offset_right = 33.0
+offset_bottom = 8.0
+scale = Vector2(56.543713, 15.044496)
+focus_mode = 0
+flat = true
+
+[connection signal="pressed" from="UpgradeTower/UpgradeTowerButton" to="." method="_on_upgrade_tower_button_pressed"]

@@ -1,6 +1,4 @@
 """
--Show stats for tower via upgrade manager UI in bottom left
-
 -Add upgrade system for cannon, ensure cost, damage, range, etc is all correct
 
 -Tower ideas, flamethrower (aoe, short range), missle launcher (aoe, longer range), crossbow (low fire, 
