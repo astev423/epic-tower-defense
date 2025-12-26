@@ -6,7 +6,7 @@ extends CharacterBody2D
 ## To make a new enemy just extend this class, define its movement speed and health, and add the sprite
 ## and hitbox area
 
-@onready var target_pos: Marker2D =  $"../../Marker2D"
+@onready var target_pos: Marker2D =  $"../../EnemyExitPoint"
 @onready var pathfinding_manager: Node = $"../../EnemyPathfinder"
 @onready var health_comp: Node = $"HealthComponent"
 var path_array: Array[Vector2i] = []

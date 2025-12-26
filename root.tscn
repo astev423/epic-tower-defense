@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b76138tmbmchy"]
+[gd_scene load_steps=10 format=3 uid="uid://b76138tmbmchy"]
 
 [ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/maps/maps.gd" id="1_28aoi"]
 [ext_resource type="PackedScene" uid="uid://5vwsct7ganhj" path="res://game/maps/plains/plains.tscn" id="1_pq8q7"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/maps/pause_unpause_alerter.gd" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="4_l8v81"]
 [ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/managers/money/resource_manager.tscn" id="5_l8v81"]
+[ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/highlight_tile/highlight_tile.tscn" id="7_huihk"]
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="8_bf3um"]
 
 [node name="Root" type="Node2D"]
 
@@ -38,6 +40,32 @@ position = Vector2(0, 960)
 [node name="ResourceManager" parent="Maps/MapUI" instance=ExtResource("5_l8v81")]
 position = Vector2(1357, 959.99994)
 scale = Vector2(0.8915491, 0.8915491)
+
+[node name="HighlightTile" parent="Maps/MapUI" instance=ExtResource("7_huihk")]
+position = Vector2(1357, 959.99994)
+scale = Vector2(0.8915491, 0.8915491)
+
+[node name="GamePausedAlertLabel" type="RichTextLabel" parent="Maps/MapUI"]
+offset_left = 659.0
+offset_top = 303.0
+offset_right = 1275.4734
+offset_bottom = 442.99835
+scale = Vector2(1.8200301, 2.50003)
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_bf3um")
+theme_override_font_sizes/normal_font_size = 52
+text = " Paused"
+fit_content = true
+
+[node name="NoMoneyWarning" type="Label" parent="Maps/MapUI"]
+offset_left = 140.0
+offset_top = 319.0
+offset_right = 17901.0
+offset_bottom = 2855.0
+scale = Vector2(0.07727055, 0.07727055)
+theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
+theme_override_font_sizes/font_size = 1861
+text = "Not enough money!"
 
 [node name="PauseUnpauseAlerter" type="Node" parent="Maps"]
 script = ExtResource("4_jnlp7")
