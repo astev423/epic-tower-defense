@@ -6,5 +6,5 @@ func _ready() -> void:
 
 ## Add money to the money manager then die
 func handle_death() -> void:
-	get_tree().call_group("money_manager", "add_money", 10)
+	get_tree().call_group("resource_manager", "add_money", 10)
 	queue_free()

@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://rj47bvxvmw4l"]
+[gd_scene load_steps=4 format=3 uid="uid://rj47bvxvmw4l"]
 
 [ext_resource type="Script" uid="uid://bfhmrdaetjkdl" path="res://game/managers/towers/tower_upgrade_manager.gd" id="1_recls"]
+[ext_resource type="Texture2D" uid="uid://dudcfbxq2qnq7" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_rectangle_border.png" id="2_hvo7u"]
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="2_plkjl"]
 
 [node name="TowerUpgradeManager" type="Node2D"]
 script = ExtResource("1_recls")
+
+[node name="ButtonRectangleBorder" type="Sprite2D" parent="."]
+position = Vector2(-3.8146973e-06, -9.536743e-07)
+scale = Vector2(4.6375475, 1.8686386)
+texture = ExtResource("2_hvo7u")
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 51.0
+offset_top = 39.0
+offset_right = 491.1026
+offset_bottom = 60.977654
+scale = Vector2(1.8200301, 1.8200301)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_plkjl")
+theme_override_font_sizes/normal_font_size = 17
+text = "Damage: 1000    Speed:  10   Range: 1000"
+fit_content = true

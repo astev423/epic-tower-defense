@@ -14,7 +14,7 @@ const TOWER_GROUP := "TOWER_GROUP"
 @onready var tower_scenes: TowerScenes = TowerScenes.new()
 @onready var select_cannon: Button = $SelectCannon
 @onready var tile_map_layer: TileMapLayer = $"../../Plains/TileMapLayer"
-@onready var money_manager: Node2D = $"../MoneyManager"
+@onready var resource_manager: Node2D = $"../ResourceManager"
 var held_tower := HeldTower.NONE
 var held_tower_instance: Node2D = null
 var used_tiles: Dictionary = {}
@@ -53,7 +53,7 @@ func attempt_placing_tower_on_grid() -> void:
 	var is_placeable = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
 
 	if is_placeable and not used_tiles.has(cell_position):
-		var success = money_manager.is_tower_affordable(100)
+		var success = resource_manager.is_tower_affordable(100)
 		if not success:
 			return
 
@@ -74,7 +74,7 @@ func attempt_delete_tower_on_grid() -> void:
 	var cell_position := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 	if used_tiles.has(cell_position):
 		var tower = used_tiles[cell_position]
-		money_manager.add_money(tower.tower_cost / 2)
+		resource_manager.add_money(tower.tower_cost / 2)
 		tower.queue_free()
 		used_tiles.erase(cell_position)
 
