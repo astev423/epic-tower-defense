@@ -6,8 +6,8 @@ extends CharacterBody2D
 ## To make a new enemy just extend this class, define its movement speed and health, and add the sprite
 ## and hitbox area
 
-@onready var target_pos: Marker2D =  $"../Marker2D"
-@onready var pathfinding_manager: Node = $"../EnemyPathfinder"
+@onready var target_pos: Marker2D =  $"../../Marker2D"
+@onready var pathfinding_manager: Node = $"../../EnemyPathfinder"
 @onready var health_comp: Node = $"HealthComponent"
 var path_array: Array[Vector2i] = []
 
@@ -15,7 +15,7 @@ var movement_speed: float
 
 
 ## Get path array specific to that monster
-func _ready() -> void:
+func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
 	health_comp.connect("died", handle_death)
 	add_to_group("enemies")
@@ -43,11 +43,9 @@ func move_to_closest_point_on_path() -> void:
 
 
 func _on_hitbox_area_area_entered(body: Area2D) -> void:
-	if body.is_in_group("cannonball1"):
-		health_comp.take_damage(2.5)
-	elif body.is_in_group("cannonball2"):
-		health_comp.take_damage(5)
-		print("big damage")
+	if body.is_in_group("cannonball"):
+		var cannonball = body
+		health_comp.take_damage(cannonball.damage)
 
 
 func handle_death() -> void:

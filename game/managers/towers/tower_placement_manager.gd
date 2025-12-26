@@ -1,4 +1,5 @@
 extends Node2D
+## This is a very important class for managing selection, placement, and deletion of towers
 
 enum HeldTower {
 	CANNON,
@@ -7,11 +8,10 @@ enum HeldTower {
 }
 
 const MAP_CONSTANTS = preload("res://game/maps/plains/plains.gd")
-const PLACED_CANNON_SCENE = preload("res://game/towers/cannon/cannon_1.tscn")
-const DRAGGED_CANNON_SCENE = preload("res://game/managers/towers/dragged_cannon1.tscn")
 const IS_PLACEABLE := "placeable"
 const TOWER_GROUP := "TOWER_GROUP"
 
+@onready var tower_scenes: TowerScenes = TowerScenes.new()
 @onready var select_cannon: Button = $SelectCannon
 @onready var tile_map_layer: TileMapLayer = $"../../Plains/TileMapLayer"
 @onready var money_manager: Node2D = $"../MoneyManager"
@@ -60,9 +60,8 @@ func attempt_placing_tower_on_grid() -> void:
 		place_tower(cell_position)
 
 
-
 func place_tower(cell_position) -> void:
-	var new_tower = PLACED_CANNON_SCENE.instantiate()
+	var new_tower = tower_scenes.PLACED_CANNON_SCENE.instantiate()
 	get_parent().add_child(new_tower)
 	new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
 	used_tiles[cell_position] = new_tower
@@ -75,6 +74,7 @@ func attempt_delete_tower_on_grid() -> void:
 	var cell_position := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 	if used_tiles.has(cell_position):
 		var tower = used_tiles[cell_position]
+		money_manager.add_money(tower.tower_cost / 2)
 		tower.queue_free()
 		used_tiles.erase(cell_position)
 
@@ -90,7 +90,7 @@ func on_select_cannon_pressed() -> void:
 	if held_tower_instance != null:
 		held_tower_instance.queue_free()
 
-	held_tower_instance = DRAGGED_CANNON_SCENE.instantiate()
+	held_tower_instance = tower_scenes.DRAGGED_CANNON_SCENE.instantiate()
 	get_parent().add_child(held_tower_instance)
 
 

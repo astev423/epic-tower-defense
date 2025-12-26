@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs8g4s5l46lau"]
 
 [ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/managers/towers/tower_placement_manager.gd" id="1_ikrvu"]
-[ext_resource type="PackedScene" uid="uid://b0pkrd8q2hspc" path="res://game/managers/towers/cannon_ui_only.tscn" id="2_h3nq4"]
+[ext_resource type="PackedScene" uid="uid://b0pkrd8q2hspc" path="res://game/managers/towers/towers_for_ui/cannon_1_ui_only.tscn" id="2_h3nq4"]
 
-[node name="TowerSelection" type="Node2D"]
+[node name="TowerPlacementManager" type="Node2D"]
 script = ExtResource("1_ikrvu")
 
-[node name="CannonUIOnly" parent="." instance=ExtResource("2_h3nq4")]
+[node name="Cannon1UIOnly" parent="." instance=ExtResource("2_h3nq4")]
 
 [node name="SelectCannon" type="Button" parent="."]
 offset_right = 8.0

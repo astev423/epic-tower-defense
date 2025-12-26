@@ -1,22 +1,22 @@
 [gd_scene load_steps=5 format=3 uid="uid://bta8v0qgvy0ev"]
 
-[ext_resource type="Script" uid="uid://6ovd24us1fab" path="res://game/towers/cannon/base_cannon.gd" id="1_esbmq"]
-[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/towers/range.png" id="1_or2u1"]
+[ext_resource type="Script" uid="uid://6ovd24us1fab" path="res://game/towers/base_tower.gd" id="1_603kl"]
+[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/towers/range.png" id="2_q0i0n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esbmq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c1my6"]
 
 [node name="BaseCannon" type="Node2D"]
-script = ExtResource("1_esbmq")
-
-[node name="AttackRangeDisplay" type="Sprite2D" parent="."]
-scale = Vector2(1.0063938, 0.9752177)
-texture = ExtResource("1_or2u1")
+script = ExtResource("1_603kl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="AttackRangeDisplay" type="Sprite2D" parent="."]
+scale = Vector2(1.0063938, 0.9752177)
+texture = ExtResource("2_q0i0n")
 
 [node name="AttackRangeArea" type="Area2D" parent="."]
 

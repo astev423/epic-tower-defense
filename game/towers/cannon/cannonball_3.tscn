@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://brq2tenp3rtdq"]
+
+[ext_resource type="PackedScene" uid="uid://btjerqpl5msmm" path="res://game/towers/cannon/cannonball_1.tscn" id="1_8g3hd"]
+[ext_resource type="Texture2D" uid="uid://b6hlg0w7gfjl0" path="res://assets/towers/cannon/cannonball3.png" id="2_hikex"]
+
+[node name="Cannonball3" instance=ExtResource("1_8g3hd")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.57684183, 0.57684183)
+texture = ExtResource("2_hikex")

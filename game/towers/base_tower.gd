@@ -9,15 +9,14 @@ extends Node2D
 @onready var attack_timer: Timer = $"AttackTimer"
 @onready var enemies_in_range := {}
 @onready var attack_range_display: Sprite2D = $"AttackRangeDisplay"
+@onready var attack_range_area_hitbox: CollisionShape2D = $"AttackRangeArea/CollisionShape2D"
 @onready var cur_enemy: CharacterBody2D = null
 
-# Cannonball scene changes depending on which cannon firing it
-@onready var cannonball_scene: PackedScene = null
-
 # Stats, these change depending on the cannon
+var cannonball_scene: PackedScene = null
 var attacks_per_second: float
 var tower_damage: float
-var attack_range: float
+var tower_cost
 
 signal tower_clicked_on()
 
@@ -34,6 +33,12 @@ func _process(delta) -> void:
 		rotation += deg_to_rad(90)
 
 
+func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: float) -> void:
+	attacks_per_second = _attacks_per_second
+	tower_damage = _tower_damage
+	tower_cost = _tower_cost
+
+
 func shoot_cannonball_at_enemy() -> void:
 	if enemies_in_range.is_empty():
 		attack_timer.stop()
@@ -42,9 +47,10 @@ func shoot_cannonball_at_enemy() -> void:
 
 	cur_enemy = enemies_in_range.keys().pick_random()
 	var cannonball = cannonball_scene.instantiate()
-	get_tree().root.add_child(cannonball)
+	get_parent().add_child(cannonball)
 	cannonball.global_position = global_position
 	cannonball.direction = (cur_enemy.global_position - cannonball.global_position).normalized()
+	cannonball.damage = tower_damage
 
 
 func _on_attack_range_area_body_entered(body: Node2D) -> void:

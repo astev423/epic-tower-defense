@@ -2,7 +2,6 @@ extends "res://game/enemies/base_enemy.gd"
 
 func _ready() -> void:
 	movement_speed = 100
-	super._ready()
 
 
 ## Add money to the money manager then die

@@ -1,17 +1,17 @@
 extends Area2D
 
-const BULLET_SPEED = 800
-
+var cannonball_speed: float = 800
 var direction: Vector2
+var damage: float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_to_group("cannonball1")
+	add_to_group("cannonball")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	global_position = global_position + direction * delta * BULLET_SPEED
+	global_position = global_position + direction * delta * cannonball_speed
 	if global_position.x > 1664 or global_position.y > 1026:
 		queue_free()
 
