@@ -13,6 +13,7 @@ var path_array: Array[Vector2i] = []
 
 var movement_speed: float
 
+signal enemy_reached_end()
 
 ## Get path array specific to that monster
 func setup_path_and_info() -> void:
@@ -29,17 +30,19 @@ func _process(delta) -> void:
 ## Path array contains the next point we need to move to, so continaully move towards each point
 ## and pop that point of if we are next to it so we can go to the next point
 func move_to_closest_point_on_path() -> void:
-	if len(path_array) > 0:
-		var dir: Vector2 = global_position.direction_to(path_array[0])
-		self.velocity = dir * movement_speed
-		self.rotation = dir.angle()
+	if len(path_array) <= 0:
+		enemy_reached_end.emit()
+		queue_free()
+		return
 
-		# If we are close to end of current point then remove it to get the next point, otherwise
-		# don't remove just yet as its not near the right point
-		if global_position.distance_to(path_array[0]) <= 2:
-			path_array.remove_at(0)
-	else:
-		self.velocity = Vector2.ZERO
+	var dir: Vector2 = global_position.direction_to(path_array[0])
+	self.velocity = dir * movement_speed
+	self.rotation = dir.angle()
+
+	# If we are close to end of current point then remove it to get the next point, otherwise
+	# don't remove just yet as its not near the right point
+	if global_position.distance_to(path_array[0]) <= 2:
+		path_array.remove_at(0)
 
 
 func _on_hitbox_area_area_entered(body: Area2D) -> void:

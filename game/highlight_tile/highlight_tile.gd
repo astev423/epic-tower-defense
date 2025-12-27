@@ -1,6 +1,6 @@
 extends Node2D
 
-const MAP_CONSTANTS = preload("res://game/maps/plains/plains.gd")
+const MAP_CONSTANTS = preload("res://game/maps/levels.gd")
 
 
 # Called when the node enters the scene tree for the first time.

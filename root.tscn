@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://b76138tmbmchy"]
 
 [ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/maps/maps.gd" id="1_28aoi"]
-[ext_resource type="PackedScene" uid="uid://5vwsct7ganhj" path="res://game/maps/plains/plains.tscn" id="1_pq8q7"]
 [ext_resource type="Texture2D" uid="uid://bxq6b0g077lhn" path="res://assets/kenney_ui-pack/PNG/Green/Default/check_square_color.png" id="1_vyht1"]
+[ext_resource type="Script" uid="uid://dbp5y7cqe56mf" path="res://game/maps/levels.gd" id="3_huihk"]
 [ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="3_vvh5c"]
 [ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/maps/pause_unpause_alerter.gd" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="4_l8v81"]
-[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/managers/money/resource_manager.tscn" id="5_l8v81"]
+[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/managers/resources/resource_manager.tscn" id="5_l8v81"]
 [ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/highlight_tile/highlight_tile.tscn" id="7_huihk"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="8_bf3um"]
 
@@ -24,8 +24,8 @@ visible = false
 [node name="Maps" type="Node2D" parent="."]
 script = ExtResource("1_28aoi")
 
-[node name="Plains" parent="Maps" instance=ExtResource("1_pq8q7")]
-process_mode = 0
+[node name="Levels" type="Node2D" parent="Maps"]
+script = ExtResource("3_huihk")
 
 [node name="MapUI" type="Node2D" parent="Maps"]
 

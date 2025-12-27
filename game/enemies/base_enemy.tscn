@@ -13,6 +13,7 @@ script = ExtResource("2_4d2sl")
 metadata/_custom_type_script = "uid://rwvfpjhcqkub"
 
 [node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
 

@@ -13,7 +13,7 @@ extends Node2D
 @onready var cur_enemy: CharacterBody2D = null
 
 # Stats, these change depending on the cannon
-var cannonball_scene: PackedScene = null
+var tower_scene: PackedScene = null
 var attacks_per_second: float
 var tower_damage: float
 var tower_range
@@ -51,7 +51,7 @@ func shoot_cannonball_at_enemy() -> void:
 		return
 
 	cur_enemy = enemies_in_range.keys().pick_random()
-	var cannonball = cannonball_scene.instantiate()
+	var cannonball = tower_scene.instantiate()
 	get_parent().add_child(cannonball)
 	cannonball.global_position = global_position
 	cannonball.direction = (cur_enemy.global_position - cannonball.global_position).normalized()
@@ -60,9 +60,10 @@ func shoot_cannonball_at_enemy() -> void:
 
 func _on_attack_range_area_body_entered(body: Node2D) -> void:
 	enemies_in_range[body] = true
-	# Attack once on enter so we don't have to wait for timer, defer since we can't do physics in here
-	call_deferred("shoot_cannonball_at_enemy")
-	attack_timer.start()
+	# If first enemy enter shoot instantly, otherwise wait
+	if enemies_in_range.size() == 1:
+		call_deferred("shoot_cannonball_at_enemy")
+		attack_timer.start()
 
 
 func _on_attack_range_area_body_exited(body: Node2D) -> void:

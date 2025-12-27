@@ -7,14 +7,14 @@ enum HeldTower {
 	NONE,
 }
 
-const MAP_CONSTANTS = preload("res://game/maps/plains/plains.gd")
+const MAP_CONSTANTS = preload("res://game/maps/levels.gd")
 const IS_PLACEABLE := "placeable"
 const TOWER_GROUP := "TOWER_GROUP"
 
 @onready var tower_scenes: TowerScenes = TowerScenes.new()
 @onready var select_cannon: Button = $SelectCannon
-@onready var tile_map_layer: TileMapLayer = $"../../Plains/TileMapLayer"
 @onready var resource_manager: Node2D = $"../ResourceManager"
+var tile_map_layer: TileMapLayer
 var held_tower := HeldTower.NONE
 var held_tower_instance: Node2D = null
 var used_tiles: Dictionary = {}

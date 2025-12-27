@@ -7,12 +7,19 @@ code easier
 """
 
 @onready var money_label: Label = $MoneyLabel
-@onready var cur_money = 300
+@onready var lives_label: Label = $LivesLabel
+@onready var waves_label: Label = $WavesLabel
+var enemy_spawner: Node
+var cur_lives = 100
+var cur_money = 300
+var cur_wave = 1
 
 signal no_money()
 
 
 func _ready() -> void:
+	enemy_spawner.connect("enemy_spawned", connect_to_spawned_enemy)
+	enemy_spawner.connect("wave_over", handle_wave_over)
 	add_to_group("resource_manager")
 	money_label.text = "Money: %d" % cur_money
 	# Allow money stuff while paused
@@ -33,3 +40,25 @@ func is_tower_affordable(cost) -> bool:
 func add_money(amount: int) -> void:
 	cur_money += amount
 	money_label.text = "Money: %d" % cur_money
+
+
+func decrease_lives() -> void:
+	cur_lives -= 1
+	lives_label.text = "Lives: %d" % cur_lives
+
+	# TODO Show game over screen if lives run out
+	if cur_lives <= 0:
+		assert(cur_lives > 0)
+
+func connect_to_spawned_enemy(enemy) -> void:
+	enemy.connect("enemy_reached_end", decrease_lives)
+
+
+func handle_wave_over() -> void:
+	add_money(100)
+	increase_wave_count()
+
+
+func increase_wave_count() -> void:
+	cur_wave += 1
+	waves_label.text = "Wave: %d/50" % cur_wave

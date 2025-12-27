@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://0jnrf8nh623s"]
+
+[ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/spawning/base_enemy_spawner.tscn" id="1_w33ru"]
+[ext_resource type="Script" uid="uid://chl1srdui4fv1" path="res://game/maps/dunes/dunes_enemy_spawner.gd" id="2_5avyi"]
+
+[node name="DunesEnemySpawner" instance=ExtResource("1_w33ru")]
+script = ExtResource("2_5avyi")
