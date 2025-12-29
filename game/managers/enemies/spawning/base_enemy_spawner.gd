@@ -4,9 +4,9 @@ const cpu_particles_scene = preload("res://game/maps/victory_fireworks.tscn")
 
 # bubba slightly stronger weakling, (scale him up, change vals), hussar is super fast weakling
 # tank is new model that is super slow but high hp
-#
 var wave_info
 var timer: Timer
+var first_enemy_spawned
 var spawn_point: Vector2
 var cur_wave
 var enemy_type
@@ -20,7 +20,7 @@ signal wave_over()
 func _ready() -> void:
 	add_to_group("plains_enemy_spawner")
 
-	cur_wave = 7
+	cur_wave = 9
 	attempt_start_wave()
 
 
@@ -30,23 +30,24 @@ func attempt_start_wave() -> void:
 		print_debug("all waves done")
 		var p := cpu_particles_scene.instantiate() as CPUParticles2D
 		p.global_position = Vector2(1000, 500)
-		get_tree().get_root().add_child(p)
+		get_tree().get_root().add_child.call_deferred(p)
 		p.emitting = true
 		return
 
 	setup_wave()
 
-	# Timer that runs with given interval and spawns a single enemy
+	# Initially timer is short to allow quick spawning of first enemy
 	timer = Timer.new()
 	add_child(timer)
-	timer.one_shot = false
-	timer.wait_time = time_between_enemies
+	timer.one_shot = true
+	timer.wait_time = 0.4
 	timer.connect("timeout", attempt_spawning_enemy)
 	timer.start()
 
 
 ## Initialize variables for wave
 func setup_wave() -> void:
+	first_enemy_spawned = false
 	enemy_type = wave_info.waves[cur_wave][0]
 	enemy_count = wave_info.waves[cur_wave][1]
 	enemies_to_be_spawned = enemy_count
@@ -55,6 +56,16 @@ func setup_wave() -> void:
 
 
 func attempt_spawning_enemy() -> void:
+	# After first enemy spawned give timer the right interval between enemies
+	if !first_enemy_spawned:
+		timer.queue_free()
+		timer = Timer.new()
+		add_child(timer)
+		timer.one_shot = false
+		timer.wait_time = time_between_enemies
+		timer.connect("timeout", attempt_spawning_enemy)
+		timer.start()
+
 	if enemies_to_be_spawned <= 0:
 		timer.stop()
 		return
@@ -63,8 +74,12 @@ func attempt_spawning_enemy() -> void:
 	if enemy_type == EnemyTypes.Type.Weakling:
 		spawned_enemy = wave_info.ENEMY_WEAKLING_SCENE.instantiate()
 		add_child(spawned_enemy)
+	if enemy_type == EnemyTypes.Type.FastWeakling:
+		spawned_enemy = wave_info.ENEMY_FAST_WEAKLING_SCENE.instantiate()
+		add_child(spawned_enemy)
 	elif enemy_type == EnemyTypes.Type.Bubba:
-		pass
+		spawned_enemy = wave_info.ENEMY_BUBBA_SCENE.instantiate()
+		add_child(spawned_enemy)
 
 	# Spawn enemy at spawnpoint for plains level and give them right path
 	spawned_enemy.global_position = spawn_point
@@ -72,6 +87,7 @@ func attempt_spawning_enemy() -> void:
 	enemy_spawned.emit(spawned_enemy)
 	spawned_enemy.connect("enemy_reached_end", decrease_enemy_count)
 	enemies_to_be_spawned -= 1
+	first_enemy_spawned = true
 
 
 func decrease_enemy_count() -> void:

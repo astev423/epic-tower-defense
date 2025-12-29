@@ -20,7 +20,7 @@ func _ready() -> void:
 	var path_to_tilemap
 	var path_to_spawner
 
-	if map_user_clicked == Maps.PLAINS:
+	if map_user_clicked == Maps.DUNES:
 		current_map = load("res://game/maps/plains/plains.tscn")
 		path_to_tilemap = "Plains/TileMapLayer"
 		path_to_spawner = "Plains/PlainsEnemySpawner"

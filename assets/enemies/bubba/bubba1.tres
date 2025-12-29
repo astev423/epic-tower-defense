@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cmawdxetuoe6t"]
+
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/hyptosis_sprites-and-tiles-for-you.png" id="1_hf5oc"]
+
+[resource]
+atlas = ExtResource("1_hf5oc")
+region = Rect2(8, 512, 32, 32)

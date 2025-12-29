@@ -11,7 +11,7 @@ code easier
 @onready var waves_label: Label = $WavesLabel
 var enemy_spawner: Node
 var cur_lives = 100
-var cur_money = 300
+var cur_money = 3000
 var cur_wave = 1
 
 signal no_money()

@@ -11,6 +11,7 @@
 [node name="Weakling" instance=ExtResource("1_d7wth")]
 collision_layer = 2
 script = ExtResource("2_e1f2x")
+movement_speed = 50.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_8asnc")
