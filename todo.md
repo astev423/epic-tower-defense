@@ -1,6 +1,8 @@
 """
 -Add another enemy to work on waves
 
+-Bug where t3 tower shoots twice at once
+
 -Work on waves, don't save waves until the end as that will be tedious and I won't have much motivation, make at least
 10 waves with good amount of enemies and varying spawn times between them for plains level before moving on
 
@@ -24,8 +26,6 @@ from directly calling manager method, instead use signals, maybe split up tower 
 in main menu itself let users click play then select map or see their stats (saved via godot saving), or red button for exit
 
 -CPU particle fireworks when win map
-
--Add ability to customize what user wants to upgrade, whether it be range, damage, or speed
 
 -Add custom sound effects like hurt sound/death sound and add royalty free background music, maybe bossa nova
 

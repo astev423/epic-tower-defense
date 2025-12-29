@@ -73,15 +73,13 @@ func attempt_spawning_enemy() -> void:
 	var spawned_enemy: CharacterBody2D
 	if enemy_type == EnemyTypes.Type.Weakling:
 		spawned_enemy = wave_info.ENEMY_WEAKLING_SCENE.instantiate()
-		add_child(spawned_enemy)
 	if enemy_type == EnemyTypes.Type.FastWeakling:
 		spawned_enemy = wave_info.ENEMY_FAST_WEAKLING_SCENE.instantiate()
-		add_child(spawned_enemy)
 	elif enemy_type == EnemyTypes.Type.Bubba:
 		spawned_enemy = wave_info.ENEMY_BUBBA_SCENE.instantiate()
-		add_child(spawned_enemy)
 
 	# Spawn enemy at spawnpoint for plains level and give them right path
+	add_child(spawned_enemy)
 	spawned_enemy.global_position = spawn_point
 	spawned_enemy.setup_path_and_info()
 	enemy_spawned.emit(spawned_enemy)

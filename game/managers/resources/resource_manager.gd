@@ -10,7 +10,7 @@ code easier
 @onready var lives_label: Label = $LivesLabel
 @onready var waves_label: Label = $WavesLabel
 var enemy_spawner: Node
-var cur_lives = 100
+var cur_lives = 200
 var cur_money = 3000
 var cur_wave = 1
 
@@ -32,7 +32,7 @@ func is_tower_affordable(cost) -> bool:
 		no_money.emit()
 		return false
 
-	cur_money -= 100
+	cur_money -= cost
 	money_label.text = "Money: %d" % cur_money
 	return true
 
@@ -42,8 +42,8 @@ func add_money(amount: int) -> void:
 	money_label.text = "Money: %d" % cur_money
 
 
-func decrease_lives() -> void:
-	cur_lives -= 1
+func decrease_lives(lives_taken_if_reach_finish) -> void:
+	cur_lives -= lives_taken_if_reach_finish
 	lives_label.text = "Lives: %d" % cur_lives
 
 	# TODO Show game over screen if lives run out
@@ -55,7 +55,7 @@ func connect_to_spawned_enemy(enemy) -> void:
 
 
 func handle_wave_over() -> void:
-	add_money(100)
+	add_money((100 * log(10 * cur_money)) / log(10))
 	increase_wave_count()
 
 

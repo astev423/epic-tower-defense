@@ -11,14 +11,19 @@ extends CharacterBody2D
 @onready var health_comp: Node = $"HealthComponent"
 var path_array: Array[Vector2i] = []
 
+# Users set these in derived classes, rotation is optional since some sprites look weird rotated
 var movement_speed: float
+var can_rotate: bool = true
+var lives_taken_if_reach_finish: int
 
-signal enemy_reached_end()
+signal enemy_reached_end(lives_taken_if_reach_finish)
 
 ## Get path array specific to that monster
 func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
+	print(health_comp)
 	health_comp.connect("died", handle_death)
+	print("connected=", health_comp.is_connected("died", Callable(self, "handle_death")))
 	add_to_group("enemies")
 
 
@@ -31,13 +36,14 @@ func _process(delta) -> void:
 ## and pop that point of if we are next to it so we can go to the next point
 func move_to_closest_point_on_path() -> void:
 	if len(path_array) <= 0:
-		enemy_reached_end.emit()
+		enemy_reached_end.emit(lives_taken_if_reach_finish)
 		queue_free()
 		return
 
 	var dir: Vector2 = global_position.direction_to(path_array[0])
 	self.velocity = dir * movement_speed
-	self.rotation = dir.angle()
+	if can_rotate:
+		self.rotation = dir.angle()
 
 	# If we are close to end of current point then remove it to get the next point, otherwise
 	# don't remove just yet as its not near the right point
