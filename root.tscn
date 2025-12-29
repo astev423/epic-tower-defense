@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b76138tmbmchy"]
+[gd_scene load_steps=11 format=3 uid="uid://b76138tmbmchy"]
 
 [ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/maps/maps.gd" id="1_28aoi"]
 [ext_resource type="Texture2D" uid="uid://bxq6b0g077lhn" path="res://assets/kenney_ui-pack/PNG/Green/Default/check_square_color.png" id="1_vyht1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/managers/resources/resource_manager.tscn" id="5_l8v81"]
 [ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/highlight_tile/highlight_tile.tscn" id="7_huihk"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="8_bf3um"]
+[ext_resource type="PackedScene" uid="uid://d1ulows2ch8xy" path="res://game/maps/victory_fireworks.tscn" id="9_tw3kd"]
 
 [node name="Root" type="Node2D"]
 
@@ -34,12 +35,11 @@ position = Vector2(1665, 0)
 scale = Vector2(2, 2)
 
 [node name="TowerUpgradeManager" parent="Maps/MapUI" instance=ExtResource("4_l8v81")]
-visible = false
 position = Vector2(0, 960)
 
 [node name="ResourceManager" parent="Maps/MapUI" instance=ExtResource("5_l8v81")]
-position = Vector2(1357, 959.99994)
-scale = Vector2(0.8915491, 0.8915491)
+position = Vector2(1345, 960.99994)
+scale = Vector2(0.8819773, 0.8819773)
 
 [node name="HighlightTile" parent="Maps/MapUI" instance=ExtResource("7_huihk")]
 position = Vector2(1357, 959.99994)
@@ -66,6 +66,8 @@ scale = Vector2(0.07727055, 0.07727055)
 theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
 theme_override_font_sizes/font_size = 1861
 text = "Not enough money!"
+
+[node name="VictoryFireworks" parent="Maps/MapUI" instance=ExtResource("9_tw3kd")]
 
 [node name="PauseUnpauseAlerter" type="Node" parent="Maps"]
 script = ExtResource("4_jnlp7")

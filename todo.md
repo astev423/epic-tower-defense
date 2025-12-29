@@ -1,10 +1,10 @@
 """
--Fix pause bug
-
 -Add another enemy to work on waves
 
 -Work on waves, don't save waves until the end as that will be tedious and I won't have much motivation, make at least
 10 waves with good amount of enemies and varying spawn times between them for plains level before moving on
+
+-Make towers only fire at first enemy instead of random, or maybe option like in btd5
 
 -Instead of hard coding paths, reference other nodes via Scene Unique Names
 
@@ -25,9 +25,11 @@ in main menu itself let users click play then select map or see their stats (sav
 
 -CPU particle fireworks when win map
 
--Add fast-forward button
+-Add ability to customize what user wants to upgrade, whether it be range, damage, or speed
 
 -Add custom sound effects like hurt sound/death sound and add royalty free background music, maybe bossa nova
+
+-Add fast-forward button
 
 -Checkout popular plugins
 """

@@ -9,39 +9,39 @@ script = ExtResource("1_8gynb")
 
 [node name="ButtonRectangleBorder" type="Sprite2D" parent="."]
 position = Vector2(-3.8146973e-06, -9.536743e-07)
-scale = Vector2(1.7934986, 2.1179526)
+scale = Vector2(1.9208477, 2.082055)
 texture = ExtResource("2_ndaem")
 centered = false
 
 [node name="MoneyLabel" type="Label" parent="."]
 offset_left = 21.0
-offset_top = 13.0
+offset_top = 23.000002
 offset_right = 9883.0
-offset_bottom = 1486.168
+offset_bottom = 1496.168
 scale = Vector2(0.031543314, 0.031119088)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_0n7h4")
-theme_override_font_sizes/font_size = 1066
+theme_override_font_sizes/font_size = 800
 text = "Money: 300"
 
 [node name="LivesLabel" type="Label" parent="."]
 offset_left = 22.51408
-offset_top = 49.0
+offset_top = 54.0
 offset_right = 8415.514
-offset_bottom = 1522.168
+offset_bottom = 1527.168
 scale = Vector2(0.031543314, 0.031119088)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_0n7h4")
-theme_override_font_sizes/font_size = 1066
+theme_override_font_sizes/font_size = 800
 text = "Lives: 100"
 
 [node name="WavesLabel" type="Label" parent="."]
 offset_left = 23.224249
-offset_top = 83.0
+offset_top = 84.0
 offset_right = 8416.225
-offset_bottom = 1556.168
+offset_bottom = 1557.168
 scale = Vector2(0.031543314, 0.031119088)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_0n7h4")
-theme_override_font_sizes/font_size = 1066
+theme_override_font_sizes/font_size = 800
 text = "Wave: 1/50"

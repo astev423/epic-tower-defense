@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://5vwsct7ganhj"]
+[gd_scene load_steps=8 format=4 uid="uid://5vwsct7ganhj"]
 
 [ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/tiles/plains.png" id="1_a7kjj"]
 [ext_resource type="PackedScene" uid="uid://blhpjj2vaixsy" path="res://game/maps/plains/plains_enemy_spawner.tscn" id="2_ifqn0"]
 [ext_resource type="Script" uid="uid://ch31lf4tid3vl" path="res://game/maps/plains/plains_enemy_spawner.gd" id="3_ifqn0"]
+[ext_resource type="PackedScene" uid="uid://d1ulows2ch8xy" path="res://game/maps/victory_fireworks.tscn" id="5_ijept"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="7_0b5dc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5b1qg"]
@@ -82,3 +83,11 @@ script = ExtResource("3_ifqn0")
 [node name="EnemyPathfinder" type="Node" parent="."]
 script = ExtResource("7_0b5dc")
 metadata/_custom_type_script = "uid://mhhpege3kptc"
+
+[node name="VictoryFireworks" parent="." instance=ExtResource("5_ijept")]
+position = Vector2(923, 422)
+amount = 64
+initial_velocity_min = 700.0
+initial_velocity_max = 859.57
+scale_amount_min = 6.0
+scale_amount_max = 9.0

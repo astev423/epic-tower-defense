@@ -35,10 +35,9 @@ fit_content = true
 [node name="UpgradeTower" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 874.0
-offset_top = 1.0
-offset_right = 914.0
-offset_bottom = 41.0
+offset_left = 867.0
+offset_right = 907.0
+offset_bottom = 40.0
 
 [node name="ButtonRectangleBorder" type="Sprite2D" parent="UpgradeTower"]
 position = Vector2(23.000002, -9.536743e-07)
