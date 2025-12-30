@@ -21,9 +21,7 @@ signal enemy_reached_end(lives_taken_if_reach_finish)
 ## Get path array specific to that monster
 func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
-	print(health_comp)
 	health_comp.connect("died", handle_death)
-	print("connected=", health_comp.is_connected("died", Callable(self, "handle_death")))
 	add_to_group("enemies")
 
 
@@ -57,9 +55,9 @@ func _on_hitbox_area_area_entered(body: Area2D) -> void:
 		health_comp.take_damage(cannonball.damage)
 
 
+## Virtual, derived classes define this
 func handle_death() -> void:
-	queue_free()
-
+	pass
 
 func take_damage(amount) -> void:
 	health_comp.take_damage(amount)

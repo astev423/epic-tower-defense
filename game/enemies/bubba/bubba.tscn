@@ -1,12 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://chetfp2b10deg"]
+[gd_scene load_steps=6 format=3 uid="uid://chetfp2b10deg"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/enemies/base_enemy.tscn" id="1_xikh3"]
 [ext_resource type="Texture2D" uid="uid://cmawdxetuoe6t" path="res://assets/enemies/bubba/bubba1.tres" id="2_nspem"]
 [ext_resource type="Script" uid="uid://ywng46h6kp55" path="res://game/enemies/bubba/bubba.gd" id="2_xm1ea"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xm1ea"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j61wv"]
+
 [node name="Bubba" instance=ExtResource("1_xikh3")]
 scale = Vector2(2, 2)
+collision_layer = 2
 script = ExtResource("2_xm1ea")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_nspem")
+
+[node name="CollisionShape2D" parent="HitboxArea" index="0"]
+position = Vector2(1, 1)
+scale = Vector2(1.729394, 1.729394)
+shape = SubResource("CircleShape2D_xm1ea")
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(1, 1)
+scale = Vector2(1.729, 1.729)
+shape = SubResource("CircleShape2D_j61wv")

@@ -55,7 +55,7 @@ func connect_to_spawned_enemy(enemy) -> void:
 
 
 func handle_wave_over() -> void:
-	add_money((100 * log(10 * cur_money)) / log(10))
+	add_money((100 * log(10 * cur_money)) / log(10) as int)
 	increase_wave_count()
 
 

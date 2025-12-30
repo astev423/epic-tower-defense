@@ -15,7 +15,7 @@ var waves: Dictionary[int, Array] = {
 	4: [EnemyTypes.Type.Weakling, 9, 0.5],
 	5: [EnemyTypes.Type.Weakling, 12, 0.3],
 	6: [EnemyTypes.Type.Weakling, 12, 0.7],
-	7: [EnemyTypes.Type.Weakling, 2, 0.1],
+	7: [EnemyTypes.Type.Weakling, 12, 0.1],
 	8: [EnemyTypes.Type.FastWeakling, 4, 2.0],
 	9: [EnemyTypes.Type.Bubba, 1, 5.0],
 	10: [EnemyTypes.Type.Bubba, 3, 5.0],

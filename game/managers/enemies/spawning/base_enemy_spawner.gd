@@ -2,8 +2,6 @@ extends Node
 
 const cpu_particles_scene = preload("res://game/maps/victory_fireworks.tscn")
 
-# bubba slightly stronger weakling, (scale him up, change vals), hussar is super fast weakling
-# tank is new model that is super slow but high hp
 var wave_info
 var timer: Timer
 var first_enemy_spawned
@@ -11,7 +9,7 @@ var spawn_point: Vector2
 var cur_wave
 var enemy_type
 var enemy_count
-var enemies_to_be_spawned
+var enemies_in_group_to_be_spawned
 var time_between_enemies
 
 signal enemy_spawned(enemy)
@@ -19,56 +17,48 @@ signal wave_over()
 
 func _ready() -> void:
 	add_to_group("plains_enemy_spawner")
-
-	cur_wave = 9
+	cur_wave = 7
 	attempt_start_wave()
 
 
 ## This gets called once at start and then gets called each time wave is over
 func attempt_start_wave() -> void:
 	if cur_wave > wave_info.waves.size():
-		print_debug("all waves done")
-		var p := cpu_particles_scene.instantiate() as CPUParticles2D
-		p.global_position = Vector2(1000, 500)
-		get_tree().get_root().add_child.call_deferred(p)
-		p.emitting = true
+		spawn_fireworks()
 		return
 
 	setup_wave()
-
 	# Initially timer is short to allow quick spawning of first enemy
-	timer = Timer.new()
-	add_child(timer)
-	timer.one_shot = true
-	timer.wait_time = 0.4
-	timer.connect("timeout", attempt_spawning_enemy)
-	timer.start()
+	create_timer_for_spawning_enemies(0.1)
+
+
+func setup_wave() -> void:
+	setup_group_in_wave()
 
 
 ## Initialize variables for wave
-func setup_wave() -> void:
+func setup_group_in_wave() -> void:
 	first_enemy_spawned = false
-	enemy_type = wave_info.waves[cur_wave][0]
-	enemy_count = wave_info.waves[cur_wave][1]
-	enemies_to_be_spawned = enemy_count
-	time_between_enemies = wave_info.waves[cur_wave][2]
-	print_debug("total enemies in this wave: ", enemy_count)
+	enemy_type = wave_info.waves[cur_wave].pop_front()
+	enemy_count = wave_info.waves[cur_wave].pop_front()
+	enemies_in_group_to_be_spawned = enemy_count
+	time_between_enemies = wave_info.waves[cur_wave].pop_front()
+	print_debug("total enemies in this group: ", enemy_count)
 
 
 func attempt_spawning_enemy() -> void:
 	# After first enemy spawned give timer the right interval between enemies
 	if !first_enemy_spawned:
-		timer.queue_free()
-		timer = Timer.new()
-		add_child(timer)
-		timer.one_shot = false
-		timer.wait_time = time_between_enemies
-		timer.connect("timeout", attempt_spawning_enemy)
-		timer.start()
+		create_timer_for_spawning_enemies(time_between_enemies)
 
-	if enemies_to_be_spawned <= 0:
-		timer.stop()
-		return
+	# Find out if there are more groups in wave or if we end it
+	if enemies_in_group_to_be_spawned <= 0:
+		if wave_info.waves[cur_wave].size() == 0:
+			timer.stop()
+			return
+		else:
+			setup_group_in_wave()
+			return
 
 	var spawned_enemy: CharacterBody2D
 	if enemy_type == EnemyTypes.Type.Weakling:
@@ -78,14 +68,29 @@ func attempt_spawning_enemy() -> void:
 	elif enemy_type == EnemyTypes.Type.Bubba:
 		spawned_enemy = wave_info.ENEMY_BUBBA_SCENE.instantiate()
 
-	# Spawn enemy at spawnpoint for plains level and give them right path
+	spawn_and_setup_enemy(spawned_enemy)
+
+
+func spawn_and_setup_enemy(spawned_enemy) -> void:
 	add_child(spawned_enemy)
 	spawned_enemy.global_position = spawn_point
 	spawned_enemy.setup_path_and_info()
 	enemy_spawned.emit(spawned_enemy)
 	spawned_enemy.connect("enemy_reached_end", decrease_enemy_count)
-	enemies_to_be_spawned -= 1
+	enemies_in_group_to_be_spawned -= 1
 	first_enemy_spawned = true
+
+
+## Set new timer, delete old one if it exists
+func create_timer_for_spawning_enemies(interval: float) -> void:
+	if timer != null:
+		timer.queue_free()
+
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = interval
+	timer.connect("timeout", attempt_spawning_enemy)
+	timer.start()
 
 
 func decrease_enemy_count() -> void:
@@ -97,3 +102,10 @@ func decrease_enemy_count() -> void:
 		timer.queue_free()
 		cur_wave += 1
 		attempt_start_wave()
+
+
+func spawn_fireworks() -> void:
+	var p := cpu_particles_scene.instantiate() as CPUParticles2D
+	p.global_position = Vector2(1000, 500)
+	get_tree().get_root().add_child.call_deferred(p)
+	p.emitting = true
