@@ -3,6 +3,7 @@ extends Area2D
 var cannonball_speed: float = 800
 var direction: Vector2
 var damage: float
+var already_hit_enemy: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

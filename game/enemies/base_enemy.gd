@@ -51,6 +51,10 @@ func move_to_closest_point_on_path() -> void:
 
 func _on_hitbox_area_area_entered(body: Area2D) -> void:
 	if body.is_in_group("cannonball"):
+		if body.already_hit_enemy:
+			return
+
+		body.already_hit_enemy = true
 		var cannonball = body
 		health_comp.take_damage(cannonball.damage)
 

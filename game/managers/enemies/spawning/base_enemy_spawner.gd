@@ -17,7 +17,7 @@ signal wave_over()
 
 func _ready() -> void:
 	add_to_group("plains_enemy_spawner")
-	cur_wave = 7
+	cur_wave = 11
 	attempt_start_wave()
 
 
@@ -32,18 +32,20 @@ func attempt_start_wave() -> void:
 	create_timer_for_spawning_enemies(0.1)
 
 
+## Initialize variables for wave
 func setup_wave() -> void:
+	enemy_count = 0
 	setup_group_in_wave()
 
 
-## Initialize variables for wave
 func setup_group_in_wave() -> void:
 	first_enemy_spawned = false
 	enemy_type = wave_info.waves[cur_wave].pop_front()
-	enemy_count = wave_info.waves[cur_wave].pop_front()
-	enemies_in_group_to_be_spawned = enemy_count
+	enemies_in_group_to_be_spawned = wave_info.waves[cur_wave].pop_front()
+	enemy_count += enemies_in_group_to_be_spawned
 	time_between_enemies = wave_info.waves[cur_wave].pop_front()
-	print_debug("total enemies in this group: ", enemy_count)
+	print_debug("enemies of ", enemy_type, " spawning: ", enemies_in_group_to_be_spawned)
+	print_debug("total enemies in this wave so far: ", enemy_count)
 
 
 func attempt_spawning_enemy() -> void:
@@ -69,6 +71,12 @@ func attempt_spawning_enemy() -> void:
 		spawned_enemy = wave_info.ENEMY_BUBBA_SCENE.instantiate()
 
 	spawn_and_setup_enemy(spawned_enemy)
+
+	# Start next group instantly to prevent waves ending prematurely
+	if enemies_in_group_to_be_spawned == 0:
+		timer.stop()
+		timer.wait_time = 0.1
+		timer.start()
 
 
 func spawn_and_setup_enemy(spawned_enemy) -> void:
