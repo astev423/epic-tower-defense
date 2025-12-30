@@ -27,17 +27,31 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
-## Do nothing if no selected tower, otherwise place/unselect depending on input
-func _process(delta: float) -> void:
-	if is_instance_valid(held_tower_instance):
+func _input(event: InputEvent) -> void:
+	# If you're holding a tower, only update its position when the mouse moves
+	if is_instance_valid(held_tower_instance) and event is InputEventMouseMotion:
 		make_tower_follow_mouse()
 
-	if Input.is_action_just_pressed("left_mouse"):
+	# Action events (event-driven replacement for is_action_just_pressed)
+	if event.is_action_pressed("left_mouse"):
 		attempt_placing_tower_on_grid()
-	elif Input.is_action_just_pressed("right_mouse"):
+	elif event.is_action_pressed("right_mouse"):
 		attempt_delete_tower_on_grid()
-	elif Input.is_action_just_pressed("esc"):
+	elif event.is_action_pressed("esc"):
 		attempt_deselect_held_tower()
+
+
+## Remove previous tower instantiation if it exists and make new instatiation of right type
+func on_select_cannon_pressed() -> void:
+	held_tower = HeldTower.CANNON
+
+	if held_tower_instance != null:
+		held_tower_instance.queue_free()
+
+	held_tower_instance = tower_scenes.DRAGGED_CANNON_SCENE.instantiate()
+	get_parent().add_child(held_tower_instance)
+	# Spawn cannon where mouse is
+	held_tower_instance.global_position = get_global_mouse_position()
 
 
 func attempt_placing_tower_on_grid() -> void:
@@ -81,17 +95,6 @@ func attempt_delete_tower_on_grid() -> void:
 
 func make_tower_follow_mouse() -> void:
 	held_tower_instance.global_position = get_global_mouse_position()
-
-
-## Remove previous tower instantiation if it exists and make new instatiation of right type
-func on_select_cannon_pressed() -> void:
-	held_tower = HeldTower.CANNON
-
-	if held_tower_instance != null:
-		held_tower_instance.queue_free()
-
-	held_tower_instance = tower_scenes.DRAGGED_CANNON_SCENE.instantiate()
-	get_parent().add_child(held_tower_instance)
 
 
 func attempt_deselect_held_tower() -> void:

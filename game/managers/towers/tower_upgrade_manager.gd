@@ -14,8 +14,20 @@ func _ready() -> void:
 	tower_placement_manager.connect("tower_placed", connect_to_new_tower)
 
 
-func _process(delta) -> void:
-	if Input.is_action_just_pressed("esc"):
+func _on_upgrade_tower_button_pressed() -> void:
+	if current_tower_highlighted.upgrade_cost == "MAX":
+		return
+
+	# ask money manager if we have enough money, if success then despawn old tower and instantiate new one
+	var success = resource_manager.is_tower_affordable(int(current_tower_highlighted.upgrade_cost))
+	if not success:
+		return
+
+	despawn_old_spawn_upgraded_tower()
+
+
+func _input(event) -> void:
+	if event.is_action_pressed("esc"):
 		unhighlight_tower()
 		self.visible = false
 
@@ -27,18 +39,6 @@ func connect_to_new_tower(new_tower) -> void:
 func handle_user_click_on_tower(tower) -> void:
 	attempt_highlight_tower_clicked_on(tower)
 	attempt_display_tower_info(tower)
-
-
-func _on_upgrade_tower_button_pressed() -> void:
-	if current_tower_highlighted.upgrade_cost == "MAX":
-		return
-
-	# ask money manager if we have enough money, if success then despawn old tower and instantiate new one
-	var success = resource_manager.is_tower_affordable(int(current_tower_highlighted.upgrade_cost))
-	if not success:
-		return
-
-	despawn_old_spawn_upgraded_tower()
 
 
 func despawn_old_spawn_upgraded_tower() -> void:

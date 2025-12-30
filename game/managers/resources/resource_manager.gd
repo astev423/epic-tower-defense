@@ -10,9 +10,9 @@ code easier
 @onready var lives_label: Label = $LivesLabel
 @onready var waves_label: Label = $WavesLabel
 var enemy_spawner: Node
-var cur_lives = 200
+var cur_lives = 300
 var cur_money = 3000
-var cur_wave = 1
+var cur_wave
 
 signal no_money()
 
@@ -20,10 +20,10 @@ signal no_money()
 func _ready() -> void:
 	enemy_spawner.connect("enemy_spawned", connect_to_spawned_enemy)
 	enemy_spawner.connect("wave_over", handle_wave_over)
-	add_to_group("resource_manager")
-	money_label.text = "Money: %d" % cur_money
+	cur_wave = enemy_spawner.cur_wave
 	# Allow money stuff while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	setup_label_values()
 
 
 ## Tries to buy tower, if not then return false, if it does buy then decrease money and display it
@@ -50,8 +50,10 @@ func decrease_lives(lives_taken_if_reach_finish) -> void:
 	if cur_lives <= 0:
 		assert(cur_lives > 0)
 
+
 func connect_to_spawned_enemy(enemy) -> void:
 	enemy.connect("enemy_reached_end", decrease_lives)
+	enemy.connect("died", add_money)
 
 
 func handle_wave_over() -> void:
@@ -61,4 +63,10 @@ func handle_wave_over() -> void:
 
 func increase_wave_count() -> void:
 	cur_wave += 1
+	waves_label.text = "Wave: %d/50" % cur_wave
+
+
+func setup_label_values()-> void:
+	money_label.text = "Money: %d" % cur_money
+	lives_label.text = "Lives: %d" % cur_lives
 	waves_label.text = "Wave: %d/50" % cur_wave

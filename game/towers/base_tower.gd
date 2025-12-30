@@ -10,7 +10,7 @@ extends Node2D
 @onready var attack_range_display: Sprite2D = $"AttackRangeDisplay"
 @onready var attack_range_area_hitbox: CollisionShape2D = $"AttackRangeArea/CollisionShape2D"
 @onready var attack_range_area: Area2D = $"AttackRangeArea"
-@onready var cur_enemy: CharacterBody2D = null
+var can_fire = true
 
 # Stats, these change depending on the cannon
 var tower_scene: PackedScene = null
@@ -25,15 +25,25 @@ signal tower_clicked_on()
 func _ready() -> void:
 	attack_range_display.visible = false
 	attack_timer.wait_time = 1. / attacks_per_second
-	attack_timer.timeout.connect(shoot_cannonball_at_enemy)
+	attack_timer.timeout.connect(allow_tower_to_shoot)
 	attack_timer.start()
 
 
-## Process only shows final phase of things, so if we change rotation multiple times no artifacts occur
-func _process(delta) -> void:
-	if cur_enemy != null:
+## Look at an enemy if it exists and shoot if cooldown done
+func _physics_process(delta: float) -> void:
+	for cur_enemy in attack_range_area.get_overlapping_areas():
 		look_at(cur_enemy.global_position)
 		rotation += deg_to_rad(90)
+
+		if can_fire:
+			var cannonball = tower_scene.instantiate()
+			get_parent().add_child(cannonball)
+			cannonball.global_position = global_position
+			cannonball.direction = (cur_enemy.global_position - cannonball.global_position).normalized()
+			cannonball.damage = tower_damage
+			can_fire = false
+
+		break
 
 
 func _on_display_tower_info_clickbox_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -50,12 +60,5 @@ func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: fl
 	upgrade_cost = _upgrade_cost
 
 
-func shoot_cannonball_at_enemy() -> void:
-	for enemy in attack_range_area.get_overlapping_bodies():
-		cur_enemy = enemy
-		var cannonball = tower_scene.instantiate()
-		get_parent().add_child(cannonball)
-		cannonball.global_position = global_position
-		cannonball.direction = (cur_enemy.global_position - cannonball.global_position).normalized()
-		cannonball.damage = tower_damage
-		break
+func allow_tower_to_shoot() -> void:
+	can_fire = true

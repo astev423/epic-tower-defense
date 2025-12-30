@@ -7,3 +7,8 @@ Simple tower defense game inspired by BTD5
 -Right mouse button can click on towers to sell them for 1/2 their purchase price
 
 -Spacebar to pause/unpause game
+
+## Design
+-Important functions at the top, functions called by those functions near the bottom.
+
+-Event driven design (_input), instead of using _process and polling

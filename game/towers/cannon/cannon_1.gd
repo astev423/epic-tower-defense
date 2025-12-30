@@ -1,4 +1,4 @@
-extends "res://game/towers/base_tower.gd"
+extends "res://game/towers/cannon/base_cannon.gd"
 
 
 func _ready() -> void:

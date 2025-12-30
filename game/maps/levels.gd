@@ -14,12 +14,18 @@ const NUM_VERTICAL_TILES = 15
 @onready var pause_unpause_alerter: Node = $"../PauseUnpauseAlerter"
 var current_map: PackedScene
 var map_user_clicked
+var path_to_tilemap
+var path_to_spawner
+
 
 func _ready() -> void:
 	map_user_clicked = Maps.DUNES
-	var path_to_tilemap
-	var path_to_spawner
+	get_map_info_for_map_clicked()
+	instantiate_map_stuff()
 
+
+## Get map scene and paths needed nodes
+func get_map_info_for_map_clicked() -> void:
 	if map_user_clicked == Maps.DUNES:
 		current_map = load("res://game/maps/plains/plains.tscn")
 		path_to_tilemap = "Plains/TileMapLayer"
@@ -29,13 +35,11 @@ func _ready() -> void:
 		path_to_tilemap = "Dunes/TileMapLayer"
 		path_to_spawner = "Dunes/DunesEnemySpawner"
 
+
+## Spawn map and tilemap and managers for that map
+func instantiate_map_stuff() -> void:
 	var map_node = current_map.instantiate()
 	add_child(map_node)
 	tower_placement_manager.tile_map_layer = get_node(path_to_tilemap)
 	resource_manager.enemy_spawner = get_node(path_to_spawner)
 	pause_unpause_alerter.enemy_spawner = get_node(path_to_spawner)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

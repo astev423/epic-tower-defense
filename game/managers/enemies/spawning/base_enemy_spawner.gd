@@ -57,6 +57,7 @@ func attempt_spawning_enemy() -> void:
 	if enemies_in_group_to_be_spawned <= 0:
 		if wave_info.waves[cur_wave].size() == 0:
 			timer.stop()
+			print_debug("EVERYTHING IN WAVE SPAWNED")
 			return
 		else:
 			setup_group_in_wave()
@@ -79,12 +80,15 @@ func attempt_spawning_enemy() -> void:
 		timer.start()
 
 
+## Set position and methods for enemy, set connections, emit, and change spawner variables
 func spawn_and_setup_enemy(spawned_enemy) -> void:
 	add_child(spawned_enemy)
 	spawned_enemy.global_position = spawn_point
 	spawned_enemy.setup_path_and_info()
 	enemy_spawned.emit(spawned_enemy)
 	spawned_enemy.connect("enemy_reached_end", decrease_enemy_count)
+	# Use unbind to ignore the parameter sent in died signal
+	spawned_enemy.connect("died", decrease_enemy_count.unbind(1))
 	enemies_in_group_to_be_spawned -= 1
 	first_enemy_spawned = true
 

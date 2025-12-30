@@ -12,6 +12,6 @@ func _ready() -> void:
 	enemy_spawner.connect("wave_over", pause_event.emit)
 
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("spacebar"):
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("spacebar"):
 		pause_event.emit()

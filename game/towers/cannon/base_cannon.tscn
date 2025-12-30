@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bta8v0qgvy0ev"]
 
-[ext_resource type="Script" uid="uid://6ovd24us1fab" path="res://game/towers/base_tower.gd" id="1_603kl"]
-[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/towers/range.png" id="2_q0i0n"]
+[ext_resource type="Script" uid="uid://6ovd24us1fab" path="res://game/towers/cannon/base_cannon.gd" id="1_jawsx"]
+[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/towers/range.png" id="2_5cqtt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esbmq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c1my6"]
 
 [node name="BaseCannon" type="Node2D"]
-script = ExtResource("1_603kl")
+script = ExtResource("1_jawsx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -16,7 +16,7 @@ script = ExtResource("1_603kl")
 
 [node name="AttackRangeDisplay" type="Sprite2D" parent="."]
 scale = Vector2(1.0063938, 0.9752177)
-texture = ExtResource("2_q0i0n")
+texture = ExtResource("2_5cqtt")
 
 [node name="AttackRangeArea" type="Area2D" parent="."]
 collision_mask = 2
@@ -33,6 +33,4 @@ process_mode = 3
 scale = Vector2(3.0917277, 3.0917277)
 shape = SubResource("CircleShape2D_c1my6")
 
-[connection signal="body_entered" from="AttackRangeArea" to="." method="_on_attack_range_area_body_entered"]
-[connection signal="body_exited" from="AttackRangeArea" to="." method="_on_attack_range_area_body_exited"]
 [connection signal="input_event" from="DisplayTowerInfoClickbox" to="." method="_on_display_tower_info_clickbox_input_event"]

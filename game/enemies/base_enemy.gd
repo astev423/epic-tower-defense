@@ -15,8 +15,10 @@ var path_array: Array[Vector2i] = []
 var movement_speed: float
 var can_rotate: bool = true
 var lives_taken_if_reach_finish: int
+var money_awarded_if_killed: int
 
 signal enemy_reached_end(lives_taken_if_reach_finish)
+signal died(enemy_value)
 
 ## Get path array specific to that monster
 func setup_path_and_info() -> void:
@@ -25,7 +27,7 @@ func setup_path_and_info() -> void:
 	add_to_group("enemies")
 
 
-func _process(delta) -> void:
+func _physics_process(delta: float) -> void:
 	move_to_closest_point_on_path()
 	move_and_slide()
 
@@ -59,9 +61,10 @@ func _on_hitbox_area_area_entered(body: Area2D) -> void:
 		health_comp.take_damage(cannonball.damage)
 
 
-## Virtual, derived classes define this
 func handle_death() -> void:
-	pass
+	died.emit(money_awarded_if_killed)
+	queue_free()
+
 
 func take_damage(amount) -> void:
 	health_comp.take_damage(amount)

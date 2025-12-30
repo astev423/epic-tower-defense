@@ -1,4 +1,4 @@
-extends "res://game/towers/base_tower.gd"
+extends "res://game/towers/cannon/base_cannon.gd"
 
 
 # Called when the node enters the scene tree for the first time.

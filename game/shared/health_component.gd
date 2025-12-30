@@ -22,7 +22,6 @@ func take_damage(amount) -> void:
 	if current_health <= 0:
 		died.emit()
 		is_dead = true
-		get_tree().call_group("plains_enemy_spawner", "decrease_enemy_count")
 
 
 func heal(amount) -> void:
