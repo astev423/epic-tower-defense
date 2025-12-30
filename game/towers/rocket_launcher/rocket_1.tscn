@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dksbfy8n0qlvu"]
+
+[ext_resource type="Texture2D" uid="uid://pkwqle28eg3v" path="res://assets/towers/rocket_launcher/rocket1.png" id="1_5aubl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhtvg"]
+
+[node name="Rocket1" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2374744, 0.2374744)
+texture = ExtResource("1_5aubl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mhtvg")

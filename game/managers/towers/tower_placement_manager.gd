@@ -3,6 +3,7 @@ extends Node2D
 
 enum HeldTower {
 	CANNON,
+	ROCKET_LAUNCHER,
 	CROSSBOW,
 	NONE,
 }
@@ -13,23 +14,25 @@ const TOWER_GROUP := "TOWER_GROUP"
 
 @onready var tower_scenes: TowerScenes = TowerScenes.new()
 @onready var select_cannon: Button = $SelectCannon
+@onready var select_rocket_launcher: Button = $SelectRocketLauncher
 @onready var resource_manager: Node2D = $"../ResourceManager"
 var tile_map_layer: TileMapLayer
-var held_tower := HeldTower.NONE
-var held_tower_instance: Node2D = null
+var held_tower_type := HeldTower.NONE
+var held_tower_node: Node2D = null
 var used_tiles: Dictionary = {}
 
 signal tower_placed(new_tower)
 
 func _ready() -> void:
-	select_cannon.pressed.connect(on_select_cannon_pressed)
+	select_cannon.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(HeldTower.CANNON))
+	select_rocket_launcher.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(HeldTower.ROCKET_LAUNCHER))
 	# Allow placing towers while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 func _input(event: InputEvent) -> void:
 	# If you're holding a tower, only update its position when the mouse moves
-	if is_instance_valid(held_tower_instance) and event is InputEventMouseMotion:
+	if is_instance_valid(held_tower_node) and event is InputEventMouseMotion:
 		make_tower_follow_mouse()
 
 	# Action events (event-driven replacement for is_action_just_pressed)
@@ -41,17 +44,19 @@ func _input(event: InputEvent) -> void:
 		attempt_deselect_held_tower()
 
 
-## Remove previous tower instantiation if it exists and make new instatiation of right type
-func on_select_cannon_pressed() -> void:
-	held_tower = HeldTower.CANNON
+## This spawns a UI-only tower that moves with cursor
+func create_moveable_tower_for_ui(tower_clicked_on: HeldTower) -> void:
+	# Delete old UI tower if we clicked on a new one
+	if held_tower_node != null:
+		held_tower_node.queue_free()
 
-	if held_tower_instance != null:
-		held_tower_instance.queue_free()
-
-	held_tower_instance = tower_scenes.DRAGGED_CANNON_SCENE.instantiate()
-	get_parent().add_child(held_tower_instance)
-	# Spawn cannon where mouse is
-	held_tower_instance.global_position = get_global_mouse_position()
+	held_tower_type = tower_clicked_on
+	held_tower_node = get_tower_instantiation()
+	get_parent().add_child(held_tower_node)
+	held_tower_node.global_position = get_global_mouse_position()
+	# This cannon is for dragging only, so disable process logic
+	held_tower_node.process_mode = Node.PROCESS_MODE_DISABLED
+	held_tower_node.attack_range_display.visible = true
 
 
 func attempt_placing_tower_on_grid() -> void:
@@ -59,7 +64,7 @@ func attempt_placing_tower_on_grid() -> void:
 	var mouse_pos = get_global_mouse_position()
 	if (mouse_pos.x > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_HORIZONTAL_TILES
 			or mouse_pos.y > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_VERTICAL_TILES
-			or held_tower_instance == null):
+			or held_tower_node == null):
 		return
 
 	# Get local pos so we can map it to the right tile check tile data to see if its placeable
@@ -74,8 +79,21 @@ func attempt_placing_tower_on_grid() -> void:
 		place_tower(cell_position)
 
 
+func get_tower_instantiation() -> Node2D:
+	var tower_node: Node2D
+
+	if held_tower_type == HeldTower.CANNON:
+		tower_node = tower_scenes.CANNON_1_SCENE.instantiate()
+	elif held_tower_type == HeldTower.ROCKET_LAUNCHER:
+		tower_node = tower_scenes.ROCKET_LAUNCHER_1_SCENE.instantiate()
+	else:
+		tower_node = null
+
+	return tower_node
+
+
 func place_tower(cell_position) -> void:
-	var new_tower = tower_scenes.PLACED_CANNON_SCENE.instantiate()
+	var new_tower = get_tower_instantiation()
 	get_parent().add_child(new_tower)
 	new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
 	used_tiles[cell_position] = new_tower
@@ -94,12 +112,12 @@ func attempt_delete_tower_on_grid() -> void:
 
 
 func make_tower_follow_mouse() -> void:
-	held_tower_instance.global_position = get_global_mouse_position()
+	held_tower_node.global_position = get_global_mouse_position()
 
 
 func attempt_deselect_held_tower() -> void:
-	held_tower = HeldTower.NONE
+	held_tower_type = HeldTower.NONE
 
-	if held_tower_instance != null:
-		held_tower_instance.queue_free()
-		held_tower_instance = null
+	if held_tower_node != null:
+		held_tower_node.queue_free()
+		held_tower_node = null

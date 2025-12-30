@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj5cj1qv1fce5"]
+
+[ext_resource type="PackedScene" uid="uid://belivn2d4dnap" path="res://game/towers/rocket_launcher/base_rocket_launcher.tscn" id="1_jnawc"]
+[ext_resource type="Script" uid="uid://bbew0x75dwpsc" path="res://game/towers/rocket_launcher/rocket_launcher_1.gd" id="2_slvjv"]
+[ext_resource type="Texture2D" uid="uid://coctix6nji1er" path="res://assets/towers/rocket_launcher/launcher1.png" id="2_tcm08"]
+
+[node name="RocketLauncher1" instance=ExtResource("1_jnawc")]
+script = ExtResource("2_slvjv")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 3.9999998)
+scale = Vector2(0.6738877, 0.6738877)
+texture = ExtResource("2_tcm08")

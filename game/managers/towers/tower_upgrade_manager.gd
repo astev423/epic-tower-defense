@@ -44,9 +44,9 @@ func handle_user_click_on_tower(tower) -> void:
 func despawn_old_spawn_upgraded_tower() -> void:
 	var upgraded_tower
 	if current_tower_highlighted.upgrade_cost == "200":
-		upgraded_tower = tower_scenes.PLACED_CANNON_2_SCENE.instantiate()
+		upgraded_tower = tower_scenes.CANNON_2_SCENE.instantiate()
 	if current_tower_highlighted.upgrade_cost == "800":
-		upgraded_tower = tower_scenes.PLACED_CANNON_3_SCENE.instantiate()
+		upgraded_tower = tower_scenes.CANNON_3_SCENE.instantiate()
 
 	# Add new tower and free old one
 	get_parent().add_child(upgraded_tower)

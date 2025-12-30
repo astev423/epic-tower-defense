@@ -1,16 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs8g4s5l46lau"]
+[gd_scene load_steps=4 format=3 uid="uid://bs8g4s5l46lau"]
 
 [ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/managers/towers/tower_placement_manager.gd" id="1_ikrvu"]
-[ext_resource type="PackedScene" uid="uid://b0pkrd8q2hspc" path="res://game/managers/towers/towers_for_ui/cannon_1_ui_only.tscn" id="2_h3nq4"]
+[ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="2_lksn0"]
+[ext_resource type="Texture2D" uid="uid://coctix6nji1er" path="res://assets/towers/rocket_launcher/launcher1.png" id="3_stjyg"]
 
 [node name="TowerPlacementManager" type="Node2D"]
 script = ExtResource("1_ikrvu")
 
-[node name="Cannon1UIOnly" parent="." instance=ExtResource("2_h3nq4")]
-scale = Vector2(0.80824476, 0.80824476)
+[node name="CannonSprite" type="Sprite2D" parent="."]
+position = Vector2(-5, -3)
+texture = ExtResource("2_lksn0")
+centered = false
 
 [node name="SelectCannon" type="Button" parent="."]
 offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(6.642085, 7.559571)
+focus_mode = 0
+
+[node name="RocketLauncherSprite" type="Sprite2D" parent="."]
+position = Vector2(92.81483, 36)
+scale = Vector2(0.62625647, 0.62625647)
+texture = ExtResource("3_stjyg")
+
+[node name="SelectRocketLauncher" type="Button" parent="."]
+offset_left = 65.81483
+offset_right = 73.81483
 offset_bottom = 8.0
 scale = Vector2(6.642085, 7.559571)
 focus_mode = 0

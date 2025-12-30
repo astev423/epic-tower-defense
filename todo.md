@@ -1,12 +1,8 @@
 """
--Change bubba sprite to damaged when it gets below 50% health
+-New towers
 
 -Work on waves, don't save waves until the end as that will be tedious and I won't have much motivation, make at least
 10 waves with good amount of enemies and varying spawn times between them for plains level before moving on
-
--Make towers only fire at first enemy instead of random, or maybe option like in btd5
-
--Instead of hard coding paths, reference other nodes via Scene Unique Names
 
 -Tower ideas, flamethrower (aoe, short range), missle launcher (aoe, longer range), crossbow (low fire, 
 high damage), machine gun (low damage, high fire), sniper of doom (unlimited range, super high damage
@@ -23,7 +19,11 @@ from directly calling manager method, instead use signals, maybe split up tower 
 -Work on UI, make start menu, let users exit map and go to main menu, add death screen that takes you back to main menu, and
 in main menu itself let users click play then select map or see their stats (saved via godot saving), or red button for exit
 
--CPU particle fireworks when win map
+-Instead of hard coding paths, reference other nodes via Scene Unique Names
+
+-Make towers only fire at first enemy instead of random, or maybe option like in btd5
+
+-Change bubba sprite to damaged when it gets below 50% health
 
 -Add custom sound effects like hurt sound/death sound and add royalty free background music, maybe bossa nova
 

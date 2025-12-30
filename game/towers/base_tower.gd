@@ -13,7 +13,7 @@ extends Node2D
 var can_fire = true
 
 # Stats, these change depending on the cannon
-var tower_scene: PackedScene = null
+var projectile_scene: PackedScene = null
 var attacks_per_second: float
 var tower_damage: float
 var tower_range
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 		rotation += deg_to_rad(90)
 
 		if can_fire:
-			var cannonball = tower_scene.instantiate()
+			var cannonball = projectile_scene.instantiate()
 			get_parent().add_child(cannonball)
 			cannonball.global_position = global_position
 			cannonball.direction = (cur_enemy.global_position - cannonball.global_position).normalized()
