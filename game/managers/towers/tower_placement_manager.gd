@@ -1,13 +1,6 @@
 extends Node2D
 ## This is a very important class for managing selection, placement, and deletion of towers
 
-enum HeldTower {
-	CANNON,
-	ROCKET_LAUNCHER,
-	CROSSBOW,
-	NONE,
-}
-
 const MAP_CONSTANTS = preload("res://game/maps/levels.gd")
 const IS_PLACEABLE := "placeable"
 const TOWER_GROUP := "TOWER_GROUP"
@@ -16,13 +9,13 @@ const TOWER_GROUP := "TOWER_GROUP"
 @onready var select_cannon: Button = $SelectCannon
 @onready var select_rocket_launcher: Button = $SelectRocketLauncher
 var tile_map_layer: TileMapLayer
-var held_tower_type := HeldTower.NONE
+var held_tower_type := GameTypes.TowerType.NONE
 var held_tower_node: Node2D = null
 var used_tiles: Dictionary = {}
 
 func _ready() -> void:
-	select_cannon.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(HeldTower.CANNON))
-	select_rocket_launcher.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(HeldTower.ROCKET_LAUNCHER))
+	select_cannon.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(GameTypes.TowerType.CANNON))
+	select_rocket_launcher.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(GameTypes.TowerType.ROCKET_LAUNCHER))
 	# Allow placing towers while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -42,7 +35,7 @@ func _input(event: InputEvent) -> void:
 
 
 ## This spawns a UI-only tower that moves with cursor
-func create_moveable_tower_for_ui(tower_clicked_on: HeldTower) -> void:
+func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void:
 	# Delete old UI tower if we clicked on a new one
 	if held_tower_node != null:
 		held_tower_node.queue_free()
@@ -69,7 +62,7 @@ func attempt_placing_tower_on_grid() -> void:
 	var is_placeable = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
 
 	if is_placeable and not used_tiles.has(cell_position):
-		var success = GameState.is_tower_affordable(100)
+		var success = GameState.attempt_buying_tower(held_tower_node.tower_cost)
 		if not success:
 			return
 
@@ -79,9 +72,9 @@ func attempt_placing_tower_on_grid() -> void:
 func get_tower_instantiation() -> Node2D:
 	var tower_node: Node2D
 
-	if held_tower_type == HeldTower.CANNON:
+	if held_tower_type == GameTypes.TowerType.CANNON:
 		tower_node = tower_scenes.CANNON_1_SCENE.instantiate()
-	elif held_tower_type == HeldTower.ROCKET_LAUNCHER:
+	elif held_tower_type == GameTypes.TowerType.ROCKET_LAUNCHER:
 		tower_node = tower_scenes.ROCKET_LAUNCHER_1_SCENE.instantiate()
 	else:
 		tower_node = null
@@ -113,7 +106,7 @@ func make_tower_follow_mouse() -> void:
 
 
 func attempt_deselect_held_tower() -> void:
-	held_tower_type = HeldTower.NONE
+	held_tower_type = GameTypes.TowerType.NONE
 
 	if held_tower_node != null:
 		held_tower_node.queue_free()

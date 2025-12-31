@@ -60,11 +60,11 @@ func attempt_spawning_enemy() -> void:
 			return
 
 	var spawned_enemy: CharacterBody2D
-	if enemy_type == EnemyTypes.Type.Weakling:
+	if enemy_type == GameTypes.EnemyType.Weakling:
 		spawned_enemy = wave_info.ENEMY_WEAKLING_SCENE.instantiate()
-	if enemy_type == EnemyTypes.Type.FastWeakling:
+	if enemy_type == GameTypes.EnemyType.FastWeakling:
 		spawned_enemy = wave_info.ENEMY_FAST_WEAKLING_SCENE.instantiate()
-	elif enemy_type == EnemyTypes.Type.Bubba:
+	elif enemy_type == GameTypes.EnemyType.Bubba:
 		spawned_enemy = wave_info.ENEMY_BUBBA_SCENE.instantiate()
 
 	spawn_and_setup_enemy(spawned_enemy)
@@ -77,10 +77,12 @@ func attempt_spawning_enemy() -> void:
 
 
 ## Set position and methods for enemy, set connections, emit, and change spawner variables
-func spawn_and_setup_enemy(spawned_enemy) -> void:
+func spawn_and_setup_enemy(spawned_enemy: CharacterBody2D) -> void:
 	add_child(spawned_enemy)
 	spawned_enemy.global_position = spawn_point
 	spawned_enemy.setup_path_and_info()
+	# Make enemies appear above everything else
+	spawned_enemy.z_index = 1
 	# Use unbind to ignore the parameter sent in died signal
 	enemies_in_group_to_be_spawned -= 1
 	first_enemy_spawned = true
@@ -101,9 +103,10 @@ func create_timer_for_spawning_enemies(interval: float) -> void:
 func decrease_enemy_count() -> void:
 	enemy_count -= 1
 	print_debug("decreasing enemies to", enemy_count)
+	# If no enemies left then wave over so pause and call appropriate methods
 	if enemy_count <= 0:
 		print_debug("WAVE OVER ALL ENEMIES DIED")
-		EventBus.wave_over.emit(GameState.get_cur_wave())
+		EventBus.pause_event.emit()
 		GameState.handle_wave_over(GameState.get_cur_wave())
 		timer.queue_free()
 		attempt_start_wave()

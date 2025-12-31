@@ -6,7 +6,7 @@ var _cur_wave: int
 
 
 ## Tries to buy tower, if not then return false, if it does buy then decrease money and display it
-func is_tower_affordable(cost) -> bool:
+func attempt_buying_tower(cost: int) -> bool:
 	if GameState._cur_money < cost:
 		EventBus.not_enough_money.emit()
 		return false
@@ -21,7 +21,7 @@ func add_money(amount: int) -> void:
 	EventBus.money_changed.emit(GameState._cur_money)
 
 
-func decrease_lives(lives_taken_if_reach_finish) -> void:
+func decrease_lives(lives_taken_if_reach_finish: int) -> void:
 	GameState._cur_lives -= lives_taken_if_reach_finish
 	EventBus.lives_changed.emit(GameState._cur_lives)
 
@@ -30,7 +30,7 @@ func decrease_lives(lives_taken_if_reach_finish) -> void:
 		assert(GameState._cur_lives > 0)
 
 
-func handle_wave_over(completed_wave_number) -> void:
+func handle_wave_over(completed_wave_number: int) -> void:
 	add_money((100 * log(10 * completed_wave_number)) / log(10) as int)
 	increase_wave_count()
 

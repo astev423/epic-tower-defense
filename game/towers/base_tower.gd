@@ -17,9 +17,9 @@ var can_fire = true
 var projectile_scene: PackedScene = null
 var attacks_per_second: float
 var tower_damage: float
-var tower_range
-var tower_cost
-var upgrade_cost
+var projectile_speed: int
+var tower_cost: int
+var upgrade_cost: String
 
 
 func _ready() -> void:
@@ -28,12 +28,15 @@ func _ready() -> void:
 	clickbox.visible = false
 	attack_timer.wait_time = 1. / attacks_per_second
 	attack_timer.timeout.connect(allow_tower_to_shoot)
-	attack_timer.start()
 
 
 ## Look at an enemy if it exists and shoot if cooldown done
 func _physics_process(delta: float) -> void:
-	for cur_enemy in attack_range_area.get_overlapping_areas():
+	# Get bodies not areas as enemies are charbody2d
+	for cur_enemy in attack_range_area.get_overlapping_bodies():
+		if not cur_enemy.is_in_group("enemies"):
+			continue
+
 		look_at(cur_enemy.global_position)
 		rotation += deg_to_rad(90)
 
@@ -43,7 +46,9 @@ func _physics_process(delta: float) -> void:
 			projectile_node.global_position = global_position
 			projectile_node.direction = (cur_enemy.global_position - projectile_node.global_position).normalized()
 			projectile_node.damage = tower_damage
+			projectile_node.projectile_speed = projectile_speed
 			can_fire = false
+			attack_timer.start()
 
 		break
 
@@ -53,14 +58,15 @@ func _on_display_tower_info_clickbox_input_event(viewport: Node, event: InputEve
 		EventBus.tower_clicked_on.emit(self)
 
 
-func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: float,
-		_tower_range: float, _upgrade_cost: String) -> void:
+func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: int,
+		_projectile_speed: int, _upgrade_cost: String) -> void:
 	attacks_per_second = _attacks_per_second
 	tower_damage = _tower_damage
 	tower_cost = _tower_cost
-	tower_range = _tower_range
 	upgrade_cost = _upgrade_cost
+	projectile_speed = _projectile_speed
 
 
 func allow_tower_to_shoot() -> void:
 	can_fire = true
+	attack_timer.stop()

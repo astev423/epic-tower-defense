@@ -1,5 +1,5 @@
 """
--Finish rocket launcher
+-Finish rocket launcher, add explosion with radius and explosion sprite
 
 -Add sniper as well
 
@@ -19,7 +19,7 @@ in main menu itself let users click play then select map or see their stats (sav
 
 -Make towers only fire at first enemy instead of random, or maybe option like in btd5
 
--Change some sprites to damaged when they go below 50% health
+-Add health bar to sprites, use control nodes and tween for smooth animation
 
 -Add custom sound effects like hurt sound/death sound and add royalty free background music, maybe bossa nova
 

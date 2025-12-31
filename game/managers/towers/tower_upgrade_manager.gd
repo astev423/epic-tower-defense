@@ -5,6 +5,7 @@ extends Node2D
 @onready var upgrade_cost_label: RichTextLabel = $"UpgradeTower/RichTextLabel"
 @onready var tower_scenes: TowerScenes = TowerScenes.new()
 var current_tower_highlighted: Node2D = null
+var current_highlighted_tower_type: GameTypes.TowerType
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +19,7 @@ func _on_upgrade_tower_button_pressed() -> void:
 		return
 
 	# ask money manager if we have enough money, if success then despawn old tower and instantiate new one
-	var success = GameState.is_tower_affordable(int(current_tower_highlighted.upgrade_cost))
+	var success = GameState.attempt_buying_tower(int(current_tower_highlighted.upgrade_cost))
 	if not success:
 		return
 
@@ -74,10 +75,10 @@ func attempt_display_tower_info(tower) -> void:
 
 
 func update_display_tower_info(tower) -> void:
-	tower_info_label.text = "Damage: %s   Speed: %s   Range: %s" % [
+	tower_info_label.text = "Damage: %s   Attack Speed: %s \nProjectile Speed: %s" % [
 		tower.tower_damage,
 		tower.attacks_per_second,
-		tower.tower_range
+		tower.projectile_speed
 	]
 	upgrade_cost_label.text = "Upgrade cost: %s" % tower.upgrade_cost
 

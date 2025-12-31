@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://sf01ine87a4n"]
+
+[ext_resource type="PackedScene" uid="uid://belivn2d4dnap" path="res://game/towers/rocket_launcher/base_rocket_launcher.tscn" id="1_mnpvq"]
+[ext_resource type="Texture2D" uid="uid://cf00a61kgrude" path="res://assets/towers/rocket_launcher/launcher2.png" id="2_w6jby"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6264d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nmf5x"]
+
+[node name="RocketLauncher2" instance=ExtResource("1_mnpvq")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_w6jby")
+
+[node name="AttackRangeDisplay" parent="." index="2"]
+scale = Vector2(1.131, 1.131)
+
+[node name="AttackRangeArea" parent="." index="3"]
+scale = Vector2(1.131, 1.131)
+
+[node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
+scale = Vector2(1.131, 1.131)
+shape = SubResource("CircleShape2D_6264d")
+
+[node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+shape = SubResource("CircleShape2D_nmf5x")

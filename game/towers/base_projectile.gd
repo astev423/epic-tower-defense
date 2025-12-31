@@ -4,11 +4,12 @@ extends Area2D
 var projectile_speed: float
 var direction: Vector2
 var damage: float
-var already_hit_enemy: bool
 
 
 func _physics_process(delta: float) -> void:
 	global_position = global_position + direction * projectile_speed * delta
+	rotation = direction.angle()
+
 	if global_position.x > 1664 or global_position.y > 1026:
 		queue_free()
 
