@@ -10,12 +10,6 @@
 high damage), machine gun (low damage, high fire), sniper of doom (unlimited range, super high damage
 , super high cost, low fire rate)
 
--Potential bug when two cannonballs both kill enemy giving double cash per kill, i think
-bool in died signal fixed this
-
--Big refactor, particularly for managers, towers, and enemies, maybe try changing the monsters
-from directly calling manager method, instead use signals, maybe split up tower manager
-
 -Add more waves
 
 -Work on UI, make start menu, let users exit map and go to main menu, add death screen that takes you back to main menu, and
@@ -25,7 +19,7 @@ in main menu itself let users click play then select map or see their stats (sav
 
 -Make towers only fire at first enemy instead of random, or maybe option like in btd5
 
--Change bubba sprite to damaged when it gets below 50% health
+-Change some sprites to damaged when they go below 50% health
 
 -Add custom sound effects like hurt sound/death sound and add royalty free background music, maybe bossa nova
 

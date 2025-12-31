@@ -1,20 +1,17 @@
-extends Area2D
+extends "res://game/towers/base_projectile.gd"
 
-var cannonball_speed: float = 800
-var direction: Vector2
-var damage: float
-var already_hit_enemy: bool = false
 
 func _ready() -> void:
+	projectile_speed = 800
 	add_to_group("cannonball")
 
 
-func _physics_process(delta: float) -> void:
-	global_position = global_position + direction * cannonball_speed * delta
-	if global_position.x > 1664 or global_position.y > 1026:
-		queue_free()
-
-
+## Logic for when bullet hits enemy, cannonball can't hit more than one enemy
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
+		if self.already_hit_enemy:
+			return
+
+		body.take_damage(self.damage)
+		self.already_hit_enemy = true
 		queue_free()

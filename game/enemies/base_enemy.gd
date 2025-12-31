@@ -66,21 +66,6 @@ func move_to_closest_point_on_path(delta: float) -> void:
 	velocity = Vector2.ZERO
 
 
-func _on_hitbox_area_area_entered(body: Area2D) -> void:
-	var damage
-
-	if body.is_in_group("cannonball"):
-		if body.already_hit_enemy:
-			return
-
-		body.already_hit_enemy = true
-		damage = body.damage
-		health_comp.take_damage(damage)
-	elif body.is_in_group("rocket"):
-		print("HIT BY ROCKET")
-
-
-
 func handle_death() -> void:
 	EventBus.enemy_died.emit()
 	GameState.add_money(money_awarded_if_killed)

@@ -38,11 +38,11 @@ func _physics_process(delta: float) -> void:
 		rotation += deg_to_rad(90)
 
 		if can_fire:
-			var cannonball = projectile_scene.instantiate()
-			get_parent().add_child(cannonball)
-			cannonball.global_position = global_position
-			cannonball.direction = (cur_enemy.global_position - cannonball.global_position).normalized()
-			cannonball.damage = tower_damage
+			var projectile_node = projectile_scene.instantiate()
+			get_parent().add_child(projectile_node)
+			projectile_node.global_position = global_position
+			projectile_node.direction = (cur_enemy.global_position - projectile_node.global_position).normalized()
+			projectile_node.damage = tower_damage
 			can_fire = false
 
 		break
