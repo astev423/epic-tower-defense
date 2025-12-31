@@ -1,5 +1,7 @@
 """
--New towers
+-Fix weakling not working when going too fast
+
+-Add sniper as well
 
 -Work on waves, don't save waves until the end as that will be tedious and I won't have much motivation, make at least
 10 waves with good amount of enemies and varying spawn times between them for plains level before moving on

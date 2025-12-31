@@ -21,8 +21,6 @@ var held_tower_type := HeldTower.NONE
 var held_tower_node: Node2D = null
 var used_tiles: Dictionary = {}
 
-signal tower_placed(new_tower)
-
 func _ready() -> void:
 	select_cannon.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(HeldTower.CANNON))
 	select_rocket_launcher.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(HeldTower.ROCKET_LAUNCHER))
@@ -98,7 +96,6 @@ func place_tower(cell_position) -> void:
 	new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
 	used_tiles[cell_position] = new_tower
 	new_tower.add_to_group(TOWER_GROUP)
-	tower_placed.emit(new_tower)
 
 
 ## Free tower if it exists and mark tiles it occupied as placeable again

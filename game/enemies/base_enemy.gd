@@ -17,8 +17,6 @@ var can_rotate: bool = true
 var lives_taken_if_reach_finish: int
 var money_awarded_if_killed: int
 
-signal enemy_reached_end(lives_taken_if_reach_finish)
-signal died(enemy_value)
 
 ## Get path array specific to that monster
 func setup_path_and_info() -> void:
@@ -36,7 +34,7 @@ func _physics_process(delta: float) -> void:
 ## and pop that point of if we are next to it so we can go to the next point
 func move_to_closest_point_on_path() -> void:
 	if len(path_array) <= 0:
-		enemy_reached_end.emit(lives_taken_if_reach_finish)
+		EventBus.enemy_reached_end.emit(lives_taken_if_reach_finish)
 		queue_free()
 		return
 
@@ -67,7 +65,7 @@ func _on_hitbox_area_area_entered(body: Area2D) -> void:
 
 
 func handle_death() -> void:
-	died.emit(money_awarded_if_killed)
+	EventBus.enemy_died.emit(money_awarded_if_killed)
 	queue_free()
 
 

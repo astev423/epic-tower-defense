@@ -42,4 +42,3 @@ func instantiate_map_stuff() -> void:
 	add_child(map_node)
 	tower_placement_manager.tile_map_layer = get_node(path_to_tilemap)
 	resource_manager.enemy_spawner = get_node(path_to_spawner)
-	pause_unpause_alerter.enemy_spawner = get_node(path_to_spawner)

@@ -9,9 +9,9 @@ var current_tower_highlighted: Node2D = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	EventBus.connect("tower_clicked_on", handle_user_click_on_tower)
 	# Allow upgrading towers while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	tower_placement_manager.connect("tower_placed", connect_to_new_tower)
 
 
 func _on_upgrade_tower_button_pressed() -> void:
@@ -32,10 +32,6 @@ func _input(event) -> void:
 		self.visible = false
 
 
-func connect_to_new_tower(new_tower) -> void:
-	new_tower.connect("tower_clicked_on", handle_user_click_on_tower)
-
-
 func handle_user_click_on_tower(tower) -> void:
 	attempt_highlight_tower_clicked_on(tower)
 	attempt_display_tower_info(tower)
@@ -51,7 +47,6 @@ func despawn_old_spawn_upgraded_tower() -> void:
 	# Add new tower and free old one
 	get_parent().add_child(upgraded_tower)
 	upgraded_tower.global_position = current_tower_highlighted.global_position
-	upgraded_tower.connect("tower_clicked_on", handle_user_click_on_tower)
 	current_tower_highlighted.queue_free()
 	attempt_highlight_tower_clicked_on(upgraded_tower)
 	update_display_tower_info(upgraded_tower)

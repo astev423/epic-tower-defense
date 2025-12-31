@@ -14,12 +14,12 @@ var cur_lives = 300
 var cur_money = 3000
 var cur_wave
 
-signal no_money()
 
-
+# Enemy spawner comes from maps
 func _ready() -> void:
-	enemy_spawner.connect("enemy_spawned", connect_to_spawned_enemy)
-	enemy_spawner.connect("wave_over", handle_wave_over)
+	EventBus.connect("wave_over", handle_wave_over)
+	EventBus.connect("enemy_died", add_money)
+	EventBus.connect("enemy_reached_end", decrease_lives)
 	cur_wave = enemy_spawner.cur_wave
 	# Allow money stuff while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -29,7 +29,7 @@ func _ready() -> void:
 ## Tries to buy tower, if not then return false, if it does buy then decrease money and display it
 func is_tower_affordable(cost) -> bool:
 	if cur_money < cost:
-		no_money.emit()
+		EventBus.not_enough_money.emit()
 		return false
 
 	cur_money -= cost
@@ -51,13 +51,8 @@ func decrease_lives(lives_taken_if_reach_finish) -> void:
 		assert(cur_lives > 0)
 
 
-func connect_to_spawned_enemy(enemy) -> void:
-	enemy.connect("enemy_reached_end", decrease_lives)
-	enemy.connect("died", add_money)
-
-
-func handle_wave_over() -> void:
-	add_money((100 * log(10 * cur_money)) / log(10) as int)
+func handle_wave_over(completed_wave_number) -> void:
+	add_money((100 * log(10 * completed_wave_number)) / log(10) as int)
 	increase_wave_count()
 
 

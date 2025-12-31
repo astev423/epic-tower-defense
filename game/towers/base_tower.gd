@@ -20,7 +20,6 @@ var tower_range
 var tower_cost
 var upgrade_cost
 
-signal tower_clicked_on()
 
 func _ready() -> void:
 	attack_range_display.visible = false
@@ -48,7 +47,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_display_tower_info_clickbox_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		tower_clicked_on.emit(self)
+		EventBus.tower_clicked_on.emit(self)
 
 
 func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: float,

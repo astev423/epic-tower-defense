@@ -12,10 +12,8 @@ var enemy_count
 var enemies_in_group_to_be_spawned
 var time_between_enemies
 
-signal enemy_spawned(enemy)
-signal wave_over()
-
 func _ready() -> void:
+	EventBus.connect("enemy_died", decrease_enemy_count.unbind(1))
 	add_to_group("plains_enemy_spawner")
 	cur_wave = 11
 	attempt_start_wave()
@@ -85,10 +83,7 @@ func spawn_and_setup_enemy(spawned_enemy) -> void:
 	add_child(spawned_enemy)
 	spawned_enemy.global_position = spawn_point
 	spawned_enemy.setup_path_and_info()
-	enemy_spawned.emit(spawned_enemy)
-	spawned_enemy.connect("enemy_reached_end", decrease_enemy_count)
 	# Use unbind to ignore the parameter sent in died signal
-	spawned_enemy.connect("died", decrease_enemy_count.unbind(1))
 	enemies_in_group_to_be_spawned -= 1
 	first_enemy_spawned = true
 
@@ -110,7 +105,7 @@ func decrease_enemy_count() -> void:
 	print_debug("decreasing enemies to", enemy_count)
 	if enemy_count <= 0:
 		print_debug("WAVE OVER ALL ENEMIES DIED")
-		wave_over.emit()
+		EventBus.wave_over.emit(cur_wave)
 		timer.queue_free()
 		cur_wave += 1
 		attempt_start_wave()
