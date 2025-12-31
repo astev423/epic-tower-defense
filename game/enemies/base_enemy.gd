@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var target_pos: Marker2D =  $"../../EnemyExitPoint"
 @onready var pathfinding_manager: Node = $"../../EnemyPathfinder"
 @onready var health_comp: Node = $"HealthComponent"
-var path_array: Array[Vector2i] = []
+var path_array: Array[Vector2] = []
 
 # Users set these in derived classes, rotation is optional since some sprites look weird rotated
 var movement_speed: float
@@ -26,27 +26,44 @@ func setup_path_and_info() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	move_to_closest_point_on_path()
+	move_to_closest_point_on_path(delta)
 	move_and_slide()
 
 
 ## Path array contains the next point we need to move to, so continaully move towards each point
 ## and pop that point of if we are next to it so we can go to the next point
-func move_to_closest_point_on_path() -> void:
-	if len(path_array) <= 0:
-		EventBus.enemy_reached_end.emit(lives_taken_if_reach_finish)
+## Array is reversed so we can remove the end instead of the front to prevent shifting
+func move_to_closest_point_on_path(delta: float) -> void:
+	if path_array.is_empty():
+		GameState.decrease_lives(lives_taken_if_reach_finish)
 		queue_free()
 		return
 
-	var dir: Vector2 = global_position.direction_to(path_array[0])
-	self.velocity = dir * movement_speed
-	if can_rotate:
-		self.rotation = dir.angle()
+	var remaining := movement_speed * delta
 
-	# If we are close to end of current point then remove it to get the next point, otherwise
-	# don't remove just yet as its not near the right point
-	if global_position.distance_to(path_array[0]) <= 2:
-		path_array.remove_at(0)
+	while remaining > 0.0 and !path_array.is_empty():
+		var target_point := path_array[-1]
+		var vector_to_point := target_point - global_position
+		var dist_to_point := vector_to_point.length()
+
+		if dist_to_point < 0.001:
+			path_array.resize(path_array.size() - 1)
+			continue
+
+		# If distance less than remaining we snap to the position to prevent going past it
+		if dist_to_point <= remaining:
+			global_position = target_point
+			remaining -= dist_to_point
+			path_array.resize(path_array.size() - 1)
+		# Otherwise just head down that path
+		else:
+			var dir := vector_to_point / dist_to_point
+			velocity = dir * movement_speed
+			if can_rotate:
+				rotation = dir.angle()
+			return
+
+	velocity = Vector2.ZERO
 
 
 func _on_hitbox_area_area_entered(body: Area2D) -> void:
@@ -65,7 +82,8 @@ func _on_hitbox_area_area_entered(body: Area2D) -> void:
 
 
 func handle_death() -> void:
-	EventBus.enemy_died.emit(money_awarded_if_killed)
+	EventBus.enemy_died.emit()
+	GameState.add_money(money_awarded_if_killed)
 	queue_free()
 
 

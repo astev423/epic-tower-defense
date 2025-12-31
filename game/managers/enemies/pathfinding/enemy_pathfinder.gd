@@ -34,13 +34,15 @@ func update_terrain_movement() -> void:
 
 
 ## This returns an array of all the points along the path the enemy will move to get to end_pos
-func get_valid_path(start_pos: Vector2i, end_pos: Vector2i) -> Array[Vector2i]:
-	var path_array: Array[Vector2i]
+func get_valid_path(start_pos: Vector2, end_pos: Vector2) -> Array[Vector2]:
+	var path_array: Array[Vector2]
 
 	for point in astar_grid.get_point_path(start_pos, end_pos):
-		var cur_point: Vector2i = point
+		var cur_point: Vector2 = point
 		# go to center of the cell by adding 32
-		cur_point += astar_grid.cell_size / 2 as Vector2i
+		cur_point += astar_grid.cell_size / 2
 		path_array.append(cur_point)
 
+	# Reverse so we can easily pop from end for O(1) time
+	path_array.reverse()
 	return path_array

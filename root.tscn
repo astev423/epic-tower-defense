@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="3_vvh5c"]
 [ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/maps/pause_unpause_alerter.gd" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="4_l8v81"]
-[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/managers/resources/resource_manager.tscn" id="5_l8v81"]
+[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://ui/resources/resource_displayer.tscn" id="5_l8v81"]
 [ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/highlight_tile/highlight_tile.tscn" id="7_huihk"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="8_bf3um"]
 [ext_resource type="PackedScene" uid="uid://d1ulows2ch8xy" path="res://game/maps/victory_fireworks.tscn" id="9_tw3kd"]
@@ -38,7 +38,7 @@ scale = Vector2(2, 2)
 visible = false
 position = Vector2(0, 960)
 
-[node name="ResourceManager" parent="Maps/MapUI" instance=ExtResource("5_l8v81")]
+[node name="ResourceDisplayer" parent="Maps/MapUI" instance=ExtResource("5_l8v81")]
 position = Vector2(1345, 960.99994)
 scale = Vector2(0.8819773, 0.8819773)
 

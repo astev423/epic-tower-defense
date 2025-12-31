@@ -10,6 +10,7 @@ extends Node2D
 @onready var attack_range_display: Sprite2D = $"AttackRangeDisplay"
 @onready var attack_range_area_hitbox: CollisionShape2D = $"AttackRangeArea/CollisionShape2D"
 @onready var attack_range_area: Area2D = $"AttackRangeArea"
+@onready var clickbox: Area2D = $DisplayTowerInfoClickbox
 var can_fire = true
 
 # Stats, these change depending on the cannon
@@ -22,7 +23,9 @@ var upgrade_cost
 
 
 func _ready() -> void:
+	# By default tower is a dud, these falses get set to true when placed so tower can do stuff
 	attack_range_display.visible = false
+	clickbox.visible = false
 	attack_timer.wait_time = 1. / attacks_per_second
 	attack_timer.timeout.connect(allow_tower_to_shoot)
 	attack_timer.start()

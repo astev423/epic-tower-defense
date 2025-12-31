@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dac8i8gpyjnxs"]
 
-[ext_resource type="Script" uid="uid://ddnb6dbbvm884" path="res://game/managers/resources/resource_manager.gd" id="1_8gynb"]
+[ext_resource type="Script" uid="uid://ddnb6dbbvm884" path="res://ui/resources/resource_displayer.gd" id="1_8gynb"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="2_0n7h4"]
 [ext_resource type="Texture2D" uid="uid://dudcfbxq2qnq7" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_rectangle_border.png" id="2_ndaem"]
 

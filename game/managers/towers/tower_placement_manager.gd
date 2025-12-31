@@ -94,6 +94,7 @@ func place_tower(cell_position) -> void:
 	get_parent().add_child(new_tower)
 	new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
 	used_tiles[cell_position] = new_tower
+	new_tower.clickbox.visible = true
 	new_tower.add_to_group(TOWER_GROUP)
 
 

@@ -1,7 +1,5 @@
 """
--Fix dragged tower being upgradeable, it shouldn't show upgrade at all when a non placed tower is selected
-
--Fix weakling not working when going too fast
+-Finish rocket launcher
 
 -Add sniper as well
 

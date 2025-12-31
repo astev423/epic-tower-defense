@@ -13,9 +13,6 @@ var enemy_spawner: Node
 
 # Enemy spawner comes from maps
 func _ready() -> void:
-	EventBus.connect("wave_over", GameState.handle_wave_over)
-	EventBus.connect("enemy_died", GameState.add_money)
-	EventBus.connect("enemy_reached_end", GameState.decrease_lives)
 	EventBus.connect("money_changed", update_money_label)
 	EventBus.connect("wave_changed", update_waves_label)
 	EventBus.connect("lives_changed", update_lives_label)
@@ -37,6 +34,6 @@ func update_waves_label(new_wave_num: int) -> void:
 
 
 func setup_label_values()-> void:
-	money_label.text = "Money: %d" % GameState.cur_money
-	lives_label.text = "Lives: %d" % GameState.cur_lives
-	waves_label.text = "Wave: %d/50" % GameState.cur_wave
+	money_label.text = "Money: %d" % GameState.get_cur_money()
+	lives_label.text = "Lives: %d" % GameState.get_cur_lives()
+	waves_label.text = "Wave: %d/50" % GameState.get_cur_wave()

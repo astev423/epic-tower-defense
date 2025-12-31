@@ -29,16 +29,12 @@ func get_map_info_for_map_clicked() -> void:
 		current_map = load("res://game/maps/plains/plains.tscn")
 		path_to_tilemap = "Plains/TileMapLayer"
 		path_to_spawner = "Plains/PlainsEnemySpawner"
-		GameState.cur_lives = 300
-		GameState.cur_money = 3000
-		GameState.cur_wave = 11
+		GameState.set_variables(300, 3000, 11)
 	else:
 		current_map = load("res://game/maps/dunes/dunes.tscn")
 		path_to_tilemap = "Dunes/TileMapLayer"
 		path_to_spawner = "Dunes/DunesEnemySpawner"
-		GameState.cur_lives = 300
-		GameState.cur_money = 300
-		GameState.cur_wave = 1
+		GameState.set_variables(300, 300, 1)
 
 
 ## Spawn map and tilemap and managers for that map
