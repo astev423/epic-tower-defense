@@ -35,6 +35,7 @@ position = Vector2(1665, 0)
 scale = Vector2(2, 2)
 
 [node name="TowerUpgradeManager" parent="Maps/MapUI" instance=ExtResource("4_l8v81")]
+visible = false
 position = Vector2(0, 960)
 
 [node name="ResourceManager" parent="Maps/MapUI" instance=ExtResource("5_l8v81")]

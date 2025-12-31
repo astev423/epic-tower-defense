@@ -3,7 +3,6 @@ extends Node2D
 @onready var tower_placement_manager: Node2D = $"../TowerPlacementManager"
 @onready var tower_info_label: RichTextLabel = $"TowerInfo/RichTextLabel"
 @onready var upgrade_cost_label: RichTextLabel = $"UpgradeTower/RichTextLabel"
-@onready var resource_manager: Node2D = $"../ResourceManager"
 @onready var tower_scenes: TowerScenes = TowerScenes.new()
 var current_tower_highlighted: Node2D = null
 
@@ -19,7 +18,7 @@ func _on_upgrade_tower_button_pressed() -> void:
 		return
 
 	# ask money manager if we have enough money, if success then despawn old tower and instantiate new one
-	var success = resource_manager.is_tower_affordable(int(current_tower_highlighted.upgrade_cost))
+	var success = GameState.is_tower_affordable(int(current_tower_highlighted.upgrade_cost))
 	if not success:
 		return
 

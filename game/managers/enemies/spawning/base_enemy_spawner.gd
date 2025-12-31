@@ -6,7 +6,6 @@ var wave_info
 var timer: Timer
 var first_enemy_spawned
 var spawn_point: Vector2
-var cur_wave
 var enemy_type
 var enemy_count
 var enemies_in_group_to_be_spawned
@@ -15,13 +14,12 @@ var time_between_enemies
 func _ready() -> void:
 	EventBus.connect("enemy_died", decrease_enemy_count.unbind(1))
 	add_to_group("plains_enemy_spawner")
-	cur_wave = 11
 	attempt_start_wave()
 
 
 ## This gets called once at start and then gets called each time wave is over
 func attempt_start_wave() -> void:
-	if cur_wave > wave_info.waves.size():
+	if GameState.cur_wave > wave_info.waves.size():
 		spawn_fireworks()
 		return
 
@@ -38,10 +36,10 @@ func setup_wave() -> void:
 
 func setup_group_in_wave() -> void:
 	first_enemy_spawned = false
-	enemy_type = wave_info.waves[cur_wave].pop_front()
-	enemies_in_group_to_be_spawned = wave_info.waves[cur_wave].pop_front()
+	enemy_type = wave_info.waves[GameState.cur_wave].pop_front()
+	enemies_in_group_to_be_spawned = wave_info.waves[GameState.cur_wave].pop_front()
 	enemy_count += enemies_in_group_to_be_spawned
-	time_between_enemies = wave_info.waves[cur_wave].pop_front()
+	time_between_enemies = wave_info.waves[GameState.cur_wave].pop_front()
 	print_debug("enemies of ", enemy_type, " spawning: ", enemies_in_group_to_be_spawned)
 	print_debug("total enemies in this wave so far: ", enemy_count)
 
@@ -53,7 +51,7 @@ func attempt_spawning_enemy() -> void:
 
 	# Find out if there are more groups in wave or if we end it
 	if enemies_in_group_to_be_spawned <= 0:
-		if wave_info.waves[cur_wave].size() == 0:
+		if wave_info.waves[GameState.cur_wave].size() == 0:
 			timer.stop()
 			print_debug("EVERYTHING IN WAVE SPAWNED")
 			return
@@ -105,9 +103,9 @@ func decrease_enemy_count() -> void:
 	print_debug("decreasing enemies to", enemy_count)
 	if enemy_count <= 0:
 		print_debug("WAVE OVER ALL ENEMIES DIED")
-		EventBus.wave_over.emit(cur_wave)
+		EventBus.wave_over.emit(GameState.cur_wave)
 		timer.queue_free()
-		cur_wave += 1
+		GameState.cur_wave += 1
 		attempt_start_wave()
 
 

@@ -1,67 +1,42 @@
 extends Node2D
 
 """
-This class receives money every time an enemy dies since each enemy death calls add_money
-because we are in money manager group, maybe find way to prevent upward communication to make reading
-code easier
+This connects gamestate global to signals
 """
 
 @onready var money_label: Label = $MoneyLabel
 @onready var lives_label: Label = $LivesLabel
 @onready var waves_label: Label = $WavesLabel
 var enemy_spawner: Node
-var cur_lives = 300
-var cur_money = 3000
-var cur_wave
+
 
 
 # Enemy spawner comes from maps
 func _ready() -> void:
-	EventBus.connect("wave_over", handle_wave_over)
-	EventBus.connect("enemy_died", add_money)
-	EventBus.connect("enemy_reached_end", decrease_lives)
-	cur_wave = enemy_spawner.cur_wave
+	EventBus.connect("wave_over", GameState.handle_wave_over)
+	EventBus.connect("enemy_died", GameState.add_money)
+	EventBus.connect("enemy_reached_end", GameState.decrease_lives)
+	EventBus.connect("money_changed", update_money_label)
+	EventBus.connect("wave_changed", update_waves_label)
+	EventBus.connect("lives_changed", update_lives_label)
 	# Allow money stuff while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	setup_label_values()
 
 
-## Tries to buy tower, if not then return false, if it does buy then decrease money and display it
-func is_tower_affordable(cost) -> bool:
-	if cur_money < cost:
-		EventBus.not_enough_money.emit()
-		return false
-
-	cur_money -= cost
-	money_label.text = "Money: %d" % cur_money
-	return true
+func update_money_label(new_money_amount: int) -> void:
+	money_label.text = "Money: %d" % new_money_amount
 
 
-func add_money(amount: int) -> void:
-	cur_money += amount
-	money_label.text = "Money: %d" % cur_money
+func update_lives_label(new_lives_amount: int) -> void:
+	lives_label.text = "Lives: %d" % new_lives_amount
 
 
-func decrease_lives(lives_taken_if_reach_finish) -> void:
-	cur_lives -= lives_taken_if_reach_finish
-	lives_label.text = "Lives: %d" % cur_lives
-
-	# TODO Show game over screen if lives run out
-	if cur_lives <= 0:
-		assert(cur_lives > 0)
-
-
-func handle_wave_over(completed_wave_number) -> void:
-	add_money((100 * log(10 * completed_wave_number)) / log(10) as int)
-	increase_wave_count()
-
-
-func increase_wave_count() -> void:
-	cur_wave += 1
-	waves_label.text = "Wave: %d/50" % cur_wave
+func update_waves_label(new_wave_num: int) -> void:
+	lives_label.text = "Lives: %d" % new_wave_num
 
 
 func setup_label_values()-> void:
-	money_label.text = "Money: %d" % cur_money
-	lives_label.text = "Lives: %d" % cur_lives
-	waves_label.text = "Wave: %d/50" % cur_wave
+	money_label.text = "Money: %d" % GameState.cur_money
+	lives_label.text = "Lives: %d" % GameState.cur_lives
+	waves_label.text = "Wave: %d/50" % GameState.cur_wave
