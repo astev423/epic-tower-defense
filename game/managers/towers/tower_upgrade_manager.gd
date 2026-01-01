@@ -38,18 +38,30 @@ func handle_user_click_on_tower(tower) -> void:
 
 
 func despawn_old_spawn_upgraded_tower() -> void:
-	var upgraded_tower
-	if current_tower_highlighted.upgrade_cost == "200":
-		upgraded_tower = tower_scenes.CANNON_2_SCENE.instantiate()
-	if current_tower_highlighted.upgrade_cost == "800":
-		upgraded_tower = tower_scenes.CANNON_3_SCENE.instantiate()
+	var upgraded_tower := get_upgraded_tower_node()
 
 	# Add new tower and free old one
 	get_parent().add_child(upgraded_tower)
 	upgraded_tower.global_position = current_tower_highlighted.global_position
 	current_tower_highlighted.queue_free()
 	attempt_highlight_tower_clicked_on(upgraded_tower)
+	upgraded_tower.clickbox.visible = true
 	update_display_tower_info(upgraded_tower)
+
+
+func get_upgraded_tower_node() -> Node2D:
+	var upgraded_tower: Node2D
+	if current_tower_highlighted.type == GameTypes.TowerType.CANNON1:
+		upgraded_tower = tower_scenes.CANNON_2_SCENE.instantiate()
+	elif current_tower_highlighted.type == GameTypes.TowerType.CANNON2:
+		upgraded_tower = tower_scenes.CANNON_3_SCENE.instantiate()
+	elif current_tower_highlighted.type == GameTypes.TowerType.ROCKET_LAUNCHER1:
+		upgraded_tower = tower_scenes.ROCKET_LAUNCHER_2_SCENE.instantiate()
+	elif current_tower_highlighted.type == GameTypes.TowerType.ROCKET_LAUNCHER2:
+		upgraded_tower = tower_scenes.ROCKET_LAUNCHER_3_SCENE.instantiate()
+
+	return upgraded_tower
+
 
 
 func attempt_highlight_tower_clicked_on(tower) -> void:
@@ -60,9 +72,11 @@ func attempt_highlight_tower_clicked_on(tower) -> void:
 	if tower.attack_range_display.visible:
 		tower.attack_range_display.visible = false
 		current_tower_highlighted = null
+		current_highlighted_tower_type = GameTypes.TowerType.NONE
 	else:
 		tower.attack_range_display.visible = true
 		current_tower_highlighted = tower
+		current_highlighted_tower_type = tower.type
 
 
 func attempt_display_tower_info(tower) -> void:

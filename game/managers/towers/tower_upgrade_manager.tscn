@@ -48,9 +48,9 @@ centered = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UpgradeTower"]
 layout_mode = 0
-offset_left = 51.0
+offset_left = 46.999985
 offset_top = 32.0
-offset_right = 276.271
+offset_right = 304.78973
 offset_bottom = 53.977654
 scale = Vector2(1.5865644, 2.8593369)
 theme_override_colors/default_color = Color(0, 0, 0, 1)

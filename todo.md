@@ -1,7 +1,7 @@
 """
--Finish rocket launcher, add explosion with radius and explosion sprite
+-Work on warning reducing
 
--Add sniper as well
+-Add another enemy, one that takes double damage from cannons, is quite meaty and fast
 
 -Work on waves, don't save waves until the end as that will be tedious and I won't have much motivation, make at least
 10 waves with good amount of enemies and varying spawn times between them for plains level before moving on
@@ -9,6 +9,8 @@
 -Tower ideas, flamethrower (aoe, short range), missle launcher (aoe, longer range), crossbow (low fire, 
 high damage), machine gun (low damage, high fire), sniper of doom (unlimited range, super high damage
 , super high cost, low fire rate)
+
+-Work on balancing, show dps for each cannon in upgrade tooltip
 
 -Add more waves
 

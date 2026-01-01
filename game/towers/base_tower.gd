@@ -11,7 +11,7 @@ extends Node2D
 @onready var attack_range_area_hitbox: CollisionShape2D = $"AttackRangeArea/CollisionShape2D"
 @onready var attack_range_area: Area2D = $"AttackRangeArea"
 @onready var clickbox: Area2D = $DisplayTowerInfoClickbox
-var can_fire = true
+var can_fire
 
 # Stats, these change depending on the cannon
 var projectile_scene: PackedScene = null
@@ -20,12 +20,14 @@ var tower_damage: float
 var projectile_speed: int
 var tower_cost: int
 var upgrade_cost: String
+var type: GameTypes.TowerType
 
 
 func _ready() -> void:
 	# By default tower is a dud, these falses get set to true when placed so tower can do stuff
 	attack_range_display.visible = false
 	clickbox.visible = false
+	can_fire = true
 	attack_timer.wait_time = 1. / attacks_per_second
 	attack_timer.timeout.connect(allow_tower_to_shoot)
 
@@ -55,6 +57,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_display_tower_info_clickbox_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		print("bubba?")
 		EventBus.tower_clicked_on.emit(self)
 
 

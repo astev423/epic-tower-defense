@@ -31,15 +31,17 @@ func attempt_start_wave() -> void:
 ## Initialize variables for wave
 func setup_wave() -> void:
 	enemy_count = 0
+	# Reverse so we can pop back to prevent resizing
+	wave_info.waves[GameState.get_cur_wave()].reverse()
 	setup_group_in_wave()
 
 
 func setup_group_in_wave() -> void:
 	first_enemy_spawned = false
-	enemy_type = wave_info.waves[GameState.get_cur_wave()].pop_front()
-	enemies_in_group_to_be_spawned = wave_info.waves[GameState.get_cur_wave()].pop_front()
+	enemy_type = wave_info.waves[GameState.get_cur_wave()].pop_back()
+	enemies_in_group_to_be_spawned = wave_info.waves[GameState.get_cur_wave()].pop_back()
 	enemy_count += enemies_in_group_to_be_spawned
-	time_between_enemies = wave_info.waves[GameState.get_cur_wave()].pop_front()
+	time_between_enemies = wave_info.waves[GameState.get_cur_wave()].pop_back()
 	print_debug("enemies of ", enemy_type, " spawning: ", enemies_in_group_to_be_spawned)
 	print_debug("total enemies in this wave so far: ", enemy_count)
 

@@ -14,8 +14,8 @@ var held_tower_node: Node2D = null
 var used_tiles: Dictionary = {}
 
 func _ready() -> void:
-	select_cannon.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(GameTypes.TowerType.CANNON))
-	select_rocket_launcher.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(GameTypes.TowerType.ROCKET_LAUNCHER))
+	select_cannon.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(GameTypes.TowerType.CANNON1))
+	select_rocket_launcher.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(GameTypes.TowerType.ROCKET_LAUNCHER1))
 	# Allow placing towers while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -72,9 +72,9 @@ func attempt_placing_tower_on_grid() -> void:
 func get_tower_instantiation() -> Node2D:
 	var tower_node: Node2D
 
-	if held_tower_type == GameTypes.TowerType.CANNON:
+	if held_tower_type == GameTypes.TowerType.CANNON1:
 		tower_node = tower_scenes.CANNON_1_SCENE.instantiate()
-	elif held_tower_type == GameTypes.TowerType.ROCKET_LAUNCHER:
+	elif held_tower_type == GameTypes.TowerType.ROCKET_LAUNCHER1:
 		tower_node = tower_scenes.ROCKET_LAUNCHER_1_SCENE.instantiate()
 	else:
 		tower_node = null
