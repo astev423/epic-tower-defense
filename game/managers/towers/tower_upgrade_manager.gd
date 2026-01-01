@@ -104,3 +104,4 @@ func unhighlight_tower() -> void:
 
 	current_tower_highlighted.attack_range_display.visible = false
 	current_tower_highlighted = null
+	self.visible = false

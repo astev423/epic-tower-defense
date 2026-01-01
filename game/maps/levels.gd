@@ -13,23 +13,22 @@ const NUM_VERTICAL_TILES = 15
 @onready var tower_placement_manager: Node2D = $"../MapUI/TowerPlacementManager"
 @onready var pause_unpause_alerter: Node = $"../PauseUnpauseAlerter"
 var current_map: PackedScene
-var map_user_clicked: Maps
 var path_to_tilemap: String
 var path_to_spawner: String
 
 
 func _ready() -> void:
-	map_user_clicked = Maps.PLAINS
-	get_map_info_for_map_clicked()
+	var map_user_clicked := Maps.PLAINS
+	get_map_info_for_map_clicked(map_user_clicked)
 	instantiate_map_stuff()
 
 
-func get_map_info_for_map_clicked() -> void:
+func get_map_info_for_map_clicked(map_user_clicked: Maps) -> void:
 	if map_user_clicked == Maps.PLAINS:
 		current_map = load("res://game/maps/plains/plains.tscn")
 		path_to_tilemap = "Plains/TileMapLayer"
 		path_to_spawner = "Plains/PlainsEnemySpawner"
-		GameState.set_variables(300, 30000, 11)
+		GameState.set_variables(300, 30000, 13)
 	elif map_user_clicked == Maps.DUNES:
 		current_map = load("res://game/maps/dunes/dunes.tscn")
 		path_to_tilemap = "Dunes/TileMapLayer"

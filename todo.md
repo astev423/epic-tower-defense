@@ -1,4 +1,6 @@
 """
+-Show dps on upgrade info
+
 -Add another enemy, one that takes double damage from cannons, is quite meaty and fast
 
 -Work on waves, don't save waves until the end as that will be tedious and I won't have much motivation, make at least

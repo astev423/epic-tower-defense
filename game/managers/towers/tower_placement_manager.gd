@@ -7,7 +7,10 @@ const TOWER_GROUP := "TOWER_GROUP"
 
 @onready var tower_scenes: TowerScenes = TowerScenes.new()
 @onready var select_cannon: Button = $SelectCannon
+@onready var tower_upgrade_manager: Node2D = $"../TowerUpgradeManager"
 @onready var select_rocket_launcher: Button = $SelectRocketLauncher
+@onready var tower_cost_info: Control = $TowerCostInfo
+@onready var tower_cost_info_label: RichTextLabel = $TowerCostInfo/RichTextLabel
 var tile_map_layer: TileMapLayer
 var held_tower_type := GameTypes.TowerType.NONE
 var held_tower_node: Node2D = null
@@ -36,6 +39,7 @@ func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void
 	# Delete old UI tower if we clicked on a new one
 	if held_tower_node != null:
 		held_tower_node.queue_free()
+		tower_cost_info.visible = false
 
 	held_tower_type = tower_clicked_on
 	held_tower_node = get_tower_instantiation()
@@ -44,6 +48,8 @@ func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void
 	# This cannon is for dragging only, so disable process logic
 	held_tower_node.process_mode = Node.PROCESS_MODE_DISABLED
 	held_tower_node.attack_range_display.visible = true
+	tower_upgrade_manager.unhighlight_tower()
+	show_tower_cost_info()
 
 
 func attempt_placing_tower_on_grid() -> void:
@@ -103,7 +109,13 @@ func make_tower_follow_mouse() -> void:
 
 func attempt_deselect_held_tower() -> void:
 	held_tower_type = GameTypes.TowerType.NONE
+	tower_cost_info.visible = false
 
 	if held_tower_node != null:
 		held_tower_node.queue_free()
 		held_tower_node = null
+
+
+func show_tower_cost_info() -> void:
+	tower_cost_info_label.text = "Tower Cost: %s" % held_tower_node.tower_cost
+	tower_cost_info.visible = true

@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bs8g4s5l46lau"]
+[gd_scene load_steps=6 format=3 uid="uid://bs8g4s5l46lau"]
 
 [ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/managers/towers/tower_placement_manager.gd" id="1_ikrvu"]
 [ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="2_lksn0"]
 [ext_resource type="Texture2D" uid="uid://coctix6nji1er" path="res://assets/towers/rocket_launcher/launcher1.png" id="3_stjyg"]
+[ext_resource type="Texture2D" uid="uid://dudcfbxq2qnq7" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_rectangle_border.png" id="4_rcwra"]
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="5_acdrx"]
 
 [node name="TowerPlacementManager" type="Node2D"]
 script = ExtResource("1_ikrvu")
@@ -29,3 +31,32 @@ offset_right = 73.81483
 offset_bottom = 8.0
 scale = Vector2(6.642085, 7.559571)
 focus_mode = 0
+
+[node name="TowerCostInfo" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -521.0
+offset_top = 480.00003
+offset_right = -481.0
+offset_bottom = 520.0
+scale = Vector2(0.51393217, 0.503635)
+
+[node name="ButtonRectangleBorder" type="Sprite2D" parent="TowerCostInfo"]
+position = Vector2(23.000002, -9.536743e-07)
+scale = Vector2(2.369792, 1.8686386)
+texture = ExtResource("4_rcwra")
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TowerCostInfo"]
+layout_mode = 0
+offset_left = 46.999985
+offset_top = 32.0
+offset_right = 304.78973
+offset_bottom = 53.977654
+scale = Vector2(1.5865644, 2.8593369)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_acdrx")
+theme_override_font_sizes/normal_font_size = 17
+text = "Tower cost: "
+fit_content = true

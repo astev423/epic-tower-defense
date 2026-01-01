@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddmdyvjk03mqg"]
 
-[ext_resource type="Script" uid="uid://beq1ck26fjtc2" path="res://game/enemies/health_bar.gd" id="1_fjsny"]
+[ext_resource type="Script" uid="uid://beq1ck26fjtc2" path="res://game/enemies/health/health_bar.gd" id="1_fjsny"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxrim"]
 
@@ -9,10 +9,6 @@ bg_color = Color(7.2196127e-07, 0.7345193, 0.047786795, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3fc1"]
 bg_color = Color(1, 0.07450981, 0.15294118, 1)
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
 shadow_color = Color(0, 0, 0, 0.27450982)
 shadow_offset = Vector2(0, 1)
 
@@ -29,7 +25,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_emn54")
 value = 60.0
 show_percentage = false
 script = ExtResource("1_fjsny")
-offset = Vector2(-25, -30)
 
 [node name="DamageBar" type="ProgressBar" parent="."]
 z_index = 2
