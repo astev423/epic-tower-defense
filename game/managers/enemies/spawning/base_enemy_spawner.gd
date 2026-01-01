@@ -13,6 +13,7 @@ var time_between_enemies: float
 
 func _ready() -> void:
 	EventBus.enemy_died.connect(decrease_enemy_count)
+	EventBus.enemy_reached_end.connect(handle_enemy_reached_end)
 	add_to_group("plains_enemy_spawner")
 	attempt_start_wave()
 
@@ -95,6 +96,11 @@ func create_timer_for_spawning_enemies(interval: float) -> void:
 	timer.wait_time = interval
 	timer.timeout.connect(attempt_spawning_enemy)
 	timer.start()
+
+
+func handle_enemy_reached_end(lives_taken_if_reach_finish: int) -> void:
+	GameState.decrease_lives(lives_taken_if_reach_finish)
+	decrease_enemy_count()
 
 
 func decrease_enemy_count() -> void:

@@ -31,7 +31,7 @@ func decrease_lives(lives_taken_if_reach_finish: int) -> void:
 
 
 func handle_wave_over(completed_wave_number: int) -> void:
-	add_money((100 * log(10 * completed_wave_number)) / log(10) as int)
+	add_money((200 * log(10 * completed_wave_number)) / log(10) as int)
 	increase_wave_count()
 
 

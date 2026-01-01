@@ -1,5 +1,6 @@
 """
--Show dps on upgrade info
+-Finish up all towers and enemies before working on waves, then after working on waves (atleast completing) 50 waves for plains, then work on ui and other stuff, make waves a bit longer also, they
+feel too fast
 
 -Add another enemy, one that takes double damage from cannons, is quite meaty and fast
 

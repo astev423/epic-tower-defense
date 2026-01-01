@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 ## Array is reversed so we can remove the end instead of the front to prevent shifting
 func move_to_closest_point_on_path(delta: float) -> void:
 	if path_array.is_empty():
-		GameState.decrease_lives(lives_taken_if_reach_finish)
+		EventBus.enemy_reached_end.emit(lives_taken_if_reach_finish)
 		queue_free()
 		return
 

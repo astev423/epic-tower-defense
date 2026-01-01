@@ -22,7 +22,6 @@ func handle_pause() -> void:
 		paused_alert_label.visible = true
 
 
-## Unhide label and set timer that despawns even when paused due to process mode line
 func display_no_money_warning() -> void:
 	no_money_label.visible = true
 	var timer := Timer.new()

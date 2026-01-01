@@ -21,16 +21,16 @@ centered = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TowerInfo"]
 layout_mode = 0
-offset_left = 45.0
+offset_left = 40.0
 offset_top = 12.0
-offset_right = 485.1026
+offset_right = 488.89368
 offset_bottom = 52.0
 scale = Vector2(1.8200301, 2.50003)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_plkjl")
-theme_override_font_sizes/normal_font_size = 17
+theme_override_font_sizes/normal_font_size = 16
 text = "Damage: 1000    Attack Speed:  10   
-Projectile Speed: 800 "
+Projectile Speed: 4000    DPS: 10000"
 fit_content = true
 
 [node name="UpgradeTower" type="Control" parent="."]

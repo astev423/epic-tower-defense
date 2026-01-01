@@ -89,10 +89,12 @@ func attempt_display_tower_info(tower: Node2D) -> void:
 
 
 func update_display_tower_info(tower: Node2D) -> void:
-	tower_info_label.text = "Damage: %s   Attack Speed: %s \nProjectile Speed: %s" % [
+	var dps: float = tower.tower_damage * tower.attacks_per_second
+	tower_info_label.text = "Damage: %s   Attack Speed: %s \nProjectile Speed: %s   DPS: %s" % [
 		tower.tower_damage,
 		tower.attacks_per_second,
-		tower.projectile_speed
+		tower.projectile_speed,
+		dps
 	]
 	upgrade_cost_label.text = "Upgrade cost: %s" % tower.upgrade_cost
 

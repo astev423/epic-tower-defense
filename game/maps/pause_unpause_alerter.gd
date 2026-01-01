@@ -2,7 +2,6 @@ extends Node
 class_name PauseUnpause
 
 
-## Always let this run no matter what
 func _ready() -> void:
 	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
