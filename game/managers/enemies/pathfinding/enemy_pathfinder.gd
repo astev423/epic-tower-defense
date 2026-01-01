@@ -5,7 +5,6 @@ class_name EnemyPathfinder
 var astar_grid := AStarGrid2D.new()
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_up_astar_grid()
 
@@ -30,7 +29,6 @@ func update_terrain_movement() -> void:
 			astar_grid.set_point_weight_scale(tile, movement_cost)
 		else:
 			astar_grid.set_point_solid(tile)
-
 
 
 ## This returns an array of all the points along the path the enemy will move to get to end_pos

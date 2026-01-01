@@ -5,11 +5,12 @@ var no_money_label: Label
 
 func _ready() -> void:
 	EventBus.pause_event.connect(handle_pause)
-	# Pause initially until user starts
-	handle_pause()
 	EventBus.not_enough_money.connect(display_no_money_warning)
 	no_money_label = $"MapUI/NoMoneyWarning"
 	no_money_label.visible = false
+
+	# Pause initially until user starts
+	handle_pause()
 
 
 func handle_pause() -> void:

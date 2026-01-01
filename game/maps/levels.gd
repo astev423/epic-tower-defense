@@ -2,7 +2,8 @@ extends Node2D
 
 enum Maps {
 	PLAINS,
-	DUNES
+	DUNES,
+	DUNGEON
 }
 
 const TILE_SIZE = 64
@@ -18,23 +19,28 @@ var path_to_spawner: String
 
 
 func _ready() -> void:
-	map_user_clicked = Maps.DUNES
+	map_user_clicked = Maps.PLAINS
 	get_map_info_for_map_clicked()
 	instantiate_map_stuff()
 
 
-## Get map scene and paths needed nodes
 func get_map_info_for_map_clicked() -> void:
-	if map_user_clicked == Maps.DUNES:
+	if map_user_clicked == Maps.PLAINS:
 		current_map = load("res://game/maps/plains/plains.tscn")
 		path_to_tilemap = "Plains/TileMapLayer"
 		path_to_spawner = "Plains/PlainsEnemySpawner"
 		GameState.set_variables(300, 30000, 11)
-	else:
+	elif map_user_clicked == Maps.DUNES:
 		current_map = load("res://game/maps/dunes/dunes.tscn")
 		path_to_tilemap = "Dunes/TileMapLayer"
 		path_to_spawner = "Dunes/DunesEnemySpawner"
 		GameState.set_variables(300, 300, 1)
+	elif map_user_clicked == Maps.DUNGEON:
+		print("FATAL ERROR ON MAP SELECTION, CRASHING")
+		get_tree().quit()
+	else:
+		print("FATAL ERROR ON MAP SELECTION, CRASHING")
+		get_tree().quit()
 
 
 ## Spawn map and tilemap and managers for that map

@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @onready var target_pos: Marker2D =  $"../../EnemyExitPoint"
 @onready var pathfinding_manager: Node = $"../../EnemyPathfinder"
-@onready var health_comp: Node = $"HealthComponent"
+@onready var health_bar: ProgressBar = $HealthBar
 var path_array: Array[Vector2] = []
 
 # Users set these in derived classes, rotation is optional since some sprites look weird rotated
@@ -18,10 +18,9 @@ var lives_taken_if_reach_finish: int
 var money_awarded_if_killed: int
 
 
-## Get path array specific to that monster
 func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
-	health_comp.died.connect(handle_death)
+	health_bar.died.connect(handle_death)
 	add_to_group("enemies")
 
 
@@ -30,8 +29,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-## Path array contains the next point we need to move to, so continaully move towards each point
-## and pop that point of if we are next to it so we can go to the next point
 ## Array is reversed so we can remove the end instead of the front to prevent shifting
 func move_to_closest_point_on_path(delta: float) -> void:
 	if path_array.is_empty():
@@ -73,4 +70,4 @@ func handle_death() -> void:
 
 
 func take_damage(amount: float) -> void:
-	health_comp.take_damage(amount)
+	health_bar.take_damage(amount)

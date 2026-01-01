@@ -17,7 +17,6 @@ func _ready() -> void:
 	attempt_start_wave()
 
 
-## This gets called once at start and then gets called each time wave is over
 func attempt_start_wave() -> void:
 	if GameState.get_cur_wave() > wave_info.waves.size():
 		spawn_fireworks()
@@ -28,7 +27,6 @@ func attempt_start_wave() -> void:
 	create_timer_for_spawning_enemies(0.1)
 
 
-## Initialize variables for wave
 func setup_wave() -> void:
 	enemy_count = 0
 	# Reverse so we can pop back to prevent resizing
@@ -51,7 +49,6 @@ func attempt_spawning_enemy() -> void:
 	if !first_enemy_spawned:
 		create_timer_for_spawning_enemies(time_between_enemies)
 
-	# Find out if there are more groups in wave or if we end it
 	if enemies_in_group_to_be_spawned <= 0:
 		if wave_info.waves[GameState.get_cur_wave()].size() == 0:
 			timer.stop()
@@ -71,27 +68,25 @@ func attempt_spawning_enemy() -> void:
 
 	spawn_and_setup_enemy(spawned_enemy)
 
-	# Start next group instantly to prevent waves ending prematurely
+	# Start next group instantly to prevent waves ending prematurely if all monsters die
 	if enemies_in_group_to_be_spawned == 0:
 		timer.stop()
 		timer.wait_time = 0.1
 		timer.start()
 
 
-## Set position and methods for enemy, set connections, emit, and change spawner variables
 func spawn_and_setup_enemy(spawned_enemy: CharacterBody2D) -> void:
 	add_child(spawned_enemy)
 	spawned_enemy.global_position = spawn_point
 	spawned_enemy.setup_path_and_info()
 	# Make enemies appear above everything else
 	spawned_enemy.z_index = 1
-	# Use unbind to ignore the parameter sent in died signal
 	enemies_in_group_to_be_spawned -= 1
 	first_enemy_spawned = true
 
 
-## Set new timer, delete old one if it exists
 func create_timer_for_spawning_enemies(interval: float) -> void:
+	# There could be an old timer so delete it
 	if timer != null:
 		timer.queue_free()
 
@@ -105,11 +100,12 @@ func create_timer_for_spawning_enemies(interval: float) -> void:
 func decrease_enemy_count() -> void:
 	enemy_count -= 1
 	print_debug("decreasing enemies to", enemy_count)
-	# If no enemies left then wave over so pause and call appropriate methods
+
+	# If no enemies left then wave over so update resources and pause
 	if enemy_count <= 0:
 		print_debug("WAVE OVER ALL ENEMIES DIED")
-		EventBus.pause_event.emit()
 		GameState.handle_wave_over(GameState.get_cur_wave())
+		EventBus.pause_event.emit()
 		timer.queue_free()
 		attempt_start_wave()
 

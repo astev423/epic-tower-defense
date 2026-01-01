@@ -12,3 +12,6 @@ Simple tower defense game inspired by BTD5
 -Important functions at the top, functions called by those functions near the bottom.
 
 -Event driven design (_input), instead of using _process and polling
+
+-CharBodies and Areas sometimes don't have a layer, only a mask, or vice versa, depending on if they
+only need to scan or only need to be collided with

@@ -16,16 +16,14 @@ var used_tiles: Dictionary = {}
 func _ready() -> void:
 	select_cannon.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(GameTypes.TowerType.CANNON1))
 	select_rocket_launcher.pressed.connect(Callable(self, "create_moveable_tower_for_ui").bind(GameTypes.TowerType.ROCKET_LAUNCHER1))
-	# Allow placing towers while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
+## This uses mouse events instead of polling to determine how to modify towers
 func _input(event: InputEvent) -> void:
-	# If you're holding a tower, only update its position when the mouse moves
 	if is_instance_valid(held_tower_node) and event is InputEventMouseMotion:
 		make_tower_follow_mouse()
 
-	# Action events (event-driven replacement for is_action_just_pressed)
 	if event.is_action_pressed("left_mouse"):
 		attempt_placing_tower_on_grid()
 	elif event.is_action_pressed("right_mouse"):
@@ -34,7 +32,6 @@ func _input(event: InputEvent) -> void:
 		attempt_deselect_held_tower()
 
 
-## This spawns a UI-only tower that moves with cursor
 func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void:
 	# Delete old UI tower if we clicked on a new one
 	if held_tower_node != null:
@@ -57,7 +54,6 @@ func attempt_placing_tower_on_grid() -> void:
 			or held_tower_node == null):
 		return
 
-	# Get local pos so we can map it to the right tile check tile data to see if its placeable
 	var cell_position := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 	var is_placeable: bool = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
 

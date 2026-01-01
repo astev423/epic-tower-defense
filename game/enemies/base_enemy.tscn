@@ -1,23 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bo5rrx1lu6px2"]
 
 [ext_resource type="Script" uid="uid://bisqcfxpunop2" path="res://game/enemies/base_enemy.gd" id="1_axhys"]
-[ext_resource type="Script" uid="uid://rwvfpjhcqkub" path="res://game/shared/health_component.gd" id="2_4d2sl"]
+[ext_resource type="PackedScene" uid="uid://ddmdyvjk03mqg" path="res://game/enemies/health_bar.tscn" id="3_wu6ui"]
 
 [node name="BaseEnemy" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_axhys")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("2_4d2sl")
-metadata/_custom_type_script = "uid://rwvfpjhcqkub"
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 
-[node name="HitboxArea" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
-[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
+[node name="HealthBar" parent="." instance=ExtResource("3_wu6ui")]

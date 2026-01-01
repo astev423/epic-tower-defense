@@ -1,8 +1,6 @@
 """
 -Add another enemy, one that takes double damage from cannons, is quite meaty and fast
 
--Add health bar to sprites, use control nodes and tween for smooth animation
-
 -Work on waves, don't save waves until the end as that will be tedious and I won't have much motivation, make at least
 10 waves with good amount of enemies and varying spawn times between them for plains level before moving on
 
@@ -11,6 +9,9 @@ high damage), machine gun (low damage, high fire), sniper of doom (unlimited ran
 , super high cost, low fire rate)
 
 -Work on balancing, show dps for each cannon in upgrade tooltip
+
+-I'm using too many class fields which makes code hard to reason about, use less and pass more things
+in as parameters
 
 -Add more waves
 
