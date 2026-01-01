@@ -25,7 +25,7 @@ func set_up_astar_grid() -> void:
 ## Add tiles we can move on to astargrid and add tiles we can't
 func update_terrain_movement() -> void:
 	for tile in tile_map_grid.get_used_cells():
-		var movement_cost = tile_map_grid.get_cell_tile_data(tile).get_custom_data_by_layer_id(1)
+		var movement_cost: int = tile_map_grid.get_cell_tile_data(tile).get_custom_data_by_layer_id(1)
 		if movement_cost < 10:
 			astar_grid.set_point_weight_scale(tile, movement_cost)
 		else:

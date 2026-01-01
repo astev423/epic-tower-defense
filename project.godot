@@ -14,7 +14,7 @@ config/name="Epic Tower Defense"
 run/main_scene="uid://b76138tmbmchy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=144
-config/icon="res://icon.svg"
+config/icon="uid://mc3ow6i6ntc0"
 
 [autoload]
 
@@ -25,8 +25,6 @@ GameState="*res://globals/game_state.gd"
 
 gdscript/warnings/unused_parameter=0
 gdscript/warnings/untyped_declaration=1
-gdscript/warnings/unsafe_call_argument=1
-gdscript/warnings/return_value_discarded=1
 
 [display]
 

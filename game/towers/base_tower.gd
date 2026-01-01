@@ -11,7 +11,7 @@ extends Node2D
 @onready var attack_range_area_hitbox: CollisionShape2D = $"AttackRangeArea/CollisionShape2D"
 @onready var attack_range_area: Area2D = $"AttackRangeArea"
 @onready var clickbox: Area2D = $DisplayTowerInfoClickbox
-var can_fire
+var can_fire: bool
 
 # Stats, these change depending on the cannon
 var projectile_scene: PackedScene = null
@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		rotation += deg_to_rad(90)
 
 		if can_fire:
-			var projectile_node = projectile_scene.instantiate()
+			var projectile_node: Area2D = projectile_scene.instantiate()
 			get_parent().add_child(projectile_node)
 			projectile_node.global_position = global_position
 			projectile_node.direction = (cur_enemy.global_position - projectile_node.global_position).normalized()
@@ -57,7 +57,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_display_tower_info_clickbox_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print("bubba?")
 		EventBus.tower_clicked_on.emit(self)
 
 

@@ -1,14 +1,14 @@
 extends Area2D
 
 var death_timer: Timer
-var damage
+var damage: float
 
 func _ready() -> void:
 	death_timer = Timer.new()
 	add_child(death_timer)
 	death_timer.wait_time = 0.7
 	death_timer.start()
-	death_timer.connect("timeout", queue_free)
+	death_timer.timeout.connect(queue_free)
 	await get_tree().physics_frame
 	damage_enemies_in_radius()
 

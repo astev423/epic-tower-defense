@@ -2,17 +2,17 @@ extends Node
 
 const cpu_particles_scene = preload("res://game/maps/victory_fireworks.tscn")
 
-var wave_info
+var wave_info: Resource
 var timer: Timer
-var first_enemy_spawned
+var first_enemy_spawned: bool
 var spawn_point: Vector2
-var enemy_type
-var enemy_count
-var enemies_in_group_to_be_spawned
-var time_between_enemies
+var enemy_type: GameTypes.EnemyType
+var enemy_count: int
+var enemies_in_group_to_be_spawned: int
+var time_between_enemies: float
 
 func _ready() -> void:
-	EventBus.connect("enemy_died", decrease_enemy_count)
+	EventBus.enemy_died.connect(decrease_enemy_count)
 	add_to_group("plains_enemy_spawner")
 	attempt_start_wave()
 
@@ -98,7 +98,7 @@ func create_timer_for_spawning_enemies(interval: float) -> void:
 	timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = interval
-	timer.connect("timeout", attempt_spawning_enemy)
+	timer.timeout.connect(attempt_spawning_enemy)
 	timer.start()
 
 

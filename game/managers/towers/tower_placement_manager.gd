@@ -51,7 +51,7 @@ func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void
 
 func attempt_placing_tower_on_grid() -> void:
 	# Can't place on the tower selection UI and it must be currently held
-	var mouse_pos = get_global_mouse_position()
+	var mouse_pos := get_global_mouse_position()
 	if (mouse_pos.x > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_HORIZONTAL_TILES
 			or mouse_pos.y > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_VERTICAL_TILES
 			or held_tower_node == null):
@@ -59,10 +59,10 @@ func attempt_placing_tower_on_grid() -> void:
 
 	# Get local pos so we can map it to the right tile check tile data to see if its placeable
 	var cell_position := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
-	var is_placeable = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
+	var is_placeable: bool = tile_map_layer.get_cell_tile_data(cell_position).get_custom_data("placeable")
 
 	if is_placeable and not used_tiles.has(cell_position):
-		var success = GameState.attempt_buying_tower(held_tower_node.tower_cost)
+		var success := GameState.attempt_buying_tower(held_tower_node.tower_cost)
 		if not success:
 			return
 
@@ -82,8 +82,8 @@ func get_tower_instantiation() -> Node2D:
 	return tower_node
 
 
-func place_tower(cell_position) -> void:
-	var new_tower = get_tower_instantiation()
+func place_tower(cell_position: Vector2i) -> void:
+	var new_tower := get_tower_instantiation()
 	get_parent().add_child(new_tower)
 	new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
 	used_tiles[cell_position] = new_tower
@@ -95,7 +95,7 @@ func place_tower(cell_position) -> void:
 func attempt_delete_tower_on_grid() -> void:
 	var cell_position := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 	if used_tiles.has(cell_position):
-		var tower = used_tiles[cell_position]
+		var tower: Node2D = used_tiles[cell_position]
 		GameState.add_money(tower.tower_cost / 2)
 		tower.queue_free()
 		used_tiles.erase(cell_position)

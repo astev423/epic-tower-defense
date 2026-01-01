@@ -21,7 +21,7 @@ var money_awarded_if_killed: int
 ## Get path array specific to that monster
 func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
-	health_comp.connect("died", handle_death)
+	health_comp.died.connect(handle_death)
 	add_to_group("enemies")
 
 
@@ -72,5 +72,5 @@ func handle_death() -> void:
 	queue_free()
 
 
-func take_damage(amount) -> void:
+func take_damage(amount: float) -> void:
 	health_comp.take_damage(amount)

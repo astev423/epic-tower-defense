@@ -1,7 +1,7 @@
 extends "res://game/towers/base_projectile.gd"
 
 var explosion_scene: PackedScene
-var spawned_explosion
+var spawned_explosion: bool
 
 
 func _ready() -> void:

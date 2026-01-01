@@ -12,9 +12,9 @@ const NUM_VERTICAL_TILES = 15
 @onready var tower_placement_manager: Node2D = $"../MapUI/TowerPlacementManager"
 @onready var pause_unpause_alerter: Node = $"../PauseUnpauseAlerter"
 var current_map: PackedScene
-var map_user_clicked
-var path_to_tilemap
-var path_to_spawner
+var map_user_clicked: Maps
+var path_to_tilemap: String
+var path_to_spawner: String
 
 
 func _ready() -> void:
@@ -39,6 +39,6 @@ func get_map_info_for_map_clicked() -> void:
 
 ## Spawn map and tilemap and managers for that map
 func instantiate_map_stuff() -> void:
-	var map_node = current_map.instantiate()
+	var map_node: Node2D = current_map.instantiate()
 	add_child(map_node)
 	tower_placement_manager.tile_map_layer = get_node(path_to_tilemap)

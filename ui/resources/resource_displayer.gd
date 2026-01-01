@@ -13,9 +13,9 @@ var enemy_spawner: Node
 
 # Enemy spawner comes from maps
 func _ready() -> void:
-	EventBus.connect("money_changed", update_money_label)
-	EventBus.connect("wave_changed", update_waves_label)
-	EventBus.connect("lives_changed", update_lives_label)
+	EventBus.money_changed.connect(update_money_label)
+	EventBus.wave_changed.connect(update_waves_label)
+	EventBus.lives_changed.connect(update_lives_label)
 	# Allow money stuff while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	setup_label_values()
