@@ -47,6 +47,11 @@ func despawn_old_spawn_upgraded_tower() -> void:
 	try_highlight_tower_clicked_on(upgraded_tower)
 	upgraded_tower.clickbox.visible = true
 	update_display_tower_info(upgraded_tower)
+	var cell: Vector2i = tower_placement_manager.tile_map_layer.local_to_map(
+		tower_placement_manager.tile_map_layer.to_local(upgraded_tower.global_position)
+	)
+	tower_placement_manager.used_tiles[cell] = upgraded_tower
+
 
 
 func get_upgraded_tower_node() -> Node2D:

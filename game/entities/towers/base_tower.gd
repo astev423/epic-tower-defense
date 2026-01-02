@@ -53,6 +53,8 @@ func _physics_process(delta: float) -> void:
 			can_fire = false
 			is_shooting = true
 			attack_timer.start()
+		else:
+			is_shooting = false
 
 		break
 

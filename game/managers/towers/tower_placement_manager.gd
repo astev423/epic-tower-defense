@@ -12,7 +12,7 @@ const TOWER_GROUP := "TOWER_GROUP"
 var tile_map_layer: TileMapLayer
 var held_tower_type := GameTypes.TowerType.NONE
 var held_tower_node: Node2D = null
-var used_tiles: Dictionary = {}
+var used_tiles: Dictionary[Vector2i, Node2D] = {}
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

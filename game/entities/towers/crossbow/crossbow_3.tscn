@@ -13,10 +13,11 @@
 script = ExtResource("2_04ltp")
 
 [node name="Pedestal" type="Sprite2D" parent="." index="0"]
-scale = Vector2(0.52404386, 0.52404386)
+scale = Vector2(0.5193005, 0.5193005)
 texture = ExtResource("3_rrf3n")
 
 [node name="Sprite2D" parent="." index="1"]
+scale = Vector2(1.458, 1.458)
 texture = ExtResource("4_7k3k4")
 region_enabled = true
 region_rect = Rect2(20, 24, 56, 48)
