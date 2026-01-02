@@ -6,7 +6,7 @@ var _cur_wave: int
 
 
 ## Tries to buy tower, if not then return false, if it does buy then decrease money and display it
-func attempt_buying_tower(cost: int) -> bool:
+func try_buying_tower(cost: int) -> bool:
 	if GameState._cur_money < cost:
 		EventBus.not_enough_money.emit()
 		return false

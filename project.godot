@@ -35,10 +35,10 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
-"res://game/enemies/": "red",
+"res://game/entities/enemies/": "red",
+"res://game/entities/towers/": "gray",
 "res://game/managers/": "yellow",
-"res://game/maps/": "green",
-"res://game/towers/": "gray"
+"res://game/maps/": "green"
 }
 
 [input]

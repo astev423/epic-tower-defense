@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx8ygtp7o6oyc"]
+
+[ext_resource type="PackedScene" uid="uid://bta8v0qgvy0ev" path="res://game/entities/towers/base_tower.tscn" id="1_or2u1"]
+
+[node name="BaseCannon" instance=ExtResource("1_or2u1")]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhhn8aqql88mk"]
+
+[ext_resource type="PackedScene" uid="uid://b06a1n2v16gnk" path="res://game/entities/towers/base_projectile.tscn" id="1_mq5d0"]
+[ext_resource type="Script" uid="uid://dhnuie6c67c6h" path="res://game/entities/towers/cannon/base_cannonball.gd" id="2_mluyc"]
+
+[node name="BaseCannonball" instance=ExtResource("1_mq5d0")]
+script = ExtResource("2_mluyc")

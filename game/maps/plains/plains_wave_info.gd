@@ -1,9 +1,9 @@
 extends Resource
 class_name PlainsWaveInfo
 
-const ENEMY_WEAKLING_SCENE = preload("res://game/enemies/weakling/weakling.tscn")
-const ENEMY_FAST_WEAKLING_SCENE = preload("res://game/enemies/weakling/fast_weakling.tscn")
-const ENEMY_BUBBA_SCENE = preload("res://game/enemies/bubba/bubba.tscn")
+const ENEMY_WEAKLING_SCENE = preload("res://game/entities/enemies/weakling/weakling.tscn")
+const ENEMY_FAST_WEAKLING_SCENE = preload("res://game/entities/enemies/weakling/fast_weakling.tscn")
+const ENEMY_BUBBA_SCENE = preload("res://game/entities/enemies/bubba/bubba.tscn")
 
 
 ## Key is wave number and array holds enemy type, amount of that enemy spawned, and interval between

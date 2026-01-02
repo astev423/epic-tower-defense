@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://g6fqcvqhfxtk"]
+
+[ext_resource type="PackedScene" uid="uid://belivn2d4dnap" path="res://game/entities/towers/rocket_launcher/base_rocket_launcher.tscn" id="1_8c8tf"]
+[ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/towers/pedestal_for_t3_towers.png" id="2_55hlh"]
+[ext_resource type="Script" uid="uid://3ycslynock5" path="res://game/entities/towers/rocket_launcher/rocket_launcher_3.gd" id="2_c34ad"]
+[ext_resource type="Texture2D" uid="uid://5gwjl2mh5d3t" path="res://assets/towers/rocket_launcher/launcher3.png" id="3_c34ad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gvx27"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqlwk"]
+
+[node name="RocketLauncher3" instance=ExtResource("1_8c8tf")]
+script = ExtResource("2_c34ad")
+
+[node name="PedestalSprite" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.674, 0.674)
+texture = ExtResource("2_55hlh")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.674, 0.674)
+texture = ExtResource("3_c34ad")
+
+[node name="AttackRangeDisplay" parent="." index="3"]
+scale = Vector2(1.3065526, 1.2660784)
+
+[node name="AttackRangeArea" parent="." index="4"]
+scale = Vector2(1.298252, 1.298252)
+
+[node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
+shape = SubResource("CircleShape2D_gvx27")
+
+[node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+shape = SubResource("CircleShape2D_nqlwk")

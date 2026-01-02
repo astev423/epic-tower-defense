@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbi53brb0b121"]
+
+[ext_resource type="PackedScene" uid="uid://b06a1n2v16gnk" path="res://game/entities/towers/base_projectile.tscn" id="1_k45j4"]
+[ext_resource type="Script" uid="uid://cfo74i8yq4syq" path="res://game/entities/towers/crossbow/base_bolt.gd" id="2_ij0hx"]
+
+[node name="BaseBolt" instance=ExtResource("1_k45j4")]
+script = ExtResource("2_ij0hx")

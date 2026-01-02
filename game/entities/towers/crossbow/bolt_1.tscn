@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://pnh3xf2pvroj"]
+
+[ext_resource type="PackedScene" uid="uid://dbi53brb0b121" path="res://game/entities/towers/crossbow/base_bolt.tscn" id="1_37wqw"]
+[ext_resource type="Texture2D" uid="uid://rcsy4q57k02n" path="res://assets/towers/crossbow/Tower 01 - Level 01 - Projectile.png" id="2_g02rm"]
+[ext_resource type="Script" uid="uid://byosbhm5ct33" path="res://game/entities/towers/crossbow/bolt_1.gd" id="2_rpxf8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rpxf8"]
+
+[node name="Bolt1" instance=ExtResource("1_37wqw")]
+script = ExtResource("2_rpxf8")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_g02rm")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -2)
+rotation = 1.5707964
+scale = Vector2(1.6290896, 1.6290896)
+shape = SubResource("CapsuleShape2D_rpxf8")

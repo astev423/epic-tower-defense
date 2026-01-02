@@ -1,17 +1,16 @@
 """
+-Make cbow animated
+
 -Finish up all towers and enemies before working on waves, then after working on waves (atleast completing) 50 waves for plains, then work on ui and other stuff, make waves a bit longer also, they
 feel too fast
 
 -Add another enemy, one that takes double damage from cannons, is quite meaty and fast
 
+-Different types of damage, blunt, explosive, piercing, energy, and different enemies weak to 
+different types. Put them in specific groups
+
 -Work on waves, don't save waves until the end as that will be tedious and I won't have much motivation, make at least
 10 waves with good amount of enemies and varying spawn times between them for plains level before moving on
-
--Tower ideas, flamethrower (aoe, short range), missle launcher (aoe, longer range), crossbow (low fire, 
-high damage), machine gun (low damage, high fire), sniper of doom (unlimited range, super high damage
-, super high cost, low fire rate)
-
--Work on balancing, show dps for each cannon in upgrade tooltip
 
 -I'm using too many class fields which makes code hard to reason about, use less and pass more things
 in as parameters

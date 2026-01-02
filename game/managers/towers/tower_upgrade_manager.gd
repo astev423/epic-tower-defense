@@ -19,7 +19,7 @@ func _on_upgrade_tower_button_pressed() -> void:
 		return
 
 	# ask money manager if we have enough money, if success then despawn old tower and instantiate new one
-	var success := GameState.attempt_buying_tower(int(current_tower_highlighted.upgrade_cost))
+	var success := GameState.try_buying_tower(int(current_tower_highlighted.upgrade_cost))
 	if not success:
 		return
 
@@ -33,8 +33,8 @@ func _input(event: InputEvent) -> void:
 
 
 func handle_user_click_on_tower(tower: Node2D) -> void:
-	attempt_highlight_tower_clicked_on(tower)
-	attempt_display_tower_info(tower)
+	try_highlight_tower_clicked_on(tower)
+	try_display_tower_info(tower)
 
 
 func despawn_old_spawn_upgraded_tower() -> void:
@@ -44,7 +44,7 @@ func despawn_old_spawn_upgraded_tower() -> void:
 	get_parent().add_child(upgraded_tower)
 	upgraded_tower.global_position = current_tower_highlighted.global_position
 	current_tower_highlighted.queue_free()
-	attempt_highlight_tower_clicked_on(upgraded_tower)
+	try_highlight_tower_clicked_on(upgraded_tower)
 	upgraded_tower.clickbox.visible = true
 	update_display_tower_info(upgraded_tower)
 
@@ -59,12 +59,20 @@ func get_upgraded_tower_node() -> Node2D:
 		upgraded_tower = tower_scenes.ROCKET_LAUNCHER_2_SCENE.instantiate()
 	elif current_tower_highlighted.type == GameTypes.TowerType.ROCKET_LAUNCHER2:
 		upgraded_tower = tower_scenes.ROCKET_LAUNCHER_3_SCENE.instantiate()
+	elif current_tower_highlighted.type == GameTypes.TowerType.CROSSBOW1:
+		upgraded_tower = tower_scenes.CROSSBOW_2_SCENE.instantiate()
+	elif current_tower_highlighted.type == GameTypes.TowerType.CROSSBOW2:
+		upgraded_tower = tower_scenes.CROSSBOW_3_SCENE.instantiate()
+	elif current_tower_highlighted.type == GameTypes.TowerType.CRYSTAL1:
+		upgraded_tower = tower_scenes.CRYSTAL_2_SCENE.instantiate()
+	elif current_tower_highlighted.type == GameTypes.TowerType.CRYSTAL2:
+		upgraded_tower = tower_scenes.CRYSTAL_3_SCENE.instantiate()
 
 	return upgraded_tower
 
 
 
-func attempt_highlight_tower_clicked_on(tower: Node2D) -> void:
+func try_highlight_tower_clicked_on(tower: Node2D) -> void:
 	# Unhighlight previous tower if it was highlighted and we clicked on a NEW tower
 	if current_tower_highlighted != null and current_tower_highlighted != tower:
 		current_tower_highlighted.attack_range_display.visible = false
@@ -79,7 +87,7 @@ func attempt_highlight_tower_clicked_on(tower: Node2D) -> void:
 		current_highlighted_tower_type = tower.type
 
 
-func attempt_display_tower_info(tower: Node2D) -> void:
+func try_display_tower_info(tower: Node2D) -> void:
 	if self.visible and current_tower_highlighted != tower:
 		self.visible = false
 		return

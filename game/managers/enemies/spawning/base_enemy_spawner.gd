@@ -15,10 +15,10 @@ func _ready() -> void:
 	EventBus.enemy_died.connect(decrease_enemy_count)
 	EventBus.enemy_reached_end.connect(handle_enemy_reached_end)
 	add_to_group("plains_enemy_spawner")
-	attempt_start_wave()
+	try_start_wave()
 
 
-func attempt_start_wave() -> void:
+func try_start_wave() -> void:
 	if GameState.get_cur_wave() > wave_info.waves.size():
 		spawn_fireworks()
 		return
@@ -45,7 +45,7 @@ func setup_group_in_wave() -> void:
 	print_debug("total enemies in this wave so far: ", enemy_count)
 
 
-func attempt_spawning_enemy() -> void:
+func try_spawning_enemy() -> void:
 	# After first enemy spawned give timer the right interval between enemies
 	if !first_enemy_spawned:
 		create_timer_for_spawning_enemies(time_between_enemies)
@@ -94,7 +94,7 @@ func create_timer_for_spawning_enemies(interval: float) -> void:
 	timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = interval
-	timer.timeout.connect(attempt_spawning_enemy)
+	timer.timeout.connect(try_spawning_enemy)
 	timer.start()
 
 
@@ -113,7 +113,7 @@ func decrease_enemy_count() -> void:
 		GameState.handle_wave_over(GameState.get_cur_wave())
 		EventBus.pause_event.emit()
 		timer.queue_free()
-		attempt_start_wave()
+		try_start_wave()
 
 
 func spawn_fireworks() -> void:

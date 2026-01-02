@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxq6b0g077lhn" path="res://assets/kenney_ui-pack/PNG/Green/Default/check_square_color.png" id="1_vyht1"]
 [ext_resource type="Script" uid="uid://dbp5y7cqe56mf" path="res://game/maps/levels.gd" id="3_tw3kd"]
 [ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="3_vvh5c"]
-[ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/maps/pause_unpause_alerter.gd" id="4_jnlp7"]
+[ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/ui/pause_unpause_alerter.gd" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="4_l8v81"]
 [ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/maps/resources/resource_displayer.tscn" id="5_l8v81"]
 [ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/maps/highlight_tile/highlight_tile.tscn" id="7_huihk"]

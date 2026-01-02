@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ded24yxt5yuym"]
-
-[ext_resource type="PackedScene" uid="uid://wo5kcm37umfh" path="res://game/enemies/weakling/weakling.tscn" id="1_1hnny"]
-[ext_resource type="Script" uid="uid://bg0bo4raytg5h" path="res://game/enemies/weakling/fast_weakling.gd" id="2_gq72h"]
-
-[node name="FastWeakling" instance=ExtResource("1_1hnny")]
-script = ExtResource("2_gq72h")

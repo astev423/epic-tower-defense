@@ -1,0 +1,7 @@
+extends "res://game/entities/enemies/base_enemy.gd"
+
+func _ready() -> void:
+	movement_speed = 400
+	health_comp.init_health(10)
+	lives_taken_if_reach_finish = 1
+	money_awarded_if_killed = 50

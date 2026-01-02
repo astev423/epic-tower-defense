@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://b866ibevid0q8"]
+
+[ext_resource type="PackedScene" uid="uid://3jfqe0tg0oyg" path="res://game/entities/towers/crossbow/base_crossbow.tscn" id="1_nbjfo"]
+[ext_resource type="Script" uid="uid://ddvjapfm1cvcx" path="res://game/entities/towers/crossbow/crossbow_3.gd" id="2_04ltp"]
+[ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/towers/pedestal_for_t3_towers.png" id="3_rrf3n"]
+[ext_resource type="Texture2D" uid="uid://6bv55670vbkv" path="res://assets/towers/crossbow/Tower 01 - Level 03 - Weapon.png" id="4_7k3k4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rkpd6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s46ak"]
+
+[node name="Crossbow3" instance=ExtResource("1_nbjfo")]
+script = ExtResource("2_04ltp")
+
+[node name="Pedestal" type="Sprite2D" parent="." index="0"]
+scale = Vector2(0.52404386, 0.52404386)
+texture = ExtResource("3_rrf3n")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("4_7k3k4")
+region_enabled = true
+region_rect = Rect2(20, 24, 56, 48)
+
+[node name="AttackRangeDisplay" parent="." index="3"]
+scale = Vector2(10.320321, 10.000618)
+
+[node name="AttackRangeArea" parent="." index="4"]
+scale = Vector2(10.254754, 10.254754)
+
+[node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
+shape = SubResource("CircleShape2D_rkpd6")
+
+[node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+shape = SubResource("CircleShape2D_s46ak")

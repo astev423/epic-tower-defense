@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://3jfqe0tg0oyg"]
+
+[ext_resource type="PackedScene" uid="uid://bta8v0qgvy0ev" path="res://game/entities/towers/base_tower.tscn" id="1_2y083"]
+[ext_resource type="Script" uid="uid://bbed1alc6yui7" path="res://game/entities/towers/crossbow/base_crossbow.gd" id="2_5f4ir"]
+
+[node name="BaseCrossbow" instance=ExtResource("1_2y083")]
+script = ExtResource("2_5f4ir")

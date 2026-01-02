@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh0wmuvbta0vu"]
+
+[ext_resource type="PackedScene" uid="uid://cx8ygtp7o6oyc" path="res://game/entities/towers/cannon/base_cannon.tscn" id="1_crobf"]
+[ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="2_rpdst"]
+[ext_resource type="Script" uid="uid://duhnjis1yd3hc" path="res://game/entities/towers/cannon/cannon_1.gd" id="2_td4kv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crobf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yafuu"]
+
+[node name="Cannon1" instance=ExtResource("1_crobf")]
+script = ExtResource("2_td4kv")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_rpdst")
+
+[node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
+shape = SubResource("CircleShape2D_crobf")
+
+[node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+shape = SubResource("CircleShape2D_yafuu")

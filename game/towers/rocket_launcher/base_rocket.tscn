@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c15w3582cbw0m"]
-
-[ext_resource type="PackedScene" uid="uid://b06a1n2v16gnk" path="res://game/towers/base_projectile.tscn" id="1_enfo0"]
-[ext_resource type="Script" uid="uid://lnkv7j1gwtas" path="res://game/towers/rocket_launcher/base_rocket.gd" id="2_0vok1"]
-
-[node name="BaseRocket" instance=ExtResource("1_enfo0")]
-script = ExtResource("2_0vok1")
