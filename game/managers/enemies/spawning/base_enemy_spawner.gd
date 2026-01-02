@@ -2,118 +2,114 @@ extends Node
 
 const cpu_particles_scene = preload("res://game/maps/victory_fireworks.tscn")
 
+# Variables for all waves
 var wave_info: Resource
-var timer: Timer
-var first_enemy_spawned: bool
 var spawn_point: Vector2
-var enemy_type: GameTypes.EnemyType
-var enemy_count: int
-var enemies_in_group_to_be_spawned: int
+var last_wave_num: int
+
+# Variables holding info for just the current wave and group
+@onready var spawn_timer: Timer = $TimeBetweenEnemies
+var info_for_current_wave: Array
+var cur_enemy_type: GameTypes.EnemyType
+var cur_enemy_count: int
+var enemies_in_cur_group_to_be_spawned: int
 var time_between_enemies: float
+
 
 func _ready() -> void:
 	EventBus.enemy_died.connect(decrease_enemy_count)
-	EventBus.enemy_reached_end.connect(handle_enemy_reached_end)
-	add_to_group("plains_enemy_spawner")
-	try_start_wave()
+	EventBus.enemy_reached_end.connect(_on_enemy_reached_end)
+	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
+	last_wave_num = wave_info.waves.size()
+	try_start_new_wave()
 
 
-func try_start_wave() -> void:
-	if GameState.get_cur_wave() > wave_info.waves.size():
+func _on_spawn_timer_timeout() -> void:
+	try_spawning_enemy()
+
+
+func _on_enemy_reached_end(lives_taken_if_reach_finish: int) -> void:
+	GameState.decrease_lives(lives_taken_if_reach_finish)
+	decrease_enemy_count()
+
+
+func try_start_new_wave() -> void:
+	if GameState.get_cur_wave_num() > last_wave_num:
+		# TODO Spawn fireworks and show victory screen
 		spawn_fireworks()
 		return
 
 	setup_wave()
-	# Initially timer is short to allow quick spawning of first enemy
-	create_timer_for_spawning_enemies(0.1)
 
 
 func setup_wave() -> void:
-	enemy_count = 0
+	# Initially timer is short to allow quick spawning of first enemy
+	spawn_timer.wait_time = 0.01
+	spawn_timer.start()
+
+	cur_enemy_count = 0
+	info_for_current_wave = wave_info.waves[GameState.get_cur_wave_num()]
 	# Reverse so we can pop back to prevent resizing
-	wave_info.waves[GameState.get_cur_wave()].reverse()
-	setup_group_in_wave()
+	info_for_current_wave.reverse()
+	get_info_of_new_group()
 
 
-func setup_group_in_wave() -> void:
-	first_enemy_spawned = false
-	enemy_type = wave_info.waves[GameState.get_cur_wave()].pop_back()
-	enemies_in_group_to_be_spawned = wave_info.waves[GameState.get_cur_wave()].pop_back()
-	enemy_count += enemies_in_group_to_be_spawned
-	time_between_enemies = wave_info.waves[GameState.get_cur_wave()].pop_back()
-	print_debug("enemies of ", enemy_type, " spawning: ", enemies_in_group_to_be_spawned)
-	print_debug("total enemies in this wave so far: ", enemy_count)
+func get_info_of_new_group() -> void:
+	cur_enemy_type = info_for_current_wave.pop_back()
+	enemies_in_cur_group_to_be_spawned = info_for_current_wave.pop_back()
+	cur_enemy_count += enemies_in_cur_group_to_be_spawned
+	time_between_enemies = info_for_current_wave.pop_back()
+	spawn_timer.wait_time = time_between_enemies
+
+	print_debug("enemies of ", cur_enemy_type, " spawning: ", enemies_in_cur_group_to_be_spawned)
+	print_debug("total enemies in this wave so far: ", cur_enemy_count)
 
 
 func try_spawning_enemy() -> void:
-	# After first enemy spawned give timer the right interval between enemies
-	if !first_enemy_spawned:
-		create_timer_for_spawning_enemies(time_between_enemies)
-
-	if enemies_in_group_to_be_spawned <= 0:
-		if wave_info.waves[GameState.get_cur_wave()].size() == 0:
-			timer.stop()
+	if enemies_in_cur_group_to_be_spawned <= 0:
+		if info_for_current_wave.size() == 0:
+			spawn_timer.stop()
 			print_debug("EVERYTHING IN WAVE SPAWNED")
 			return
 		else:
-			setup_group_in_wave()
+			get_info_of_new_group()
+			print_debug("SPAWNING NEW GROUP FOR CURRENT WAVE")
 			return
 
-	var spawned_enemy: CharacterBody2D
-	if enemy_type == GameTypes.EnemyType.Weakling:
-		spawned_enemy = wave_info.ENEMY_WEAKLING_SCENE.instantiate()
-	if enemy_type == GameTypes.EnemyType.FastWeakling:
-		spawned_enemy = wave_info.ENEMY_FAST_WEAKLING_SCENE.instantiate()
-	elif enemy_type == GameTypes.EnemyType.Bubba:
-		spawned_enemy = wave_info.ENEMY_BUBBA_SCENE.instantiate()
+	var instantiated_enemy := get_enemy_type()
+	spawn_and_setup_enemy(instantiated_enemy)
 
-	spawn_and_setup_enemy(spawned_enemy)
 
-	# Start next group instantly to prevent waves ending prematurely if all monsters die
-	if enemies_in_group_to_be_spawned == 0:
-		timer.stop()
-		timer.wait_time = 0.1
-		timer.start()
+func get_enemy_type() -> CharacterBody2D:
+	if cur_enemy_type == GameTypes.EnemyType.Weakling:
+		return wave_info.ENEMY_WEAKLING_SCENE.instantiate()
+	if cur_enemy_type == GameTypes.EnemyType.FastWeakling:
+		return wave_info.ENEMY_FAST_WEAKLING_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.Bubba:
+		return wave_info.ENEMY_BUBBA_SCENE.instantiate()
+	else:
+		print("Trying to spawn enemy of unknown type, defaulting to fast weakling")
+		return wave_info.ENEMY_FAST_WEAKLING_SCENE.instantiate()
 
 
 func spawn_and_setup_enemy(spawned_enemy: CharacterBody2D) -> void:
 	add_child(spawned_enemy)
 	spawned_enemy.global_position = spawn_point
 	spawned_enemy.setup_path_and_info()
-	# Make enemies appear above everything else
 	spawned_enemy.z_index = 1
-	enemies_in_group_to_be_spawned -= 1
-	first_enemy_spawned = true
-
-
-func create_timer_for_spawning_enemies(interval: float) -> void:
-	# There could be an old timer so delete it
-	if timer != null:
-		timer.queue_free()
-
-	timer = Timer.new()
-	add_child(timer)
-	timer.wait_time = interval
-	timer.timeout.connect(try_spawning_enemy)
-	timer.start()
-
-
-func handle_enemy_reached_end(lives_taken_if_reach_finish: int) -> void:
-	GameState.decrease_lives(lives_taken_if_reach_finish)
-	decrease_enemy_count()
+	enemies_in_cur_group_to_be_spawned -= 1
 
 
 func decrease_enemy_count() -> void:
-	enemy_count -= 1
-	print_debug("decreasing enemies to", enemy_count)
+	cur_enemy_count -= 1
+	print_debug("decreasing enemies to", cur_enemy_count)
 
-	# If no enemies left then wave over so update resources and pause
-	if enemy_count <= 0:
+	if cur_enemy_count <= 0:
 		print_debug("WAVE OVER ALL ENEMIES DIED")
-		GameState.handle_wave_over(GameState.get_cur_wave())
+		GameState._on_wave_over(GameState.get_cur_wave_num())
 		EventBus.pause_event.emit()
-		timer.queue_free()
-		try_start_wave()
+		spawn_timer.stop()
+		try_start_new_wave()
 
 
 func spawn_fireworks() -> void:

@@ -30,7 +30,7 @@ func decrease_lives(lives_taken_if_reach_finish: int) -> void:
 		assert(GameState._cur_lives > 0)
 
 
-func handle_wave_over(completed_wave_number: int) -> void:
+func _on_wave_over(completed_wave_number: int) -> void:
 	add_money((200 * log(10 * completed_wave_number)) / log(10) as int)
 	increase_wave_count()
 
@@ -41,11 +41,11 @@ func increase_wave_count() -> void:
 
 
 # Getters and setters so we keep encapsulation, don't want to accidently modify these without the API
-func get_cur_money() -> int:
+func get_cur_money_amount() -> int:
 	return _cur_money
-func get_cur_lives() -> int:
+func get_cur_lives_num() -> int:
 	return _cur_lives
-func get_cur_wave() -> int:
+func get_cur_wave_num() -> int:
 	return _cur_wave
 
 

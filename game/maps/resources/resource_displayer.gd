@@ -10,13 +10,10 @@ This connects gamestate global to signals
 var enemy_spawner: Node
 
 
-
-# Enemy spawner comes from maps
 func _ready() -> void:
 	EventBus.money_changed.connect(update_money_label)
 	EventBus.wave_changed.connect(update_waves_label)
 	EventBus.lives_changed.connect(update_lives_label)
-	# Allow money stuff while paused
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	setup_label_values()
 
@@ -34,6 +31,6 @@ func update_waves_label(new_wave_num: int) -> void:
 
 
 func setup_label_values()-> void:
-	money_label.text = "Money: %d" % GameState.get_cur_money()
-	lives_label.text = "Lives: %d" % GameState.get_cur_lives()
-	waves_label.text = "Wave: %d/50" % GameState.get_cur_wave()
+	update_money_label(GameState.get_cur_money_amount())
+	update_lives_label(GameState.get_cur_lives_num())
+	update_waves_label(GameState.get_cur_wave_num())

@@ -18,8 +18,8 @@ config/icon="uid://mc3ow6i6ntc0"
 
 [autoload]
 
-EventBus="*res://globals/event_bus.gd"
-GameState="*res://globals/game_state.gd"
+EventBus="*res://autoloads/event_bus.gd"
+GameState="*res://autoloads/game_state.gd"
 
 [debug]
 

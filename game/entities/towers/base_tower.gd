@@ -28,14 +28,12 @@ func _ready() -> void:
 	# By default tower is a dud, these falses get set to true when placed so tower can do stuff
 	attack_range_display.visible = false
 	clickbox.visible = false
-	can_fire = true
 	attack_timer.wait_time = 1. / attacks_per_second
 	attack_timer.timeout.connect(allow_tower_to_shoot)
 
 
 ## Look at an enemy if it exists and shoot if cooldown done
 func _physics_process(delta: float) -> void:
-	# Get bodies not areas as enemies are charbody2d
 	for cur_enemy in attack_range_area.get_overlapping_bodies():
 		if not cur_enemy.is_in_group("enemies"):
 			continue
@@ -44,12 +42,7 @@ func _physics_process(delta: float) -> void:
 		rotation += deg_to_rad(90)
 
 		if can_fire:
-			var projectile_node: Area2D = projectile_scene.instantiate()
-			get_parent().add_child(projectile_node)
-			projectile_node.global_position = global_position
-			projectile_node.direction = (cur_enemy.global_position - projectile_node.global_position).normalized()
-			projectile_node.damage = tower_damage
-			projectile_node.projectile_speed = projectile_speed
+			spawn_projectile(cur_enemy)
 			can_fire = false
 			is_shooting = true
 			attack_timer.start()
@@ -76,3 +69,12 @@ func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: in
 func allow_tower_to_shoot() -> void:
 	can_fire = true
 	attack_timer.stop()
+
+
+func spawn_projectile(enemy_to_shoot_at: CharacterBody2D) -> void:
+	var projectile_node: Area2D = projectile_scene.instantiate()
+	get_parent().add_child(projectile_node)
+	projectile_node.global_position = global_position
+	projectile_node.direction = (enemy_to_shoot_at.global_position - projectile_node.global_position).normalized()
+	projectile_node.damage = tower_damage
+	projectile_node.projectile_speed = projectile_speed

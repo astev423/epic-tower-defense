@@ -17,8 +17,8 @@ var skip_after_unpause := 0
 var miss_frames := 0
 
 func _ready() -> void:
-	print("setting up")
 	set_up_timer()
+	super._ready()
 
 
 func _physics_process(delta: float) -> void:
@@ -96,7 +96,6 @@ func enemy_still_in_range() -> bool:
 
 
 func allow_shooting() -> void:
-	print("what")
 	animated_sprite.play("shooting")
 	is_shooting = true
 

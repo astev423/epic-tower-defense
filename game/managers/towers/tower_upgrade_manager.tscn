@@ -21,14 +21,14 @@ centered = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TowerInfo"]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 12.0
-offset_right = 488.89368
-offset_bottom = 52.0
-scale = Vector2(1.8200301, 2.50003)
+offset_left = 44.0
+offset_top = 18.000002
+offset_right = 16228.43
+offset_bottom = 1310.0
+scale = Vector2(0.049924526, 0.06857734)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_plkjl")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 572
 text = "Damage: 1000    Attack Speed:  10   
 Projectile Speed: 4000    DPS: 10000"
 fit_content = true

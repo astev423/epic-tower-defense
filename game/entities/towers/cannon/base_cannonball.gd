@@ -5,7 +5,6 @@ var already_hit_enemy: bool
 
 func _ready() -> void:
 	already_hit_enemy = false
-	add_to_group("cannonball")
 
 
 func _on_body_entered(body: Node2D) -> void:

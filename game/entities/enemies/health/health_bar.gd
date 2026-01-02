@@ -14,7 +14,7 @@ func init_healthbar(health: float) -> void:
 
 
 func set_health(new_health: float) -> void:
-	value = new_health
+	value = clampf(new_health, 0, max_value)
 	timer.start()
 
 

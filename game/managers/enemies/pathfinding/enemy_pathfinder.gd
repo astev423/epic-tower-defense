@@ -37,7 +37,6 @@ func get_valid_path(start_pos: Vector2, end_pos: Vector2) -> Array[Vector2]:
 
 	for point in astar_grid.get_point_path(start_pos, end_pos):
 		var cur_point: Vector2 = point
-		# go to center of the cell by adding 32
 		cur_point += astar_grid.cell_size / 2
 		path_array.append(cur_point)
 

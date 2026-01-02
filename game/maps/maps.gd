@@ -4,16 +4,16 @@ extends Node2D
 var no_money_label: Label
 
 func _ready() -> void:
-	EventBus.pause_event.connect(handle_pause)
+	EventBus.pause_event.connect(_on_pause)
 	EventBus.not_enough_money.connect(display_no_money_warning)
 	no_money_label = $"MapUI/NoMoneyWarning"
 	no_money_label.visible = false
 
 	# Pause initially until user starts
-	handle_pause()
+	_on_pause()
 
 
-func handle_pause() -> void:
+func _on_pause() -> void:
 	if process_mode == Node.PROCESS_MODE_DISABLED:
 		set_deferred("process_mode", Node.PROCESS_MODE_INHERIT)
 		paused_alert_label.visible = false

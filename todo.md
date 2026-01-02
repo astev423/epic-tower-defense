@@ -1,6 +1,5 @@
 """
--upgrading crystals specifcally causes issues, like not selecting tower
-after upgrade
+-Set stats for export
 
 -Make quick ice map, it should be hardest one, just a quick straight line, then mark each level according to difficulty, where plains medium, dunes easy, and ice hard, also give each level the same wave info
 

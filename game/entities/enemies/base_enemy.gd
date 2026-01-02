@@ -21,7 +21,7 @@ var money_awarded_if_killed: int
 
 func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
-	health_comp.died.connect(handle_death)
+	health_comp.died.connect(_on_death)
 	add_to_group("enemies")
 
 
@@ -66,7 +66,7 @@ func move_to_closest_point_on_path(delta: float) -> void:
 
 ## We need bool check here because queue_free is not instant and this can be called twice
 ## Queue free is at END of current frame which is why it is called QUEUE
-func handle_death() -> void:
+func _on_death() -> void:
 	if died:
 		return
 

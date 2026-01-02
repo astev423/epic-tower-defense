@@ -4,3 +4,5 @@
 
 [node name="BaseEnemySpawner" type="Node"]
 script = ExtResource("1_g8nrk")
+
+[node name="TimeBetweenEnemies" type="Timer" parent="."]
