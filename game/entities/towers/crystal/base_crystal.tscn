@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://vhjmyap1kv85"]
+
+[ext_resource type="PackedScene" uid="uid://bta8v0qgvy0ev" path="res://game/entities/towers/base_tower.tscn" id="1_k4sjp"]
+[ext_resource type="Script" uid="uid://kf2kgs58f13k" path="res://game/entities/towers/crystal/base_crystal.gd" id="2_84f32"]
+
+[node name="BaseCrystal" instance=ExtResource("1_k4sjp")]
+script = ExtResource("2_84f32")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+
+[node name="Sprite2D" parent="." index="1"]
+visible = false

@@ -20,9 +20,9 @@ const CROSSBOW_3_SCENE = preload("res://game/entities/towers/crossbow/crossbow_3
 
 
 # Crystal
-#const CRYSTAL_1_SCENE = preload("res://game/entities/towers/crystal/crystal_1.tscn")
-#const CRYSTAL_2_SCENE = preload("res://game/entities/towers/crystal/crystal_2.tscn")
-#const CRYSTAL_3_SCENE = preload("res://game/entities/towers/crystal/crystal_3.tscn")
+const CRYSTAL_1_SCENE = preload("res://game/entities/towers/crystal/crystal_1.tscn")
+const CRYSTAL_2_SCENE = preload("res://game/entities/towers/crystal/crystal_2.tscn")
+const CRYSTAL_3_SCENE = preload("res://game/entities/towers/crystal/crystal_3.tscn")
 
 
 # Flamethrowers

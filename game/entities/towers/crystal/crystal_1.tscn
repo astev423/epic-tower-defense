@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkdvee2yxjlxh"]
+
+[ext_resource type="PackedScene" uid="uid://vhjmyap1kv85" path="res://game/entities/towers/crystal/base_crystal.tscn" id="1_b3vqd"]
+[ext_resource type="Script" uid="uid://bc506hyt6xk4r" path="res://game/entities/towers/crystal/crystal_1.gd" id="2_jufq4"]
+[ext_resource type="Texture2D" uid="uid://by7nltu4l1nto" path="res://assets/towers/crystal/Tower 02 - Level 01 - Weapon.png" id="3_pokd7"]
+[ext_resource type="SpriteFrames" uid="uid://c4lq8i8gbyml" path="res://assets/towers/crystal/crystal_1_animation.tres" id="4_xrqwv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pokd7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o3thj"]
+
+[node name="Crystal1" instance=ExtResource("1_b3vqd")]
+script = ExtResource("2_jufq4")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+scale = Vector2(1.694067, 1.694067)
+sprite_frames = ExtResource("4_xrqwv")
+autoplay = "default"
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -13.000001)
+scale = Vector2(1.3521826, 1.3521826)
+texture = ExtResource("3_pokd7")
+region_enabled = true
+region_rect = Rect2(8, 8, 32, 32)
+
+[node name="AttackRangeDisplay" parent="." index="3"]
+scale = Vector2(0.8571003, 0.83054906)
+
+[node name="AttackRangeArea" parent="." index="4"]
+scale = Vector2(0.851655, 0.851655)
+
+[node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
+shape = SubResource("CircleShape2D_pokd7")
+
+[node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+scale = Vector2(2.5425417, 2.5425417)
+shape = SubResource("CircleShape2D_o3thj")

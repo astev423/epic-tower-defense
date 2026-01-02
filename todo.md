@@ -1,5 +1,5 @@
 """
--Make cbow animated
+-Make quick ice map, it should be hardest one, just a quick straight line, then mark each level according to difficulty, where plains medium, dunes easy, and ice hard, also give each level the same wave info
 
 -Finish up all towers and enemies before working on waves, then after working on waves (atleast completing) 50 waves for plains, then work on ui and other stuff, make waves a bit longer also, they
 feel too fast
@@ -16,6 +16,8 @@ different types. Put them in specific groups
 in as parameters
 
 -Add more waves
+
+-Add modifiers before users start map, like custom starting lives, money, start at specific wave, unlimited money, etc
 
 -Work on UI, make start menu, let users exit map and go to main menu, add death screen that takes you back to main menu, and
 in main menu itself let users click play then select map or see their stats (saved via godot saving), or red button for exit

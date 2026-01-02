@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4t73a6y244pk"]
+
+[ext_resource type="PackedScene" uid="uid://vhjmyap1kv85" path="res://game/entities/towers/crystal/base_crystal.tscn" id="1_lmjrr"]
+[ext_resource type="Script" uid="uid://b4ek0ubiesyf3" path="res://game/entities/towers/crystal/crystal_2.gd" id="2_4qp8r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvgh5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qp8r"]
+
+[node name="Crystal2" instance=ExtResource("1_lmjrr")]
+script = ExtResource("2_4qp8r")
+
+[node name="AttackRangeDisplay" parent="." index="3"]
+scale = Vector2(0.852, 0.852)
+
+[node name="AttackRangeArea" parent="." index="4"]
+scale = Vector2(0.852, 0.852)
+
+[node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
+shape = SubResource("CircleShape2D_lvgh5")
+
+[node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+shape = SubResource("CircleShape2D_4qp8r")

@@ -28,7 +28,7 @@ func get_map_info_for_map_clicked(map_user_clicked: Maps) -> void:
 		current_map = load("res://game/maps/plains/plains.tscn")
 		path_to_tilemap = "Plains/TileMapLayer"
 		path_to_spawner = "Plains/PlainsEnemySpawner"
-		GameState.set_variables(300, 30000, 11)
+		GameState.set_variables(300, 30000, 9)
 	elif map_user_clicked == Maps.DUNES:
 		current_map = load("res://game/maps/dunes/dunes.tscn")
 		path_to_tilemap = "Dunes/TileMapLayer"
