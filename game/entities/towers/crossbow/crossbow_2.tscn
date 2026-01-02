@@ -1,8 +1,70 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq00sp1cp2rrm"]
+[gd_scene load_steps=14 format=3 uid="uid://bq00sp1cp2rrm"]
 
 [ext_resource type="PackedScene" uid="uid://3jfqe0tg0oyg" path="res://game/entities/towers/crossbow/base_crossbow.tscn" id="1_614r5"]
 [ext_resource type="Script" uid="uid://db0hf5xgxnb02" path="res://game/entities/towers/crossbow/crossbow_2.gd" id="2_vdhgj"]
 [ext_resource type="Texture2D" uid="uid://bemju2wp35ctt" path="res://assets/towers/crossbow/Tower 01 - Level 02 - Weapon.png" id="3_yd7xk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdhgj"]
+atlas = ExtResource("3_yd7xk")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd7xk"]
+atlas = ExtResource("3_yd7xk")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0j2c"]
+atlas = ExtResource("3_yd7xk")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp0rf"]
+atlas = ExtResource("3_yd7xk")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am4x6"]
+atlas = ExtResource("3_yd7xk")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhgl6"]
+atlas = ExtResource("3_yd7xk")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ts0n"]
+atlas = ExtResource("3_yd7xk")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wvub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdhgj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd7xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0j2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dp0rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am4x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhgl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ts0n")
+}],
+"loop": false,
+"name": &"shooting",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vdhgj"]
 
@@ -17,10 +79,14 @@ texture = ExtResource("3_yd7xk")
 region_enabled = true
 region_rect = Rect2(24, 24, 48, 48)
 
-[node name="AttackRangeDisplay" parent="." index="2"]
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_2wvub")
+autoplay = "default"
+
+[node name="AttackRangeDisplay" parent="." index="3"]
 scale = Vector2(2.8028588, 2.8028588)
 
-[node name="AttackRangeArea" parent="." index="3"]
+[node name="AttackRangeArea" parent="." index="4"]
 scale = Vector2(2.8028588, 2.8028588)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]

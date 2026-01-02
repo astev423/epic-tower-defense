@@ -40,10 +40,10 @@ func handle_user_click_on_tower(tower: Node2D) -> void:
 func despawn_old_spawn_upgraded_tower() -> void:
 	var upgraded_tower := get_upgraded_tower_node()
 
-	# Add new tower and free old one
 	get_parent().add_child(upgraded_tower)
 	upgraded_tower.global_position = current_tower_highlighted.global_position
 	current_tower_highlighted.queue_free()
+
 	try_highlight_tower_clicked_on(upgraded_tower)
 	upgraded_tower.clickbox.visible = true
 	update_display_tower_info(upgraded_tower)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cm8pymm3x7k6l" path="res://assets/towers/crossbow/Tower 01 - Level 01 - Weapon.png" id="2_glofs"]
 [ext_resource type="Script" uid="uid://fjstdkod6yn" path="res://game/entities/towers/crossbow/crossbow_1.gd" id="2_nww5m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w05ce"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nww5m"]
 atlas = ExtResource("2_glofs")
 region = Rect2(0, 0, 96, 96)
 
@@ -28,15 +28,15 @@ region = Rect2(384, 0, 96, 96)
 atlas = ExtResource("2_glofs")
 region = Rect2(480, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nww5m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w05ce"]
 atlas = ExtResource("2_glofs")
 region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_w05ce"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_3wqq2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w05ce")
+"texture": SubResource("AtlasTexture_nww5m")
 }],
 "loop": false,
 "name": &"default",
@@ -59,7 +59,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_qvj5t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nww5m")
+"texture": SubResource("AtlasTexture_w05ce")
 }],
 "loop": false,
 "name": &"shooting",
@@ -73,16 +73,14 @@ animations = [{
 [node name="Crossbow1" instance=ExtResource("1_s1ite")]
 script = ExtResource("2_nww5m")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
-scale = Vector2(1.4583497, 1.4583497)
-sprite_frames = SubResource("SpriteFrames_w05ce")
-autoplay = "default"
-
-[node name="Sprite2D" parent="." index="1"]
-visible = false
+[node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_glofs")
 region_enabled = true
 region_rect = Rect2(28, 24, 40, 48)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_3wqq2")
+autoplay = "default"
 
 [node name="AttackRangeDisplay" parent="." index="3"]
 scale = Vector2(2.0456548, 1.9822844)
@@ -95,5 +93,3 @@ shape = SubResource("CircleShape2D_nww5m")
 
 [node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
 shape = SubResource("CircleShape2D_3b0e6")
-
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
