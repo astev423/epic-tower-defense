@@ -1,5 +1,7 @@
 extends Node2D
 
+const MAP_CONSTANTS = preload("res://game/maps/levels.gd")
+
 @onready var tower_placement_manager: Node2D = $"../TowerPlacementManager"
 @onready var tower_info_label: RichTextLabel = $"TowerInfo/RichTextLabel"
 @onready var upgrade_cost_label: RichTextLabel = $"UpgradeTower/RichTextLabel"
@@ -33,6 +35,12 @@ func _input(event: InputEvent) -> void:
 
 
 func handle_user_click_on_tower(tower: Node2D) -> void:
+	var mouse_pos := get_global_mouse_position()
+	if (mouse_pos.x > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_HORIZONTAL_TILES
+			or mouse_pos.y > MAP_CONSTANTS.TILE_SIZE * MAP_CONSTANTS.NUM_VERTICAL_TILES):
+		return
+
+	print("clicked on", tower)
 	try_highlight_tower_clicked_on(tower)
 	try_display_tower_info(tower)
 

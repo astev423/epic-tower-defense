@@ -1,7 +1,145 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4t73a6y244pk"]
+[gd_scene load_steps=21 format=3 uid="uid://c4t73a6y244pk"]
 
 [ext_resource type="PackedScene" uid="uid://vhjmyap1kv85" path="res://game/entities/towers/crystal/base_crystal.tscn" id="1_lmjrr"]
 [ext_resource type="Script" uid="uid://b4ek0ubiesyf3" path="res://game/entities/towers/crystal/crystal_2.gd" id="2_4qp8r"]
+[ext_resource type="Texture2D" uid="uid://c7c07l6oe1w7p" path="res://assets/towers/crystal/Tower 02 - Level 02 - Weapon.png" id="3_lvgh5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pm0n"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oov37"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qie0u"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy4jw"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdr55"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clxgp"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nthh1"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(384, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j84te"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(448, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw1ny"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(512, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38vdy"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(576, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o05gt"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(640, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdifg"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(704, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mu53"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(768, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxgfl"]
+atlas = ExtResource("3_lvgh5")
+region = Rect2(832, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qp8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pm0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oov37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qie0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy4jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qie0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy4jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qie0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy4jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qie0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy4jw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qie0u")
+}],
+"loop": false,
+"name": &"charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdr55")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clxgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nthh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j84te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw1ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38vdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o05gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdifg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mu53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgfl")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvgh5"]
 
@@ -10,14 +148,25 @@
 [node name="Crystal2" instance=ExtResource("1_lmjrr")]
 script = ExtResource("2_4qp8r")
 
-[node name="AttackRangeDisplay" parent="." index="3"]
+[node name="Beam" parent="." index="0"]
+default_color = Color(1, 1, 0, 1)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+scale = Vector2(1.5519845, 1.5519845)
+sprite_frames = SubResource("SpriteFrames_4qp8r")
+animation = &"shooting"
+autoplay = "default"
+
+[node name="AttackRangeDisplay" parent="." index="4"]
 scale = Vector2(0.852, 0.852)
 
-[node name="AttackRangeArea" parent="." index="4"]
+[node name="AttackRangeArea" parent="." index="5"]
 scale = Vector2(0.852, 0.852)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
 shape = SubResource("CircleShape2D_lvgh5")
 
 [node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+position = Vector2(0, -4)
+scale = Vector2(3.3855462, 3.3855462)
 shape = SubResource("CircleShape2D_4qp8r")

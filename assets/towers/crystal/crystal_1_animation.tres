@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=18 format=3 uid="uid://c4lq8i8gbyml"]
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://c4lq8i8gbyml"]
 
 [ext_resource type="Texture2D" uid="uid://by7nltu4l1nto" path="res://assets/towers/crystal/Tower 02 - Level 01 - Weapon.png" id="1_txi7e"]
 
@@ -21,18 +21,6 @@ region = Rect2(624, 48, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o3thj"]
 atlas = ExtResource("1_txi7e")
 region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n1edo"]
-atlas = ExtResource("1_txi7e")
-region = Rect2(576, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ll2yg"]
-atlas = ExtResource("1_txi7e")
-region = Rect2(672, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i8iui"]
-atlas = ExtResource("1_txi7e")
-region = Rect2(720, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l554l"]
 atlas = ExtResource("1_txi7e")
@@ -112,23 +100,6 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n1edo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m5mnj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ll2yg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i8iui")
-}],
-"loop": false,
-"name": &"done_shooting",
 "speed": 5.0
 }, {
 "frames": [{

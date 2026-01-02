@@ -8,12 +8,17 @@ extends "res://game/entities/towers/base_tower.gd"
 const SKIP_FRAMES_AFTER_UNPAUSE := 2
 const MISS_FRAMES_TO_CLEAR := 3
 
+@onready var beam: Line2D = $Beam
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var enemy_locked_on_to: CharacterBody2D
 var charging_timer: Timer
 var was_paused := false
 var skip_after_unpause := 0
 var miss_frames := 0
+
+func _ready() -> void:
+	print("setting up")
+	set_up_timer()
 
 
 func _physics_process(delta: float) -> void:
@@ -32,32 +37,44 @@ func _physics_process(delta: float) -> void:
 		skip_after_unpause -= 1
 		return
 
-	if not is_instance_valid(enemy_locked_on_to) :
+	if not is_instance_valid(enemy_locked_on_to):
 		try_finding_enemy_to_lock_on_to()
 		return
 
 	try_shooting_enemy(delta)
-	look_at(enemy_locked_on_to.global_position)
-	rotation += deg_to_rad(90)
+	if is_instance_valid(enemy_locked_on_to):
+		look_at(enemy_locked_on_to.global_position)
+		rotation += deg_to_rad(90)
 
 
 func try_finding_enemy_to_lock_on_to() -> void:
-	animated_sprite.play("default")
-	is_shooting = false
+	set_tower_idle()
 
 	for cur_enemy in attack_range_area.get_overlapping_bodies():
 		if not cur_enemy.is_in_group("enemies"):
 			continue
 
 		enemy_locked_on_to = cur_enemy
-		set_up_charging_timer()
+		charging_timer.start()
 		animated_sprite.play("charging")
 		miss_frames = 0
 		return
 
 
+func set_tower_idle() -> void:
+	animated_sprite.play("default")
+	is_shooting = false
+	beam.visible = false
+	enemy_locked_on_to = null
+
+
 func try_shooting_enemy(delta: float) -> void:
-	if not enemy_still_in_range() or not is_shooting:
+	if not enemy_still_in_range():
+		set_tower_idle()
+		return
+
+	if not is_shooting:
+		beam.visible = false
 		return
 
 	attack_enemy_locked_on_to(delta)
@@ -78,25 +95,22 @@ func enemy_still_in_range() -> bool:
 	return false
 
 
-func set_up_charging_timer() -> void:
+func allow_shooting() -> void:
+	print("what")
+	animated_sprite.play("shooting")
+	is_shooting = true
+
+
+func attack_enemy_locked_on_to(delta: float) -> void:
+	beam.visible = true
+	var end_point := to_local(enemy_locked_on_to.global_position)
+	beam.points = PackedVector2Array([Vector2.ZERO, end_point])
+	enemy_locked_on_to.take_damage(tower_damage)
+
+
+func set_up_timer() -> void:
 	charging_timer = Timer.new()
 	add_child(charging_timer)
 	charging_timer.wait_time = 2
 	charging_timer.timeout.connect(allow_shooting)
-	charging_timer.start()
-
-
-func allow_shooting() -> void:
-	animated_sprite.play("shooting")
-	is_shooting = true
-	charging_timer.stop()
-	charging_timer.queue_free()
-
-
-func attack_enemy_locked_on_to(delta: float) -> void:
-	var projectile_node: Area2D = projectile_scene.instantiate()
-	get_parent().add_child(projectile_node)
-	projectile_node.global_position = global_position
-	projectile_node.direction = (enemy_locked_on_to.global_position - projectile_node.global_position).normalized()
-	projectile_node.damage = tower_damage
-	projectile_node.projectile_speed = projectile_speed
+	charging_timer.one_shot = true

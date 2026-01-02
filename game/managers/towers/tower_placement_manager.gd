@@ -44,6 +44,7 @@ func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void
 	# This cannon is for dragging only, so disable process logic
 	held_tower_node.process_mode = Node.PROCESS_MODE_DISABLED
 	held_tower_node.attack_range_display.visible = true
+	held_tower_node.clickbox.monitoring = false
 	tower_upgrade_manager.unhighlight_tower()
 	show_tower_cost_info()
 
@@ -101,6 +102,7 @@ func try_delete_tower_on_grid() -> void:
 		GameState.add_money(tower.tower_cost / 2)
 		tower.queue_free()
 		used_tiles.erase(cell_position)
+		tower_upgrade_manager.unhighlight_tower()
 
 
 func make_tower_follow_mouse() -> void:

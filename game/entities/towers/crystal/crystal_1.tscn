@@ -12,22 +12,23 @@
 [node name="Crystal1" instance=ExtResource("1_b3vqd")]
 script = ExtResource("2_jufq4")
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(1.694067, 1.694067)
 sprite_frames = ExtResource("4_xrqwv")
+animation = &"charging"
 autoplay = "default"
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 position = Vector2(0, -13.000001)
 scale = Vector2(1.3521826, 1.3521826)
 texture = ExtResource("3_pokd7")
 region_enabled = true
 region_rect = Rect2(8, 8, 32, 32)
 
-[node name="AttackRangeDisplay" parent="." index="3"]
+[node name="AttackRangeDisplay" parent="." index="4"]
 scale = Vector2(0.8571003, 0.83054906)
 
-[node name="AttackRangeArea" parent="." index="4"]
+[node name="AttackRangeArea" parent="." index="5"]
 scale = Vector2(0.851655, 0.851655)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
