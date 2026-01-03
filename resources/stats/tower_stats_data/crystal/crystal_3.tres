@@ -6,8 +6,8 @@
 script = ExtResource("1_0ey3e")
 type = 11
 attacks_per_second = 60.0
-tower_damage = 6.0
+tower_damage = 14
 projectile_speed = 10000
-tower_cost = 50000
+tower_cost = 40000
 upgrade_cost = "MAX"
 metadata/_custom_type_script = "uid://bayosn0yww01d"

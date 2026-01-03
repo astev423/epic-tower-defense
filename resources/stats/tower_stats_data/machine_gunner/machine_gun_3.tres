@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=3 format=3 uid="uid://dgjhso7kgpbkp"]
+
+[ext_resource type="PackedScene" uid="uid://ebd48tqf44pu" path="res://game/entities/towers/machine_gunner/bullet_1.tscn" id="1_wayca"]
+[ext_resource type="Script" uid="uid://bayosn0yww01d" path="res://resources/scripts/tower_stats.gd" id="2_7qme8"]
+
+[resource]
+script = ExtResource("2_7qme8")
+projectile_scene = ExtResource("1_wayca")
+type = 14
+attacks_per_second = 20.0
+tower_damage = 3.0
+projectile_speed = 1500
+tower_cost = 4000
+upgrade_cost = "MAX"
+metadata/_custom_type_script = "uid://bayosn0yww01d"

@@ -22,6 +22,12 @@ rotation = -1.5707964
 scale = Vector2(0.84000015, 1)
 texture = ExtResource("3_dku13")
 
+[node name="AttackRangeDisplay" parent="." index="3"]
+scale = Vector2(0.81310016, 0.78791195)
+
+[node name="AttackRangeArea" parent="." index="5"]
+scale = Vector2(0.8079344, 0.8079344)
+
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
 shape = SubResource("CircleShape2D_x44bo")
 

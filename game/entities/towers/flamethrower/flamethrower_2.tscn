@@ -17,10 +17,10 @@ scale = Vector2(0.84, 1)
 texture = ExtResource("2_pfrsw")
 
 [node name="AttackRangeDisplay" parent="." index="2"]
-scale = Vector2(0.79153496, 0.76699126)
+scale = Vector2(0.7829079, 0.7586317)
 
-[node name="AttackRangeArea" parent="." index="3"]
-scale = Vector2(0.779, 0.779)
+[node name="AttackRangeArea" parent="." index="4"]
+scale = Vector2(0.77050954, 0.77050954)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
 shape = SubResource("CircleShape2D_pfrsw")

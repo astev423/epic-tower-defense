@@ -6,8 +6,8 @@
 script = ExtResource("1_gciv8")
 type = 10
 attacks_per_second = 60.0
-tower_damage = 3.0
+tower_damage = 3.3
 projectile_speed = 10000
 tower_cost = 10000
-upgrade_cost = "50000"
+upgrade_cost = "30000"
 metadata/_custom_type_script = "uid://bayosn0yww01d"

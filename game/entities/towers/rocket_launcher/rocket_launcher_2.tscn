@@ -16,10 +16,10 @@ scale = Vector2(0.674, 0.674)
 texture = ExtResource("2_w6jby")
 
 [node name="AttackRangeDisplay" parent="." index="2"]
-scale = Vector2(1.131, 1.131)
+scale = Vector2(1.3641709, 1.3641709)
 
 [node name="AttackRangeArea" parent="." index="3"]
-scale = Vector2(1.131, 1.131)
+scale = Vector2(1.3641709, 1.3641709)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
 scale = Vector2(14.578812, 14.578812)

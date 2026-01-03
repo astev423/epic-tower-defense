@@ -7,7 +7,7 @@
 script = ExtResource("2_q0v1v")
 projectile_scene = ExtResource("1_p1368")
 type = 13
-attacks_per_second = 10.0
+attacks_per_second = 15.0
 tower_damage = 2.0
 projectile_speed = 1000
 tower_cost = 2000

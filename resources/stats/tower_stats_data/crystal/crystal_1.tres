@@ -8,6 +8,6 @@ type = 9
 attacks_per_second = 60.0
 tower_damage = 1.5
 projectile_speed = 10000
-tower_cost = 2000
+tower_cost = 5000
 upgrade_cost = "10000"
 metadata/_custom_type_script = "uid://bayosn0yww01d"
