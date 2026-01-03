@@ -28,6 +28,10 @@ func _on_select_cannon_pressed() -> void:
 	create_moveable_tower_for_ui(GameTypes.TowerType.CANNON1)
 
 
+func _on_select_machine_gunner_pressed() -> void:
+	create_moveable_tower_for_ui(GameTypes.TowerType.MACHINE_GUN1)
+
+
 func _on_select_rocket_launcher_pressed() -> void:
 	create_moveable_tower_for_ui(GameTypes.TowerType.ROCKET_LAUNCHER1)
 
@@ -94,6 +98,8 @@ func get_tower_instantiation(held_tower_type: GameTypes.TowerType) -> Node2D:
 		tower_node = TowerScenes.CROSSBOW_1_SCENE.instantiate()
 	elif held_tower_type == GameTypes.TowerType.CRYSTAL1:
 		tower_node = TowerScenes.CRYSTAL_1_SCENE.instantiate()
+	elif held_tower_type == GameTypes.TowerType.MACHINE_GUN1:
+		tower_node = TowerScenes.MACHINE_GUN_1_SCENE.instantiate()
 	else:
 		print("trying to get tower that doesn't exist")
 		tower_node = null

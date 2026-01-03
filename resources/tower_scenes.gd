@@ -19,18 +19,16 @@ const CROSSBOW_2_SCENE = preload("res://game/entities/towers/crossbow/crossbow_2
 const CROSSBOW_3_SCENE = preload("res://game/entities/towers/crossbow/crossbow_3.tscn")
 
 
-# Crystal
+# Crystals
 const CRYSTAL_1_SCENE = preload("res://game/entities/towers/crystal/crystal_1.tscn")
 const CRYSTAL_2_SCENE = preload("res://game/entities/towers/crystal/crystal_2.tscn")
 const CRYSTAL_3_SCENE = preload("res://game/entities/towers/crystal/crystal_3.tscn")
 
 
+# Machine guns
+const MACHINE_GUN_1_SCENE = preload("res://game/entities/towers/machine_gunner/machine_gun_1.tscn")
+const MACHINE_GUN_2_SCENE = preload("res://game/entities/towers/machine_gunner/machine_gun_2.tscn")
+const MACHINE_GUN_3_SCENE = preload("res://game/entities/towers/machine_gunner/machine_gun_3.tscn")
+
+
 # Flamethrowers
-
-
-
-# Snipers
-
-
-
-# Machine gunners

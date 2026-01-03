@@ -75,6 +75,10 @@ func get_upgraded_tower_node() -> Node2D:
 		upgraded_tower = TowerScenes.CRYSTAL_2_SCENE.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CRYSTAL2:
 		upgraded_tower = TowerScenes.CRYSTAL_3_SCENE.instantiate()
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.MACHINE_GUN1:
+		upgraded_tower = TowerScenes.MACHINE_GUN_2_SCENE.instantiate()
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.MACHINE_GUN2:
+		upgraded_tower = TowerScenes.MACHINE_GUN_3_SCENE.instantiate()
 
 	return upgraded_tower
 
@@ -102,7 +106,7 @@ func try_display_tower_info(tower: Node2D) -> void:
 
 
 func update_display_tower_info(tower: Node2D) -> void:
-	var projectile_speed
+	var projectile_speed: Variant
 	if tower.stats.projectile_speed >= 10000:
 		projectile_speed = "INSTANT"
 	else:

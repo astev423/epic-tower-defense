@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgbpopo57e68k"]
+
+[ext_resource type="PackedScene" uid="uid://c4o63ailaqcb7" path="res://game/entities/towers/machine_gunner/base_machine_gun.tscn" id="1_6mvex"]
+[ext_resource type="Resource" uid="uid://c5mc40w2p774e" path="res://resources/tower_stats_data/machine_gunner/machine_gun_2.tres" id="2_kxquk"]
+[ext_resource type="Texture2D" uid="uid://dwa0f8otrw8aq" path="res://assets/towers/machine_gunner/machine_gun_skins.png" id="2_no0xh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_no0xh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kxquk"]
+
+[node name="MachineGun2" instance=ExtResource("1_6mvex")]
+stats = ExtResource("2_kxquk")
+
+[node name="Pedestal" parent="." index="0"]
+scale = Vector2(0.415, 0.415)
+
+[node name="Sprite2D" parent="." index="1"]
+rotation = -1.5707964
+scale = Vector2(0.4587344, 0.61873406)
+texture = ExtResource("2_no0xh")
+region_enabled = true
+region_rect = Rect2(6, 6, 140, 48)
+
+[node name="AttackRangeDisplay" parent="." index="3"]
+scale = Vector2(1.8567957, 1.7981484)
+
+[node name="AttackRangeArea" parent="." index="4"]
+scale = Vector2(1.8567957, 1.7981484)
+
+[node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
+shape = SubResource("CircleShape2D_no0xh")
+
+[node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+scale = Vector2(2.2214234, 2.2214234)
+shape = SubResource("CapsuleShape2D_kxquk")

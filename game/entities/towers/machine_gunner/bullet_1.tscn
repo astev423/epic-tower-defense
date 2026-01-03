@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ebd48tqf44pu"]
+
+[ext_resource type="PackedScene" uid="uid://cn5s6xrpi2u41" path="res://game/entities/towers/machine_gunner/base_bullet.tscn" id="1_vvsgq"]
+[ext_resource type="Texture2D" uid="uid://co3u56yxhiqve" path="res://assets/towers/machine_gunner/bullet.png" id="2_vvsgq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7hry6"]
+
+[node name="bullet1" instance=ExtResource("1_vvsgq")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(4.7683716e-07, 0)
+scale = Vector2(0.74874926, 0.74874926)
+texture = ExtResource("2_vvsgq")
+region_rect = Rect2(178, 2, 3, 6)
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_7hry6")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs8g4s5l46lau"]
+[gd_scene load_steps=9 format=3 uid="uid://bs8g4s5l46lau"]
 
 [ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/managers/towers/tower_placement_manager.gd" id="1_ikrvu"]
 [ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="2_lksn0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dudcfbxq2qnq7" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_rectangle_border.png" id="4_rcwra"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="5_acdrx"]
 [ext_resource type="Texture2D" uid="uid://by7nltu4l1nto" path="res://assets/towers/crystal/Tower 02 - Level 01 - Weapon.png" id="5_k32xf"]
+[ext_resource type="Texture2D" uid="uid://cfq5w1up0rxr2" path="res://assets/towers/machine_gunner/machine_gun1.png" id="6_j0o44"]
 
 [node name="TowerPlacementManager" type="Node2D"]
 script = ExtResource("1_ikrvu")
@@ -63,6 +64,20 @@ offset_bottom = 78.0
 scale = Vector2(6.642085, 7.559571)
 focus_mode = 0
 
+[node name="MachineGunSprite" type="Sprite2D" parent="."]
+position = Vector2(27, 173)
+rotation = -1.5707964
+scale = Vector2(0.409433, 0.6094321)
+texture = ExtResource("6_j0o44")
+region_rect = Rect2(0, 68, 35, 12)
+
+[node name="SelectMachineGunner" type="Button" parent="."]
+offset_top = 142.0
+offset_right = 8.0
+offset_bottom = 150.0
+scale = Vector2(6.7365117, 8.007697)
+focus_mode = 0
+
 [node name="TowerCostInfo" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -96,3 +111,4 @@ fit_content = true
 [connection signal="pressed" from="SelectRocketLauncher" to="." method="_on_select_rocket_launcher_pressed"]
 [connection signal="pressed" from="SelectCrossbow" to="." method="_on_select_crossbow_pressed"]
 [connection signal="pressed" from="SelectCrystal" to="." method="_on_select_crystal_pressed"]
+[connection signal="pressed" from="SelectMachineGunner" to="." method="_on_select_machine_gunner_pressed"]

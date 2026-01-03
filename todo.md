@@ -26,6 +26,8 @@ in main menu itself let users click play then select map or see their stats (sav
 
 -Maybe weaklings weak to sharp stuff, but some armored enemies immune to sharp stuff
 
+-Make temporary powerups like towers do double damage, or all have infinite range
+
 -Instead of hard coding paths, reference other nodes via Scene Unique Names
 
 -Make towers only fire at first enemy instead of random, or maybe option like in btd5

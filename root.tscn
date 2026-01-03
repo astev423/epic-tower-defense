@@ -49,9 +49,10 @@ scale = Vector2(0.8915491, 0.8915491)
 [node name="GamePausedAlertLabel" type="RichTextLabel" parent="Maps/MapUI"]
 offset_left = 659.0
 offset_top = 303.0
-offset_right = 1275.4734
-offset_bottom = 442.99835
+offset_right = 948.0062
+offset_bottom = 362.0
 scale = Vector2(1.8200301, 2.50003)
+mouse_filter = 2
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("8_bf3um")
 theme_override_font_sizes/normal_font_size = 52
