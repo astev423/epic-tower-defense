@@ -7,12 +7,13 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_6264d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nmf5x"]
+radius = 7.6306896
 
 [node name="RocketLauncher2" instance=ExtResource("1_mnpvq")]
 stats = ExtResource("2_wpc47")
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.674, 0.674)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_w6jby")
 
 [node name="AttackRangeDisplay" parent="." index="2"]
@@ -26,5 +27,6 @@ scale = Vector2(14.578812, 14.578812)
 shape = SubResource("CircleShape2D_6264d")
 
 [node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+position = Vector2(0, -1.9999999)
 scale = Vector2(3.5383432, 3.5383432)
 shape = SubResource("CircleShape2D_nmf5x")

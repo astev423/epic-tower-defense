@@ -1,5 +1,5 @@
 extends Resource
-class_name PlainsWaveInfo
+class_name WaveInfo
 
 const ENEMY_WEAKLING_SCENE = preload("res://game/entities/enemies/weakling/weakling.tscn")
 const ENEMY_FAST_WEAKLING_SCENE = preload("res://game/entities/enemies/weakling/fast_weakling.tscn")
@@ -8,7 +8,8 @@ const ENEMY_BUBBA_SCENE = preload("res://game/entities/enemies/bubba/bubba.tscn"
 
 ## Key is wave number and array holds enemy type, amount of that enemy spawned, and interval between
 ## spawns. Array can have multiple enemies
-var waves: Dictionary[int, Array] = {
+# Make waves static so it can be globally accessed like const without needing to instance object with .new
+static var waves: Dictionary[int, Array] = {
 	1: [GameTypes.EnemyType.Weakling, 6, 2.0],
 	2: [GameTypes.EnemyType.Weakling, 6, 1.5],
 	3: [GameTypes.EnemyType.Weakling, 12, 1.0],

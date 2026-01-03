@@ -7,16 +7,18 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4u32x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hophm"]
+radius = 14.407925
+height = 34.218822
 
 [node name="MachineGun3" instance=ExtResource("1_vby5t")]
 stats = ExtResource("2_hophm")
 
 [node name="Pedestal" parent="." index="0"]
-scale = Vector2(0.457, 0.457)
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" parent="." index="1"]
 rotation = -1.5707964
-scale = Vector2(0.45997787, 0.6199776)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_4u32x")
 region_enabled = true
 region_rect = Rect2(152, 6, 140, 48)

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="3_vvh5c"]
 [ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/ui/pause_unpause_alerter.gd" id="4_jnlp7"]
 [ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="4_l8v81"]
-[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/maps/resources/resource_displayer.tscn" id="5_l8v81"]
+[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/maps/game_resources/resource_displayer.tscn" id="5_l8v81"]
 [ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/maps/highlight_tile/highlight_tile.tscn" id="7_huihk"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="8_bf3um"]
 [ext_resource type="PackedScene" uid="uid://d1ulows2ch8xy" path="res://game/maps/victory_fireworks.tscn" id="9_tw3kd"]
@@ -25,8 +25,9 @@ visible = false
 [node name="Maps" type="Node2D" parent="."]
 script = ExtResource("1_28aoi")
 
-[node name="Levels" type="Node2D" parent="Maps"]
+[node name="Levels" type="Node2D" parent="Maps" node_paths=PackedStringArray("tower_placement_manager")]
 script = ExtResource("3_tw3kd")
+tower_placement_manager = NodePath("../MapUI/TowerPlacementManager")
 
 [node name="MapUI" type="Node2D" parent="Maps"]
 
@@ -79,5 +80,5 @@ metadata/_custom_type_script = "uid://ofb2yb8vntf0"
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 540)
+anchor_mode = 0
 zoom = Vector2(0.6, 0.6)

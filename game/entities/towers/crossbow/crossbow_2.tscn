@@ -93,4 +93,5 @@ scale = Vector2(2.8028588, 2.8028588)
 shape = SubResource("CircleShape2D_vdhgj")
 
 [node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+scale = Vector2(2.572984, 2.572984)
 shape = SubResource("CircleShape2D_yd7xk")

@@ -13,7 +13,7 @@
 stats = ExtResource("2_o3thj")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-scale = Vector2(1.694067, 1.694067)
+scale = Vector2(2, 2)
 sprite_frames = ExtResource("4_xrqwv")
 animation = &"charging"
 autoplay = "default"
@@ -35,5 +35,5 @@ scale = Vector2(0.851655, 0.851655)
 shape = SubResource("CircleShape2D_pokd7")
 
 [node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
-scale = Vector2(2.5425417, 2.5425417)
+scale = Vector2(2.8501713, 2.8501713)
 shape = SubResource("CircleShape2D_o3thj")

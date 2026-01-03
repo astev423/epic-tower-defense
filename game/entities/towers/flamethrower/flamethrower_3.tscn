@@ -8,18 +8,19 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_x44bo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cudhf"]
+height = 26.522387
 
 [node name="Flamethrower3" instance=ExtResource("1_6y8nc")]
 stats = ExtResource("2_dku13")
 
 [node name="Pedestal" type="Sprite2D" parent="." index="0"]
-scale = Vector2(0.65294254, 0.65294254)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_sv3kj")
 
 [node name="Sprite2D" parent="." index="1"]
 position = Vector2(0, 7)
 rotation = -1.5707964
-scale = Vector2(0.84000015, 1)
+scale = Vector2(0.75, 1)
 texture = ExtResource("3_dku13")
 
 [node name="AttackRangeDisplay" parent="." index="3"]
@@ -32,4 +33,5 @@ scale = Vector2(0.8079344, 0.8079344)
 shape = SubResource("CircleShape2D_x44bo")
 
 [node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_cudhf")

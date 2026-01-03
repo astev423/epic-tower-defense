@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5roconmp6v0b"]
-
-[ext_resource type="Script" uid="uid://d0af3jytq0aok" path="res://game/managers/enemies/spawning/base_enemy_spawner.gd" id="1_g8nrk"]
-
-[node name="BaseEnemySpawner" type="Node"]
-script = ExtResource("1_g8nrk")
-
-[node name="TimeBetweenEnemies" type="Timer" parent="."]

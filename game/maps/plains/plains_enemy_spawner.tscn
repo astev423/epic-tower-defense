@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://blhpjj2vaixsy"]
-
-[ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/spawning/base_enemy_spawner.tscn" id="1_tbpla"]
-
-[node name="PlainsEnemySpawner" instance=ExtResource("1_tbpla")]

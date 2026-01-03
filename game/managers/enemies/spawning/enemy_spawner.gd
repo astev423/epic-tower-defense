@@ -1,10 +1,10 @@
-extends Node
+extends Node2D
 
 const cpu_particles_scene = preload("res://game/maps/victory_fireworks.tscn")
 
 # Variables for all waves
-var wave_info: Resource
-var spawn_point: Vector2
+@onready var spawn_marker: Marker2D = $SpawnPoint
+@onready var exit_marker: Marker2D = $ExitPoint
 var last_wave_num: int
 
 # Variables holding info for just the current wave and group
@@ -20,7 +20,7 @@ func _ready() -> void:
 	EventBus.enemy_died.connect(decrease_enemy_count)
 	EventBus.enemy_reached_end.connect(_on_enemy_reached_end)
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
-	last_wave_num = wave_info.waves.size()
+	last_wave_num = WaveInfo.waves.size()
 	try_start_new_wave()
 
 
@@ -48,7 +48,7 @@ func setup_wave() -> void:
 	spawn_timer.start()
 
 	cur_enemy_count = 0
-	info_for_current_wave = wave_info.waves[GameState.get_cur_wave_num()]
+	info_for_current_wave = WaveInfo.waves[GameState.get_cur_wave_num()]
 	# Reverse so we can pop back to prevent resizing
 	info_for_current_wave.reverse()
 	get_info_of_new_group()
@@ -82,19 +82,19 @@ func try_spawning_enemy() -> void:
 
 func get_enemy_type() -> CharacterBody2D:
 	if cur_enemy_type == GameTypes.EnemyType.Weakling:
-		return wave_info.ENEMY_WEAKLING_SCENE.instantiate()
+		return WaveInfo.ENEMY_WEAKLING_SCENE.instantiate()
 	if cur_enemy_type == GameTypes.EnemyType.FastWeakling:
-		return wave_info.ENEMY_FAST_WEAKLING_SCENE.instantiate()
+		return WaveInfo.ENEMY_FAST_WEAKLING_SCENE.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.Bubba:
-		return wave_info.ENEMY_BUBBA_SCENE.instantiate()
+		return WaveInfo.ENEMY_BUBBA_SCENE.instantiate()
 	else:
 		print("Trying to spawn enemy of unknown type, defaulting to fast weakling")
-		return wave_info.ENEMY_FAST_WEAKLING_SCENE.instantiate()
+		return WaveInfo.ENEMY_FAST_WEAKLING_SCENE.instantiate()
 
 
 func spawn_and_setup_enemy(spawned_enemy: CharacterBody2D) -> void:
 	add_child(spawned_enemy)
-	spawned_enemy.global_position = spawn_point
+	spawned_enemy.global_position = spawn_marker.global_position
 	spawned_enemy.setup_path_and_info()
 	spawned_enemy.z_index = 1
 	enemies_in_cur_group_to_be_spawned -= 1

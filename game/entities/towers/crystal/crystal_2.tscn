@@ -144,6 +144,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvgh5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4qp8r"]
+radius = 5.05592
 
 [node name="Crystal2" instance=ExtResource("1_lmjrr")]
 stats = ExtResource("2_lvgh5")
@@ -152,7 +153,6 @@ stats = ExtResource("2_lvgh5")
 default_color = Color(1, 1, 0, 1)
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-scale = Vector2(1.5519845, 1.5519845)
 sprite_frames = SubResource("SpriteFrames_4qp8r")
 animation = &"shooting"
 autoplay = "default"
@@ -167,6 +167,6 @@ scale = Vector2(0.852, 0.852)
 shape = SubResource("CircleShape2D_lvgh5")
 
 [node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
-position = Vector2(0, -4)
-scale = Vector2(3.3855462, 3.3855462)
+position = Vector2(0, -1.9999998)
+scale = Vector2(4.1723413, 4.1723413)
 shape = SubResource("CircleShape2D_4qp8r")

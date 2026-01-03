@@ -2,8 +2,8 @@ extends Resource
 class_name GameConstants
 
 enum Maps {
-	PLAINS,
 	DUNES,
+	PLAINS,
 	DUNGEON
 }
 

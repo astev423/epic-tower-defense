@@ -13,11 +13,11 @@
 stats = ExtResource("2_ra6hm")
 
 [node name="PedestalSprite" type="Sprite2D" parent="." index="0"]
-scale = Vector2(0.674, 0.674)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_55hlh")
 
 [node name="Sprite2D" parent="." index="1"]
-scale = Vector2(0.674, 0.674)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_c34ad")
 
 [node name="AttackRangeDisplay" parent="." index="3"]
@@ -30,4 +30,5 @@ scale = Vector2(1.7888503, 1.7888503)
 shape = SubResource("CircleShape2D_gvx27")
 
 [node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+scale = Vector2(3.1481376, 3.1481376)
 shape = SubResource("CircleShape2D_nqlwk")

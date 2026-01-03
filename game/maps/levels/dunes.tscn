@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://dmwrw4lmpokwu"]
 
 [ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/tiles/plains.png" id="1_tio4t"]
-[ext_resource type="PackedScene" uid="uid://0jnrf8nh623s" path="res://game/maps/dunes/dunes_enemy_spawner.tscn" id="3_stdhe"]
+[ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/spawning/enemy_spawner.tscn" id="3_3s3oc"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="4_0i5ff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kuoyd"]
@@ -82,4 +82,12 @@ position = Vector2(1633, 929)
 script = ExtResource("4_0i5ff")
 metadata/_custom_type_script = "uid://mhhpege3kptc"
 
-[node name="DunesEnemySpawner" parent="." instance=ExtResource("3_stdhe")]
+[node name="EnemySpawner" parent="." instance=ExtResource("3_3s3oc")]
+
+[node name="SpawnPoint" parent="EnemySpawner" index="1"]
+position = Vector2(16, 930)
+
+[node name="ExitPoint" parent="EnemySpawner" index="2"]
+position = Vector2(1651, 928)
+
+[editable path="EnemySpawner"]
