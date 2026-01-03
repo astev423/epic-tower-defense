@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://rj47bvxvmw4l"]
 
 [ext_resource type="Script" uid="uid://bfhmrdaetjkdl" path="res://game/managers/towers/tower_upgrade_manager.gd" id="1_recls"]
-[ext_resource type="Texture2D" uid="uid://dudcfbxq2qnq7" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_rectangle_border.png" id="2_hvo7u"]
+[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/ui/button_rectangle_border.png" id="2_hvo7u"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="2_plkjl"]
 
 [node name="TowerUpgradeManager" type="Node2D"]
@@ -15,7 +15,7 @@ offset_bottom = 40.0
 
 [node name="ButtonRectangleBorder" type="Sprite2D" parent="TowerInfo"]
 position = Vector2(-3.8146973e-06, -9.536743e-07)
-scale = Vector2(4.6375475, 1.8686386)
+scale = Vector2(2.3170655, 0.9511646)
 texture = ExtResource("2_hvo7u")
 centered = false
 
@@ -36,13 +36,13 @@ fit_content = true
 [node name="UpgradeTower" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 867.0
-offset_right = 907.0
+offset_left = 866.0
+offset_right = 906.0
 offset_bottom = 40.0
 
 [node name="ButtonRectangleBorder" type="Sprite2D" parent="UpgradeTower"]
-position = Vector2(23.000002, -9.536743e-07)
-scale = Vector2(2.369792, 1.8686386)
+position = Vector2(23.000002, 0)
+scale = Vector2(1.1875001, 0.95061094)
 texture = ExtResource("2_hvo7u")
 centered = false
 

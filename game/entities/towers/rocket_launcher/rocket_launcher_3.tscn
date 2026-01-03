@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://belivn2d4dnap" path="res://game/entities/towers/rocket_launcher/base_rocket_launcher.tscn" id="1_8c8tf"]
 [ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/towers/pedestal_for_t3_towers.png" id="2_55hlh"]
-[ext_resource type="Resource" uid="uid://2iij3n8535hf" path="res://resources/tower_stats_data/rocket_launcher/rocket_launcher_3.tres" id="2_ra6hm"]
+[ext_resource type="Resource" uid="uid://2iij3n8535hf" path="res://resources/stats/tower_stats_data/rocket_launcher/rocket_launcher_3.tres" id="2_ra6hm"]
 [ext_resource type="Texture2D" uid="uid://5gwjl2mh5d3t" path="res://assets/towers/rocket_launcher/launcher3.png" id="3_c34ad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gvx27"]

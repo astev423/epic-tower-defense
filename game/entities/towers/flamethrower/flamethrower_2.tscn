@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmq78r85uo4b5"]
+
+[ext_resource type="PackedScene" uid="uid://2s0jcyslpfrt" path="res://game/entities/towers/flamethrower/base_flamethrower.tscn" id="1_u6dva"]
+[ext_resource type="Resource" uid="uid://cej74l0ty1xn8" path="res://resources/stats/tower_stats_data/flamethrower/flamethrower_2.tres" id="2_2nnmn"]
+[ext_resource type="Texture2D" uid="uid://psg8ngwjybrd" path="res://assets/towers/flamethrower/flamethrower2and3.png" id="2_pfrsw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfrsw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nnmn"]
+
+[node name="Flamethrower2" instance=ExtResource("1_u6dva")]
+stats = ExtResource("2_2nnmn")
+
+[node name="Sprite2D" parent="." index="0"]
+rotation = -1.5707964
+scale = Vector2(0.84, 1)
+texture = ExtResource("2_pfrsw")
+
+[node name="AttackRangeDisplay" parent="." index="2"]
+scale = Vector2(0.79153496, 0.76699126)
+
+[node name="AttackRangeArea" parent="." index="3"]
+scale = Vector2(0.779, 0.779)
+
+[node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
+shape = SubResource("CircleShape2D_pfrsw")
+
+[node name="CollisionShape2D" parent="DisplayTowerInfoClickbox" index="0"]
+position = Vector2(-1, -8)
+scale = Vector2(2.8962867, 2.8962867)
+shape = SubResource("CapsuleShape2D_2nnmn")

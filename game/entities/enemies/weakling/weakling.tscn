@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_d7wth"]
 [ext_resource type="Texture2D" uid="uid://u40i14paws08" path="res://assets/enemies/weakling/weakling.png" id="2_8asnc"]
-[ext_resource type="Resource" uid="uid://wxmxmrdf0lta" path="res://resources/enemy_stats_data/weakling.tres" id="3_sdsq2"]
+[ext_resource type="Resource" uid="uid://wxmxmrdf0lta" path="res://resources/stats/enemy_stats_data/weakling.tres" id="3_sdsq2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8asnc"]
 

@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://ddnb6dbbvm884" path="res://game/maps/resources/resource_displayer.gd" id="1_8gynb"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="2_0n7h4"]
-[ext_resource type="Texture2D" uid="uid://dudcfbxq2qnq7" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_rectangle_border.png" id="2_ndaem"]
+[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/ui/button_rectangle_border.png" id="2_ndaem"]
 
 [node name="ResourcesManager" type="Node2D"]
 script = ExtResource("1_8gynb")
 
 [node name="ButtonRectangleBorder" type="Sprite2D" parent="."]
 position = Vector2(-3.8146973e-06, -9.536743e-07)
-scale = Vector2(3.3208468, 2.082055)
+scale = Vector2(1.7018546, 1.0449449)
 texture = ExtResource("2_ndaem")
 centered = false
 

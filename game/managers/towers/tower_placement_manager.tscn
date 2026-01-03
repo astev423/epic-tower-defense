@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bs8g4s5l46lau"]
+[gd_scene load_steps=10 format=3 uid="uid://bs8g4s5l46lau"]
 
 [ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/managers/towers/tower_placement_manager.gd" id="1_ikrvu"]
 [ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="2_lksn0"]
 [ext_resource type="Texture2D" uid="uid://coctix6nji1er" path="res://assets/towers/rocket_launcher/launcher1.png" id="3_stjyg"]
 [ext_resource type="Texture2D" uid="uid://cm8pymm3x7k6l" path="res://assets/towers/crossbow/Tower 01 - Level 01 - Weapon.png" id="4_acdrx"]
-[ext_resource type="Texture2D" uid="uid://dudcfbxq2qnq7" path="res://assets/kenney_ui-pack/PNG/Blue/Default/button_rectangle_border.png" id="4_rcwra"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="5_acdrx"]
 [ext_resource type="Texture2D" uid="uid://by7nltu4l1nto" path="res://assets/towers/crystal/Tower 02 - Level 01 - Weapon.png" id="5_k32xf"]
 [ext_resource type="Texture2D" uid="uid://cfq5w1up0rxr2" path="res://assets/towers/machine_gunner/machine_gun1.png" id="6_j0o44"]
+[ext_resource type="Texture2D" uid="uid://dd4dwiiy8tn34" path="res://assets/towers/flamethrower/flamethrower1.png" id="7_nvjih"]
+[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/ui/button_rectangle_border.png" id="8_nvjih"]
 
 [node name="TowerPlacementManager" type="Node2D"]
 script = ExtResource("1_ikrvu")
@@ -78,6 +79,21 @@ offset_bottom = 150.0
 scale = Vector2(6.7365117, 8.007697)
 focus_mode = 0
 
+[node name="FlamethrowerSprite" type="Sprite2D" parent="."]
+position = Vector2(96, 181)
+rotation = -1.5707964
+scale = Vector2(0.5561076, 0.827754)
+texture = ExtResource("7_nvjih")
+region_rect = Rect2(0, 68, 35, 12)
+
+[node name="SelectFlamethrower" type="Button" parent="."]
+offset_left = 68.0
+offset_top = 144.0
+offset_right = 76.0
+offset_bottom = 152.0
+scale = Vector2(6.7365117, 8.007697)
+focus_mode = 0
+
 [node name="TowerCostInfo" type="Control" parent="."]
 visible = false
 layout_mode = 3
@@ -90,8 +106,8 @@ scale = Vector2(0.51393217, 0.503635)
 
 [node name="ButtonRectangleBorder" type="Sprite2D" parent="TowerCostInfo"]
 position = Vector2(23.000002, -9.536743e-07)
-scale = Vector2(2.369792, 1.8686386)
-texture = ExtResource("4_rcwra")
+scale = Vector2(1.2244201, 0.87902176)
+texture = ExtResource("8_nvjih")
 centered = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TowerCostInfo"]
@@ -112,3 +128,4 @@ fit_content = true
 [connection signal="pressed" from="SelectCrossbow" to="." method="_on_select_crossbow_pressed"]
 [connection signal="pressed" from="SelectCrystal" to="." method="_on_select_crystal_pressed"]
 [connection signal="pressed" from="SelectMachineGunner" to="." method="_on_select_machine_gunner_pressed"]
+[connection signal="pressed" from="SelectFlamethrower" to="." method="_on_select_flamethrower_pressed"]

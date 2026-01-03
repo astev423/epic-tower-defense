@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dj5cj1qv1fce5"]
 
 [ext_resource type="PackedScene" uid="uid://belivn2d4dnap" path="res://game/entities/towers/rocket_launcher/base_rocket_launcher.tscn" id="1_jnawc"]
-[ext_resource type="Resource" uid="uid://b8rr1vqtxkf3i" path="res://resources/tower_stats_data/rocket_launcher/rocket_launcher_1.tres" id="2_clbfy"]
+[ext_resource type="Resource" uid="uid://b8rr1vqtxkf3i" path="res://resources/stats/tower_stats_data/rocket_launcher/rocket_launcher_1.tres" id="2_clbfy"]
 [ext_resource type="Texture2D" uid="uid://coctix6nji1er" path="res://assets/towers/rocket_launcher/launcher1.png" id="2_tcm08"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_slvjv"]

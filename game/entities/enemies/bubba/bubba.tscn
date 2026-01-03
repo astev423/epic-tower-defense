@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://chetfp2b10deg"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_xikh3"]
-[ext_resource type="Resource" uid="uid://ckidnit8dmii3" path="res://resources/enemy_stats_data/bubba.tres" id="2_jerw5"]
+[ext_resource type="Resource" uid="uid://ckidnit8dmii3" path="res://resources/stats/enemy_stats_data/bubba.tres" id="2_jerw5"]
 [ext_resource type="Texture2D" uid="uid://cmawdxetuoe6t" path="res://assets/enemies/bubba/bubba1.tres" id="2_nspem"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xm1ea"]

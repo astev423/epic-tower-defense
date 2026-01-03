@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=2 format=3 uid="uid://cp8cgvla0gkpy"]
+
+[ext_resource type="Script" uid="uid://bayosn0yww01d" path="res://resources/scripts/tower_stats.gd" id="1_gciv8"]
+
+[resource]
+script = ExtResource("1_gciv8")
+type = 10
+attacks_per_second = 60.0
+tower_damage = 3.0
+projectile_speed = 10000
+tower_cost = 10000
+upgrade_cost = "50000"
+metadata/_custom_type_script = "uid://bayosn0yww01d"

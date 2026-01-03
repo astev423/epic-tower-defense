@@ -74,7 +74,7 @@ animations = [{
 script = ExtResource("2_il8m4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
-rotation = 1.5707964
+position = Vector2(5.5410075, -1.3918303)
 scale = Vector2(6.471313, 2.2880106)
 sprite_frames = SubResource("SpriteFrames_j1sw1")
 autoplay = "default"
@@ -85,7 +85,6 @@ frame_progress = 0.8692088
 visible = false
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(-9, 11)
-rotation = 1.5707964
+position = Vector2(8, 3)
 scale = Vector2(9.117334, 2.3902915)
 shape = SubResource("CapsuleShape2D_j4650")

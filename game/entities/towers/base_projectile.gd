@@ -7,7 +7,7 @@ var damage: float
 
 
 func _physics_process(delta: float) -> void:
-	global_position = global_position + direction * projectile_speed * delta
+	global_position += direction * projectile_speed * delta
 	rotation = direction.angle()
 
 	if global_position.x > 1664 or global_position.y > 1026:

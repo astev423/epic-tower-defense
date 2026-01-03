@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c4o63ailaqcb7" path="res://game/entities/towers/machine_gunner/base_machine_gun.tscn" id="1_vby5t"]
 [ext_resource type="Texture2D" uid="uid://dwa0f8otrw8aq" path="res://assets/towers/machine_gunner/machine_gun_skins.png" id="2_4u32x"]
 [ext_resource type="PackedScene" uid="uid://ebd48tqf44pu" path="res://game/entities/towers/machine_gunner/bullet_1.tscn" id="2_msss5"]
-[ext_resource type="Script" uid="uid://bayosn0yww01d" path="res://resources/tower_stats.gd" id="3_6ldrf"]
+[ext_resource type="Script" uid="uid://bayosn0yww01d" path="res://resources/scripts/tower_stats.gd" id="3_6ldrf"]
 
 [sub_resource type="Resource" id="Resource_1yfjk"]
 script = ExtResource("3_6ldrf")
