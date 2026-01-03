@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bkdvee2yxjlxh"]
 
 [ext_resource type="PackedScene" uid="uid://vhjmyap1kv85" path="res://game/entities/towers/crystal/base_crystal.tscn" id="1_b3vqd"]
-[ext_resource type="Script" uid="uid://bc506hyt6xk4r" path="res://game/entities/towers/crystal/crystal_1.gd" id="2_jufq4"]
+[ext_resource type="Resource" uid="uid://crjjqhstxime3" path="res://resources/tower_stats_data/crystal/crystal_1.tres" id="2_o3thj"]
 [ext_resource type="Texture2D" uid="uid://by7nltu4l1nto" path="res://assets/towers/crystal/Tower 02 - Level 01 - Weapon.png" id="3_pokd7"]
 [ext_resource type="SpriteFrames" uid="uid://c4lq8i8gbyml" path="res://assets/towers/crystal/crystal_1_animation.tres" id="4_xrqwv"]
 
@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_o3thj"]
 
 [node name="Crystal1" instance=ExtResource("1_b3vqd")]
-script = ExtResource("2_jufq4")
+stats = ExtResource("2_o3thj")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 scale = Vector2(1.694067, 1.694067)

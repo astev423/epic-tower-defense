@@ -1,6 +1,4 @@
 """
--Set stats for export
-
 -Make quick ice map, it should be hardest one, just a quick straight line, then mark each level according to difficulty, where plains medium, dunes easy, and ice hard, also give each level the same wave info
 
 -Finish up all towers and enemies before working on waves, then after working on waves (atleast completing) 50 waves for plains, then work on ui and other stuff, make waves a bit longer also, they

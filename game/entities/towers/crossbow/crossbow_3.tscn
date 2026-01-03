@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://b866ibevid0q8"]
 
 [ext_resource type="PackedScene" uid="uid://3jfqe0tg0oyg" path="res://game/entities/towers/crossbow/base_crossbow.tscn" id="1_nbjfo"]
-[ext_resource type="Script" uid="uid://ddvjapfm1cvcx" path="res://game/entities/towers/crossbow/crossbow_3.gd" id="2_04ltp"]
+[ext_resource type="Resource" uid="uid://b0jk2v6g0fcwu" path="res://resources/tower_stats_data/crossbow/crossbow_3.tres" id="2_rrf3n"]
 [ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/towers/pedestal_for_t3_towers.png" id="3_rrf3n"]
 [ext_resource type="Texture2D" uid="uid://6bv55670vbkv" path="res://assets/towers/crossbow/Tower 01 - Level 03 - Weapon.png" id="4_7k3k4"]
 
@@ -72,7 +72,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_s46ak"]
 
 [node name="Crossbow3" instance=ExtResource("1_nbjfo")]
-script = ExtResource("2_04ltp")
+stats = ExtResource("2_rrf3n")
 
 [node name="Pedestal" type="Sprite2D" parent="." index="0"]
 scale = Vector2(0.5193005, 0.5193005)

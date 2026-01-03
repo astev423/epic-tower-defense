@@ -19,11 +19,11 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_upgrade_tower_button_pressed() -> void:
-	if current_tower_highlighted.upgrade_cost == "MAX":
+	if current_tower_highlighted.stats.upgrade_cost == "MAX":
 		return
 
 	# ask money manager if we have enough money, if success then despawn old tower and instantiate new one
-	var success := GameState.try_buying_tower(int(current_tower_highlighted.upgrade_cost))
+	var success := GameState.try_buying_tower(int(current_tower_highlighted.stats.upgrade_cost))
 	if not success:
 		return
 
@@ -59,21 +59,21 @@ func despawn_old_spawn_upgraded_tower() -> void:
 
 func get_upgraded_tower_node() -> Node2D:
 	var upgraded_tower: Node2D
-	if current_tower_highlighted.type == GameTypes.TowerType.CANNON1:
+	if current_tower_highlighted.stats.type == GameTypes.TowerType.CANNON1:
 		upgraded_tower = TowerScenes.CANNON_2_SCENE.instantiate()
-	elif current_tower_highlighted.type == GameTypes.TowerType.CANNON2:
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CANNON2:
 		upgraded_tower = TowerScenes.CANNON_3_SCENE.instantiate()
-	elif current_tower_highlighted.type == GameTypes.TowerType.ROCKET_LAUNCHER1:
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.ROCKET_LAUNCHER1:
 		upgraded_tower = TowerScenes.ROCKET_LAUNCHER_2_SCENE.instantiate()
-	elif current_tower_highlighted.type == GameTypes.TowerType.ROCKET_LAUNCHER2:
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.ROCKET_LAUNCHER2:
 		upgraded_tower = TowerScenes.ROCKET_LAUNCHER_3_SCENE.instantiate()
-	elif current_tower_highlighted.type == GameTypes.TowerType.CROSSBOW1:
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CROSSBOW1:
 		upgraded_tower = TowerScenes.CROSSBOW_2_SCENE.instantiate()
-	elif current_tower_highlighted.type == GameTypes.TowerType.CROSSBOW2:
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CROSSBOW2:
 		upgraded_tower = TowerScenes.CROSSBOW_3_SCENE.instantiate()
-	elif current_tower_highlighted.type == GameTypes.TowerType.CRYSTAL1:
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CRYSTAL1:
 		upgraded_tower = TowerScenes.CRYSTAL_2_SCENE.instantiate()
-	elif current_tower_highlighted.type == GameTypes.TowerType.CRYSTAL2:
+	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CRYSTAL2:
 		upgraded_tower = TowerScenes.CRYSTAL_3_SCENE.instantiate()
 
 	return upgraded_tower
@@ -103,19 +103,19 @@ func try_display_tower_info(tower: Node2D) -> void:
 
 func update_display_tower_info(tower: Node2D) -> void:
 	var projectile_speed
-	if tower.projectile_speed >= 10000:
+	if tower.stats.projectile_speed >= 10000:
 		projectile_speed = "INSTANT"
 	else:
-		projectile_speed = tower.projectile_speed
+		projectile_speed = tower.stats.projectile_speed
 
-	var dps: float = tower.tower_damage * tower.attacks_per_second
+	var dps: float = tower.stats.tower_damage * tower.stats.attacks_per_second
 	tower_info_label.text = "Damage: %s   Attack Speed: %s \nProjectile Speed: %s   DPS: %s" % [
-		tower.tower_damage,
-		tower.attacks_per_second,
+		tower.stats.tower_damage,
+		tower.stats.attacks_per_second,
 		projectile_speed,
 		dps
 	]
-	upgrade_cost_label.text = "Upgrade cost: %s" % tower.upgrade_cost
+	upgrade_cost_label.text = "Upgrade cost: %s" % tower.stats.upgrade_cost
 
 
 func unhighlight_tower() -> void:

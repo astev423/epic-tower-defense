@@ -11,24 +11,17 @@ extends Node2D
 @onready var attack_range_area_hitbox: CollisionShape2D = $"AttackRangeArea/CollisionShape2D"
 @onready var attack_range_area: Area2D = $"AttackRangeArea"
 @onready var clickbox: Area2D = $DisplayTowerInfoClickbox
+@export var stats: TowerStats
 var can_fire: bool
 var is_shooting: bool
 
-# Stats, these change depending on the cannon
-var projectile_scene: PackedScene = null
-var attacks_per_second: float
-var tower_damage: float
-var projectile_speed: int
-var tower_cost: int
-var upgrade_cost: String
-var type: GameTypes.TowerType
 
 
 func _ready() -> void:
 	# By default tower is a dud, these falses get set to true when placed so tower can do stuff
 	attack_range_display.visible = false
 	clickbox.visible = false
-	attack_timer.wait_time = 1. / attacks_per_second
+	attack_timer.wait_time = 1. / stats.attacks_per_second
 	attack_timer.timeout.connect(allow_tower_to_shoot)
 
 
@@ -57,24 +50,15 @@ func _on_display_tower_info_clickbox_input_event(viewport: Node, event: InputEve
 		EventBus.tower_clicked_on.emit(self)
 
 
-func set_stats(_attacks_per_second: float, _tower_damage: float, _tower_cost: int,
-		_projectile_speed: int, _upgrade_cost: String) -> void:
-	attacks_per_second = _attacks_per_second
-	tower_damage = _tower_damage
-	tower_cost = _tower_cost
-	upgrade_cost = _upgrade_cost
-	projectile_speed = _projectile_speed
-
-
 func allow_tower_to_shoot() -> void:
 	can_fire = true
 	attack_timer.stop()
 
 
 func spawn_projectile(enemy_to_shoot_at: CharacterBody2D) -> void:
-	var projectile_node: Area2D = projectile_scene.instantiate()
+	var projectile_node: Area2D = stats.projectile_scene.instantiate()
 	get_parent().add_child(projectile_node)
 	projectile_node.global_position = global_position
 	projectile_node.direction = (enemy_to_shoot_at.global_position - projectile_node.global_position).normalized()
-	projectile_node.damage = tower_damage
-	projectile_node.projectile_speed = projectile_speed
+	projectile_node.damage = stats.tower_damage
+	projectile_node.projectile_speed = stats.projectile_speed

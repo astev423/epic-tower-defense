@@ -71,7 +71,7 @@ func try_placing_tower_on_grid() -> void:
 	var cell_pos := tile_map_layer.local_to_map(tile_map_layer.get_local_mouse_position())
 	var is_tile_placeable: bool = tile_map_layer.get_cell_tile_data(cell_pos).get_custom_data("placeable")
 	if is_tile_placeable and not is_tile_occupied(cell_pos):
-		var success := GameState.try_buying_tower(held_tower_node.tower_cost)
+		var success := GameState.try_buying_tower(held_tower_node.stats.tower_cost)
 		if not success:
 			return
 
@@ -102,7 +102,7 @@ func get_tower_instantiation(held_tower_type: GameTypes.TowerType) -> Node2D:
 
 
 func place_active_tower(cell_position: Vector2i) -> void:
-	var new_tower := get_tower_instantiation(held_tower_node.type)
+	var new_tower := get_tower_instantiation(held_tower_node.stats.type)
 	get_parent().add_child(new_tower)
 	new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
 	used_tiles[cell_position] = new_tower
@@ -121,7 +121,7 @@ func try_delete_tower_on_grid() -> void:
 		return
 
 	var tower: Node2D = used_tiles[cell_pos]
-	GameState.add_money(tower.tower_cost / 2)
+	GameState.add_money(tower.stats.tower_cost / 2)
 	tower.queue_free()
 	used_tiles.erase(cell_pos)
 	tower_upgrade_manager.unhighlight_tower()
@@ -139,5 +139,5 @@ func try_deselect_held_tower() -> void:
 
 
 func show_tower_cost_info() -> void:
-	tower_cost_info_label.text = "Tower Cost: %s" % held_tower_node.tower_cost
+	tower_cost_info_label.text = "Tower Cost: %s" % held_tower_node.stats.tower_cost
 	tower_cost_info.visible = true

@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh0wmuvbta0vu"]
+[gd_scene load_steps=7 format=3 uid="uid://dh0wmuvbta0vu"]
 
 [ext_resource type="PackedScene" uid="uid://cx8ygtp7o6oyc" path="res://game/entities/towers/cannon/base_cannon.tscn" id="1_crobf"]
 [ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/towers/cannon/cannon1.png" id="2_rpdst"]
-[ext_resource type="Script" uid="uid://duhnjis1yd3hc" path="res://game/entities/towers/cannon/cannon_1.gd" id="2_td4kv"]
+[ext_resource type="Script" uid="uid://6ovd24us1fab" path="res://game/entities/towers/cannon/base_cannon.gd" id="2_synht"]
+[ext_resource type="Resource" uid="uid://dmqfpnyj2xa0w" path="res://resources/tower_stats_data/cannon/cannon_1.tres" id="3_3or2f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_crobf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yafuu"]
 
 [node name="Cannon1" instance=ExtResource("1_crobf")]
-script = ExtResource("2_td4kv")
+script = ExtResource("2_synht")
+stats = ExtResource("3_3or2f")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_rpdst")

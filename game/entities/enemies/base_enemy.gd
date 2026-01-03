@@ -9,18 +9,14 @@ extends CharacterBody2D
 @onready var target_pos: Marker2D =  $"../../EnemyExitPoint"
 @onready var pathfinding_manager: Node = $"../../EnemyPathfinder"
 @onready var health_comp: Node2D = $HealthComponent
+@export var stats: EnemyStats
 var path_array: Array[Vector2] = []
 var died := false
-
-# Users set these in derived classes, rotation is optional since some sprites look weird rotated
-var movement_speed: float
-var can_rotate: bool = true
-var lives_taken_if_reach_finish: int
-var money_awarded_if_killed: int
 
 
 func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
+	health_comp.init_health(stats.health)
 	health_comp.died.connect(_on_death)
 	add_to_group("enemies")
 
@@ -33,11 +29,11 @@ func _physics_process(delta: float) -> void:
 ## Array is reversed so we can remove the end instead of the front to prevent shifting
 func move_to_closest_point_on_path(delta: float) -> void:
 	if path_array.is_empty():
-		EventBus.enemy_reached_end.emit(lives_taken_if_reach_finish)
+		EventBus.enemy_reached_end.emit(stats.lives_taken_if_reach_finish)
 		queue_free()
 		return
 
-	var remaining := movement_speed * delta
+	var remaining := stats.movement_speed * delta
 
 	while remaining > 0.0 and !path_array.is_empty():
 		var target_point := path_array[-1]
@@ -56,8 +52,8 @@ func move_to_closest_point_on_path(delta: float) -> void:
 		# Otherwise just head down that path
 		else:
 			var dir := vector_to_point / dist_to_point
-			velocity = dir * movement_speed
-			if can_rotate:
+			velocity = dir * stats.movement_speed
+			if stats.can_rotate:
 				rotation = dir.angle()
 			return
 
@@ -71,7 +67,7 @@ func _on_death() -> void:
 		return
 
 	EventBus.enemy_died.emit()
-	GameState.add_money(money_awarded_if_killed)
+	GameState.add_money(stats.money_awarded_if_killed)
 	died = true
 	queue_free()
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://puljnfvyfalc"]
 
 [ext_resource type="PackedScene" uid="uid://vhjmyap1kv85" path="res://game/entities/towers/crystal/base_crystal.tscn" id="1_lrhh2"]
-[ext_resource type="Script" uid="uid://dhp7gshm6ptvs" path="res://game/entities/towers/crystal/crystal_3.gd" id="2_a678x"]
+[ext_resource type="Resource" uid="uid://mfof5pjf5sqh" path="res://resources/tower_stats_data/crystal/crystal_3.tres" id="2_bpm47"]
 [ext_resource type="Texture2D" uid="uid://cpwpeqbvweuli" path="res://assets/towers/crystal/Tower 02 - Level 03 - Weapon.png" id="3_bpm47"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dg4jm"]
@@ -170,7 +170,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_bpm47"]
 
 [node name="Crystal3" instance=ExtResource("1_lrhh2")]
-script = ExtResource("2_a678x")
+stats = ExtResource("2_bpm47")
 
 [node name="Beam" parent="." index="0"]
 default_color = Color(0.36526364, 0.99999994, 0.33595037, 1)

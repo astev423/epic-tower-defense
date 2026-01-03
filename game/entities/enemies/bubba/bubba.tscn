@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://chetfp2b10deg"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_xikh3"]
+[ext_resource type="Resource" uid="uid://ckidnit8dmii3" path="res://resources/enemy_stats_data/bubba.tres" id="2_jerw5"]
 [ext_resource type="Texture2D" uid="uid://cmawdxetuoe6t" path="res://assets/enemies/bubba/bubba1.tres" id="2_nspem"]
-[ext_resource type="Script" uid="uid://ywng46h6kp55" path="res://game/entities/enemies/bubba/bubba.gd" id="2_xm1ea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xm1ea"]
 
 [node name="Bubba" instance=ExtResource("1_xikh3")]
 scale = Vector2(2, 2)
-script = ExtResource("2_xm1ea")
+stats = ExtResource("2_jerw5")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_nspem")

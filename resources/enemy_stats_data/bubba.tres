@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://ckidnit8dmii3"]
+
+[ext_resource type="Script" uid="uid://c62ujyiciu3gv" path="res://resources/enemy_stats.gd" id="1_m1a5l"]
+
+[resource]
+script = ExtResource("1_m1a5l")
+movement_speed = 40.0
+can_rotate = false
+lives_taken_if_reach_finish = 10
+money_awarded_if_killed = 200
+health = 300.0
+metadata/_custom_type_script = "uid://c62ujyiciu3gv"

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3jfqe0tg0oyg" path="res://game/entities/towers/crossbow/base_crossbow.tscn" id="1_s1ite"]
 [ext_resource type="Texture2D" uid="uid://cm8pymm3x7k6l" path="res://assets/towers/crossbow/Tower 01 - Level 01 - Weapon.png" id="2_glofs"]
-[ext_resource type="Script" uid="uid://fjstdkod6yn" path="res://game/entities/towers/crossbow/crossbow_1.gd" id="2_nww5m"]
+[ext_resource type="Resource" uid="uid://cg07pd6onw51g" path="res://resources/tower_stats_data/crossbow/crossbow_1.tres" id="3_3b0e6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nww5m"]
 atlas = ExtResource("2_glofs")
@@ -71,7 +71,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3b0e6"]
 
 [node name="Crossbow1" instance=ExtResource("1_s1ite")]
-script = ExtResource("2_nww5m")
+stats = ExtResource("3_3b0e6")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_glofs")

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TowerStats" load_steps=3 format=3 uid="uid://c8ydyf3yhgbgf"]
+
+[ext_resource type="PackedScene" uid="uid://dh4d0w5kq0eng" path="res://game/entities/towers/rocket_launcher/rocket_1.tscn" id="1_egjlc"]
+[ext_resource type="Script" uid="uid://bayosn0yww01d" path="res://resources/tower_stats.gd" id="2_dy3cr"]
+
+[resource]
+script = ExtResource("2_dy3cr")
+projectile_scene = ExtResource("1_egjlc")
+type = 4
+attacks_per_second = 0.8
+tower_damage = 5.0
+projectile_speed = 1200
+tower_cost = 1000
+upgrade_cost = "2000"
+metadata/_custom_type_script = "uid://bayosn0yww01d"
