@@ -1,11 +1,13 @@
 extends Node2D
 
-@onready var paused_alert_label: RichTextLabel = $"MapUI/GamePausedAlertLabel"
+@onready var paused_alert_label: RichTextLabel = $MapUI/GamePausedAlertLabel
+@onready var reduced_damage_alert_label: Label = $MapUI/ReducedDamageWarning
 var no_money_label: Label
 
 func _ready() -> void:
 	EventBus.pause_event.connect(_on_pause)
 	EventBus.not_enough_money.connect(display_no_money_warning)
+	EventBus.wave_25_passed.connect(display_reduced_damage_alert_label)
 	no_money_label = $"MapUI/NoMoneyWarning"
 	no_money_label.visible = false
 
@@ -35,3 +37,9 @@ func display_no_money_warning() -> void:
 
 func hide_no_money_warning() -> void:
 	no_money_label.visible = false
+
+
+func display_reduced_damage_alert_label() -> void:
+	reduced_damage_alert_label.visible = true
+	await get_tree().create_timer(10.0).timeout
+	reduced_damage_alert_label.visible = false

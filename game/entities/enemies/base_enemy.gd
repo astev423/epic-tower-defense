@@ -75,4 +75,8 @@ func _on_death() -> void:
 
 func take_damage(amount: float, attack_type: GameTypes.AttackType) -> void:
 	var damage_multiplier: float = stats.damage_modifiers.get(attack_type, 1.0)
-	health_comp.take_damage(amount * damage_multiplier)
+	var wave_multiplier := 1.0
+	if GameState.get_cur_wave_num() > 25:
+		wave_multiplier = 0.75
+
+	health_comp.take_damage(amount * damage_multiplier * wave_multiplier)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://blwfow37ffdo1"]
+
+[ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_yj6k8"]
+[ext_resource type="Resource" uid="uid://cg67esjp2uupd" path="res://resources/stats/enemy_stats_data/glug.tres" id="2_71leu"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/enemies/enemies_spritesheet-hyptosis.png" id="2_a1h4y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71leu"]
+
+[node name="Glug" instance=ExtResource("1_yj6k8")]
+stats = ExtResource("2_71leu")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_a1h4y")
+region_enabled = true
+region_rect = Rect2(148, 41, 58, 62)
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(0, -2)
+scale = Vector2(5.0890617, 4.631949)
+shape = SubResource("CircleShape2D_71leu")
+
+[node name="HealthComponent" parent="." index="2"]
+scale = Vector2(1.5, 1.5)

@@ -84,10 +84,10 @@ sprite_frames = SubResource("SpriteFrames_2wvub")
 autoplay = "default"
 
 [node name="AttackRangeDisplay" parent="." index="3"]
-scale = Vector2(2.8028588, 2.8028588)
+scale = Vector2(3.9132898, 3.9132898)
 
 [node name="AttackRangeArea" parent="." index="4"]
-scale = Vector2(2.8028588, 2.8028588)
+scale = Vector2(3.9132898, 3.9132898)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
 shape = SubResource("CircleShape2D_vdhgj")

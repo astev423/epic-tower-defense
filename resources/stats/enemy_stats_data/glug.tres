@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://cg67esjp2uupd"]
+
+[ext_resource type="Script" uid="uid://c62ujyiciu3gv" path="res://resources/scripts/enemy_stats.gd" id="1_hxas0"]
+
+[resource]
+script = ExtResource("1_hxas0")
+damage_modifiers = Dictionary[int, float]({
+0: 0.1,
+1: 0.1,
+2: 0.1,
+3: 0.1,
+4: 1.0
+})
+movement_speed = 20.0
+lives_taken_if_reach_finish = 60
+money_awarded_if_killed = 500
+health = 2000.0
+health_bar_offset = Vector2(-37, -60)
+metadata/_custom_type_script = "uid://c62ujyiciu3gv"

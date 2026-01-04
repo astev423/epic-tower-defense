@@ -26,10 +26,10 @@ region_enabled = true
 region_rect = Rect2(8, 8, 32, 32)
 
 [node name="AttackRangeDisplay" parent="." index="4"]
-scale = Vector2(0.8571003, 0.83054906)
+scale = Vector2(1.3177943, 1.2769717)
 
 [node name="AttackRangeArea" parent="." index="5"]
-scale = Vector2(0.851655, 0.851655)
+scale = Vector2(1.3094221, 1.3094221)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
 shape = SubResource("CircleShape2D_pokd7")

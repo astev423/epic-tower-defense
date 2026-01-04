@@ -70,6 +70,20 @@ theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
 theme_override_font_sizes/font_size = 1861
 text = "Not enough money!"
 
+[node name="ReducedDamageWarning" type="Label" parent="Maps/MapUI"]
+visible = false
+z_index = 10
+z_as_relative = false
+offset_left = -1.0
+offset_top = -1.0000001
+offset_right = 28428.0
+offset_bottom = 7613.0
+scale = Vector2(0.05758459, 0.041503143)
+theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
+theme_override_font_sizes/font_size = 1861
+text = "Wave 26: From now on enemies
+take 25% less damage!"
+
 [node name="VictoryFireworks" parent="Maps/MapUI" instance=ExtResource("9_tw3kd")]
 
 [node name="PauseUnpauseAlerter" type="Node" parent="Maps"]

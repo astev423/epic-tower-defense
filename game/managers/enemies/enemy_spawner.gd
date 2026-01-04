@@ -37,10 +37,13 @@ func _on_enemy_reached_end(lives_taken_if_reach_finish: int) -> void:
 
 
 func try_start_new_wave() -> void:
-	if GameState.get_cur_wave_num() > last_wave_num:
+	var cur_wave := GameState.get_cur_wave_num()
+	if cur_wave > last_wave_num:
 		# TODO Spawn fireworks and show victory screen
 		spawn_fireworks()
 		return
+	elif cur_wave == 26:
+		EventBus.wave_25_passed.emit()
 
 	setup_wave()
 
@@ -158,6 +161,8 @@ func get_enemy_type() -> CharacterBody2D:
 		return WaveInfo.ENEMY_ARMORED_GRUNT_SCENE.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.Watery:
 		return WaveInfo.ENEMY_WATERY_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.Glug:
+		return WaveInfo.ENEMY_GLUG_SCENE.instantiate()
 	else:
 		print("Trying to spawn enemy of unknown type, defaulting to bossman")
 		return WaveInfo.ENEMY_BOSSMAN_SCENE.instantiate()
