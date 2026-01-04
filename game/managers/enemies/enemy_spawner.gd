@@ -14,7 +14,9 @@ var cur_enemy_type: GameTypes.EnemyType
 var cur_enemy_count: int
 var enemies_in_cur_group_to_be_spawned: int
 var groups_left_in_cur_wave: int
+var time_until_next_group_starts_spawning: int
 var time_between_enemies: float
+var first_enemy_in_group_spawned: bool
 
 
 func _ready() -> void:
@@ -62,13 +64,19 @@ func get_info_of_new_group() -> void:
 	enemies_in_cur_group_to_be_spawned = info_for_current_wave.pop_back()
 	cur_enemy_count += enemies_in_cur_group_to_be_spawned
 	time_between_enemies = info_for_current_wave.pop_back()
+	if info_for_current_wave.size() > 0:
+		time_until_next_group_starts_spawning = info_for_current_wave.pop_back()
 	spawn_timer.wait_time = time_between_enemies
+	first_enemy_in_group_spawned = false
 
-	print_debug("enemies of ", cur_enemy_type, " spawning: ", enemies_in_cur_group_to_be_spawned)
+	print_debug("enemies of type: ", cur_enemy_type, " spawning: ", enemies_in_cur_group_to_be_spawned)
 	print_debug("total enemies in this wave so far: ", cur_enemy_count)
 
 
 func try_spawning_enemy() -> void:
+	if not first_enemy_in_group_spawned:
+		setup_timer_to_spawn_each_enemy_in_group_at_right_time()
+
 	if enemies_in_cur_group_to_be_spawned <= 0:
 		if info_for_current_wave.size() == 0:
 			spawn_timer.stop()
@@ -80,11 +88,24 @@ func try_spawning_enemy() -> void:
 		else:
 			get_info_of_new_group()
 			groups_left_in_cur_wave -= 1
-			print_debug("SPAWNING NEW GROUP FOR CURRENT WAVE")
+			setup_timer_to_pause_between_groups()
 			return
 
 	var instantiated_enemy := get_enemy_type()
 	spawn_and_setup_enemy(instantiated_enemy)
+
+
+func setup_timer_to_spawn_each_enemy_in_group_at_right_time() -> void:
+	spawn_timer.stop()
+	spawn_timer.wait_time = time_between_enemies
+	first_enemy_in_group_spawned = true
+	spawn_timer.start()
+
+
+func setup_timer_to_pause_between_groups() -> void:
+	spawn_timer.stop()
+	spawn_timer.wait_time = time_until_next_group_starts_spawning
+	spawn_timer.start()
 
 
 func spawn_and_setup_enemy(spawned_enemy: CharacterBody2D) -> void:

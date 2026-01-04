@@ -19,7 +19,7 @@ region_enabled = true
 region_rect = Rect2(210, 15, 64, 89)
 
 [node name="Hitbox" parent="." index="1"]
-position = Vector2(-2.9999998, 31.000002)
+position = Vector2(2.9999998, 31.000002)
 scale = Vector2(-9.958397, 6.258572)
 shape = SubResource("CapsuleShape2D_2pen5")
 

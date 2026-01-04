@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_kj8oi")
 damage_modifiers = Dictionary[int, float]({
-0: 2.0
+0: 2.0,
+3: 2.0
 })
 movement_speed = 320.0
 lives_taken_if_reach_finish = 1

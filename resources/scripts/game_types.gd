@@ -32,7 +32,6 @@ enum EnemyType {
 	Goblin,
 	ArmoredGrunt,
 	Watery,
-	Dumbo,
 	BossMan,
 }
 

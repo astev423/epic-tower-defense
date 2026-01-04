@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func get_map_info_for_map_clicked(map_user_clicked: GameConstants.Maps) -> void:
-	var starting_wave := 13
+	var starting_wave := 20
 	if map_user_clicked == GameConstants.Maps.DUNES:
 		current_map = load("res://game/maps/levels/dunes.tscn")
 		GameState.set_variables(300, 300, 1)
