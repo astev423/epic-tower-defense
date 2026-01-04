@@ -16,7 +16,6 @@ var can_fire: bool
 var is_shooting: bool
 
 
-
 func _ready() -> void:
 	# By default tower is a dud, these falses get set to true when placed so tower can do stuff
 	attack_range_display.visible = false
@@ -62,3 +61,4 @@ func spawn_projectile(enemy_to_shoot_at: CharacterBody2D) -> void:
 	projectile_node.direction = (enemy_to_shoot_at.global_position - projectile_node.global_position).normalized()
 	projectile_node.damage = stats.tower_damage
 	projectile_node.projectile_speed = stats.projectile_speed
+	projectile_node.attack_type = stats.attack_type

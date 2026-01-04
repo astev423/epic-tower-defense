@@ -3,6 +3,7 @@ class_name TowerStats
 
 @export var projectile_scene: PackedScene = null
 @export var type: GameTypes.TowerType
+@export var attack_type: GameTypes.AttackType
 @export var attacks_per_second: float
 @export var tower_damage: float
 @export var projectile_speed: int

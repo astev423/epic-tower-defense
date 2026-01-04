@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_n142q")
 type = 9
+attack_type = 4
 attacks_per_second = 60.0
 tower_damage = 1.5
 projectile_speed = 10000

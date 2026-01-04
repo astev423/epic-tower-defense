@@ -2,6 +2,7 @@ extends Area2D
 
 var death_timer: Timer
 var damage: float
+var attack_type := GameTypes.AttackType.Explosive
 
 func _ready() -> void:
 	start_death_timer()
@@ -14,7 +15,7 @@ func damage_enemies_in_radius() -> void:
 		if not cur_enemy.is_in_group("enemies"):
 			continue
 
-		cur_enemy.take_damage(damage)
+		cur_enemy.take_damage(self.damage, attack_type)
 
 
 func start_death_timer() -> void:

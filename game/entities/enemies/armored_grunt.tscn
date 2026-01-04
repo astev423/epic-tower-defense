@@ -18,8 +18,3 @@ region_rect = Rect2(486, 852, 32, 30)
 position = Vector2(1, -1)
 scale = Vector2(1.6576598, 1.6576598)
 shape = SubResource("CircleShape2D_pvrel")
-
-[node name="Hitbox2" type="CollisionShape2D" parent="." index="2"]
-position = Vector2(1, -1)
-scale = Vector2(1.6576598, 1.6576598)
-shape = SubResource("CircleShape2D_pvrel")

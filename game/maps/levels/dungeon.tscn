@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=4 uid="uid://d274iwlo85ady"]
 
 [ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/map/tiles/plains.png" id="1_86lix"]
-[ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="2_86lix"]
-[ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/spawning/enemy_spawner.tscn" id="3_j3kxu"]
+[ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/enemy_pathfinder.gd" id="2_86lix"]
+[ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/enemy_spawner.tscn" id="3_j3kxu"]
 [ext_resource type="Texture2D" uid="uid://bwibgu0gg4esa" path="res://assets/map/decorations/blood_fountain.png" id="4_ktkid"]
 [ext_resource type="Texture2D" uid="uid://ds3ml08b75bn0" path="res://assets/map/decorations/altar_kikubaaqudgha.png" id="5_uhffm"]
 [ext_resource type="Texture2D" uid="uid://bh7vag0ix6cay" path="res://assets/map/decorations/animated/altar_makhleb_flame_1.png" id="6_ecrn0"]

@@ -16,6 +16,7 @@ var was_paused := false
 var skip_after_unpause := 0
 var miss_frames := 0
 
+
 func _ready() -> void:
 	set_up_timer()
 	super._ready()
@@ -104,7 +105,7 @@ func attack_enemy_locked_on_to(delta: float) -> void:
 	beam.visible = true
 	var end_point := to_local(enemy_locked_on_to.global_position)
 	beam.points = PackedVector2Array([Vector2.ZERO, end_point])
-	enemy_locked_on_to.take_damage(stats.tower_damage)
+	enemy_locked_on_to.take_damage(stats.tower_damage, stats.attack_type)
 
 
 func set_up_timer() -> void:

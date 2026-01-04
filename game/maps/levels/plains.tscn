@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=4 uid="uid://5vwsct7ganhj"]
 
 [ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/map/tiles/plains.png" id="1_a7kjj"]
-[ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/spawning/enemy_spawner.tscn" id="3_jbsdk"]
+[ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/enemy_spawner.tscn" id="3_jbsdk"]
 [ext_resource type="Texture2D" uid="uid://bfk1467dew683" path="res://assets/map/decorations/rocks_big.png" id="4_j6678"]
 [ext_resource type="Texture2D" uid="uid://drgwdx2dvxhok" path="res://assets/map/decorations/big_bush.png" id="5_ux76n"]
 [ext_resource type="Texture2D" uid="uid://cpr2m6enubueg" path="res://assets/map/decorations/leaves.png" id="6_n73lp"]
-[ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="7_0b5dc"]
+[ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/enemy_pathfinder.gd" id="7_0b5dc"]
 [ext_resource type="Texture2D" uid="uid://4lukspko6dsl" path="res://assets/map/decorations/flower_red.png" id="7_sd88c"]
 [ext_resource type="Texture2D" uid="uid://k2n1ms0k776x" path="res://assets/map/decorations/grass.png" id="8_j3iio"]
 [ext_resource type="Texture2D" uid="uid://co32mannd3iay" path="res://assets/map/decorations/tree_dedicious.png" id="9_6uxkf"]

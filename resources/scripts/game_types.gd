@@ -36,10 +36,10 @@ enum EnemyType {
 	BossMan,
 }
 
-enum DamageModifiers {
+enum AttackType {
 	Piercing,
 	Blunt,
 	Fire,
+	Explosive,
 	Energy,
-	Explosive
 }

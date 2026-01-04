@@ -158,10 +158,10 @@ animation = &"shooting"
 autoplay = "default"
 
 [node name="AttackRangeDisplay" parent="." index="4"]
-scale = Vector2(0.852, 0.852)
+scale = Vector2(1.1976774, 1.1976774)
 
 [node name="AttackRangeArea" parent="." index="5"]
-scale = Vector2(0.852, 0.852)
+scale = Vector2(1.1976774, 1.1976774)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
 shape = SubResource("CircleShape2D_lvgh5")

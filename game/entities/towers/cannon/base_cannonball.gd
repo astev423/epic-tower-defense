@@ -12,6 +12,6 @@ func _on_body_entered(body: Node2D) -> void:
 		if self.already_hit_enemy:
 			return
 
-		body.take_damage(self.damage)
+		body.take_damage(self.damage, attack_type)
 		self.already_hit_enemy = true
 		queue_free()
