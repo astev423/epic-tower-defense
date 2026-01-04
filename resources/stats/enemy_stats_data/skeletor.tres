@@ -4,6 +4,11 @@
 
 [resource]
 script = ExtResource("1_scntx")
+damage_modifiers = Dictionary[int, float]({
+0: 0.5,
+1: 2.0,
+3: 3.0
+})
 movement_speed = 100.0
 lives_taken_if_reach_finish = 10
 money_awarded_if_killed = 50

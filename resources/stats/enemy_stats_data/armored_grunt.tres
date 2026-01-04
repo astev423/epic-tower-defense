@@ -4,9 +4,14 @@
 
 [resource]
 script = ExtResource("1_g6aqy")
+damage_modifiers = Dictionary[int, float]({
+0: 0.5,
+1: 0.5,
+3: 2.0
+})
 movement_speed = 100.0
 lives_taken_if_reach_finish = 20
 money_awarded_if_killed = 50
-health = 500.0
+health = 200.0
 health_bar_offset = Vector2(-25, -25)
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"

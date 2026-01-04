@@ -7,6 +7,7 @@ script = ExtResource("1_0ey3e")
 type = 11
 attack_type = 4
 attacks_per_second = 60.0
+tower_damage = 13.0
 projectile_speed = 10000
 tower_cost = 40000
 upgrade_cost = "MAX"

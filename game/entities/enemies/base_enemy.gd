@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var stats: EnemyStats
 var path_array: Array[Vector2] = []
 var died := false
-var damage_modifiers: Dictionary[GameTypes.AttackType, float]
+
 
 func _ready() -> void:
 	health_comp.health_bar_offset = stats.health_bar_offset
@@ -74,5 +74,5 @@ func _on_death() -> void:
 
 
 func take_damage(amount: float, attack_type: GameTypes.AttackType) -> void:
-	var damage_multiplier: float = damage_modifiers.get(attack_type, 1.0)
+	var damage_multiplier: float = stats.damage_modifiers.get(attack_type, 1.0)
 	health_comp.take_damage(amount * damage_multiplier)

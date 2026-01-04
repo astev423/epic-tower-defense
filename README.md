@@ -36,3 +36,8 @@ Simple tower defense game inspired by BTD5
 
 -CharBodies and Areas sometimes don't have a layer, only a mask, or vice versa, depending on if they
 only need to scan or only need to be collided with
+
+-Seperation of concerns, art goes in assets, stats and other non logic data does NOT go in code, instead
+store it in a resource or in the editor, like define area connections in the editor, other node data
+like sprites, etc. Instead code is only for pure game logic. Prefer empty entities and the logic
+mostly contained within their components

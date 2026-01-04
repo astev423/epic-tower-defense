@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_7hry6"]
 
 [node name="bullet1" instance=ExtResource("1_vvsgq")]
+monitorable = false
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(4.7683716e-07, 0)

@@ -6,7 +6,7 @@ func _physics_process(delta: float) -> void:
 		if not body.is_in_group("enemies"):
 			return
 
-		body.take_damage(damage)
+		body.take_damage(damage, GameTypes.AttackType.Fire)
 
 
 ## Same as other projectiles but this doesn't queue free, it only frees once tower stops attacking

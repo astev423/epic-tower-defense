@@ -56,6 +56,7 @@ func setup_wave() -> void:
 
 
 func get_info_of_new_group() -> void:
+	@warning_ignore("integer_division")
 	groups_left_in_cur_wave = info_for_current_wave.size() / 3
 	cur_enemy_type = info_for_current_wave.pop_back()
 	enemies_in_cur_group_to_be_spawned = info_for_current_wave.pop_back()
@@ -72,6 +73,9 @@ func try_spawning_enemy() -> void:
 		if info_for_current_wave.size() == 0:
 			spawn_timer.stop()
 			print_debug("EVERYTHING IN WAVE SPAWNED")
+			groups_left_in_cur_wave = 0
+			if cur_enemy_count == 0:
+				handle_wave_over()
 			return
 		else:
 			get_info_of_new_group()
@@ -93,14 +97,18 @@ func spawn_and_setup_enemy(spawned_enemy: CharacterBody2D) -> void:
 
 func decrease_enemy_count() -> void:
 	cur_enemy_count -= 1
-	print_debug("decreasing enemies to", cur_enemy_count)
+	print_debug("decreasing enemies to", cur_enemy_count, "groups left: ", groups_left_in_cur_wave)
 
 	if cur_enemy_count <= 0 and groups_left_in_cur_wave <= 0:
-		print_debug("WAVE OVER ALL ENEMIES DIED")
-		GameState._on_wave_over(GameState.get_cur_wave_num())
-		EventBus.pause_event.emit()
-		spawn_timer.stop()
-		try_start_new_wave()
+		handle_wave_over()
+
+
+func handle_wave_over() -> void:
+	print_debug("WAVE OVER ALL ENEMIES DIED")
+	GameState._on_wave_over(GameState.get_cur_wave_num())
+	EventBus.pause_event.emit()
+	spawn_timer.stop()
+	try_start_new_wave()
 
 
 func spawn_fireworks() -> void:
