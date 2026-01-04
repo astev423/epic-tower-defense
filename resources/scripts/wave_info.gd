@@ -8,6 +8,8 @@ const ENEMY_ULTRA_TANK_SCENE = preload("res://game/entities/enemies/ultra_tank.t
 const ENEMY_BOSSMAN_SCENE = preload("res://game/entities/enemies/bossman.tscn")
 const ENEMY_SKELETOR_SCENE = preload("res://game/entities/enemies/skeletor.tscn")
 const ENEMY_GOBLIN_SCENE = preload("res://game/entities/enemies/goblin.tscn")
+const ENEMY_ARMORED_GRUNT_SCENE = preload("res://game/entities/enemies/armored_grunt.tscn")
+const ENEMY_WATERY_SCENE = preload("res://game/entities/enemies/watery.tscn")
 
 
 ## Key is wave number and array holds enemy type, amount of that enemy spawned, and interval between
@@ -32,4 +34,5 @@ static var waves: Dictionary[int, Array] = {
 	15: [GameTypes.EnemyType.UltraTank, 1, 1.0],
 	16: [GameTypes.EnemyType.BossMan, 1, 1.0],
 	17: [GameTypes.EnemyType.Goblin, 1, 1.0, GameTypes.EnemyType.Skeletor, 1, 1.0],
+	18: [GameTypes.EnemyType.ArmoredGrunt, 1, 1.0, GameTypes.EnemyType.Watery, 1, 1.0],
 }

@@ -14,6 +14,7 @@ config/name="Epic Tower Defense"
 run/main_scene="uid://b76138tmbmchy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=144
+boot_splash/image="uid://c81qcy16us8p"
 config/icon="uid://mc3ow6i6ntc0"
 
 [autoload]

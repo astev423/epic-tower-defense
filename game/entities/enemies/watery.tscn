@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmbf6hanv28d1"]
+
+[ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_1k0tv"]
+[ext_resource type="Script" uid="uid://c62ujyiciu3gv" path="res://resources/scripts/enemy_stats.gd" id="2_0ba8k"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/enemies/enemies_spritesheet-hyptosis.png" id="3_16bub"]
+
+[sub_resource type="Resource" id="Resource_78rdd"]
+script = ExtResource("2_0ba8k")
+movement_speed = 40.0
+lives_taken_if_reach_finish = 20
+money_awarded_if_killed = 60
+health = 600.0
+health_bar_offset = Vector2(-25, -25)
+metadata/_custom_type_script = "uid://c62ujyiciu3gv"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1k0tv"]
+
+[node name="Watery" instance=ExtResource("1_1k0tv")]
+stats = SubResource("Resource_78rdd")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_16bub")
+region_enabled = true
+region_rect = Rect2(410, 313, 32, 35)
+
+[node name="Hitbox" parent="." index="1"]
+scale = Vector2(1.9091523, 1.9091523)
+shape = SubResource("CircleShape2D_1k0tv")

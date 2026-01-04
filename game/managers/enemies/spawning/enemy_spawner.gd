@@ -125,6 +125,10 @@ func get_enemy_type() -> CharacterBody2D:
 		return WaveInfo.ENEMY_GOBLIN_SCENE.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.BossMan:
 		return WaveInfo.ENEMY_BOSSMAN_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.ArmoredGrunt:
+		return WaveInfo.ENEMY_ARMORED_GRUNT_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.Watery:
+		return WaveInfo.ENEMY_WATERY_SCENE.instantiate()
 	else:
 		print("Trying to spawn enemy of unknown type, defaulting to bossman")
 		return WaveInfo.ENEMY_BOSSMAN_SCENE.instantiate()

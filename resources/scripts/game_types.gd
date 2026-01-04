@@ -30,6 +30,16 @@ enum EnemyType {
 	UltraTank,
 	Skeletor,
 	Goblin,
+	ArmoredGrunt,
+	Watery,
 	Dumbo,
 	BossMan,
+}
+
+enum DamageModifiers {
+	Piercing,
+	Blunt,
+	Fire,
+	Energy,
+	Explosive
 }
