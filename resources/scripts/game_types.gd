@@ -27,6 +27,9 @@ enum EnemyType {
 	Weakling,
 	FastWeakling,
 	Bubba,
-	Hussar,
-	Tank
+	UltraTank,
+	Skeletor,
+	Goblin,
+	Dumbo,
+	BossMan,
 }

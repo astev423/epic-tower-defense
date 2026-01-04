@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_m1a5l")
 movement_speed = 40.0
-can_rotate = false
 lives_taken_if_reach_finish = 10
 money_awarded_if_killed = 200
 health = 300.0
+health_bar_offset = Vector2(-25, -40)
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"

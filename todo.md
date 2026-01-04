@@ -24,5 +24,7 @@ in main menu itself let users click play then select map or see their stats (sav
 
 -Add fast-forward button via engine time scale or whatever its called
 
+-Add death splat or explosion for big enemies on death
+
 -Checkout popular plugins
 """

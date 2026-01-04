@@ -3,6 +3,7 @@ extends Node2D
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var target := get_parent() as CharacterBody2D
 var _health: float
+var health_bar_offset: Vector2
 
 signal died()
 
@@ -12,8 +13,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var offset := Vector2(-25, -25)
-	global_position = target.global_position + offset
+	global_position = target.global_position + health_bar_offset
 
 
 func init_health(health: float) -> void:

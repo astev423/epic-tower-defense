@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://uaflu3ju4u3r"]
+
+[ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_cbyfx"]
+[ext_resource type="Resource" uid="uid://dbj8saoijfvfr" path="res://resources/stats/enemy_stats_data/skeletor.tres" id="2_cbyfx"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/enemies/enemies_spritesheet-hyptosis.png" id="3_fju7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5lmp"]
+size = Vector2(23.14621, 24.438454)
+
+[node name="Skeletor" instance=ExtResource("1_cbyfx")]
+stats = ExtResource("2_cbyfx")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_fju7g")
+region_enabled = true
+region_rect = Rect2(454, 882, 31, 32)
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(-0.25504136, 7.1525574e-07)
+scale = Vector2(2.7006617, 2.7006617)
+shape = SubResource("RectangleShape2D_k5lmp")

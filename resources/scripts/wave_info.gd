@@ -1,9 +1,13 @@
 extends Resource
 class_name WaveInfo
 
-const ENEMY_WEAKLING_SCENE = preload("res://game/entities/enemies/weakling/weakling.tscn")
-const ENEMY_FAST_WEAKLING_SCENE = preload("res://game/entities/enemies/weakling/fast_weakling.tscn")
-const ENEMY_BUBBA_SCENE = preload("res://game/entities/enemies/bubba/bubba.tscn")
+const ENEMY_WEAKLING_SCENE = preload("res://game/entities/enemies/weakling.tscn")
+const ENEMY_FAST_WEAKLING_SCENE = preload("res://game/entities/enemies/fast_weakling.tscn")
+const ENEMY_BUBBA_SCENE = preload("res://game/entities/enemies/bubba.tscn")
+const ENEMY_ULTRA_TANK_SCENE = preload("res://game/entities/enemies/ultra_tank.tscn")
+const ENEMY_BOSSMAN_SCENE = preload("res://game/entities/enemies/bossman.tscn")
+const ENEMY_SKELETOR_SCENE = preload("res://game/entities/enemies/skeletor.tscn")
+const ENEMY_GOBLIN_SCENE = preload("res://game/entities/enemies/goblin.tscn")
 
 
 ## Key is wave number and array holds enemy type, amount of that enemy spawned, and interval between
@@ -25,4 +29,7 @@ static var waves: Dictionary[int, Array] = {
 	12: [GameTypes.EnemyType.Weakling, 80, 0.1],
 	13: [GameTypes.EnemyType.FastWeakling, 20, 0.02],
 	14: [GameTypes.EnemyType.FastWeakling, 80, 0.02],
+	15: [GameTypes.EnemyType.UltraTank, 1, 1.0],
+	16: [GameTypes.EnemyType.BossMan, 1, 1.0],
+	17: [GameTypes.EnemyType.Goblin, 1, 1.0, GameTypes.EnemyType.Skeletor, 1, 1.0],
 }

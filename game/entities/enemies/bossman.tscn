@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1bb1gtccha2"]
+
+[ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_gu5al"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/enemies/enemies_spritesheet-hyptosis.png" id="2_2pen5"]
+[ext_resource type="Resource" uid="uid://cqkqgx3b2w6x6" path="res://resources/stats/enemy_stats_data/bossman.tres" id="2_8f8kv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2pen5"]
+radius = 6.928826
+
+[node name="Bossman" instance=ExtResource("1_gu5al")]
+stats = ExtResource("2_8f8kv")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 31.5)
+scale = Vector2(2, 2)
+texture = ExtResource("2_2pen5")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(210, 15, 64, 89)
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(-2.9999998, 31.000002)
+scale = Vector2(-9.958397, 6.258572)
+shape = SubResource("CapsuleShape2D_2pen5")
+
+[node name="HealthComponent" parent="." index="2"]
+scale = Vector2(2, 2)

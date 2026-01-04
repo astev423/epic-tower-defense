@@ -13,6 +13,7 @@ var info_for_current_wave: Array
 var cur_enemy_type: GameTypes.EnemyType
 var cur_enemy_count: int
 var enemies_in_cur_group_to_be_spawned: int
+var groups_left_in_cur_wave: int
 var time_between_enemies: float
 
 
@@ -55,6 +56,7 @@ func setup_wave() -> void:
 
 
 func get_info_of_new_group() -> void:
+	groups_left_in_cur_wave = info_for_current_wave.size() / 3
 	cur_enemy_type = info_for_current_wave.pop_back()
 	enemies_in_cur_group_to_be_spawned = info_for_current_wave.pop_back()
 	cur_enemy_count += enemies_in_cur_group_to_be_spawned
@@ -73,23 +75,12 @@ func try_spawning_enemy() -> void:
 			return
 		else:
 			get_info_of_new_group()
+			groups_left_in_cur_wave -= 1
 			print_debug("SPAWNING NEW GROUP FOR CURRENT WAVE")
 			return
 
 	var instantiated_enemy := get_enemy_type()
 	spawn_and_setup_enemy(instantiated_enemy)
-
-
-func get_enemy_type() -> CharacterBody2D:
-	if cur_enemy_type == GameTypes.EnemyType.Weakling:
-		return WaveInfo.ENEMY_WEAKLING_SCENE.instantiate()
-	if cur_enemy_type == GameTypes.EnemyType.FastWeakling:
-		return WaveInfo.ENEMY_FAST_WEAKLING_SCENE.instantiate()
-	elif cur_enemy_type == GameTypes.EnemyType.Bubba:
-		return WaveInfo.ENEMY_BUBBA_SCENE.instantiate()
-	else:
-		print("Trying to spawn enemy of unknown type, defaulting to fast weakling")
-		return WaveInfo.ENEMY_FAST_WEAKLING_SCENE.instantiate()
 
 
 func spawn_and_setup_enemy(spawned_enemy: CharacterBody2D) -> void:
@@ -104,7 +95,7 @@ func decrease_enemy_count() -> void:
 	cur_enemy_count -= 1
 	print_debug("decreasing enemies to", cur_enemy_count)
 
-	if cur_enemy_count <= 0:
+	if cur_enemy_count <= 0 and groups_left_in_cur_wave <= 0:
 		print_debug("WAVE OVER ALL ENEMIES DIED")
 		GameState._on_wave_over(GameState.get_cur_wave_num())
 		EventBus.pause_event.emit()
@@ -117,3 +108,23 @@ func spawn_fireworks() -> void:
 	p.global_position = Vector2(1000, 500)
 	get_tree().get_root().add_child.call_deferred(p)
 	p.emitting = true
+
+
+func get_enemy_type() -> CharacterBody2D:
+	if cur_enemy_type == GameTypes.EnemyType.Weakling:
+		return WaveInfo.ENEMY_WEAKLING_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.FastWeakling:
+		return WaveInfo.ENEMY_FAST_WEAKLING_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.Bubba:
+		return WaveInfo.ENEMY_BUBBA_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.UltraTank:
+		return WaveInfo.ENEMY_ULTRA_TANK_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.Skeletor:
+		return WaveInfo.ENEMY_SKELETOR_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.Goblin:
+		return WaveInfo.ENEMY_GOBLIN_SCENE.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.BossMan:
+		return WaveInfo.ENEMY_BOSSMAN_SCENE.instantiate()
+	else:
+		print("Trying to spawn enemy of unknown type, defaulting to bossman")
+		return WaveInfo.ENEMY_BOSSMAN_SCENE.instantiate()

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://chetfp2b10deg"]
+
+[ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_omxum"]
+[ext_resource type="Resource" uid="uid://ckidnit8dmii3" path="res://resources/stats/enemy_stats_data/bubba.tres" id="2_b0i3g"]
+[ext_resource type="Texture2D" uid="uid://cmawdxetuoe6t" path="res://assets/enemies/bubba1.tres" id="3_8q7je"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xm1ea"]
+
+[node name="Bubba" instance=ExtResource("1_omxum")]
+scale = Vector2(2, 2)
+stats = ExtResource("2_b0i3g")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_8q7je")
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(1.5000002, 1)
+scale = Vector2(1.4890116, 1.4890116)
+shape = SubResource("CircleShape2D_xm1ea")

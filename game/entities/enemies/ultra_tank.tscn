@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dapofdmupy7bu"]
+
+[ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_5ea5w"]
+[ext_resource type="Resource" uid="uid://cbxxr5t3i1hs7" path="res://resources/stats/enemy_stats_data/ultra_tank.tres" id="2_v0knn"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/enemies/enemies_spritesheet-hyptosis.png" id="3_8qg6t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j1oga"]
+
+[node name="UltraTank" instance=ExtResource("1_5ea5w")]
+stats = ExtResource("2_v0knn")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_8qg6t")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(469, 378, 94, 108)
+
+[node name="Hitbox" parent="." index="1"]
+position = Vector2(0, -2)
+scale = Vector2(2.4179723, 1.7854004)
+shape = SubResource("CapsuleShape2D_j1oga")

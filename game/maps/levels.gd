@@ -5,7 +5,7 @@ var current_map: PackedScene
 
 
 func _ready() -> void:
-	var map_user_clicked := GameConstants.Maps.DUNGEON
+	var map_user_clicked := GameConstants.Maps.PLAINS
 	get_map_info_for_map_clicked(map_user_clicked)
 	instantiate_map_stuff()
 
@@ -16,7 +16,7 @@ func get_map_info_for_map_clicked(map_user_clicked: GameConstants.Maps) -> void:
 		GameState.set_variables(300, 300, 1)
 	elif map_user_clicked == GameConstants.Maps.PLAINS:
 		current_map = load("res://game/maps/levels/plains.tscn")
-		GameState.set_variables(300, 300000, 11)
+		GameState.set_variables(300, 300000, 17)
 	elif map_user_clicked == GameConstants.Maps.DUNGEON:
 		current_map = load("res://game/maps/levels/dungeon.tscn")
 		GameState.set_variables(300, 300, 1)

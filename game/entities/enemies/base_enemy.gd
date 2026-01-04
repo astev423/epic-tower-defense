@@ -13,6 +13,8 @@ extends CharacterBody2D
 var path_array: Array[Vector2] = []
 var died := false
 
+func _ready() -> void:
+	health_comp.health_bar_offset = stats.health_bar_offset
 
 func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)
@@ -53,8 +55,6 @@ func move_to_closest_point_on_path(delta: float) -> void:
 		else:
 			var dir := vector_to_point / dist_to_point
 			velocity = dir * stats.movement_speed
-			if stats.can_rotate:
-				rotation = dir.angle()
 			return
 
 	velocity = Vector2.ZERO
