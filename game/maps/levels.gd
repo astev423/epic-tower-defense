@@ -5,7 +5,7 @@ var current_map: PackedScene
 
 
 func _ready() -> void:
-	var map_user_clicked := GameConstants.Maps.PLAINS
+	var map_user_clicked := GameConstants.Maps.DUNGEON
 	get_map_info_for_map_clicked(map_user_clicked)
 	instantiate_map_stuff()
 

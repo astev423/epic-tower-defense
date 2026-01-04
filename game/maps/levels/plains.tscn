@@ -1,8 +1,17 @@
-[gd_scene load_steps=6 format=4 uid="uid://5vwsct7ganhj"]
+[gd_scene load_steps=15 format=4 uid="uid://5vwsct7ganhj"]
 
-[ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/tiles/plains.png" id="1_a7kjj"]
+[ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/map/tiles/plains.png" id="1_a7kjj"]
 [ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/spawning/enemy_spawner.tscn" id="3_jbsdk"]
+[ext_resource type="Texture2D" uid="uid://bfk1467dew683" path="res://assets/map/decorations/rocks_big.png" id="4_j6678"]
+[ext_resource type="Texture2D" uid="uid://drgwdx2dvxhok" path="res://assets/map/decorations/big_bush.png" id="5_ux76n"]
+[ext_resource type="Texture2D" uid="uid://cpr2m6enubueg" path="res://assets/map/decorations/leaves.png" id="6_n73lp"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="7_0b5dc"]
+[ext_resource type="Texture2D" uid="uid://4lukspko6dsl" path="res://assets/map/decorations/flower_red.png" id="7_sd88c"]
+[ext_resource type="Texture2D" uid="uid://k2n1ms0k776x" path="res://assets/map/decorations/grass.png" id="8_j3iio"]
+[ext_resource type="Texture2D" uid="uid://co32mannd3iay" path="res://assets/map/decorations/tree_dedicious.png" id="9_6uxkf"]
+[ext_resource type="Texture2D" uid="uid://cuovr08g75dw1" path="res://assets/map/decorations/tree_dead.png" id="10_jldps"]
+[ext_resource type="Texture2D" uid="uid://t36eryl11d4y" path="res://assets/map/decorations/flower_purple.png" id="11_6uxkf"]
+[ext_resource type="Texture2D" uid="uid://d31iwiclqpfc8" path="res://assets/map/decorations/tree_conifer.png" id="12_jldps"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5b1qg"]
 texture = ExtResource("1_a7kjj")
@@ -86,5 +95,179 @@ position = Vector2(230, 17)
 
 [node name="ExitPoint" parent="EnemySpawner" index="2"]
 position = Vector2(1647, 164)
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="Rocks" type="Sprite2D" parent="Decorations"]
+position = Vector2(337, 171)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_j6678")
+
+[node name="Rocks2" type="Sprite2D" parent="Decorations"]
+position = Vector2(805, 448)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_j6678")
+
+[node name="Rocks4" type="Sprite2D" parent="Decorations"]
+position = Vector2(27, 923)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_j6678")
+
+[node name="Rocks5" type="Sprite2D" parent="Decorations"]
+position = Vector2(726, 43)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_j6678")
+
+[node name="BigBush" type="Sprite2D" parent="Decorations"]
+position = Vector2(49, 78)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ux76n")
+
+[node name="BigBush2" type="Sprite2D" parent="Decorations"]
+position = Vector2(1224, 34)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ux76n")
+
+[node name="BigBush3" type="Sprite2D" parent="Decorations"]
+position = Vector2(1538, 353)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ux76n")
+
+[node name="BigBush4" type="Sprite2D" parent="Decorations"]
+position = Vector2(377, 648)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ux76n")
+
+[node name="SmallLeaves" type="Sprite2D" parent="Decorations"]
+position = Vector2(441, 32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_n73lp")
+
+[node name="SmallLeaves2" type="Sprite2D" parent="Decorations"]
+position = Vector2(932, 731)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_n73lp")
+
+[node name="SmallLeaves3" type="Sprite2D" parent="Decorations"]
+position = Vector2(1185, 326)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_n73lp")
+
+[node name="SmallLeaves4" type="Sprite2D" parent="Decorations"]
+position = Vector2(683, 287)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_n73lp")
+
+[node name="FlowerRed" type="Sprite2D" parent="Decorations"]
+position = Vector2(294, 400)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_sd88c")
+
+[node name="FlowerRed2" type="Sprite2D" parent="Decorations"]
+position = Vector2(35, 549)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_sd88c")
+
+[node name="FlowerRed3" type="Sprite2D" parent="Decorations"]
+position = Vector2(1612, 896)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_sd88c")
+
+[node name="Grass" type="Sprite2D" parent="Decorations"]
+position = Vector2(461, 514)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_j3iio")
+
+[node name="Grass2" type="Sprite2D" parent="Decorations"]
+position = Vector2(987, 290)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_j3iio")
+
+[node name="TreeDedicious" type="Sprite2D" parent="Decorations"]
+position = Vector2(734, 399)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_6uxkf")
+
+[node name="TreeDedicious2" type="Sprite2D" parent="Decorations"]
+position = Vector2(875, 404)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_6uxkf")
+
+[node name="TreeDedicious3" type="Sprite2D" parent="Decorations"]
+position = Vector2(1458, 665)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_6uxkf")
+metadata/_edit_group_ = true
+
+[node name="TreeDedicious4" type="Sprite2D" parent="Decorations"]
+position = Vector2(1604, 479)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_6uxkf")
+metadata/_edit_group_ = true
+
+[node name="TreeDead" type="Sprite2D" parent="Decorations"]
+position = Vector2(1470, 460)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_jldps")
+
+[node name="TreeDead2" type="Sprite2D" parent="Decorations"]
+position = Vector2(1454, 247)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_jldps")
+
+[node name="TreeDead3" type="Sprite2D" parent="Decorations"]
+position = Vector2(904, 65)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_jldps")
+
+[node name="FlowerPurple" type="Sprite2D" parent="Decorations"]
+position = Vector2(481, 728)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_6uxkf")
+
+[node name="FlowerPurple2" type="Sprite2D" parent="Decorations"]
+position = Vector2(668, 913)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_6uxkf")
+
+[node name="FlowerPurple3" type="Sprite2D" parent="Decorations"]
+position = Vector2(1272, 927)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_6uxkf")
+
+[node name="FlowerPurple4" type="Sprite2D" parent="Decorations"]
+position = Vector2(1619, 31)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_6uxkf")
+
+[node name="TreeConifer" type="Sprite2D" parent="Decorations"]
+position = Vector2(411, 256)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_jldps")
+
+[node name="TreeConifer2" type="Sprite2D" parent="Decorations"]
+position = Vector2(567, 58)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_jldps")
+
+[node name="TreeConifer3" type="Sprite2D" parent="Decorations"]
+position = Vector2(1095, 60)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_jldps")
+
+[node name="TreeConifer4" type="Sprite2D" parent="Decorations"]
+position = Vector2(699, 708)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_jldps")
+
+[node name="TreeConifer5" type="Sprite2D" parent="Decorations"]
+position = Vector2(51, 220)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_jldps")
+
+[node name="TreeConifer6" type="Sprite2D" parent="Decorations"]
+position = Vector2(68, 748)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_jldps")
 
 [editable path="EnemySpawner"]

@@ -1,8 +1,28 @@
-[gd_scene load_steps=6 format=4 uid="uid://d274iwlo85ady"]
+[gd_scene load_steps=28 format=4 uid="uid://d274iwlo85ady"]
 
-[ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/tiles/plains.png" id="1_86lix"]
+[ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/map/tiles/plains.png" id="1_86lix"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="2_86lix"]
 [ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/spawning/enemy_spawner.tscn" id="3_j3kxu"]
+[ext_resource type="Texture2D" uid="uid://bwibgu0gg4esa" path="res://assets/map/decorations/blood_fountain.png" id="4_ktkid"]
+[ext_resource type="Texture2D" uid="uid://ds3ml08b75bn0" path="res://assets/map/decorations/altar_kikubaaqudgha.png" id="5_uhffm"]
+[ext_resource type="Texture2D" uid="uid://bh7vag0ix6cay" path="res://assets/map/decorations/animated/altar_makhleb_flame_1.png" id="6_ecrn0"]
+[ext_resource type="Texture2D" uid="uid://btm5t48ec7fmq" path="res://assets/map/decorations/animated/altar_makhleb_flame_2.png" id="7_8fubf"]
+[ext_resource type="Texture2D" uid="uid://ctuk4y7y87uv3" path="res://assets/map/decorations/animated/altar_makhleb_flame_3.png" id="8_06kx4"]
+[ext_resource type="Texture2D" uid="uid://ddiy72wqkyt1g" path="res://assets/map/decorations/animated/altar_makhleb_flame_4.png" id="9_5nhot"]
+[ext_resource type="Texture2D" uid="uid://bduw7tak3o8g1" path="res://assets/map/decorations/animated/altar_makhleb_flame_5.png" id="10_fhikw"]
+[ext_resource type="Texture2D" uid="uid://drr43wul7w3f5" path="res://assets/map/decorations/animated/altar_makhleb_flame_6.png" id="11_y6tew"]
+[ext_resource type="Texture2D" uid="uid://vupurmsv2h87" path="res://assets/map/decorations/animated/altar_makhleb_flame_7.png" id="12_7uobn"]
+[ext_resource type="Texture2D" uid="uid://dx2e25op0qd8h" path="res://assets/map/decorations/animated/altar_makhleb_flame_8.png" id="13_yseud"]
+[ext_resource type="Texture2D" uid="uid://cra5l6fqrmw3m" path="res://assets/map/decorations/animated/altar_xom_0.png" id="14_7uobn"]
+[ext_resource type="Texture2D" uid="uid://ck3gtp5bsbtet" path="res://assets/map/decorations/animated/altar_xom_1.png" id="15_yseud"]
+[ext_resource type="Texture2D" uid="uid://bxylsjx7lahpb" path="res://assets/map/decorations/animated/altar_xom_2.png" id="16_1lewb"]
+[ext_resource type="Texture2D" uid="uid://c4601a81fplgw" path="res://assets/map/decorations/animated/altar_xom_3.png" id="17_cmymj"]
+[ext_resource type="Texture2D" uid="uid://w07e1wihsv3j" path="res://assets/map/decorations/animated/altar_xom_4.png" id="18_xiubj"]
+[ext_resource type="Texture2D" uid="uid://5m3jk3tvgbvd" path="res://assets/map/decorations/animated/altar_xom_5.png" id="19_di4uw"]
+[ext_resource type="Texture2D" uid="uid://dftiwcsyq1euw" path="res://assets/map/decorations/animated/altar_xom_6.png" id="20_eu8a6"]
+[ext_resource type="Texture2D" uid="uid://qf7b3awqy2vk" path="res://assets/map/decorations/animated/altar_xom_7.png" id="21_vops8"]
+[ext_resource type="Texture2D" uid="uid://dhsolxrdk3u0p" path="res://assets/map/decorations/statue_iron.png" id="22_1lewb"]
+[ext_resource type="Texture2D" uid="uid://5j380pvnmkd8" path="res://assets/map/decorations/sarcophagus_sealed.png" id="23_cmymj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2j4nv"]
 texture = ExtResource("1_86lix")
@@ -70,6 +90,70 @@ custom_data_layer_1/name = "movement_cost"
 custom_data_layer_1/type = 2
 sources/0 = SubResource("TileSetAtlasSource_2j4nv")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lewb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ecrn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8fubf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_06kx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5nhot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fhikw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_y6tew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7uobn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_yseud")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgyio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_7uobn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yseud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1lewb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_cmymj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xiubj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_di4uw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_eu8a6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_vops8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.2
+}]
+
 [node name="Dungeon" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -91,5 +175,84 @@ position = Vector2(-17, -72)
 
 [node name="ExitPoint" parent="EnemySpawner" index="2"]
 position = Vector2(1619, -77)
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="BloodFountain" type="Sprite2D" parent="Decorations"]
+position = Vector2(796, 235)
+scale = Vector2(6, 6)
+texture = ExtResource("4_ktkid")
+
+[node name="AltarKikubaaqudgha" type="Sprite2D" parent="Decorations"]
+position = Vector2(1104, 248)
+scale = Vector2(4, 4)
+texture = ExtResource("5_uhffm")
+
+[node name="AltarKikubaaqudgha2" type="Sprite2D" parent="Decorations"]
+position = Vector2(472, 248)
+scale = Vector2(4, 4)
+texture = ExtResource("5_uhffm")
+
+[node name="Fire" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(113, 834)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_1lewb")
+autoplay = "default"
+frame_progress = 0.6327552
+
+[node name="Fire2" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(1547, 838)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_1lewb")
+autoplay = "default"
+frame_progress = 0.5821905
+
+[node name="Fire3" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(1566, 102)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_1lewb")
+autoplay = "default"
+frame_progress = 0.9282315
+
+[node name="Fire4" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(95.00012, 102)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_1lewb")
+autoplay = "default"
+frame = 7
+frame_progress = 0.3813472
+
+[node name="CreepyFace" type="AnimatedSprite2D" parent="Decorations"]
+position = Vector2(795, 828)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_tgyio")
+autoplay = "default"
+frame_progress = 0.8690682
+
+[node name="StatueIron" type="Sprite2D" parent="Decorations"]
+position = Vector2(324.00003, 686)
+scale = Vector2(6, 6)
+texture = ExtResource("22_1lewb")
+
+[node name="StatueIron2" type="Sprite2D" parent="Decorations"]
+position = Vector2(1288, 695)
+scale = Vector2(6, 6)
+texture = ExtResource("22_1lewb")
+
+[node name="SarcophagusSealed" type="Sprite2D" parent="Decorations"]
+position = Vector2(793, 638)
+scale = Vector2(6, 6)
+texture = ExtResource("23_cmymj")
+
+[node name="DarknessFIlter" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="DarknessFIlter"]
+z_index = 1
+anchors_preset = -1
+anchor_right = 0.866
+anchor_bottom = 0.889
+size_flags_horizontal = 4
+mouse_filter = 2
+color = Color(0, 0, 0, 0.26666668)
 
 [editable path="EnemySpawner"]

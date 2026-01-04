@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vtjh0lpl3sgq"
-path="res://.godot/imported/highlight_grid.png-893f6d4d5b39ec4f4f17828b3b16f115.ctex"
+uid="uid://dhsolxrdk3u0p"
+path="res://.godot/imported/statue_iron.png-87c3f5755abced0330f7b76810697ad7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tiles/highlight_grid.png"
-dest_files=["res://.godot/imported/highlight_grid.png-893f6d4d5b39ec4f4f17828b3b16f115.ctex"]
+source_file="res://assets/map/decorations/statue_iron.png"
+dest_files=["res://.godot/imported/statue_iron.png-87c3f5755abced0330f7b76810697ad7.ctex"]
 
 [params]
 

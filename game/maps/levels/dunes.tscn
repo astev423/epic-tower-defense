@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://dmwrw4lmpokwu"]
+[gd_scene load_steps=8 format=4 uid="uid://dmwrw4lmpokwu"]
 
-[ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/tiles/plains.png" id="1_tio4t"]
+[ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/map/tiles/plains.png" id="1_tio4t"]
 [ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/spawning/enemy_spawner.tscn" id="3_3s3oc"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/pathfinding/enemy_pathfinder.gd" id="4_0i5ff"]
+[ext_resource type="Texture2D" uid="uid://dh70g17usn3ly" path="res://assets/map/decorations/tree_dead2.png" id="4_5oypf"]
+[ext_resource type="Texture2D" uid="uid://du0jjf42b5gbm" path="res://assets/map/decorations/rock_big.png" id="5_w76d0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kuoyd"]
 texture = ExtResource("1_tio4t")
@@ -89,5 +91,92 @@ position = Vector2(16, 930)
 
 [node name="ExitPoint" parent="EnemySpawner" index="2"]
 position = Vector2(1651, 928)
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="TreeDead2" type="Sprite2D" parent="Decorations"]
+position = Vector2(182, 554)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5oypf")
+
+[node name="TreeDead3" type="Sprite2D" parent="Decorations"]
+position = Vector2(234, 273)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5oypf")
+
+[node name="TreeDead4" type="Sprite2D" parent="Decorations"]
+position = Vector2(557, 73)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5oypf")
+
+[node name="TreeDead5" type="Sprite2D" parent="Decorations"]
+position = Vector2(734, 189)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5oypf")
+
+[node name="TreeDead6" type="Sprite2D" parent="Decorations"]
+position = Vector2(1309, 342)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5oypf")
+
+[node name="TreeDead7" type="Sprite2D" parent="Decorations"]
+position = Vector2(1599, 795)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5oypf")
+
+[node name="RockBig" type="Sprite2D" parent="Decorations"]
+position = Vector2(211, 807)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig2" type="Sprite2D" parent="Decorations"]
+position = Vector2(236, 419)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig3" type="Sprite2D" parent="Decorations"]
+position = Vector2(320, 243)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig4" type="Sprite2D" parent="Decorations"]
+position = Vector2(185, 112)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig5" type="Sprite2D" parent="Decorations"]
+position = Vector2(483, 39)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig6" type="Sprite2D" parent="Decorations"]
+position = Vector2(648, 37)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig7" type="Sprite2D" parent="Decorations"]
+position = Vector2(1203, 371)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig8" type="Sprite2D" parent="Decorations"]
+position = Vector2(1443, 223)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig9" type="Sprite2D" parent="Decorations"]
+position = Vector2(592, 860)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig10" type="Sprite2D" parent="Decorations"]
+position = Vector2(1089, 770)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
+
+[node name="RockBig11" type="Sprite2D" parent="Decorations"]
+position = Vector2(1509, 751)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_w76d0")
 
 [editable path="EnemySpawner"]
