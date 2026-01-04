@@ -14,6 +14,8 @@ in main menu itself let users click play then select map or see their stats (sav
 
 -Add custom sound effects like hurt sound/death sound and add royalty free background music, maybe bossa nova
 
+-Keybind to upgrade while upgrade ui is showing, keybind to select certain towers
+
 -Add fast-forward button via engine time scale or whatever its called
 
 -Add death splat or explosion for big enemies on death

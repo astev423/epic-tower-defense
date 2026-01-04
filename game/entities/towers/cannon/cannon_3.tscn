@@ -23,7 +23,10 @@ scale = Vector2(0.417, 0.417)
 texture = ExtResource("3_1hdnk")
 
 [node name="AttackRangeDisplay" parent="." index="3"]
-scale = Vector2(1.443697, 1.3989742)
+scale = Vector2(1.8219639, 1.7655232)
+
+[node name="AttackRangeArea" parent="." index="4"]
+scale = Vector2(1.2620127, 1.2620127)
 
 [node name="CollisionShape2D" parent="AttackRangeArea" index="0"]
 scale = Vector2(21, 21)
