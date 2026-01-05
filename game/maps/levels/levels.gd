@@ -39,7 +39,7 @@ func instantiate_map_stuff() -> void:
 
 func get_starting_money() -> int:
 	if is_unlimited_money_mode:
-		return 9999999
+		return 9999999999
 	elif starting_wave_num > 1:
 		return WaveInfo.starting_money_at_given_wave[starting_wave_num]
 	else:
