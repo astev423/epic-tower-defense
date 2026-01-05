@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://bs8g4s5l46lau"]
 
 [ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/managers/towers/tower_placement_manager.gd" id="1_ikrvu"]
-[ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/entity_sprites/towers/cannon/cannon1.png" id="2_lksn0"]
-[ext_resource type="Texture2D" uid="uid://coctix6nji1er" path="res://assets/entity_sprites/towers/rocket_launcher/launcher1.png" id="3_stjyg"]
-[ext_resource type="Texture2D" uid="uid://cm8pymm3x7k6l" path="res://assets/entity_sprites/towers/crossbow/Tower 01 - Level 01 - Weapon.png" id="4_acdrx"]
+[ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/images/entities/towers/cannon/cannon1.png" id="2_lksn0"]
+[ext_resource type="Texture2D" uid="uid://coctix6nji1er" path="res://assets/images/entities/towers/rocket_launcher/launcher1.png" id="3_stjyg"]
+[ext_resource type="Texture2D" uid="uid://cm8pymm3x7k6l" path="res://assets/images/entities/towers/crossbow/Tower 01 - Level 01 - Weapon.png" id="4_acdrx"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="5_acdrx"]
-[ext_resource type="Texture2D" uid="uid://by7nltu4l1nto" path="res://assets/entity_sprites/towers/crystal/Tower 02 - Level 01 - Weapon.png" id="5_k32xf"]
-[ext_resource type="Texture2D" uid="uid://cfq5w1up0rxr2" path="res://assets/entity_sprites/towers/machine_gunner/machine_gun1.png" id="6_j0o44"]
-[ext_resource type="Texture2D" uid="uid://dd4dwiiy8tn34" path="res://assets/entity_sprites/towers/flamethrower/flamethrower1.png" id="7_nvjih"]
-[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/ui/button_rectangle_border.png" id="8_nvjih"]
+[ext_resource type="Texture2D" uid="uid://by7nltu4l1nto" path="res://assets/images/entities/towers/crystal/Tower 02 - Level 01 - Weapon.png" id="5_k32xf"]
+[ext_resource type="Texture2D" uid="uid://cfq5w1up0rxr2" path="res://assets/images/entities/towers/machine_gunner/machine_gun1.png" id="6_j0o44"]
+[ext_resource type="Texture2D" uid="uid://dd4dwiiy8tn34" path="res://assets/images/entities/towers/flamethrower/flamethrower1.png" id="7_nvjih"]
+[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/images/ui/button_rectangle_border.png" id="8_nvjih"]
 
 [node name="TowerPlacementManager" type="Node2D"]
 script = ExtResource("1_ikrvu")

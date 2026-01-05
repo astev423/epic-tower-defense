@@ -7,11 +7,7 @@ var tile_map_layer: TileMapLayer
 var held_tower_node: Node2D = null
 var used_tiles: Dictionary[Vector2i, Node2D] = {}
 
-func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
 
-
-## Event driven actions instead of polling
 func _input(event: InputEvent) -> void:
 	if is_instance_valid(held_tower_node) and event is InputEventMouseMotion:
 		make_tower_follow_mouse()
@@ -49,7 +45,6 @@ func _on_select_crystal_pressed() -> void:
 
 
 func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void:
-	# Delete old UI tower if we clicked on a new one
 	if is_instance_valid(held_tower_node):
 		free_held_tower()
 
@@ -71,8 +66,8 @@ func update_ui_for_dragged_tower() -> void:
 
 func try_placing_tower_on_grid() -> void:
 	var mouse_pos := get_global_mouse_position()
-	if (mouse_pos.x > GameConstants.TILE_SIZE * GameConstants.NUM_HORIZONTAL_TILES
-			or mouse_pos.y > GameConstants.TILE_SIZE * GameConstants.NUM_VERTICAL_TILES
+	if (mouse_pos.x >= GameConstants.TILE_SIZE * GameConstants.NUM_HORIZONTAL_TILES
+			or mouse_pos.y >= GameConstants.TILE_SIZE * GameConstants.NUM_VERTICAL_TILES
 			or not is_instance_valid(held_tower_node)):
 		return
 

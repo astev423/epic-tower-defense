@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3a5cu2up7cfl"]
+[gd_scene load_steps=9 format=3 uid="uid://d3a5cu2up7cfl"]
 
 [ext_resource type="Script" uid="uid://dlwnt0wqpdy4p" path="res://game/ui/gameplay_ui.gd" id="1_y5laj"]
 [ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="2_xr88a"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/gameplay_scene/game_resources/resource_displayer.tscn" id="4_4bqwn"]
 [ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/gameplay_scene/highlight_tile/highlight_tile.tscn" id="5_sdw3p"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="6_0jrkl"]
-[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/ui/button_rectangle_border.png" id="7_3lcmk"]
+[ext_resource type="PackedScene" uid="uid://bdta4r1g011xy" path="res://game/ui/EnemyStatsDisplayer.tscn" id="6_xr88a"]
+[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/images/ui/button_rectangle_border.png" id="7_3lcmk"]
 
 [node name="GameplayUI" type="Control"]
 layout_mode = 3
@@ -28,6 +29,8 @@ scale = Vector2(0.8819773, 0.8819773)
 [node name="HighlightTile" parent="." instance=ExtResource("5_sdw3p")]
 position = Vector2(1357, 959.99994)
 scale = Vector2(0.8915491, 0.8915491)
+
+[node name="EnemyStatsDisplayer" parent="." instance=ExtResource("6_xr88a")]
 
 [node name="GamePausedAlertLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -71,7 +74,6 @@ text = "Wave 26: From now on enemies
 take 25% less damage!"
 
 [node name="QuitButton" type="Button" parent="."]
-process_mode = 3
 layout_mode = 0
 offset_left = 1684.0
 offset_top = 637.0

@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=4 uid="uid://dmwrw4lmpokwu"]
 
-[ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/map/tiles/plains.png" id="1_tio4t"]
+[ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/images/level/tiles/plains.png" id="1_tio4t"]
 [ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/enemy_spawner.tscn" id="3_3s3oc"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/enemy_pathfinder.gd" id="4_0i5ff"]
-[ext_resource type="Texture2D" uid="uid://dh70g17usn3ly" path="res://assets/map/decorations/tree_dead2.png" id="4_5oypf"]
-[ext_resource type="Texture2D" uid="uid://du0jjf42b5gbm" path="res://assets/map/decorations/rock_big.png" id="5_w76d0"]
+[ext_resource type="Texture2D" uid="uid://dh70g17usn3ly" path="res://assets/images/level/decorations/tree_dead2.png" id="4_5oypf"]
+[ext_resource type="Texture2D" uid="uid://du0jjf42b5gbm" path="res://assets/images/level/decorations/rock_big.png" id="5_w76d0"]
 [ext_resource type="AudioStream" uid="uid://uqopauuuabox" path="res://assets/music/2019-12-09_-_Retro_Forest_-_David_Fesliyan.mp3" id="6_m3o14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kuoyd"]
@@ -180,9 +180,10 @@ position = Vector2(1509, 751)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_w76d0")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("6_m3o14")
+volume_db = -10.0
 autoplay = true
 
 [editable path="EnemySpawner"]

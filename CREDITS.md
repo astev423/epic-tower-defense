@@ -1,9 +1,11 @@
-## I didn't make the assets/music in this game, I used freely available art from these people:
+## I didn't make the assets/music in this game, I used freely available art from these sources:
 
 # Game assets
 Tower defense and UI assets from kenny.nl: https://kenney.nl
 Several towers (animated ones) from foozlecc https://foozlecc.itch.io/
 Guns from vladpenn https://vladpenn.itch.io/weapon
+Several other free assets from itch.io and opengameart.org
 
 # Music
 Woodland Fantasy by Matthew Pablo: https://opengameart.org/content/woodland-fantasy
+Lots of music and sfx from https://pixabay.com

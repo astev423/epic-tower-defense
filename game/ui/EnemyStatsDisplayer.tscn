@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdta4r1g011xy"]
+
+[ext_resource type="Script" uid="uid://wph6ievedjab" path="res://game/ui/enemy_stats_displayer.gd" id="1_bfmxo"]
+
+[node name="EnemyStatsDisplayer" type="Node2D"]
+script = ExtResource("1_bfmxo")

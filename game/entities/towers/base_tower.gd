@@ -1,9 +1,6 @@
 extends Node2D
 ## This is the abstract base class for all towers, towers change their rotation to look at enemies when
 ## they are in radius. It checks at given timer interval if enemy is in range, then tracks it
-##
-## When making a new tower all you need to do is extend this then define the tower range, attack damage,
-## attacks per second, and the cannonball scene it will use. In the GUI define the sprites, range, etc
 
 @onready var attack_timer: Timer = $"AttackTimer"
 @onready var enemies_in_range := {}

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dukih2drcudys"]
 
 [ext_resource type="Script" uid="uid://hqhpjdnf0y4q" path="res://game/entities/towers/rocket_launcher/explosion.gd" id="1_5vdaf"]
-[ext_resource type="Texture2D" uid="uid://l1syyxjxujou" path="res://assets/entity_sprites/towers/rocket_launcher/explosion.png" id="1_io7om"]
+[ext_resource type="Texture2D" uid="uid://l1syyxjxujou" path="res://assets/images/entities/towers/rocket_launcher/explosion.png" id="1_io7om"]
 [ext_resource type="AudioStream" uid="uid://iw2s6qoybcon" path="res://assets/sfx/projectile_sounds/medium-explosion.mp3" id="3_epos3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_io7om"]

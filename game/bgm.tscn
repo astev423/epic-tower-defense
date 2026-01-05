@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bee7b4uwxb8x3"]
+
+[ext_resource type="AudioStream" uid="uid://c5kxkh1sidldn" path="res://assets/music/retro-8bit-happy-videogame-music.mp3" id="1_ochqo"]
+
+[node name="BGM" type="AudioStreamPlayer"]
+stream = ExtResource("1_ochqo")
+autoplay = true

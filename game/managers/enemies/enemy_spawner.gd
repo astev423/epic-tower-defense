@@ -40,7 +40,6 @@ func _on_enemy_reached_end(lives_taken_if_reach_finish: int) -> void:
 func try_start_new_wave() -> void:
 	var cur_wave := GameState.get_cur_wave_num()
 	if cur_wave > last_wave_num:
-		# TODO Spawn fireworks and show victory screen
 		call_deferred("try_show_victory_screen")
 		return
 	elif cur_wave == 26:
@@ -140,9 +139,9 @@ func try_show_victory_screen() -> void:
 	if GameState.get_cur_lives_num() <= 0:
 		return
 
-	# Wait for monster death animation and sfx to finish
 	EventBus.game_timescale_changed.emit("1X")
-	await get_tree().create_timer(12.0).timeout
+	# Wait for monster death animation and sfx to finish
+	await get_tree().create_timer(11.0).timeout
 	var victory_scene := load("res://game/ui/victory_screen.tscn")
 	var victory_screen_node: Control = victory_scene.instantiate()
 	victory_screen_node.size = Vector2(1920, 1080)

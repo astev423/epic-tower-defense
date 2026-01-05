@@ -1,6 +1,5 @@
 extends Area2D
 
-# Damage and direction set by tower so modifications to tower also work here
 var projectile_speed: float
 var direction: Vector2
 var damage: float

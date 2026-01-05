@@ -14,7 +14,6 @@ func _ready() -> void:
 	EventBus.money_changed.connect(update_money_label)
 	EventBus.wave_changed.connect(update_waves_label)
 	EventBus.lives_changed.connect(update_lives_label)
-	process_mode = Node.PROCESS_MODE_ALWAYS
 	setup_label_values()
 
 

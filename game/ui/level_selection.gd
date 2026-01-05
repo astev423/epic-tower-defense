@@ -46,7 +46,6 @@ func _on_select_unlimited_money_button_pressed() -> void:
 
 
 func _on_line_edit_text_changed(new_text: String) -> void:
-	# Text must be an int and between 1 and 40
 	if not new_text.is_valid_int() or int(new_text) > 40 or int(new_text) < 1:
 		change_wave_num.text = str(starting_wave_num)
 		return
@@ -77,12 +76,14 @@ func instantiate_map_stuff() -> void:
 	var level_node: Node2D = level_chosen_scene.instantiate()
 	map_node.add_child(level_node)
 	map_node.move_child(level_node, 0)
+	map_node.level_node = level_node
 
 	var tower_placement_manager := map_node.get_node("GameplayUI/TowerPlacementManager")
 	var tile_layer := level_node.get_node("TileMapLayer")
 	tower_placement_manager.tile_map_layer = tile_layer
 
 	get_node("/root/GameRoot").add_child(map_node)
+	get_node("/root/GameRoot/MenuBGM").stop()
 
 	queue_free()
 

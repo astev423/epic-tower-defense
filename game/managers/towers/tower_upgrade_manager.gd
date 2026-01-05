@@ -8,8 +8,6 @@ var current_tower_highlighted: Node2D = null
 
 func _ready() -> void:
 	EventBus.tower_clicked_on.connect(_on_user_click_on_tower)
-	# Allow upgrading towers while paused
-	process_mode = Node.PROCESS_MODE_ALWAYS
 
 
 func _input(event: InputEvent) -> void:
@@ -22,7 +20,6 @@ func _on_upgrade_tower_button_pressed() -> void:
 	if current_tower_highlighted.stats.upgrade_cost == "MAX":
 		return
 
-	# ask money manager if we have enough money, if success then despawn old tower and instantiate new one
 	var success := GameState.try_buying_tower(int(current_tower_highlighted.stats.upgrade_cost))
 	if not success:
 		return
@@ -90,7 +87,6 @@ func get_upgraded_tower_node() -> Node2D:
 
 
 func try_highlight_tower_clicked_on(tower: Node2D) -> void:
-	# Unhighlight previous tower if it was highlighted and we clicked on a NEW tower
 	if current_tower_highlighted != null and current_tower_highlighted != tower:
 		current_tower_highlighted.attack_range_display.visible = false
 
@@ -129,7 +125,6 @@ func update_display_tower_info(tower: Node2D) -> void:
 
 
 func unhighlight_tower() -> void:
-	# Can't set fields on a null instance
 	if not is_instance_valid(current_tower_highlighted):
 		return
 

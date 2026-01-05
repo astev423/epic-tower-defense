@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxuaevymd80nf"]
 
 [ext_resource type="PackedScene" uid="uid://dbi53brb0b121" path="res://game/entities/towers/crossbow/base_bolt.tscn" id="1_sbd5f"]
-[ext_resource type="Texture2D" uid="uid://ca7i3nps6gl2p" path="res://assets/entity_sprites/towers/crossbow/Tower 01 - Level 03 - Projectile.png" id="3_6r607"]
+[ext_resource type="Texture2D" uid="uid://ca7i3nps6gl2p" path="res://assets/images/entities/towers/crossbow/Tower 01 - Level 03 - Projectile.png" id="3_6r607"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h4mfu"]
 
