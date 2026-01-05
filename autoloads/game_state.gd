@@ -25,9 +25,14 @@ func decrease_lives(lives_taken_if_reach_finish: int) -> void:
 	GameState._cur_lives -= lives_taken_if_reach_finish
 	EventBus.lives_changed.emit(GameState._cur_lives)
 
-	# TODO Show game over screen if lives run out
 	if GameState._cur_lives <= 0:
-		assert(GameState._cur_lives > 0)
+		var GAME_OVER_SCREEN_SCENE := load("res://game/ui/game_over_screen.tscn")
+		var game_over_screen_node: Control = GAME_OVER_SCREEN_SCENE.instantiate()
+		game_over_screen_node.size = Vector2(1920, 1080)
+		get_node("/root/Root").add_child(game_over_screen_node)
+
+		var maps: Node2D = get_node("/root/Root/Maps")
+		maps.queue_free()
 
 
 func _on_wave_over(completed_wave_number: int) -> void:

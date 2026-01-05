@@ -58,5 +58,5 @@ func setup_level_and_delete_this_ui() -> void:
 	levels.map_user_clicked = map_user_clicked
 	levels.starting_wave_num = starting_wave_num
 	levels.is_unlimited_money_mode = is_unlimited_money_mode
-	get_tree().root.add_child(maps_node)
+	get_node("/root/Root").add_child(maps_node)
 	queue_free()

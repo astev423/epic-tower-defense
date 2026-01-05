@@ -107,7 +107,7 @@ func get_tower_instantiation(held_tower_type: GameTypes.TowerType) -> Node2D:
 	elif held_tower_type == GameTypes.TowerType.FLAMETHROWER1:
 		tower_node = TowerScenes.FLAMETHROWER_1_SCENE.instantiate()
 	else:
-		print("trying to get tower that doesn't exist")
+		print_debug("trying to get tower that doesn't exist")
 		tower_node = null
 
 	return tower_node

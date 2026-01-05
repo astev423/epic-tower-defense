@@ -8,7 +8,6 @@ var map_user_clicked: GameConstants.Maps
 
 
 func _ready() -> void:
-	print(starting_wave_num)
 	set_variables_for_map_clicked()
 	instantiate_map_stuff()
 
@@ -41,6 +40,7 @@ func get_starting_money() -> int:
 	if is_unlimited_money_mode:
 		return 9999999999
 	elif starting_wave_num > 1:
-		return WaveInfo.starting_money_at_given_wave[starting_wave_num]
+		var wave_info := WaveInfo.new()
+		return wave_info.starting_money_at_given_wave[starting_wave_num]
 	else:
 		return 300

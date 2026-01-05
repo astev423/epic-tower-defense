@@ -84,7 +84,7 @@ func get_upgraded_tower_node() -> Node2D:
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.FLAMETHROWER2:
 		upgraded_tower = TowerScenes.FLAMETHROWER_3_SCENE.instantiate()
 	else:
-		print("Trying to upgrade to tower that doesn't exist")
+		print_debug("Trying to upgrade to tower that doesn't exist")
 
 	return upgraded_tower
 

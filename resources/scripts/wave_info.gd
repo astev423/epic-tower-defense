@@ -15,8 +15,7 @@ const ENEMY_GLUG_SCENE = preload("res://game/entities/enemies/glug.tscn")
 
 ## Key is wave number and array holds enemy type, amount of that enemy spawned, interval between
 ## spawns, and time until next group spawns. Array can have multiple enemies
-# Make waves static so it can be globally accessed like const without needing to instance object with .new
-static var waves: Dictionary[int, Array] = {
+var waves: Dictionary[int, Array] = {
 	1: [GameTypes.EnemyType.Weakling, 10, 2.5],
 	2: [GameTypes.EnemyType.Weakling, 12, 2.0],
 	3: [GameTypes.EnemyType.Weakling, 5, 0.2, 2.0, GameTypes.EnemyType.Weakling, 1, 3, 2.0,
@@ -76,7 +75,7 @@ static var waves: Dictionary[int, Array] = {
 }
 
 
-static var starting_money_at_given_wave: Dictionary[int, int] = {
+var starting_money_at_given_wave: Dictionary[int, int] = {
 	2: 600,
 	3: 980,
 	4: 1395,

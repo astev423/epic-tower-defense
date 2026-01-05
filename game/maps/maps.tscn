@@ -72,8 +72,23 @@ theme_override_font_sizes/font_size = 1861
 text = "Wave 26: From now on enemies
 take 25% less damage!"
 
+[node name="QuitButton" type="Button" parent="MapUI"]
+process_mode = 3
+offset_left = 1684.0
+offset_top = 637.0
+offset_right = 1893.0
+offset_bottom = 740.0
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("7_cx4jr")
+theme_override_font_sizes/font_size = 35
+text = " Return 
+to menu"
+
 [node name="VictoryFireworks" parent="MapUI" instance=ExtResource("8_guhvb")]
 
 [node name="PauseUnpauseAlerter" type="Node" parent="."]
 script = ExtResource("9_31ej8")
 metadata/_custom_type_script = "uid://ofb2yb8vntf0"
+
+[connection signal="pressed" from="MapUI/QuitButton" to="." method="_on_quit_button_pressed"]

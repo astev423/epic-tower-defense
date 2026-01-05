@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @onready var paused_alert_label: RichTextLabel = $MapUI/GamePausedAlertLabel
 @onready var reduced_damage_alert_label: Label = $MapUI/ReducedDamageWarning
 @onready var levels: Node2D = $Levels
@@ -23,6 +24,14 @@ func _on_pause() -> void:
 	else:
 		set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
 		paused_alert_label.visible = true
+
+
+func _on_quit_button_pressed() -> void:
+	var MAIN_MENU_SCREEN_SCENE := load("res://game/ui/main_menu_screen.tscn")
+	var main_menu_node: Control = MAIN_MENU_SCREEN_SCENE.instantiate()
+	main_menu_node.size = Vector2(1920, 1080)
+	get_node("/root/Root").add_child(main_menu_node)
+	queue_free()
 
 
 func display_no_money_warning() -> void:

@@ -17,13 +17,15 @@ var groups_left_in_cur_wave: int
 var time_until_next_group_starts_spawning: int
 var time_between_enemies: float
 var first_enemy_in_group_spawned: bool
+var wave_info: WaveInfo
 
 
 func _ready() -> void:
+	wave_info = WaveInfo.new()
 	EventBus.enemy_died.connect(decrease_enemy_count)
 	EventBus.enemy_reached_end.connect(_on_enemy_reached_end)
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
-	last_wave_num = WaveInfo.waves.size()
+	last_wave_num = wave_info.waves.size()
 	try_start_new_wave()
 
 
@@ -54,7 +56,7 @@ func setup_wave() -> void:
 	spawn_timer.start()
 
 	cur_enemy_count = 0
-	info_for_current_wave = WaveInfo.waves[GameState.get_cur_wave_num()]
+	info_for_current_wave = wave_info.waves[GameState.get_cur_wave_num()]
 	# Reverse so we can pop back to prevent resizing
 	info_for_current_wave.reverse()
 	get_info_of_new_group()
@@ -164,5 +166,5 @@ func get_enemy_type() -> CharacterBody2D:
 	elif cur_enemy_type == GameTypes.EnemyType.Glug:
 		return WaveInfo.ENEMY_GLUG_SCENE.instantiate()
 	else:
-		print("Trying to spawn enemy of unknown type, defaulting to bossman")
+		print_debug("Trying to spawn enemy of unknown type, defaulting to bossman")
 		return WaveInfo.ENEMY_BOSSMAN_SCENE.instantiate()
