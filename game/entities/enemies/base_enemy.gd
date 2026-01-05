@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var pathfinding_manager: Node = $"../../EnemyPathfinder"
 @onready var health_comp: Node2D = $HealthComponent
 @onready var death_sound: AudioStreamPlayer = $DeathSound
+@onready var sprite: Sprite2D = $Sprite2D
 @export var stats: EnemyStats
 var path_array: Array[Vector2] = []
 var died := false
@@ -17,6 +18,7 @@ var died := false
 
 func _ready() -> void:
 	health_comp.health_bar_offset = stats.health_bar_offset
+
 
 func setup_path_and_info() -> void:
 	path_array = pathfinding_manager.get_valid_path(global_position / 64, target_pos.position / 64)

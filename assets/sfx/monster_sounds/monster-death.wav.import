@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://tyxvbl08t0ej"
-path="res://.godot/imported/monster-death.wav-d1ea008b94240b3fcdb0127179979f51.sample"
+path="res://.godot/imported/monster-death.wav-3da47de26e7b69b204274efce1f0a1ab.sample"
 
 [deps]
 
-source_file="res://assets/sfx/projectile_sounds/monster-death.wav"
-dest_files=["res://.godot/imported/monster-death.wav-d1ea008b94240b3fcdb0127179979f51.sample"]
+source_file="res://assets/sfx/monster_sounds/monster-death.wav"
+dest_files=["res://.godot/imported/monster-death.wav-3da47de26e7b69b204274efce1f0a1ab.sample"]
 
 [params]
 

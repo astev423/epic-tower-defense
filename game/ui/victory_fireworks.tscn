@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1ulows2ch8xy"]
 
-[ext_resource type="AudioStream" uid="uid://boca8uldwr5i7" path="res://assets/sfx/firework_explosion.wav" id="1_op1ly"]
+[ext_resource type="AudioStream" uid="uid://boca8uldwr5i7" path="res://assets/sfx/monster_sounds/firework_explosion.wav" id="1_op1ly"]
 
 [sub_resource type="Curve" id="Curve_ag7v4"]
 _limits = [-1.0, 1.0, 0.0, 1.0]

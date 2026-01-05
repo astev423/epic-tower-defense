@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bisqcfxpunop2" path="res://game/entities/enemies/base_enemy.gd" id="1_axhys"]
 [ext_resource type="PackedScene" uid="uid://bcwysl8hu7f0l" path="res://game/entities/enemies/health/health_component.tscn" id="2_4d2sl"]
-[ext_resource type="AudioStream" uid="uid://tyxvbl08t0ej" path="res://assets/sfx/projectile_sounds/monster-death.wav" id="3_qvmdq"]
+[ext_resource type="AudioStream" uid="uid://tyxvbl08t0ej" path="res://assets/sfx/monster_sounds/monster-death.wav" id="3_qvmdq"]
 
 [node name="BaseEnemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -18,3 +18,5 @@ script = ExtResource("1_axhys")
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("3_qvmdq")
+volume_db = -12.0
+bus = &"SFX"

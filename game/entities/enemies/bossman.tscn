@@ -1,14 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1bb1gtccha2"]
+[gd_scene load_steps=9 format=3 uid="uid://b1bb1gtccha2"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_gu5al"]
 [ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/entity_sprites/enemies/enemies_spritesheet-hyptosis.png" id="2_2pen5"]
-[ext_resource type="Resource" uid="uid://cqkqgx3b2w6x6" path="res://resources/stats/enemy_stats_data/bossman.tres" id="2_8f8kv"]
+[ext_resource type="Script" uid="uid://ckuwmqml6h0pc" path="res://game/entities/enemies/bossman.gd" id="2_8f8kv"]
+[ext_resource type="Resource" uid="uid://cqkqgx3b2w6x6" path="res://resources/stats/enemy_stats_data/bossman.tres" id="3_qrw68"]
+[ext_resource type="AudioStream" uid="uid://b64rmd0d7wsu6" path="res://assets/sfx/monster_sounds/monster-growl.mp3" id="4_onqso"]
+[ext_resource type="AudioStream" uid="uid://dmegep8jq6k3t" path="res://assets/sfx/monster_sounds/deep-sea-monster-roar.mp3" id="5_qrw68"]
+[ext_resource type="AudioStream" uid="uid://d3u5265u73n6c" path="res://assets/sfx/massive-explosion.mp3" id="7_xdxhe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2pen5"]
 radius = 6.928826
 
 [node name="Bossman" instance=ExtResource("1_gu5al")]
-stats = ExtResource("2_8f8kv")
+script = ExtResource("2_8f8kv")
+stats = ExtResource("3_qrw68")
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, 31.5)
@@ -25,3 +30,23 @@ shape = SubResource("CapsuleShape2D_2pen5")
 
 [node name="HealthComponent" parent="." index="2"]
 scale = Vector2(2, 2)
+
+[node name="EntranceSound" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("4_onqso")
+autoplay = true
+
+[node name="DeathSound" parent="." index="4"]
+stream = ExtResource("5_qrw68")
+volume_db = 0.0
+pitch_scale = 0.8
+
+[node name="DeathExplosionSprite" type="Sprite2D" parent="." index="5"]
+visible = false
+position = Vector2(6, 11)
+scale = Vector2(2.8035383, 2.8035383)
+texture = ExtResource("2_2pen5")
+region_enabled = true
+region_rect = Rect2(111, 375, 59, 93)
+
+[node name="DeathExplosionSound" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("7_xdxhe")

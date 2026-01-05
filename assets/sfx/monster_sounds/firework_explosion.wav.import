@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://boca8uldwr5i7"
-path="res://.godot/imported/firework_explosion.wav-da63cc696845d49b351eb171b1c88a1f.sample"
+path="res://.godot/imported/firework_explosion.wav-6c5fa88812e55377801fa6c13d9eec39.sample"
 
 [deps]
 
-source_file="res://assets/sfx/firework_explosion.wav"
-dest_files=["res://.godot/imported/firework_explosion.wav-da63cc696845d49b351eb171b1c88a1f.sample"]
+source_file="res://assets/sfx/monster_sounds/firework_explosion.wav"
+dest_files=["res://.godot/imported/firework_explosion.wav-6c5fa88812e55377801fa6c13d9eec39.sample"]
 
 [params]
 

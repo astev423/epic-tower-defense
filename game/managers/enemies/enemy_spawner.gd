@@ -140,6 +140,9 @@ func try_show_victory_screen() -> void:
 	if GameState.get_cur_lives_num() <= 0:
 		return
 
+	# Wait for monster death animation and sfx to finish
+	EventBus.game_timescale_changed.emit("1X")
+	await get_tree().create_timer(12.0).timeout
 	var victory_scene := load("res://game/ui/victory_screen.tscn")
 	var victory_screen_node: Control = victory_scene.instantiate()
 	victory_screen_node.size = Vector2(1920, 1080)
