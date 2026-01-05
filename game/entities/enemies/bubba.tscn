@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_omxum"]
 [ext_resource type="Resource" uid="uid://ckidnit8dmii3" path="res://resources/stats/enemy_stats_data/bubba.tres" id="2_b0i3g"]
-[ext_resource type="Texture2D" uid="uid://cmawdxetuoe6t" path="res://assets/enemies/bubba1.tres" id="3_8q7je"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/enemies/enemies_spritesheet-hyptosis.png" id="3_omxum"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xm1ea"]
 
@@ -11,7 +11,9 @@ scale = Vector2(2, 2)
 stats = ExtResource("2_b0i3g")
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_8q7je")
+texture = ExtResource("3_omxum")
+region_enabled = true
+region_rect = Rect2(477, 513, 24, 27)
 
 [node name="Hitbox" parent="." index="1"]
 position = Vector2(1.5000002, 1)

@@ -27,7 +27,7 @@ func update_lives_label(new_lives_amount: int) -> void:
 
 
 func update_waves_label(new_wave_num: int) -> void:
-	waves_label.text = "Waves: %d/50" % new_wave_num
+	waves_label.text = "Waves: %d/40" % new_wave_num
 
 
 func setup_label_values()-> void:

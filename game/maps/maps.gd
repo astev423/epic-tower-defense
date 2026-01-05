@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var paused_alert_label: RichTextLabel = $MapUI/GamePausedAlertLabel
 @onready var reduced_damage_alert_label: Label = $MapUI/ReducedDamageWarning
+@onready var levels: Node2D = $Levels
 var no_money_label: Label
 
 func _ready() -> void:

@@ -1,98 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://b76138tmbmchy"]
+[gd_scene load_steps=3 format=3 uid="uid://b76138tmbmchy"]
 
-[ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/maps/maps.gd" id="1_28aoi"]
-[ext_resource type="Texture2D" uid="uid://ci3egox48k08c" path="res://assets/ui/button_square_depth_flat.png" id="1_tw3kd"]
-[ext_resource type="Script" uid="uid://dbp5y7cqe56mf" path="res://game/maps/levels/levels.gd" id="3_tw3kd"]
-[ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="3_vvh5c"]
-[ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/ui/pause_unpause_alerter.gd" id="4_jnlp7"]
-[ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="4_l8v81"]
-[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/maps/game_resources/resource_displayer.tscn" id="5_l8v81"]
-[ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/maps/highlight_tile/highlight_tile.tscn" id="7_huihk"]
-[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="8_bf3um"]
-[ext_resource type="PackedScene" uid="uid://d1ulows2ch8xy" path="res://game/maps/victory_fireworks.tscn" id="9_tw3kd"]
+[ext_resource type="Script" uid="uid://crkikd1i1krjc" path="res://root.gd" id="1_vvh5c"]
+[ext_resource type="PackedScene" uid="uid://8s02pbcrvkyw" path="res://game/ui/main_menu_screen.tscn" id="3_vvh5c"]
 
 [node name="Root" type="Node2D"]
+script = ExtResource("1_vvh5c")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(-258, -213.00006)
-scale = Vector2(18.772665, 12.104274)
-texture = ExtResource("1_tw3kd")
-centered = false
-
-[node name="MainMenuScreen" type="Node2D" parent="."]
-visible = false
-
-[node name="Maps" type="Node2D" parent="."]
-script = ExtResource("1_28aoi")
-
-[node name="Levels" type="Node2D" parent="Maps" node_paths=PackedStringArray("tower_placement_manager")]
-script = ExtResource("3_tw3kd")
-tower_placement_manager = NodePath("../MapUI/TowerPlacementManager")
-
-[node name="MapUI" type="Node2D" parent="Maps"]
-
-[node name="TowerPlacementManager" parent="Maps/MapUI" instance=ExtResource("3_vvh5c")]
-position = Vector2(1665, 0)
-scale = Vector2(2, 2)
-
-[node name="TowerUpgradeManager" parent="Maps/MapUI" instance=ExtResource("4_l8v81")]
-visible = false
-position = Vector2(0, 960)
-
-[node name="ResourceDisplayer" parent="Maps/MapUI" instance=ExtResource("5_l8v81")]
-position = Vector2(1345, 960.99994)
-scale = Vector2(0.8819773, 0.8819773)
-
-[node name="HighlightTile" parent="Maps/MapUI" instance=ExtResource("7_huihk")]
-position = Vector2(1357, 959.99994)
-scale = Vector2(0.8915491, 0.8915491)
-
-[node name="GamePausedAlertLabel" type="RichTextLabel" parent="Maps/MapUI"]
-offset_left = 659.0
-offset_top = 303.0
-offset_right = 948.0062
-offset_bottom = 362.0
-scale = Vector2(1.8200301, 2.50003)
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
 mouse_filter = 2
-theme_override_colors/default_color = Color(1, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("8_bf3um")
-theme_override_font_sizes/normal_font_size = 52
-text = " Paused"
-fit_content = true
-
-[node name="NoMoneyWarning" type="Label" parent="Maps/MapUI"]
-offset_left = 140.0
-offset_top = 319.0
-offset_right = 17901.0
-offset_bottom = 2855.0
-scale = Vector2(0.07727055, 0.07727055)
-theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
-theme_override_font_sizes/font_size = 1861
-text = "Not enough money!"
-
-[node name="ReducedDamageWarning" type="Label" parent="Maps/MapUI"]
-visible = false
-z_index = 10
-z_as_relative = false
-offset_left = -1.0
-offset_top = -1.0000001
-offset_right = 28428.0
-offset_bottom = 7613.0
-scale = Vector2(0.05758459, 0.041503143)
-theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
-theme_override_font_sizes/font_size = 1861
-text = "Wave 26: From now on enemies
-take 25% less damage!"
-
-[node name="VictoryFireworks" parent="Maps/MapUI" instance=ExtResource("9_tw3kd")]
-
-[node name="PauseUnpauseAlerter" type="Node" parent="Maps"]
-script = ExtResource("4_jnlp7")
-metadata/_custom_type_script = "uid://ofb2yb8vntf0"
-
-[node name="GameOverScreen" type="Node2D" parent="."]
-visible = false
+color = Color(6.112605e-06, 0.75939333, 0.44310054, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 zoom = Vector2(0.6, 0.6)
+
+[node name="MainMenuScreen" parent="." instance=ExtResource("3_vvh5c")]
+offset_right = 1920.0
+offset_bottom = 1080.0

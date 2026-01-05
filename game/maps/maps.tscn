@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://du0rp8w2ajl0q"]
+
+[ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/maps/maps.gd" id="1_2paj4"]
+[ext_resource type="Script" uid="uid://dbp5y7cqe56mf" path="res://game/maps/levels/levels.gd" id="2_anugk"]
+[ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="3_ljng3"]
+[ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="4_iifw6"]
+[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/maps/game_resources/resource_displayer.tscn" id="5_65je6"]
+[ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/maps/highlight_tile/highlight_tile.tscn" id="6_bcncw"]
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="7_cx4jr"]
+[ext_resource type="PackedScene" uid="uid://d1ulows2ch8xy" path="res://game/maps/victory_fireworks.tscn" id="8_guhvb"]
+[ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/ui/pause_unpause_alerter.gd" id="9_31ej8"]
+
+[node name="Maps" type="Node2D"]
+script = ExtResource("1_2paj4")
+
+[node name="Levels" type="Node2D" parent="." node_paths=PackedStringArray("tower_placement_manager")]
+script = ExtResource("2_anugk")
+tower_placement_manager = NodePath("../MapUI/TowerPlacementManager")
+
+[node name="MapUI" type="Node2D" parent="."]
+
+[node name="TowerPlacementManager" parent="MapUI" instance=ExtResource("3_ljng3")]
+position = Vector2(1665, 0)
+scale = Vector2(2, 2)
+
+[node name="TowerUpgradeManager" parent="MapUI" instance=ExtResource("4_iifw6")]
+visible = false
+position = Vector2(0, 960)
+
+[node name="ResourceDisplayer" parent="MapUI" instance=ExtResource("5_65je6")]
+position = Vector2(1345, 960.99994)
+scale = Vector2(0.8819773, 0.8819773)
+
+[node name="HighlightTile" parent="MapUI" instance=ExtResource("6_bcncw")]
+position = Vector2(1357, 959.99994)
+scale = Vector2(0.8915491, 0.8915491)
+
+[node name="GamePausedAlertLabel" type="RichTextLabel" parent="MapUI"]
+offset_left = 659.0
+offset_top = 303.0
+offset_right = 948.0062
+offset_bottom = 362.0
+scale = Vector2(1.8200301, 2.50003)
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_cx4jr")
+theme_override_font_sizes/normal_font_size = 52
+text = " Paused"
+fit_content = true
+
+[node name="NoMoneyWarning" type="Label" parent="MapUI"]
+offset_left = 140.0
+offset_top = 319.0
+offset_right = 17901.0
+offset_bottom = 2855.0
+scale = Vector2(0.07727055, 0.07727055)
+theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
+theme_override_font_sizes/font_size = 1861
+text = "Not enough money!"
+
+[node name="ReducedDamageWarning" type="Label" parent="MapUI"]
+visible = false
+z_index = 10
+z_as_relative = false
+offset_left = -1.0
+offset_top = -1.0000001
+offset_right = 28428.0
+offset_bottom = 7613.0
+scale = Vector2(0.05758459, 0.041503143)
+theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
+theme_override_font_sizes/font_size = 1861
+text = "Wave 26: From now on enemies
+take 25% less damage!"
+
+[node name="VictoryFireworks" parent="MapUI" instance=ExtResource("8_guhvb")]
+
+[node name="PauseUnpauseAlerter" type="Node" parent="."]
+script = ExtResource("9_31ej8")
+metadata/_custom_type_script = "uid://ofb2yb8vntf0"

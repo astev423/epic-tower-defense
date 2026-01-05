@@ -1,8 +1,4 @@
 """
--Set machinegun to 10000 damage so can easily calculate moneys for waves
-
--Get up to wave 40, then have that be the final wave with bossman, then do final testing
-
 -Work on UI, make start menu, let users exit map and go to main menu, add death screen that takes you back to main menu, and
 in main menu itself let users click play then select map or see their stats (saved via godot saving), or red button for exit
 
@@ -17,6 +13,8 @@ in main menu itself let users click play then select map or see their stats (sav
 -Keybind to upgrade while upgrade ui is showing, keybind to select certain towers
 
 -Add fast-forward button via engine time scale or whatever its called
+
+-Add win screen congratulating and click to take user back to main menu
 
 -Add death splat or explosion for big enemies on death
 """

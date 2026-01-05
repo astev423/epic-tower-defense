@@ -37,6 +37,7 @@ func _on_enemy_reached_end(lives_taken_if_reach_finish: int) -> void:
 
 
 func try_start_new_wave() -> void:
+	Engine.time_scale = 2.0
 	var cur_wave := GameState.get_cur_wave_num()
 	if cur_wave > last_wave_num:
 		# TODO Spawn fireworks and show victory screen

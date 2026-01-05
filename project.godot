@@ -32,7 +32,6 @@ gdscript/warnings/untyped_declaration=1
 
 window/size/always_on_top=true
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
 
 [file_customization]
 

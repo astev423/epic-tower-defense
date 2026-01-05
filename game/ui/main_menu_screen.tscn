@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://8s02pbcrvkyw"]
+
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="1_awi11"]
+[ext_resource type="Script" uid="uid://71h7inn7cqh" path="res://game/ui/main_menu_screen.gd" id="1_y5sr0"]
+
+[node name="MainMenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y5sr0")
+
+[node name="CenterTitle" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -520.5
+offset_top = 93.0
+offset_right = 520.5
+offset_bottom = 178.728
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="CenterTitle"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_awi11")
+theme_override_font_sizes/font_size = 91
+text = "Epic Tower Defense"
+
+[node name="CenterButtons" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterButtons"]
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="PlayButton" type="Button" parent="CenterButtons/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_awi11")
+theme_override_font_sizes/font_size = 151
+text = " Play"
+
+[node name="QuitButton" type="Button" parent="CenterButtons/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_awi11")
+theme_override_font_sizes/font_size = 151
+text = " Quit"
+
+[connection signal="pressed" from="CenterButtons/VBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterButtons/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

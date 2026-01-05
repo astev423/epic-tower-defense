@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://db3jj6kepantd"]
+
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="1_4mhyn"]
+[ext_resource type="Script" uid="uid://djvba0enysvld" path="res://game/ui/level_selection.gd" id="1_e2uwu"]
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e2uwu")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -893.0
+offset_top = -425.0
+offset_right = 893.0
+offset_bottom = -306.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 125
+
+[node name="Dunes" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="DunesLabel" type="Label" parent="CenterContainer/HBoxContainer/Dunes"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4mhyn")
+theme_override_font_sizes/font_size = 106
+text = "Dunes"
+
+[node name="SelectDunesButton" type="Button" parent="CenterContainer/HBoxContainer/Dunes"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_4mhyn")
+theme_override_font_sizes/font_size = 76
+text = " Play"
+
+[node name="Plains" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PlainsLabel" type="Label" parent="CenterContainer/HBoxContainer/Plains"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4mhyn")
+theme_override_font_sizes/font_size = 106
+text = "Plains"
+
+[node name="SelectPlainsButton" type="Button" parent="CenterContainer/HBoxContainer/Plains"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_4mhyn")
+theme_override_font_sizes/font_size = 76
+text = " Play"
+
+[node name="Dungeon" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="DungeonLabel" type="Label" parent="CenterContainer/HBoxContainer/Dungeon"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_4mhyn")
+theme_override_font_sizes/font_size = 106
+text = "Dungeon"
+
+[node name="SelectDungeonButton" type="Button" parent="CenterContainer/HBoxContainer/Dungeon"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_4mhyn")
+theme_override_font_sizes/font_size = 76
+text = " Play"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Dunes/SelectDunesButton" to="." method="_on_select_dunes_button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Plains/SelectPlainsButton" to="." method="_on_select_plains_button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Dungeon/SelectDungeonButton" to="." method="_on_select_dungeon_button_pressed"]
