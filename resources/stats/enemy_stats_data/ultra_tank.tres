@@ -6,7 +6,7 @@
 script = ExtResource("1_kgmtk")
 damage_modifiers = Dictionary[int, float]({
 0: 1.2,
-1: 4.0,
+1: 6.0,
 2: 0.2,
 4: 1.3
 })

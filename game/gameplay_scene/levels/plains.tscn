@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://5vwsct7ganhj"]
+[gd_scene load_steps=16 format=4 uid="uid://5vwsct7ganhj"]
 
 [ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/map/tiles/plains.png" id="1_a7kjj"]
 [ext_resource type="PackedScene" uid="uid://c5roconmp6v0b" path="res://game/managers/enemies/enemy_spawner.tscn" id="3_jbsdk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cuovr08g75dw1" path="res://assets/map/decorations/tree_dead.png" id="10_jldps"]
 [ext_resource type="Texture2D" uid="uid://t36eryl11d4y" path="res://assets/map/decorations/flower_purple.png" id="11_6uxkf"]
 [ext_resource type="Texture2D" uid="uid://d31iwiclqpfc8" path="res://assets/map/decorations/tree_conifer.png" id="12_jldps"]
+[ext_resource type="AudioStream" uid="uid://cbfdnoltilkq8" path="res://assets/music/Woodland Fantasy.mp3" id="13_e6uv8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5b1qg"]
 texture = ExtResource("1_a7kjj")
@@ -269,5 +270,10 @@ texture = ExtResource("12_jldps")
 position = Vector2(68, 748)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("12_jldps")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("13_e6uv8")
+autoplay = true
 
 [editable path="EnemySpawner"]

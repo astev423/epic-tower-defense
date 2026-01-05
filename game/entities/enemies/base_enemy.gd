@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var target_pos: Marker2D =  $"../../EnemyExitPoint"
 @onready var pathfinding_manager: Node = $"../../EnemyPathfinder"
 @onready var health_comp: Node2D = $HealthComponent
+@onready var death_sound: AudioStreamPlayer = $DeathSound
 @export var stats: EnemyStats
 var path_array: Array[Vector2] = []
 var died := false
@@ -70,6 +71,9 @@ func _on_death() -> void:
 	EventBus.enemy_died.emit()
 	GameState.add_money(stats.money_awarded_if_killed)
 	died = true
+	death_sound.play()
+	set_physics_process(false)
+	await death_sound.finished
 	queue_free()
 
 

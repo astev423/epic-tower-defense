@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4o63ailaqcb7"]
+[gd_scene load_steps=4 format=3 uid="uid://c4o63ailaqcb7"]
 
 [ext_resource type="PackedScene" uid="uid://bta8v0qgvy0ev" path="res://game/entities/towers/base_tower.tscn" id="1_m4h42"]
 [ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/entity_sprites/towers/pedestal_for_t3_towers.png" id="2_w02qf"]
+[ext_resource type="AudioStream" uid="uid://cplakj3mwo2nv" path="res://assets/sfx/projectile_sounds/bullet.mp3" id="3_hs32a"]
 
 [node name="BaseMachineGun" instance=ExtResource("1_m4h42")]
 
 [node name="Pedestal" type="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_w02qf")
+
+[node name="ProjectileSound" parent="." index="6"]
+stream = ExtResource("3_hs32a")
+volume_db = -18.0
+bus = &"SFX"

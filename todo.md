@@ -1,7 +1,8 @@
 """
+-Add custom sound effects like hurt sound/death sound and add royalty free background music, 
+
 -Ui that shows when click on enemies to show their weaknesses and strengths
 
--Add custom sound effects like hurt sound/death sound and add royalty free background music, maybe bossa nova
 
 -Add more detail to the main menu screen, maybe show the logo and some enemies and towers
 

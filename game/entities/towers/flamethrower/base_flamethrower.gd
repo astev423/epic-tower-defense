@@ -14,6 +14,8 @@ func _physics_process(delta: float) -> void:
 	for cur_enemy in attack_range_area.get_overlapping_bodies():
 		if not cur_enemy.is_in_group("enemies"):
 			continue
+		if cur_enemy.died == true:
+			continue
 
 		look_at(cur_enemy.global_position)
 		rotation += deg_to_rad(90)
@@ -32,10 +34,12 @@ func _physics_process(delta: float) -> void:
 func stop_shooting() -> void:
 	fire_node.process_mode = Node.PROCESS_MODE_DISABLED
 	fire_node.visible = false
+	projectile_sound.stop()
 	is_shooting = false
 
 
 func start_shooting() -> void:
 	fire_node.process_mode = Node.PROCESS_MODE_INHERIT
 	fire_node.visible = true
+	projectile_sound.play()
 	is_shooting = true

@@ -76,6 +76,7 @@ func set_variables_for_map_clicked() -> void:
 func instantiate_map_stuff() -> void:
 	var level_node: Node2D = level_chosen_scene.instantiate()
 	map_node.add_child(level_node)
+	map_node.move_child(level_node, 0)
 
 	var tower_placement_manager := map_node.get_node("GameplayUI/TowerPlacementManager")
 	var tile_layer := level_node.get_node("TileMapLayer")

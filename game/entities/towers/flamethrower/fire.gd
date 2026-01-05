@@ -2,11 +2,13 @@ extends "res://game/entities/towers/base_projectile.gd"
 
 
 func _physics_process(delta: float) -> void:
-	for body in get_overlapping_bodies():
-		if not body.is_in_group("enemies"):
+	for cur_enemy in get_overlapping_bodies():
+		if not cur_enemy.is_in_group("enemies"):
 			return
+		if cur_enemy.died == true:
+			continue
 
-		body.take_damage(damage, GameTypes.AttackType.Fire)
+		cur_enemy.take_damage(damage, GameTypes.AttackType.Fire)
 
 
 ## Same as other projectiles but this doesn't queue free, it only frees once tower stops attacking

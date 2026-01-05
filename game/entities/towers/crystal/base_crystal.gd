@@ -54,6 +54,8 @@ func try_finding_enemy_to_lock_on_to() -> void:
 	for cur_enemy in attack_range_area.get_overlapping_bodies():
 		if not cur_enemy.is_in_group("enemies"):
 			continue
+		if cur_enemy.died == true:
+			continue
 
 		enemy_locked_on_to = cur_enemy
 		charging_timer.start()
@@ -66,6 +68,7 @@ func set_tower_idle() -> void:
 	animated_sprite.play("default")
 	is_shooting = false
 	beam.visible = false
+	projectile_sound.stop()
 	enemy_locked_on_to = null
 
 
@@ -76,6 +79,7 @@ func try_shooting_enemy(delta: float) -> void:
 
 	if not is_shooting:
 		beam.visible = false
+		projectile_sound.stop()
 		return
 
 	attack_enemy_locked_on_to(delta)
@@ -103,6 +107,7 @@ func allow_shooting() -> void:
 
 func attack_enemy_locked_on_to(delta: float) -> void:
 	beam.visible = true
+	projectile_sound.play()
 	var end_point := to_local(enemy_locked_on_to.global_position)
 	beam.points = PackedVector2Array([Vector2.ZERO, end_point])
 	enemy_locked_on_to.take_damage(stats.tower_damage, stats.attack_type)

@@ -11,6 +11,7 @@ extends Node2D
 @onready var attack_range_area_hitbox: CollisionShape2D = $"AttackRangeArea/CollisionShape2D"
 @onready var attack_range_area: Area2D = $"AttackRangeArea"
 @onready var clickbox: Area2D = $DisplayTowerInfoClickbox
+@onready var projectile_sound: AudioStreamPlayer = $ProjectileSound
 @export var stats: TowerStats
 var can_fire: bool
 var is_shooting: bool
@@ -24,10 +25,11 @@ func _ready() -> void:
 	attack_timer.timeout.connect(allow_tower_to_shoot)
 
 
-## Look at an enemy if it exists and shoot if cooldown done
 func _physics_process(delta: float) -> void:
 	for cur_enemy in attack_range_area.get_overlapping_bodies():
 		if not cur_enemy.is_in_group("enemies"):
+			continue
+		if cur_enemy.died == true:
 			continue
 
 		look_at(cur_enemy.global_position)
@@ -35,6 +37,7 @@ func _physics_process(delta: float) -> void:
 
 		if can_fire:
 			spawn_projectile(cur_enemy)
+			projectile_sound.play()
 			can_fire = false
 			is_shooting = true
 			attack_timer.start()

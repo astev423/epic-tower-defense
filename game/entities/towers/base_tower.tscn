@@ -29,4 +29,9 @@ collision_mask = 0
 process_mode = 3
 scale = Vector2(3.0917277, 3.0917277)
 
+[node name="ProjectileSound" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+max_polyphony = 10
+bus = &"SFX"
+
 [connection signal="input_event" from="DisplayTowerInfoClickbox" to="." method="_on_display_tower_info_clickbox_input_event"]

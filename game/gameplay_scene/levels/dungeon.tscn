@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://d274iwlo85ady"]
+[gd_scene load_steps=29 format=4 uid="uid://d274iwlo85ady"]
 
 [ext_resource type="Texture2D" uid="uid://ctvjbcv0xknbc" path="res://assets/map/tiles/plains.png" id="1_86lix"]
 [ext_resource type="Script" uid="uid://mhhpege3kptc" path="res://game/managers/enemies/enemy_pathfinder.gd" id="2_86lix"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://qf7b3awqy2vk" path="res://assets/map/decorations/animated/altar_xom_7.png" id="21_vops8"]
 [ext_resource type="Texture2D" uid="uid://dhsolxrdk3u0p" path="res://assets/map/decorations/statue_iron.png" id="22_1lewb"]
 [ext_resource type="Texture2D" uid="uid://5j380pvnmkd8" path="res://assets/map/decorations/sarcophagus_sealed.png" id="23_cmymj"]
+[ext_resource type="AudioStream" uid="uid://cu5l7hwexnk50" path="res://assets/music/encounter-with-darkness-187127.mp3" id="24_6m1oc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2j4nv"]
 texture = ExtResource("1_86lix")
@@ -254,5 +255,10 @@ anchor_bottom = 0.889
 size_flags_horizontal = 4
 mouse_filter = 2
 color = Color(0, 0, 0, 0.26666668)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("24_6m1oc")
+autoplay = true
 
 [editable path="EnemySpawner"]

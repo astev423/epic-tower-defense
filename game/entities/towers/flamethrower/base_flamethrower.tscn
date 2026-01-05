@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://2s0jcyslpfrt"]
+[gd_scene load_steps=5 format=3 uid="uid://2s0jcyslpfrt"]
 
 [ext_resource type="PackedScene" uid="uid://bta8v0qgvy0ev" path="res://game/entities/towers/base_tower.tscn" id="1_bh6gg"]
 [ext_resource type="Script" uid="uid://lo4qwikfbedd" path="res://game/entities/towers/flamethrower/base_flamethrower.gd" id="2_c2ilb"]
 [ext_resource type="PackedScene" uid="uid://xrawq5golbi5" path="res://game/entities/towers/flamethrower/fire.tscn" id="3_4li3w"]
+[ext_resource type="AudioStream" uid="uid://bbq707eyb6n24" path="res://assets/sfx/projectile_sounds/gas-torch-burn.mp3" id="4_khegs"]
 
 [node name="BaseFlamethrower" instance=ExtResource("1_bh6gg")]
 script = ExtResource("2_c2ilb")
@@ -10,3 +11,7 @@ script = ExtResource("2_c2ilb")
 [node name="Fire" parent="." index="3" instance=ExtResource("3_4li3w")]
 visible = false
 position = Vector2(-6, -80)
+
+[node name="ProjectileSound" parent="." index="6"]
+stream = ExtResource("4_khegs")
+bus = &"SFX"

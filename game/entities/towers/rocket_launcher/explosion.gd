@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var explosion_sfx: AudioStreamPlayer = $ExplosionSFX
 var death_timer: Timer
 var damage: float
 var attack_type := GameTypes.AttackType.Explosive
@@ -14,8 +15,11 @@ func damage_enemies_in_radius() -> void:
 	for cur_enemy in get_overlapping_bodies():
 		if not cur_enemy.is_in_group("enemies"):
 			continue
+		if cur_enemy.died == true:
+			continue
 
 		cur_enemy.take_damage(self.damage, attack_type)
+		explosion_sfx.play()
 
 
 func start_death_timer() -> void:
