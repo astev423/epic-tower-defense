@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b06a1n2v16gnk" path="res://game/entities/towers/base_projectile.tscn" id="1_j4650"]
 [ext_resource type="Script" uid="uid://bwgdkwsjrcfwb" path="res://game/entities/towers/flamethrower/fire.gd" id="2_il8m4"]
-[ext_resource type="Texture2D" uid="uid://dwvlyohge4kbc" path="res://assets/towers/flamethrower/fire_animation.png" id="3_6rck5"]
+[ext_resource type="Texture2D" uid="uid://dwvlyohge4kbc" path="res://assets/entity_sprites/towers/flamethrower/fire_animation.png" id="3_6rck5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6pydq"]
 atlas = ExtResource("3_6rck5")

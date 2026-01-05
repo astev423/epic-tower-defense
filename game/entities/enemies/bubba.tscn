@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_omxum"]
 [ext_resource type="Resource" uid="uid://ckidnit8dmii3" path="res://resources/stats/enemy_stats_data/bubba.tres" id="2_b0i3g"]
-[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/enemies/enemies_spritesheet-hyptosis.png" id="3_omxum"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/entity_sprites/enemies/enemies_spritesheet-hyptosis.png" id="3_omxum"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xm1ea"]
 

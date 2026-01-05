@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bta8v0qgvy0ev"]
 
 [ext_resource type="Script" uid="uid://bawaaq8d4xlhw" path="res://game/entities/towers/base_tower.gd" id="1_y72ll"]
-[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/towers/range.png" id="2_5cqtt"]
+[ext_resource type="Texture2D" uid="uid://dw6witrfkjjoo" path="res://assets/entity_sprites/towers/range.png" id="2_5cqtt"]
 
 [node name="BaseTower" type="Node2D"]
 script = ExtResource("1_y72ll")

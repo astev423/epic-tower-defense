@@ -131,7 +131,7 @@ func decrease_enemy_count() -> void:
 func handle_wave_over() -> void:
 	print_debug("WAVE OVER ALL ENEMIES DIED")
 	GameState._on_wave_over(GameState.get_cur_wave_num())
-	EventBus.pause_event.emit()
+	EventBus.pause_game.emit()
 	spawn_timer.stop()
 	try_start_new_wave()
 
@@ -143,9 +143,9 @@ func try_show_victory_screen() -> void:
 	var victory_scene := load("res://game/ui/victory_screen.tscn")
 	var victory_screen_node: Control = victory_scene.instantiate()
 	victory_screen_node.size = Vector2(1920, 1080)
-	get_node("/root/Root").add_child(victory_screen_node)
+	get_node("/root/GameRoot").add_child(victory_screen_node)
 
-	get_node("/root/Root/Maps").queue_free()
+	get_node("/root/GameRoot/GameplayScene").queue_free()
 
 
 func get_enemy_type() -> CharacterBody2D:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4o63ailaqcb7"]
 
 [ext_resource type="PackedScene" uid="uid://bta8v0qgvy0ev" path="res://game/entities/towers/base_tower.tscn" id="1_m4h42"]
-[ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/towers/pedestal_for_t3_towers.png" id="2_w02qf"]
+[ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/entity_sprites/towers/pedestal_for_t3_towers.png" id="2_w02qf"]
 
 [node name="BaseMachineGun" instance=ExtResource("1_m4h42")]
 

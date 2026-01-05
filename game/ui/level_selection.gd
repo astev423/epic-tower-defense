@@ -1,35 +1,37 @@
 extends Control
 
-const MAPS_SCENE = preload("res://game/maps/maps.tscn")
+const MAPS_SCENE = preload("res://game/gameplay_scene/gameplay_scene.tscn")
+const NUM_LIVES_FOR_WAVE := 300
 
 @onready var check: Sprite2D = $Checkmark
 @onready var x: Sprite2D = $X
 @onready var change_wave_num: LineEdit = $ChangeWaveNum
 var starting_wave_num: int
 var is_unlimited_money_mode: bool
-var maps_node: Node2D
-var map_user_clicked: GameConstants.Maps
+var map_node: Node2D
+var map_user_clicked: GameConstants.Levels
+var level_chosen_scene: PackedScene
 
 
 func _ready() -> void:
 	starting_wave_num = 1
 	is_unlimited_money_mode = false
-	maps_node = MAPS_SCENE.instantiate()
+	map_node = MAPS_SCENE.instantiate()
 
 
 func _on_select_dunes_button_pressed() -> void:
-	map_user_clicked = GameConstants.Maps.DUNES
-	setup_level_and_delete_this_ui()
+	map_user_clicked = GameConstants.Levels.DUNES
+	spawn_level()
 
 
 func _on_select_plains_button_pressed() -> void:
-	map_user_clicked = GameConstants.Maps.PLAINS
-	setup_level_and_delete_this_ui()
+	map_user_clicked = GameConstants.Levels.PLAINS
+	spawn_level()
 
 
 func _on_select_dungeon_button_pressed() -> void:
-	map_user_clicked = GameConstants.Maps.DUNGEON
-	setup_level_and_delete_this_ui()
+	map_user_clicked = GameConstants.Levels.DUNGEON
+	spawn_level()
 
 
 func _on_select_unlimited_money_button_pressed() -> void:
@@ -52,11 +54,40 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 	starting_wave_num = int(new_text)
 
 
-func setup_level_and_delete_this_ui() -> void:
-	# Have to use get_node here because levels node is delayed spawning with @onready, no immediate acess
-	var levels := maps_node.get_node("Levels")
-	levels.map_user_clicked = map_user_clicked
-	levels.starting_wave_num = starting_wave_num
-	levels.is_unlimited_money_mode = is_unlimited_money_mode
-	get_node("/root/Root").add_child(maps_node)
+func spawn_level() -> void:
+	set_variables_for_map_clicked()
+	instantiate_map_stuff()
+
+
+func set_variables_for_map_clicked() -> void:
+	if map_user_clicked == GameConstants.Levels.DUNES:
+		level_chosen_scene = load("res://game/gameplay_scene/levels/dunes.tscn")
+	elif map_user_clicked == GameConstants.Levels.PLAINS:
+		level_chosen_scene = load("res://game/gameplay_scene/levels/plains.tscn")
+	elif map_user_clicked == GameConstants.Levels.DUNGEON:
+		level_chosen_scene = load("res://game/gameplay_scene/levels/dungeon.tscn")
+	else:
+		print_debug("FATAL ERROR ON MAP SELECTION, CRASHING")
+		get_tree().quit()
+
+	GameState.set_variables(NUM_LIVES_FOR_WAVE, get_starting_money(), starting_wave_num)
+
+
+func instantiate_map_stuff() -> void:
+	var level_node: Node2D = level_chosen_scene.instantiate()
+	map_node.add_child(level_node)
+
+	var tower_placement_manager := map_node.get_node("GameplayUI/TowerPlacementManager")
+	var tile_layer := level_node.get_node("TileMapLayer")
+	tower_placement_manager.tile_map_layer = tile_layer
+
+	get_node("/root/GameRoot").add_child(map_node)
+
 	queue_free()
+
+
+func get_starting_money() -> int:
+	if is_unlimited_money_mode:
+		return 9999999999
+
+	return WaveInfo.starting_money_at_given_wave[starting_wave_num]

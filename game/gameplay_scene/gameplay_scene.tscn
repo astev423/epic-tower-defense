@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://du0rp8w2ajl0q"]
+
+[ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/gameplay_scene/gameplay_scene.gd" id="1_8tpqo"]
+[ext_resource type="PackedScene" uid="uid://d3a5cu2up7cfl" path="res://game/ui/gameplay_ui.tscn" id="2_ag55u"]
+[ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/ui/pause_unpause_alerter.gd" id="3_gc83g"]
+
+[node name="GameplayScene" type="Node2D"]
+script = ExtResource("1_8tpqo")
+
+[node name="GameplayUI" parent="." instance=ExtResource("2_ag55u")]
+
+[node name="PauseUnpauseAlerter" type="Node" parent="."]
+script = ExtResource("3_gc83g")
+metadata/_custom_type_script = "uid://ofb2yb8vntf0"

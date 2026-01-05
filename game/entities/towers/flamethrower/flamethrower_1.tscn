@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://2s0jcyslpfrt" path="res://game/entities/towers/flamethrower/base_flamethrower.tscn" id="1_2vlwv"]
 [ext_resource type="Resource" uid="uid://cdv3drg8diki2" path="res://resources/stats/tower_stats_data/flamethrower/flamethrower_1.tres" id="2_alqe3"]
-[ext_resource type="Texture2D" uid="uid://dd4dwiiy8tn34" path="res://assets/towers/flamethrower/flamethrower1.png" id="4_k85cd"]
+[ext_resource type="Texture2D" uid="uid://dd4dwiiy8tn34" path="res://assets/entity_sprites/towers/flamethrower/flamethrower1.png" id="4_k85cd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6v0to"]
 

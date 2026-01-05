@@ -1,7 +1,7 @@
 extends Resource
 class_name GameConstants
 
-enum Maps {
+enum Levels {
 	DUNES,
 	PLAINS,
 	DUNGEON

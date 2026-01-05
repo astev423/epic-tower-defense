@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://vhjmyap1kv85" path="res://game/entities/towers/crystal/base_crystal.tscn" id="1_lrhh2"]
 [ext_resource type="Resource" uid="uid://mfof5pjf5sqh" path="res://resources/stats/tower_stats_data/crystal/crystal_3.tres" id="2_bpm47"]
-[ext_resource type="Texture2D" uid="uid://cpwpeqbvweuli" path="res://assets/towers/crystal/Tower 02 - Level 03 - Weapon.png" id="3_bpm47"]
+[ext_resource type="Texture2D" uid="uid://cpwpeqbvweuli" path="res://assets/entity_sprites/towers/crystal/Tower 02 - Level 03 - Weapon.png" id="3_bpm47"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dg4jm"]
 atlas = ExtResource("3_bpm47")

@@ -75,7 +75,8 @@ var waves: Dictionary[int, Array] = {
 }
 
 
-var starting_money_at_given_wave: Dictionary[int, int] = {
+static var starting_money_at_given_wave: Dictionary[int, int] = {
+	1: 300,
 	2: 600,
 	3: 980,
 	4: 1395,

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_1k0tv"]
 [ext_resource type="Script" uid="uid://c62ujyiciu3gv" path="res://resources/scripts/enemy_stats.gd" id="2_0ba8k"]
-[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/enemies/enemies_spritesheet-hyptosis.png" id="3_16bub"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/entity_sprites/enemies/enemies_spritesheet-hyptosis.png" id="3_16bub"]
 
 [sub_resource type="Resource" id="Resource_78rdd"]
 script = ExtResource("2_0ba8k")

@@ -38,8 +38,8 @@ window/stretch/mode="viewport"
 folder_colors={
 "res://game/entities/enemies/": "red",
 "res://game/entities/towers/": "gray",
-"res://game/managers/": "yellow",
-"res://game/maps/": "green"
+"res://game/gameplay_scene/": "green",
+"res://game/managers/": "yellow"
 }
 
 [input]

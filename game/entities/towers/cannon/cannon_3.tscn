@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dn8akvh0mna7m"]
 
 [ext_resource type="PackedScene" uid="uid://cx8ygtp7o6oyc" path="res://game/entities/towers/cannon/base_cannon.tscn" id="1_1g0bv"]
-[ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/towers/pedestal_for_t3_towers.png" id="2_3mha0"]
+[ext_resource type="Texture2D" uid="uid://blpjd4h7ftlyf" path="res://assets/entity_sprites/towers/pedestal_for_t3_towers.png" id="2_3mha0"]
 [ext_resource type="Script" uid="uid://6ovd24us1fab" path="res://game/entities/towers/cannon/base_cannon.gd" id="2_t6hjo"]
-[ext_resource type="Texture2D" uid="uid://du8ko1pdgg4p1" path="res://assets/towers/cannon/cannon2and3.png" id="3_1hdnk"]
+[ext_resource type="Texture2D" uid="uid://du8ko1pdgg4p1" path="res://assets/entity_sprites/towers/cannon/cannon2and3.png" id="3_1hdnk"]
 [ext_resource type="Resource" uid="uid://c6wtn1ggv1con" path="res://resources/stats/tower_stats_data/cannon/cannon_3.tres" id="3_cfdht"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3mha0"]
