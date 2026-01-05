@@ -1,6 +1,5 @@
 extends Node2D
 
-const cpu_particles_scene = preload("res://game/maps/victory_fireworks.tscn")
 
 # Variables for all waves
 @onready var spawn_marker: Marker2D = $SpawnPoint
@@ -42,7 +41,7 @@ func try_start_new_wave() -> void:
 	var cur_wave := GameState.get_cur_wave_num()
 	if cur_wave > last_wave_num:
 		# TODO Spawn fireworks and show victory screen
-		spawn_fireworks()
+		call_deferred("try_show_victory_screen")
 		return
 	elif cur_wave == 26:
 		EventBus.wave_25_passed.emit()
@@ -137,11 +136,16 @@ func handle_wave_over() -> void:
 	try_start_new_wave()
 
 
-func spawn_fireworks() -> void:
-	var p := cpu_particles_scene.instantiate() as CPUParticles2D
-	p.global_position = Vector2(1000, 500)
-	get_tree().get_root().add_child.call_deferred(p)
-	p.emitting = true
+func try_show_victory_screen() -> void:
+	if GameState.get_cur_lives_num() <= 0:
+		return
+
+	var victory_scene := load("res://game/ui/victory_screen.tscn")
+	var victory_screen_node: Control = victory_scene.instantiate()
+	victory_screen_node.size = Vector2(1920, 1080)
+	get_node("/root/Root").add_child(victory_screen_node)
+
+	get_node("/root/Root/Maps").queue_free()
 
 
 func get_enemy_type() -> CharacterBody2D:

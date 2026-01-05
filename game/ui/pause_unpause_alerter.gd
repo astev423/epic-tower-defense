@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("spacebar"):
-		EventBus.pause_event.emit()
+		EventBus.change_game_timescale.emit()

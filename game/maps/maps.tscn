@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://du0rp8w2ajl0q"]
+[gd_scene load_steps=11 format=3 uid="uid://du0rp8w2ajl0q"]
 
 [ext_resource type="Script" uid="uid://b48bprugtvh5i" path="res://game/maps/maps.gd" id="1_2paj4"]
 [ext_resource type="Script" uid="uid://dbp5y7cqe56mf" path="res://game/maps/levels/levels.gd" id="2_anugk"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="7_cx4jr"]
 [ext_resource type="PackedScene" uid="uid://d1ulows2ch8xy" path="res://game/maps/victory_fireworks.tscn" id="8_guhvb"]
 [ext_resource type="Script" uid="uid://ofb2yb8vntf0" path="res://game/ui/pause_unpause_alerter.gd" id="9_31ej8"]
+[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/ui/button_rectangle_border.png" id="9_anugk"]
 
 [node name="Maps" type="Node2D"]
 script = ExtResource("1_2paj4")
@@ -86,6 +87,24 @@ text = " Return
 to menu"
 
 [node name="VictoryFireworks" parent="MapUI" instance=ExtResource("8_guhvb")]
+
+[node name="SpeedLabelBorder" type="Sprite2D" parent="MapUI"]
+position = Vector2(1683, 818)
+scale = Vector2(0.5500824, 0.71402913)
+texture = ExtResource("9_anugk")
+centered = false
+
+[node name="GameSpeedLabel" type="Label" parent="MapUI"]
+offset_left = 1695.0
+offset_top = 827.0
+offset_right = 10322.797
+offset_bottom = 4126.016
+scale = Vector2(0.021790009, 0.021790009)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_cx4jr")
+theme_override_font_sizes/font_size = 1461
+text = "Speed:
+Paused"
 
 [node name="PauseUnpauseAlerter" type="Node" parent="."]
 script = ExtResource("9_31ej8")

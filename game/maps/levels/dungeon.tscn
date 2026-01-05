@@ -171,7 +171,7 @@ metadata/_custom_type_script = "uid://mhhpege3kptc"
 position = Vector2(29, 485)
 
 [node name="SpawnPoint" parent="EnemySpawner" index="1"]
-position = Vector2(-17, -3)
+position = Vector2(-17, -79)
 
 [node name="ExitPoint" parent="EnemySpawner" index="2"]
 position = Vector2(1619, -77)
