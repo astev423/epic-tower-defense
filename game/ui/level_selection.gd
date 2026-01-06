@@ -9,8 +9,8 @@ const NUM_LIVES_FOR_WAVE := 300
 var starting_wave_num: int
 var is_unlimited_money_mode: bool
 var map_node: Node2D
-var map_user_clicked: GameConstants.Levels
 var level_chosen_scene: PackedScene
+var level_node: Node2D
 
 
 func _ready() -> void:
@@ -20,17 +20,17 @@ func _ready() -> void:
 
 
 func _on_select_dunes_button_pressed() -> void:
-	map_user_clicked = GameConstants.Levels.DUNES
+	level_chosen_scene = load("res://game/gameplay_scene/levels/dunes.tscn")
 	spawn_level()
 
 
 func _on_select_plains_button_pressed() -> void:
-	map_user_clicked = GameConstants.Levels.PLAINS
+	level_chosen_scene = load("res://game/gameplay_scene/levels/plains.tscn")
 	spawn_level()
 
 
 func _on_select_dungeon_button_pressed() -> void:
-	map_user_clicked = GameConstants.Levels.DUNGEON
+	level_chosen_scene = load("res://game/gameplay_scene/levels/dungeon.tscn")
 	spawn_level()
 
 
@@ -54,38 +54,24 @@ func _on_line_edit_text_changed(new_text: String) -> void:
 
 
 func spawn_level() -> void:
-	set_variables_for_map_clicked()
-	instantiate_map_stuff()
-
-
-func set_variables_for_map_clicked() -> void:
-	if map_user_clicked == GameConstants.Levels.DUNES:
-		level_chosen_scene = load("res://game/gameplay_scene/levels/dunes.tscn")
-	elif map_user_clicked == GameConstants.Levels.PLAINS:
-		level_chosen_scene = load("res://game/gameplay_scene/levels/plains.tscn")
-	elif map_user_clicked == GameConstants.Levels.DUNGEON:
-		level_chosen_scene = load("res://game/gameplay_scene/levels/dungeon.tscn")
-	else:
-		print_debug("FATAL ERROR ON MAP SELECTION, CRASHING")
-		get_tree().quit()
-
 	GameState.set_variables(NUM_LIVES_FOR_WAVE, get_starting_money(), starting_wave_num)
-
-
-func instantiate_map_stuff() -> void:
-	var level_node: Node2D = level_chosen_scene.instantiate()
-	map_node.add_child(level_node)
-	map_node.move_child(level_node, 0)
-	map_node.level_node = level_node
+	add_level_to_scene()
 
 	var tower_placement_manager := map_node.get_node("GameplayUI/TowerPlacementManager")
-	var tile_layer := level_node.get_node("TileMapLayer")
-	tower_placement_manager.tile_map_layer = tile_layer
+	tower_placement_manager.tile_map_layer = level_node.get_node("TileMapLayer")
 
 	get_node("/root/GameRoot").add_child(map_node)
 	get_node("/root/GameRoot/MenuBGM").stop()
 
 	queue_free()
+
+
+func add_level_to_scene() -> void:
+	level_node = level_chosen_scene.instantiate()
+	map_node.add_child(level_node)
+	map_node.move_child(level_node, 0)
+	map_node.level_node = level_node
+
 
 
 func get_starting_money() -> int:

@@ -32,6 +32,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func _on_display_enemy_stats_clickbox_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		EventBus.enemy_clicked_on.emit(self)
+
+
 ## Array is reversed so we can remove the end instead of the front to prevent shifting
 func move_to_closest_point_on_path(delta: float) -> void:
 	if path_array.is_empty():

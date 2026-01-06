@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq5okavgi8jin"]
+[gd_scene load_steps=6 format=3 uid="uid://bq5okavgi8jin"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_l1d0o"]
 [ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/images/entities/enemies/enemies_spritesheet-hyptosis.png" id="2_8l6f8"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h05do"]
 radius = 9.624479
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8l6f8"]
+radius = 9.737099
 
 [node name="Goblin" instance=ExtResource("1_l1d0o")]
 stats = ExtResource("2_h05do")
@@ -19,3 +22,8 @@ region_rect = Rect2(390, 884, 32, 30)
 position = Vector2(-1.0000001, 2)
 scale = Vector2(2.054133, 1.7341332)
 shape = SubResource("CircleShape2D_h05do")
+
+[node name="ClickboxShape" parent="DisplayEnemyStatsClickbox" index="0"]
+position = Vector2(-1.0000002, 2)
+scale = Vector2(2.054, 1.734)
+shape = SubResource("CircleShape2D_8l6f8")

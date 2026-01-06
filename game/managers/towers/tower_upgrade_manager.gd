@@ -8,6 +8,8 @@ var current_tower_highlighted: Node2D = null
 
 func _ready() -> void:
 	EventBus.tower_clicked_on.connect(_on_user_click_on_tower)
+	EventBus.displaying_tower_placement_cost.connect(unhighlight_tower)
+	EventBus.tower_deleted.connect(handle_deleted_tower)
 
 
 func _input(event: InputEvent) -> void:
@@ -105,6 +107,7 @@ func try_display_tower_info(tower: Node2D) -> void:
 
 	self.visible = true
 	update_display_tower_info(tower)
+	EventBus.displaying_tower_stats.emit()
 
 
 func update_display_tower_info(tower: Node2D) -> void:
@@ -131,3 +134,10 @@ func unhighlight_tower() -> void:
 	current_tower_highlighted.attack_range_display.visible = false
 	current_tower_highlighted = null
 	self.visible = false
+
+
+func handle_deleted_tower(tower: Node2D) -> void:
+	if tower != current_tower_highlighted:
+		return
+
+	unhighlight_tower()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://uaflu3ju4u3r"]
+[gd_scene load_steps=6 format=3 uid="uid://uaflu3ju4u3r"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_cbyfx"]
 [ext_resource type="Resource" uid="uid://dbj8saoijfvfr" path="res://resources/stats/enemy_stats_data/skeletor.tres" id="2_cbyfx"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5lmp"]
 size = Vector2(23.14621, 24.438454)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbyfx"]
+size = Vector2(22.95446, 24.435394)
 
 [node name="Skeletor" instance=ExtResource("1_cbyfx")]
 stats = ExtResource("2_cbyfx")
@@ -20,3 +23,7 @@ region_rect = Rect2(454, 882, 31, 32)
 position = Vector2(-0.25504136, 7.1525574e-07)
 scale = Vector2(2.7006617, 2.7006617)
 shape = SubResource("RectangleShape2D_k5lmp")
+
+[node name="ClickboxShape" parent="DisplayEnemyStatsClickbox" index="0"]
+scale = Vector2(2.701, 2.701)
+shape = SubResource("RectangleShape2D_cbyfx")

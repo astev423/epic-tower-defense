@@ -5,6 +5,7 @@ extends Node2D
 @onready var spawn_marker: Marker2D = $SpawnPoint
 @onready var exit_marker: Marker2D = $ExitPoint
 var last_wave_num: int
+var reduced_damage_warning_shown := false
 
 # Variables holding info for just the current wave and group
 @onready var spawn_timer: Timer = $TimeBetweenEnemies
@@ -42,8 +43,9 @@ func try_start_new_wave() -> void:
 	if cur_wave > last_wave_num:
 		call_deferred("try_show_victory_screen")
 		return
-	elif cur_wave == 26:
+	elif cur_wave >= 26 and not reduced_damage_warning_shown:
 		EventBus.wave_25_passed.emit()
+		reduced_damage_warning_shown = true
 
 	setup_wave()
 

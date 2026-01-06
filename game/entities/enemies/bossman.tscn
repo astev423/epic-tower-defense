@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1bb1gtccha2"]
+[gd_scene load_steps=10 format=3 uid="uid://b1bb1gtccha2"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_gu5al"]
 [ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/images/entities/enemies/enemies_spritesheet-hyptosis.png" id="2_2pen5"]
@@ -10,6 +10,9 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2pen5"]
 radius = 6.928826
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xdxhe"]
+radius = 6.929102
 
 [node name="Bossman" instance=ExtResource("1_gu5al")]
 script = ExtResource("2_8f8kv")
@@ -51,3 +54,8 @@ region_rect = Rect2(111, 375, 59, 93)
 
 [node name="DeathExplosionSound" type="AudioStreamPlayer" parent="." index="6"]
 stream = ExtResource("7_xdxhe")
+
+[node name="ClickboxShape" parent="DisplayEnemyStatsClickbox" index="0"]
+position = Vector2(3, 31)
+scale = Vector2(-9.958, 6.259)
+shape = SubResource("CapsuleShape2D_xdxhe")

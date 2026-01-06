@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdta4r1g011xy"]
+
+[ext_resource type="Script" uid="uid://wph6ievedjab" path="res://game/ui/enemy_stats_displayer.gd" id="1_3pmyi"]
+[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/images/ui/button_rectangle_border.png" id="2_54r01"]
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="3_bgl2h"]
+
+[node name="EnemyStatsDisplayer" type="Node2D"]
+script = ExtResource("1_3pmyi")
+
+[node name="ButtonRectangleBorder" type="Sprite2D" parent="."]
+position = Vector2(1.9073486e-06, 0)
+scale = Vector2(3.5, 0.95061094)
+texture = ExtResource("2_54r01")
+centered = false
+
+[node name="StatsLabel" type="Label" parent="."]
+offset_left = 57.0
+offset_top = 16.0
+offset_right = 1287.0
+offset_bottom = 106.6
+scale = Vector2(1, 1.2)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bgl2h")
+theme_override_font_sizes/font_size = 20
+text = "Health: 40000    Movement speed: 400   kill award: 50000
+Weaknesses: Crystal (150%), cannon (300%), fire (200%)
+Strengths: Rockets (50%), machine gun (50%), crossbow (50%) "

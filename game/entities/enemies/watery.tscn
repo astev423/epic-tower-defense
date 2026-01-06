@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmbf6hanv28d1"]
+[gd_scene load_steps=7 format=3 uid="uid://cmbf6hanv28d1"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_1k0tv"]
 [ext_resource type="Script" uid="uid://c62ujyiciu3gv" path="res://resources/scripts/enemy_stats.gd" id="2_0ba8k"]
@@ -16,9 +16,12 @@ lives_taken_if_reach_finish = 20
 money_awarded_if_killed = 200
 health = 3000.0
 health_bar_offset = Vector2(-25, -25)
+type = 7
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1k0tv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ba8k"]
 
 [node name="Watery" instance=ExtResource("1_1k0tv")]
 stats = SubResource("Resource_78rdd")
@@ -31,3 +34,7 @@ region_rect = Rect2(410, 313, 32, 35)
 [node name="Hitbox" parent="." index="1"]
 scale = Vector2(1.9091523, 1.9091523)
 shape = SubResource("CircleShape2D_1k0tv")
+
+[node name="ClickboxShape" parent="DisplayEnemyStatsClickbox" index="0"]
+scale = Vector2(1.8896608, 1.8896608)
+shape = SubResource("CircleShape2D_0ba8k")

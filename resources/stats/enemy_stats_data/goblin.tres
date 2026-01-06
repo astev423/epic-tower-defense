@@ -13,4 +13,5 @@ lives_taken_if_reach_finish = 2
 money_awarded_if_killed = 25
 health = 50.0
 health_bar_offset = Vector2(-25, -25)
+type = 5
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"

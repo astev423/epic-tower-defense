@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1l3vymj5iosf"]
+[gd_scene load_steps=6 format=3 uid="uid://d1l3vymj5iosf"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_pvrel"]
 [ext_resource type="Resource" uid="uid://o7ka77a0hw52" path="res://resources/stats/enemy_stats_data/armored_grunt.tres" id="2_pvrel"]
 [ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/images/entities/enemies/enemies_spritesheet-hyptosis.png" id="3_pfqjt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pvrel"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eq0uk"]
 
 [node name="ArmoredGrunt" instance=ExtResource("1_pvrel")]
 stats = ExtResource("2_pvrel")
@@ -18,3 +20,8 @@ region_rect = Rect2(486, 852, 32, 30)
 position = Vector2(1, -1)
 scale = Vector2(1.6576598, 1.6576598)
 shape = SubResource("CircleShape2D_pvrel")
+
+[node name="ClickboxShape" parent="DisplayEnemyStatsClickbox" index="0"]
+position = Vector2(1, -1)
+scale = Vector2(1.658, 1.658)
+shape = SubResource("CircleShape2D_eq0uk")

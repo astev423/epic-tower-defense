@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b76138tmbmchy"]
 
 [ext_resource type="PackedScene" uid="uid://8s02pbcrvkyw" path="res://game/ui/main_menu_screen.tscn" id="1_x5sjy"]
-[ext_resource type="PackedScene" uid="uid://bee7b4uwxb8x3" path="res://game/bgm.tscn" id="2_ah1fo"]
+[ext_resource type="AudioStream" uid="uid://c5kxkh1sidldn" path="res://assets/music/retro-8bit-happy-videogame-music.mp3" id="2_ah1fo"]
 
 [node name="GameRoot" type="Node2D"]
 
@@ -19,4 +19,6 @@ zoom = Vector2(0.6, 0.6)
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="MenuBGM" parent="." instance=ExtResource("2_ah1fo")]
+[node name="MenuBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ah1fo")
+autoplay = true

@@ -7,3 +7,4 @@ class_name EnemyStats
 @export var money_awarded_if_killed: int
 @export var health: float
 @export var health_bar_offset: Vector2
+@export var type: GameTypes.EnemyType

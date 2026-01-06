@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var tower_upgrade_manager: Node2D = $"../TowerUpgradeManager"
 @onready var tower_cost_info: Control = $TowerCostInfo
 @onready var tower_cost_info_label: RichTextLabel = $TowerCostInfo/RichTextLabel
 var tile_map_layer: TileMapLayer
@@ -54,13 +53,14 @@ func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void
 	# This cannon is for dragging only, so disable process logic
 	held_tower_node.process_mode = Node.PROCESS_MODE_DISABLED
 	held_tower_node.attack_range_display.visible = true
+	EventBus.displaying_tower_placement_cost.emit()
 
 	update_ui_for_dragged_tower()
 
 
 func update_ui_for_dragged_tower() -> void:
 	# Unhighlight tower to hide the stats of previous highlighted since we selected new one
-	tower_upgrade_manager.unhighlight_tower()
+	EventBus.displaying_tower_placement_cost.emit()
 	show_tower_cost_info()
 
 
@@ -129,9 +129,9 @@ func try_delete_tower_on_grid() -> void:
 
 	var tower: Node2D = used_tiles[cell_pos]
 	GameState.add_money(tower.stats.tower_cost / 2)
+	EventBus.tower_deleted.emit(tower)
 	tower.queue_free()
 	used_tiles.erase(cell_pos)
-	tower_upgrade_manager.unhighlight_tower()
 
 
 func make_tower_follow_mouse() -> void:
