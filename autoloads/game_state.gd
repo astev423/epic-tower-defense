@@ -26,7 +26,7 @@ func decrease_lives(lives_taken_if_reach_finish: int) -> void:
 	EventBus.lives_changed.emit(GameState._cur_lives)
 
 	if GameState._cur_lives <= 0:
-		var GAME_OVER_SCREEN_SCENE := load("res://game/ui/game_over_screen.tscn")
+		var GAME_OVER_SCREEN_SCENE := load("res://game/ui/menu_screens/game_over_screen.tscn")
 		var game_over_screen_node: Control = GAME_OVER_SCREEN_SCENE.instantiate()
 		game_over_screen_node.size = Vector2(1920, 1080)
 		get_node("/root/GameRoot").add_child(game_over_screen_node)

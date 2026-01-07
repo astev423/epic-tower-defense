@@ -4,6 +4,7 @@ extends Control
 @onready var reduced_damage_alert_label: Label = $ReducedDamageWarning
 @onready var game_speed_label: Label = $GameSpeedLabel
 @onready var no_money_label: Label = $NoMoneyWarning
+@export var main_menu_screen_scene: PackedScene
 
 
 func _ready() -> void:
@@ -13,8 +14,7 @@ func _ready() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	var MAIN_MENU_SCREEN_SCENE := load("res://game/ui/main_menu_screen.tscn")
-	var main_menu_node: Control = MAIN_MENU_SCREEN_SCENE.instantiate()
+	var main_menu_node: Control = main_menu_screen_scene.instantiate()
 	main_menu_node.size = Vector2(1920, 1080)
 	get_node("/root/GameRoot").add_child(main_menu_node)
 	get_node("/root/GameRoot/MenuBGM").play()

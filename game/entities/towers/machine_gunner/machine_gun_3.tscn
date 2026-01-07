@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c4o63ailaqcb7" path="res://game/entities/towers/machine_gunner/base_machine_gun.tscn" id="1_vby5t"]
 [ext_resource type="Texture2D" uid="uid://dwa0f8otrw8aq" path="res://assets/images/entities/towers/machine_gunner/machine_gun_skins.png" id="2_4u32x"]
-[ext_resource type="Resource" uid="uid://dgjhso7kgpbkp" path="res://resources/stats/tower_stats_data/machine_gunner/machine_gun_3.tres" id="2_hophm"]
+[ext_resource type="Resource" uid="uid://dgjhso7kgpbkp" path="res://resources/stats/towers/data/machine_gunner/machine_gun_3.tres" id="2_hophm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4u32x"]
 

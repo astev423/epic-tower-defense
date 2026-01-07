@@ -4,6 +4,8 @@ extends Node2D
 # Variables for all waves
 @onready var spawn_marker: Marker2D = $SpawnPoint
 @onready var exit_marker: Marker2D = $ExitPoint
+@export var enemy_scenes: EnemyScenes
+@export var victory_screen_scene: PackedScene
 var last_wave_num: int
 var reduced_damage_warning_shown := false
 
@@ -144,8 +146,7 @@ func try_show_victory_screen() -> void:
 	EventBus.game_timescale_changed.emit("1X")
 	# Wait for monster death animation and sfx to finish
 	await get_tree().create_timer(11.0).timeout
-	var victory_scene := load("res://game/ui/victory_screen.tscn")
-	var victory_screen_node: Control = victory_scene.instantiate()
+	var victory_screen_node: Control = victory_screen_scene.instantiate()
 	victory_screen_node.size = Vector2(1920, 1080)
 	get_node("/root/GameRoot").add_child(victory_screen_node)
 
@@ -154,25 +155,25 @@ func try_show_victory_screen() -> void:
 
 func get_enemy_type() -> CharacterBody2D:
 	if cur_enemy_type == GameTypes.EnemyType.Weakling:
-		return WaveInfo.ENEMY_WEAKLING_SCENE.instantiate()
+		return enemy_scenes.weakling.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.FastWeakling:
-		return WaveInfo.ENEMY_FAST_WEAKLING_SCENE.instantiate()
+		return enemy_scenes.fast_weakling.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.Bubba:
-		return WaveInfo.ENEMY_BUBBA_SCENE.instantiate()
+		return enemy_scenes.bubba.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.UltraTank:
-		return WaveInfo.ENEMY_ULTRA_TANK_SCENE.instantiate()
+		return enemy_scenes.ultra_tank.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.Skeletor:
-		return WaveInfo.ENEMY_SKELETOR_SCENE.instantiate()
+		return enemy_scenes.skeletor.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.Goblin:
-		return WaveInfo.ENEMY_GOBLIN_SCENE.instantiate()
-	elif cur_enemy_type == GameTypes.EnemyType.BossMan:
-		return WaveInfo.ENEMY_BOSSMAN_SCENE.instantiate()
+		return enemy_scenes.goblin.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.ArmoredGrunt:
-		return WaveInfo.ENEMY_ARMORED_GRUNT_SCENE.instantiate()
+		return enemy_scenes.armored_grunt.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.Watery:
-		return WaveInfo.ENEMY_WATERY_SCENE.instantiate()
+		return enemy_scenes.watery.instantiate()
 	elif cur_enemy_type == GameTypes.EnemyType.Glug:
-		return WaveInfo.ENEMY_GLUG_SCENE.instantiate()
+		return enemy_scenes.glug.instantiate()
+	elif cur_enemy_type == GameTypes.EnemyType.BossMan:
+		return enemy_scenes.bossman.instantiate()
 	else:
 		print_debug("Trying to spawn enemy of unknown type, defaulting to bossman")
-		return WaveInfo.ENEMY_BOSSMAN_SCENE.instantiate()
+		return enemy_scenes.bossman.instantiate()

@@ -3,6 +3,7 @@ extends Node2D
 @onready var tower_placement_manager: Node2D = $"../TowerPlacementManager"
 @onready var tower_info_label: RichTextLabel = $"TowerInfo/RichTextLabel"
 @onready var upgrade_cost_label: RichTextLabel = $"UpgradeTower/RichTextLabel"
+@export var tower_scenes: TowerScenes
 var current_tower_highlighted: Node2D = null
 
 
@@ -59,29 +60,29 @@ func despawn_old_spawn_upgraded_tower() -> void:
 func get_upgraded_tower_node() -> Node2D:
 	var upgraded_tower: Node2D
 	if current_tower_highlighted.stats.type == GameTypes.TowerType.CANNON1:
-		upgraded_tower = TowerScenes.CANNON_2_SCENE.instantiate()
+		upgraded_tower = tower_scenes.cannon_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CANNON2:
-		upgraded_tower = TowerScenes.CANNON_3_SCENE.instantiate()
+		upgraded_tower = tower_scenes.cannon_3.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.ROCKET_LAUNCHER1:
-		upgraded_tower = TowerScenes.ROCKET_LAUNCHER_2_SCENE.instantiate()
+		upgraded_tower = tower_scenes.rocket_launcher_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.ROCKET_LAUNCHER2:
-		upgraded_tower = TowerScenes.ROCKET_LAUNCHER_3_SCENE.instantiate()
+		upgraded_tower = tower_scenes.rocket_launcher_3.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CROSSBOW1:
-		upgraded_tower = TowerScenes.CROSSBOW_2_SCENE.instantiate()
+		upgraded_tower = tower_scenes.crossbow_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CROSSBOW2:
-		upgraded_tower = TowerScenes.CROSSBOW_3_SCENE.instantiate()
+		upgraded_tower = tower_scenes.crossbow_3.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CRYSTAL1:
-		upgraded_tower = TowerScenes.CRYSTAL_2_SCENE.instantiate()
+		upgraded_tower = tower_scenes.crystal_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CRYSTAL2:
-		upgraded_tower = TowerScenes.CRYSTAL_3_SCENE.instantiate()
+		upgraded_tower = tower_scenes.crystal_3.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.MACHINE_GUN1:
-		upgraded_tower = TowerScenes.MACHINE_GUN_2_SCENE.instantiate()
+		upgraded_tower = tower_scenes.machine_gun_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.MACHINE_GUN2:
-		upgraded_tower = TowerScenes.MACHINE_GUN_3_SCENE.instantiate()
+		upgraded_tower = tower_scenes.machine_gun_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.FLAMETHROWER1:
-		upgraded_tower = TowerScenes.FLAMETHROWER_2_SCENE.instantiate()
+		upgraded_tower = tower_scenes.flamethrower_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.FLAMETHROWER2:
-		upgraded_tower = TowerScenes.FLAMETHROWER_3_SCENE.instantiate()
+		upgraded_tower = tower_scenes.flamethrower_3.instantiate()
 	else:
 		print_debug("Trying to upgrade to tower that doesn't exist")
 

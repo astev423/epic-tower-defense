@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_l1d0o"]
 [ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/images/entities/enemies/enemies_spritesheet-hyptosis.png" id="2_8l6f8"]
-[ext_resource type="Resource" uid="uid://cpr56ihvtam0s" path="res://resources/stats/enemy_stats_data/goblin.tres" id="2_h05do"]
+[ext_resource type="Resource" uid="uid://cpr56ihvtam0s" path="res://resources/stats/enemies/data/goblin.tres" id="2_h05do"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h05do"]
 radius = 9.624479

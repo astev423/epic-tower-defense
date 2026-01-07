@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3a5cu2up7cfl"]
+[gd_scene load_steps=10 format=3 uid="uid://d3a5cu2up7cfl"]
 
 [ext_resource type="Script" uid="uid://dlwnt0wqpdy4p" path="res://game/ui/gameplay_ui.gd" id="1_y5laj"]
+[ext_resource type="PackedScene" uid="uid://8s02pbcrvkyw" path="res://game/ui/menu_screens/main_menu_screen.tscn" id="2_ty1p7"]
 [ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="2_xr88a"]
 [ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="3_ty1p7"]
 [ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/gameplay_scene/game_resources/resource_displayer.tscn" id="4_4bqwn"]
@@ -13,6 +14,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_y5laj")
+main_menu_screen_scene = ExtResource("2_ty1p7")
 
 [node name="TowerPlacementManager" parent="." instance=ExtResource("2_xr88a")]
 position = Vector2(1665, 0)

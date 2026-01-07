@@ -1,11 +1,10 @@
 extends "res://game/entities/towers/base_projectile.gd"
 
-var explosion_scene: PackedScene
+@export var explosion_scene: PackedScene
 var spawned_explosion: bool
 
 
 func _ready() -> void:
-	explosion_scene = preload("res://game/entities/towers/rocket_launcher/explosion.tscn")
 	spawned_explosion = false
 
 

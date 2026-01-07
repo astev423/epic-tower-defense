@@ -10,11 +10,10 @@ to structure paths and change scenes, learn this stuff
 
 -Instead of hardcoded paths, use export and select scenes that way, godot automatically updates them
 if they change paths
-
--make wave into resource
 """
 
 
+"""
 Notes
 -Good music, font, they all match well, background needs more work, for background add clouds or texture maybe
 -Second screen, fix background also
@@ -25,3 +24,4 @@ to see enemy stats
 -Put name of tower and enemies in stats, at the very top
 -Wave 20, 21, too many watery guys, nerf some waves, or maybe buff amount of money per kill on big guys
 -On winning screen add some more stuff, like sprites
+"""

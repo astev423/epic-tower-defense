@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LevelScenes" load_steps=5 format=3 uid="uid://bcehlxsv8r8oc"]
+
+[ext_resource type="Script" uid="uid://d3ibst5u0qlvd" path="res://resources/scenes/level_scenes.gd" id="1_3jo8m"]
+[ext_resource type="PackedScene" uid="uid://dmwrw4lmpokwu" path="res://game/gameplay_scene/levels/dunes.tscn" id="1_ng6tb"]
+[ext_resource type="PackedScene" uid="uid://5vwsct7ganhj" path="res://game/gameplay_scene/levels/plains.tscn" id="2_u83x1"]
+[ext_resource type="PackedScene" uid="uid://d274iwlo85ady" path="res://game/gameplay_scene/levels/dungeon.tscn" id="3_u83x1"]
+
+[resource]
+script = ExtResource("1_3jo8m")
+levels = Dictionary[int, PackedScene]({
+0: ExtResource("1_ng6tb"),
+1: ExtResource("2_u83x1"),
+2: ExtResource("3_u83x1")
+})
+metadata/_custom_type_script = "uid://d3ibst5u0qlvd"

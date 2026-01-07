@@ -1,11 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://b76138tmbmchy"]
+[gd_scene load_steps=5 format=3 uid="uid://b76138tmbmchy"]
 
-[ext_resource type="PackedScene" uid="uid://8s02pbcrvkyw" path="res://game/ui/main_menu_screen.tscn" id="1_x5sjy"]
+[ext_resource type="Shader" uid="uid://6mcxn8m75s8j" path="res://game/ui/menu_screens/MenuBackground.gdshader" id="1_qehsp"]
+[ext_resource type="PackedScene" uid="uid://8s02pbcrvkyw" path="res://game/ui/menu_screens/main_menu_screen.tscn" id="1_x5sjy"]
 [ext_resource type="AudioStream" uid="uid://c5kxkh1sidldn" path="res://assets/music/retro-8bit-happy-videogame-music.mp3" id="2_ah1fo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6mg3c"]
+shader = ExtResource("1_qehsp")
+shader_parameter/color_a = Color(0.1098039, 0.3529412, 0.2666667, 1)
+shader_parameter/color_b = Color(0.1843137, 0.6823529, 0.4823529, 1)
+shader_parameter/gradient_angle = 0.9
+shader_parameter/vignette_strength = 0.38
+shader_parameter/vignette_softness = 0.48
+shader_parameter/noise_amount = 0.02
+shader_parameter/noise_scale = 900.0
+shader_parameter/blob1_pos = Vector2(0.35, 0.35)
+shader_parameter/blob1_color = Color(0.3411765, 1, 0.7803922, 1)
+shader_parameter/blob1_radius = 0.45
+shader_parameter/blob1_intensity = 0.2
+shader_parameter/blob2_pos = Vector2(0.75, 0.25)
+shader_parameter/blob2_color = Color(0.7137255, 1, 0.4156863, 1)
+shader_parameter/blob2_radius = 0.55
+shader_parameter/blob2_intensity = 0.13
+shader_parameter/blob3_pos = Vector2(0.7, 0.75)
+shader_parameter/blob3_color = Color(0.1764706, 1, 0.6039216, 1)
+shader_parameter/blob3_radius = 0.65
+shader_parameter/blob3_intensity = 0.09
 
 [node name="GameRoot" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_6mg3c")
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
@@ -22,3 +46,6 @@ offset_bottom = 1080.0
 [node name="MenuBGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ah1fo")
 autoplay = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+oversampling_override = 1.0

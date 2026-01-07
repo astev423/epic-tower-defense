@@ -1,0 +1,181 @@
+[gd_scene load_steps=17 format=3 uid="uid://8s02pbcrvkyw"]
+
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="1_awi11"]
+[ext_resource type="Script" uid="uid://71h7inn7cqh" path="res://game/ui/menu_screens/main_menu_screen.gd" id="1_y5sr0"]
+[ext_resource type="PackedScene" uid="uid://db3jj6kepantd" path="res://game/ui/menu_screens/level_selection.tscn" id="2_rk00g"]
+[ext_resource type="Texture2D" uid="uid://cm8pymm3x7k6l" path="res://assets/images/entities/towers/crossbow/Tower 01 - Level 01 - Weapon.png" id="3_eqsh7"]
+[ext_resource type="Texture2D" uid="uid://dwa0f8otrw8aq" path="res://assets/images/entities/towers/machine_gunner/machine_gun_skins.png" id="4_qc18r"]
+[ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/images/entities/enemies/enemies_spritesheet-hyptosis.png" id="5_5jvnm"]
+[ext_resource type="Texture2D" uid="uid://5gwjl2mh5d3t" path="res://assets/images/entities/towers/rocket_launcher/launcher3.png" id="6_qc18r"]
+[ext_resource type="Texture2D" uid="uid://c81qcy16us8p" path="res://assets/images/splashscreen.png" id="7_5jvnm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nww5m"]
+atlas = ExtResource("3_eqsh7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b0e6"]
+atlas = ExtResource("3_eqsh7")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa7fc"]
+atlas = ExtResource("3_eqsh7")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feoym"]
+atlas = ExtResource("3_eqsh7")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66mae"]
+atlas = ExtResource("3_eqsh7")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvj5t"]
+atlas = ExtResource("3_eqsh7")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w05ce"]
+atlas = ExtResource("3_eqsh7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obbdc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nww5m")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3b0e6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa7fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feoym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66mae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvj5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w05ce")
+}],
+"loop": false,
+"name": &"shooting",
+"speed": 5.0
+}]
+
+[node name="MainMenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y5sr0")
+level_selection_menu_scene = ExtResource("2_rk00g")
+
+[node name="CenterTitle" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -520.5
+offset_top = 93.0
+offset_right = 520.5
+offset_bottom = 178.728
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="CenterTitle"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_awi11")
+theme_override_font_sizes/font_size = 91
+text = "Epic Tower Defense"
+
+[node name="CenterButtons" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterButtons"]
+layout_mode = 2
+theme_override_constants/separation = 23
+
+[node name="PlayButton" type="Button" parent="CenterButtons/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_awi11")
+theme_override_font_sizes/font_size = 151
+text = " Play"
+
+[node name="QuitButton" type="Button" parent="CenterButtons/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_awi11")
+theme_override_font_sizes/font_size = 151
+text = " Quit"
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="CrossbowSprite" type="AnimatedSprite2D" parent="Sprites"]
+position = Vector2(213, 384)
+rotation = 0.7853982
+scale = Vector2(2.9999998, 2.9999998)
+sprite_frames = SubResource("SpriteFrames_obbdc")
+autoplay = "default"
+
+[node name="MachineGunSprite" type="Sprite2D" parent="Sprites"]
+position = Vector2(1525, 884)
+rotation = -2.3561945
+scale = Vector2(1.9999999, 1.8869998)
+texture = ExtResource("4_qc18r")
+region_enabled = true
+region_rect = Rect2(6, 6, 140, 48)
+
+[node name="BubbaSprite" type="Sprite2D" parent="Sprites"]
+position = Vector2(293, 804)
+scale = Vector2(7, 7)
+texture = ExtResource("5_5jvnm")
+region_enabled = true
+region_rect = Rect2(477, 513, 24, 27)
+
+[node name="UltraTankSprite" type="Sprite2D" parent="Sprites"]
+position = Vector2(1450, 342)
+scale = Vector2(2, 2)
+texture = ExtResource("5_5jvnm")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(469, 378, 94, 108)
+
+[node name="GoblinSprite" type="Sprite2D" parent="Sprites"]
+position = Vector2(121.99999, 111.99999)
+scale = Vector2(5, 5)
+texture = ExtResource("5_5jvnm")
+region_enabled = true
+region_rect = Rect2(390, 884, 32, 30)
+
+[node name="RocketLauncherSprite" type="Sprite2D" parent="Sprites"]
+position = Vector2(1704, 158)
+rotation = -2.3561945
+texture = ExtResource("6_qc18r")
+
+[node name="LogoSprite" type="Sprite2D" parent="Sprites"]
+position = Vector2(968.99994, 888.99994)
+scale = Vector2(0.34549493, 0.34549493)
+texture = ExtResource("7_5jvnm")
+region_enabled = true
+region_rect = Rect2(664, 240, 724, 714)
+
+[connection signal="pressed" from="CenterButtons/VBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CenterButtons/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

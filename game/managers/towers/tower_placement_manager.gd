@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var tower_cost_info: Control = $TowerCostInfo
 @onready var tower_cost_info_label: RichTextLabel = $TowerCostInfo/RichTextLabel
+@export var tower_scenes: TowerScenes
 var tile_map_layer: TileMapLayer
 var held_tower_node: Node2D = null
 var used_tiles: Dictionary[Vector2i, Node2D] = {}
@@ -90,17 +91,17 @@ func get_tower_instantiation(held_tower_type: GameTypes.TowerType) -> Node2D:
 	var tower_node: Node2D
 
 	if held_tower_type == GameTypes.TowerType.CANNON1:
-		tower_node = TowerScenes.CANNON_1_SCENE.instantiate()
+		tower_node = tower_scenes.cannon_1.instantiate()
 	elif held_tower_type == GameTypes.TowerType.ROCKET_LAUNCHER1:
-		tower_node = TowerScenes.ROCKET_LAUNCHER_1_SCENE.instantiate()
+		tower_node = tower_scenes.rocket_launcher_1.instantiate()
 	elif held_tower_type == GameTypes.TowerType.CROSSBOW1:
-		tower_node = TowerScenes.CROSSBOW_1_SCENE.instantiate()
+		tower_node = tower_scenes.crossbow_1.instantiate()
 	elif held_tower_type == GameTypes.TowerType.CRYSTAL1:
-		tower_node = TowerScenes.CRYSTAL_1_SCENE.instantiate()
+		tower_node = tower_scenes.crystal_1.instantiate()
 	elif held_tower_type == GameTypes.TowerType.MACHINE_GUN1:
-		tower_node = TowerScenes.MACHINE_GUN_1_SCENE.instantiate()
+		tower_node = tower_scenes.machine_gun_1.instantiate()
 	elif held_tower_type == GameTypes.TowerType.FLAMETHROWER1:
-		tower_node = TowerScenes.FLAMETHROWER_1_SCENE.instantiate()
+		tower_node = tower_scenes.flamethrower_1.instantiate()
 	else:
 		print_debug("trying to get tower that doesn't exist")
 		tower_node = null
