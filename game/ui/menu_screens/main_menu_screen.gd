@@ -1,6 +1,6 @@
 extends Control
 
-@export var level_selection_menu_scene: PackedScene
+var level_selection_menu_scene := load("res://game/ui/menu_screens/level_selection.tscn")
 
 
 func _on_play_button_pressed() -> void:

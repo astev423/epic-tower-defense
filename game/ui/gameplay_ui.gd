@@ -4,7 +4,7 @@ extends Control
 @onready var reduced_damage_alert_label: Label = $ReducedDamageWarning
 @onready var game_speed_label: Label = $GameSpeedLabel
 @onready var no_money_label: Label = $NoMoneyWarning
-@export var main_menu_screen_scene: PackedScene
+var main_menu_screen_scene := load("res://game/ui/menu_screens/main_menu_screen.tscn")
 
 
 func _ready() -> void:
