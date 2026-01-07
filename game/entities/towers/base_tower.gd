@@ -16,8 +16,8 @@ var is_shooting: bool
 
 func _ready() -> void:
 	# By default tower is a dud, these falses get set to true when placed so tower can do stuff
-	attack_range_display.visible = false
-	clickbox.visible = false
+	attack_range_display.hide()
+	clickbox.hide()
 	attack_timer.wait_time = 1. / stats.attacks_per_second
 	attack_timer.timeout.connect(allow_tower_to_shoot)
 

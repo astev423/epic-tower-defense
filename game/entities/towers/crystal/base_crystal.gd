@@ -67,7 +67,7 @@ func try_finding_enemy_to_lock_on_to() -> void:
 func set_tower_idle() -> void:
 	animated_sprite.play("default")
 	is_shooting = false
-	beam.visible = false
+	beam.hide()
 	projectile_sound.stop()
 	enemy_locked_on_to = null
 
@@ -78,7 +78,7 @@ func try_shooting_enemy(delta: float) -> void:
 		return
 
 	if not is_shooting:
-		beam.visible = false
+		beam.hide()
 		projectile_sound.stop()
 		return
 
@@ -106,7 +106,7 @@ func allow_shooting() -> void:
 
 
 func attack_enemy_locked_on_to(delta: float) -> void:
-	beam.visible = true
+	beam.show()
 	projectile_sound.play()
 	var end_point := to_local(enemy_locked_on_to.global_position)
 	beam.points = PackedVector2Array([Vector2.ZERO, end_point])

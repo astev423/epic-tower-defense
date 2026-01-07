@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Waves" load_steps=4 format=3 uid="uid://lau22xud4y5e"]
+
+[ext_resource type="Script" uid="uid://bci5xvyhf0u2b" path="res://game/managers/enemies/data/spawning/waves.gd" id="1_43w8a"]
+[ext_resource type="Script" uid="uid://03nutnhgc1fd" path="res://game/managers/enemies/data/spawning/wave.gd" id="2_rxyst"]
+[ext_resource type="Resource" uid="uid://cd4evd1yylq5n" path="res://game/managers/enemies/data/spawning/wave1/wave.tres" id="3_rxyst"]
+
+[resource]
+script = ExtResource("1_43w8a")
+waves = Array[ExtResource("2_rxyst")]([ExtResource("3_rxyst")])
+metadata/_custom_type_script = "uid://bci5xvyhf0u2b"

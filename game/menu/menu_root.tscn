@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2kfcx6lhvcav"]
+
+[ext_resource type="Script" uid="uid://croj2h1fi774w" path="res://game/menu/menu_root.gd" id="1_tgsmq"]
+
+[node name="MenuRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tgsmq")
+home_menu_screen_path = "uid://8s02pbcrvkyw"
+level_selection_screen_path = "uid://db3jj6kepantd"
+victory_screen_path = "uid://blegd57or21co"
+game_over_screen_path = "uid://lv5ggu8jyil7"

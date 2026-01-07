@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WaveGroup" load_steps=2 format=3 uid="uid://b60o43gaillcy"]
+
+[ext_resource type="Script" uid="uid://gbstxpjh4csp" path="res://game/managers/enemies/data/spawning/wave_group.gd" id="1_tuiva"]
+
+[resource]
+script = ExtResource("1_tuiva")
+enemy_type = 2
+amount_to_spawn = 4
+secs_delay_between_spawns = 4.0
+metadata/_custom_type_script = "uid://gbstxpjh4csp"

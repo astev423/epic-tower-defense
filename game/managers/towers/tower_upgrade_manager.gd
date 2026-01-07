@@ -14,9 +14,9 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("esc"):
+	if event.is_action_pressed("ui_cancel"):
 		unhighlight_tower()
-		self.visible = false
+		self.hide()
 
 
 func _on_upgrade_tower_button_pressed() -> void:
@@ -48,7 +48,7 @@ func despawn_old_spawn_upgraded_tower() -> void:
 	get_parent().add_child(upgraded_tower)
 	upgraded_tower.global_position = old_tower_pos
 	try_highlight_tower_clicked_on(upgraded_tower)
-	upgraded_tower.clickbox.visible = true
+	upgraded_tower.clickbox.show()
 	upgraded_tower.can_fire = true
 	update_display_tower_info(upgraded_tower)
 	var cell: Vector2i = tower_placement_manager.tile_map_layer.local_to_map(
@@ -91,22 +91,22 @@ func get_upgraded_tower_node() -> Node2D:
 
 func try_highlight_tower_clicked_on(tower: Node2D) -> void:
 	if current_tower_highlighted != null and current_tower_highlighted != tower:
-		current_tower_highlighted.attack_range_display.visible = false
+		current_tower_highlighted.attack_range_display.hide()
 
 	if tower.attack_range_display.visible:
-		tower.attack_range_display.visible = false
+		tower.attack_range_display.hide()
 		current_tower_highlighted = null
 	else:
-		tower.attack_range_display.visible = true
+		tower.attack_range_display.show()
 		current_tower_highlighted = tower
 
 
 func try_display_tower_info(tower: Node2D) -> void:
 	if self.visible and current_tower_highlighted != tower:
-		self.visible = false
+		self.hide()
 		return
 
-	self.visible = true
+	self.show()
 	update_display_tower_info(tower)
 	EventBus.displaying_tower_stats.emit()
 
@@ -132,9 +132,9 @@ func unhighlight_tower() -> void:
 	if not is_instance_valid(current_tower_highlighted):
 		return
 
-	current_tower_highlighted.attack_range_display.visible = false
+	current_tower_highlighted.attack_range_display.hide()
 	current_tower_highlighted = null
-	self.visible = false
+	self.hide()
 
 
 func handle_deleted_tower(tower: Node2D) -> void:

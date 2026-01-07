@@ -16,7 +16,7 @@ func _input(event: InputEvent) -> void:
 		try_placing_tower_on_grid()
 	elif event.is_action_pressed("right_mouse"):
 		try_delete_tower_on_grid()
-	elif event.is_action_pressed("esc"):
+	elif event.is_action_pressed("ui_cancel"):
 		try_deselect_held_tower()
 
 
@@ -53,7 +53,7 @@ func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void
 	held_tower_node.global_position = get_global_mouse_position()
 	# This cannon is for dragging only, so disable process logic
 	held_tower_node.process_mode = Node.PROCESS_MODE_DISABLED
-	held_tower_node.attack_range_display.visible = true
+	held_tower_node.attack_range_display.show()
 	EventBus.displaying_tower_placement_cost.emit()
 
 	update_ui_for_dragged_tower()
@@ -84,7 +84,7 @@ func try_placing_tower_on_grid() -> void:
 
 func free_held_tower() -> void:
 	held_tower_node.queue_free()
-	tower_cost_info.visible = false
+	tower_cost_info.hide()
 
 
 func get_tower_instantiation(held_tower_type: GameTypes.TowerType) -> Node2D:
@@ -115,7 +115,7 @@ func place_active_tower(cell_position: Vector2i) -> void:
 	new_tower.global_position = cell_position * 64 + Vector2i(32, 32)
 	used_tiles[cell_position] = new_tower
 
-	new_tower.clickbox.visible = true
+	new_tower.clickbox.show()
 	new_tower.can_fire = true
 
 
@@ -140,7 +140,7 @@ func make_tower_follow_mouse() -> void:
 
 
 func try_deselect_held_tower() -> void:
-	tower_cost_info.visible = false
+	tower_cost_info.hide()
 
 	if is_instance_valid(held_tower_node):
 		held_tower_node.queue_free()
@@ -148,4 +148,4 @@ func try_deselect_held_tower() -> void:
 
 func show_tower_cost_info() -> void:
 	tower_cost_info_label.text = "Tower Cost: %s" % held_tower_node.stats.tower_cost
-	tower_cost_info.visible = true
+	tower_cost_info.show()

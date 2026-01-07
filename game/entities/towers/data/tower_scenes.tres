@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="TowerScenes" load_steps=20 format=3 uid="uid://cqtpvbf76cv44"]
+
+[ext_resource type="Script" uid="uid://oe13l2vv2wuk" path="res://game/entities/towers/data/tower_scenes.gd" id="1_3hk2v"]
+[ext_resource type="PackedScene" uid="uid://dh0wmuvbta0vu" path="res://game/entities/towers/cannon/cannon_1.tscn" id="1_rjjdb"]
+[ext_resource type="PackedScene" uid="uid://bsgyatctueubi" path="res://game/entities/towers/cannon/cannon_2.tscn" id="2_3eleq"]
+[ext_resource type="PackedScene" uid="uid://dn8akvh0mna7m" path="res://game/entities/towers/cannon/cannon_3.tscn" id="3_w7n7m"]
+[ext_resource type="PackedScene" uid="uid://btfuafype5plx" path="res://game/entities/towers/crossbow/crossbow_1.tscn" id="4_78m57"]
+[ext_resource type="PackedScene" uid="uid://bq00sp1cp2rrm" path="res://game/entities/towers/crossbow/crossbow_2.tscn" id="5_uiteq"]
+[ext_resource type="PackedScene" uid="uid://b866ibevid0q8" path="res://game/entities/towers/crossbow/crossbow_3.tscn" id="6_6xudn"]
+[ext_resource type="PackedScene" uid="uid://bkdvee2yxjlxh" path="res://game/entities/towers/crystal/crystal_1.tscn" id="7_ei5gd"]
+[ext_resource type="PackedScene" uid="uid://c4t73a6y244pk" path="res://game/entities/towers/crystal/crystal_2.tscn" id="8_gvsta"]
+[ext_resource type="PackedScene" uid="uid://puljnfvyfalc" path="res://game/entities/towers/crystal/crystal_3.tscn" id="9_toc11"]
+[ext_resource type="PackedScene" uid="uid://dtad7dfqn4g6f" path="res://game/entities/towers/flamethrower/flamethrower_1.tscn" id="10_hxsm0"]
+[ext_resource type="PackedScene" uid="uid://bmq78r85uo4b5" path="res://game/entities/towers/flamethrower/flamethrower_2.tscn" id="11_uv14s"]
+[ext_resource type="PackedScene" uid="uid://bdrs2u8qdkltd" path="res://game/entities/towers/flamethrower/flamethrower_3.tscn" id="12_pxt65"]
+[ext_resource type="PackedScene" uid="uid://q6wuud7s4orj" path="res://game/entities/towers/machine_gunner/machine_gun_1.tscn" id="13_tmyet"]
+[ext_resource type="PackedScene" uid="uid://dgbpopo57e68k" path="res://game/entities/towers/machine_gunner/machine_gun_2.tscn" id="14_kjnbe"]
+[ext_resource type="PackedScene" uid="uid://c0rcvsdnttjx4" path="res://game/entities/towers/machine_gunner/machine_gun_3.tscn" id="15_rvd4m"]
+[ext_resource type="PackedScene" uid="uid://dj5cj1qv1fce5" path="res://game/entities/towers/rocket_launcher/rocket_launcher_1.tscn" id="16_jin0y"]
+[ext_resource type="PackedScene" uid="uid://sf01ine87a4n" path="res://game/entities/towers/rocket_launcher/rocket_launcher_2.tscn" id="17_yentj"]
+[ext_resource type="PackedScene" uid="uid://g6fqcvqhfxtk" path="res://game/entities/towers/rocket_launcher/rocket_launcher_3.tscn" id="18_60api"]
+
+[resource]
+script = ExtResource("1_3hk2v")
+cannon_1 = ExtResource("1_rjjdb")
+cannon_2 = ExtResource("2_3eleq")
+cannon_3 = ExtResource("3_w7n7m")
+rocket_launcher_1 = ExtResource("16_jin0y")
+rocket_launcher_2 = ExtResource("17_yentj")
+rocket_launcher_3 = ExtResource("18_60api")
+crossbow_1 = ExtResource("4_78m57")
+crossbow_2 = ExtResource("5_uiteq")
+crossbow_3 = ExtResource("6_6xudn")
+crystal_1 = ExtResource("7_ei5gd")
+crystal_2 = ExtResource("8_gvsta")
+crystal_3 = ExtResource("9_toc11")
+machine_gun_1 = ExtResource("13_tmyet")
+machine_gun_2 = ExtResource("14_kjnbe")
+machine_gun_3 = ExtResource("15_rvd4m")
+flamethrower_1 = ExtResource("10_hxsm0")
+flamethrower_2 = ExtResource("11_uv14s")
+flamethrower_3 = ExtResource("12_pxt65")
+metadata/_custom_type_script = "uid://oe13l2vv2wuk"

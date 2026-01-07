@@ -1,15 +1,16 @@
 """
--Playtest, make sure can be done on medium and hard
-
--Get someone else to playtest, they likely can't beat game so make them go to level 40 after they die to see cool boss animation
+-Add menu router, menu cache with load rather than loading all at once for scalability and learning
 
 -Refactor paths in ui, don't make them hard coded, when to use preload const vs variable in func, how
 to structure paths and change scenes, learn this stuff
 
 -Refactor placement and upgrade managers, use signals instead to communicate between
 
--Instead of hardcoded paths, use export and select scenes that way, godot automatically updates them
-if they change paths
+-Add nice clouds to main menu (but not background, just main menu screen)
+
+-Playtest, make sure can be done on medium and hard
+
+-Get someone else to playtest, they likely can't beat game so make them go to level 40 after they die to see cool boss animation
 """
 
 
@@ -24,4 +25,5 @@ to see enemy stats
 -Put name of tower and enemies in stats, at the very top
 -Wave 20, 21, too many watery guys, nerf some waves, or maybe buff amount of money per kill on big guys
 -On winning screen add some more stuff, like sprites
+-Having seperate
 """

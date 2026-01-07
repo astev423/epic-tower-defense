@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ded24yxt5yuym"]
 
 [ext_resource type="PackedScene" uid="uid://wo5kcm37umfh" path="res://game/entities/enemies/weakling.tscn" id="1_1hnny"]
-[ext_resource type="Resource" uid="uid://6372va1wdkqu" path="res://resources/stats/enemies/data/fast_weakling.tres" id="3_3yw52"]
+[ext_resource type="Resource" uid="uid://6372va1wdkqu" path="res://game/entities/enemies/data/stats/fast_weakling.tres" id="3_3yw52"]
 
 [node name="FastWeakling" instance=ExtResource("1_1hnny")]
 stats = ExtResource("3_3yw52")

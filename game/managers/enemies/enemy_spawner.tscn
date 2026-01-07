@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5roconmp6v0b"]
 
 [ext_resource type="Script" uid="uid://d0af3jytq0aok" path="res://game/managers/enemies/enemy_spawner.gd" id="1_xg85e"]
-[ext_resource type="Resource" uid="uid://b4fvj3po2qugq" path="res://resources/scenes/enemy_scenes.tres" id="2_yli64"]
-[ext_resource type="PackedScene" uid="uid://blegd57or21co" path="res://game/ui/menu_screens/victory_screen.tscn" id="3_4lyaj"]
+[ext_resource type="Resource" uid="uid://b4fvj3po2qugq" path="res://game/entities/enemies/data/enemy_scenes.tres" id="2_yli64"]
+[ext_resource type="PackedScene" uid="uid://blegd57or21co" path="res://game/menu/victory_screen.tscn" id="3_4lyaj"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_xg85e")

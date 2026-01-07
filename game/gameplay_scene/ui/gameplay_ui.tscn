@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3a5cu2up7cfl"]
+
+[ext_resource type="Script" uid="uid://dlwnt0wqpdy4p" path="res://game/gameplay_scene/ui/gameplay_ui.gd" id="1_y5laj"]
+[ext_resource type="PackedScene" uid="uid://c2kfcx6lhvcav" path="res://game/menu/menu_root.tscn" id="2_8uqsl"]
+[ext_resource type="PackedScene" uid="uid://bs8g4s5l46lau" path="res://game/managers/towers/tower_placement_manager.tscn" id="2_xr88a"]
+[ext_resource type="PackedScene" uid="uid://rj47bvxvmw4l" path="res://game/managers/towers/tower_upgrade_manager.tscn" id="3_ty1p7"]
+[ext_resource type="PackedScene" uid="uid://dac8i8gpyjnxs" path="res://game/gameplay_scene/ui/resource_displayer.tscn" id="4_4bqwn"]
+[ext_resource type="PackedScene" uid="uid://b7rytr23sysqc" path="res://game/gameplay_scene/highlight_tile/highlight_tile.tscn" id="5_sdw3p"]
+[ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="6_0jrkl"]
+[ext_resource type="PackedScene" uid="uid://bdta4r1g011xy" path="res://game/gameplay_scene/ui/enemy_stats_displayer.tscn" id="6_xr88a"]
+[ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/images/ui/button_rectangle_border.png" id="7_3lcmk"]
+
+[node name="GameplayUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_y5laj")
+menu_root_scene = ExtResource("2_8uqsl")
+
+[node name="TowerPlacementManager" parent="." instance=ExtResource("2_xr88a")]
+position = Vector2(1665, 0)
+scale = Vector2(2, 2)
+
+[node name="TowerUpgradeManager" parent="." instance=ExtResource("3_ty1p7")]
+visible = false
+position = Vector2(0, 960)
+
+[node name="ResourceDisplayer" parent="." instance=ExtResource("4_4bqwn")]
+position = Vector2(1345, 960.99994)
+scale = Vector2(0.8819773, 0.8819773)
+
+[node name="HighlightTile" parent="." instance=ExtResource("5_sdw3p")]
+position = Vector2(1357, 959.99994)
+scale = Vector2(0.8915491, 0.8915491)
+
+[node name="EnemyStatsDisplayer" parent="." instance=ExtResource("6_xr88a")]
+visible = false
+position = Vector2(1, 960)
+
+[node name="GamePausedAlertLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 303.0
+offset_right = 948.0062
+offset_bottom = 362.0
+scale = Vector2(1.8200301, 2.50003)
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_0jrkl")
+theme_override_font_sizes/normal_font_size = 52
+text = " Paused"
+fit_content = true
+
+[node name="NoMoneyWarning" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 140.0
+offset_top = 319.0
+offset_right = 17901.0
+offset_bottom = 2855.0
+scale = Vector2(0.07727055, 0.07727055)
+theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
+theme_override_font_sizes/font_size = 1861
+text = "Not enough money!"
+
+[node name="ReducedDamageWarning" type="Label" parent="."]
+visible = false
+z_index = 10
+z_as_relative = false
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0000001
+offset_right = 32155.0
+offset_bottom = 4994.0522
+scale = Vector2(0.042776577, 0.03083051)
+theme_override_colors/font_color = Color(0.75686276, 0, 0, 1)
+theme_override_font_sizes/font_size = 1701
+text = "Wave 25 Passed: From now on enemies
+take 25% less damage!"
+
+[node name="ReturnToMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1684.0
+offset_top = 637.0
+offset_right = 1893.0
+offset_bottom = 740.0
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_fonts/font = ExtResource("6_0jrkl")
+theme_override_font_sizes/font_size = 35
+text = " Return 
+to menu"
+
+[node name="SpeedLabelBorder" type="Sprite2D" parent="."]
+position = Vector2(1683, 818)
+scale = Vector2(0.5500824, 0.71402913)
+texture = ExtResource("7_3lcmk")
+centered = false
+
+[node name="GameSpeedLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1695.0
+offset_top = 827.0
+offset_right = 10322.797
+offset_bottom = 4126.016
+scale = Vector2(0.021790009, 0.021790009)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_0jrkl")
+theme_override_font_sizes/font_size = 1461
+text = "Speed:
+Paused"
+
+[connection signal="pressed" from="ReturnToMenuButton" to="." method="_on_return_to_menu_button_pressed"]

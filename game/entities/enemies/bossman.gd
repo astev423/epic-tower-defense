@@ -14,8 +14,8 @@ func _on_death() -> void:
 	_shake_sprite_while(death_sound.stream.get_length(), 6.0, 60.0)
 	set_physics_process(false)
 	await death_sound.finished
-	sprite.visible = false
-	death_explosion_sprite.visible = true
+	sprite.hide()
+	death_explosion_sprite.show()
 	death_explosion_sound.play()
 	await death_explosion_sound.finished
 	queue_free()

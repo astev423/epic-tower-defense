@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EnemyScenes" load_steps=12 format=3 uid="uid://b4fvj3po2qugq"]
+
+[ext_resource type="PackedScene" uid="uid://d1l3vymj5iosf" path="res://game/entities/enemies/armored_grunt.tscn" id="1_2ucyc"]
+[ext_resource type="Script" uid="uid://dj4mu2kaeimp1" path="res://game/entities/enemies/data/enemy_scenes.gd" id="1_soydf"]
+[ext_resource type="PackedScene" uid="uid://b1bb1gtccha2" path="res://game/entities/enemies/bossman.tscn" id="2_dba5u"]
+[ext_resource type="PackedScene" uid="uid://chetfp2b10deg" path="res://game/entities/enemies/bubba.tscn" id="3_1e5wc"]
+[ext_resource type="PackedScene" uid="uid://ded24yxt5yuym" path="res://game/entities/enemies/fast_weakling.tscn" id="4_xepau"]
+[ext_resource type="PackedScene" uid="uid://blwfow37ffdo1" path="res://game/entities/enemies/glug.tscn" id="5_ugmkb"]
+[ext_resource type="PackedScene" uid="uid://bq5okavgi8jin" path="res://game/entities/enemies/goblin.tscn" id="6_r4my7"]
+[ext_resource type="PackedScene" uid="uid://uaflu3ju4u3r" path="res://game/entities/enemies/skeletor.tscn" id="8_5me4r"]
+[ext_resource type="PackedScene" uid="uid://dapofdmupy7bu" path="res://game/entities/enemies/ultra_tank.tscn" id="9_678wf"]
+[ext_resource type="PackedScene" uid="uid://cmbf6hanv28d1" path="res://game/entities/enemies/watery.tscn" id="10_pgb6u"]
+[ext_resource type="PackedScene" uid="uid://wo5kcm37umfh" path="res://game/entities/enemies/weakling.tscn" id="11_ti6a4"]
+
+[resource]
+script = ExtResource("1_soydf")
+weakling = ExtResource("11_ti6a4")
+fast_weakling = ExtResource("4_xepau")
+bubba = ExtResource("3_1e5wc")
+ultra_tank = ExtResource("9_678wf")
+skeletor = ExtResource("8_5me4r")
+goblin = ExtResource("6_r4my7")
+armored_grunt = ExtResource("1_2ucyc")
+watery = ExtResource("10_pgb6u")
+glug = ExtResource("5_ugmkb")
+bossman = ExtResource("2_dba5u")
+metadata/_custom_type_script = "uid://dj4mu2kaeimp1"

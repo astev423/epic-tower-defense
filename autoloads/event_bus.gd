@@ -4,6 +4,7 @@ signal game_over()
 signal pause_game()
 signal game_timescale_changed(new_timescale: String)
 signal wave_25_passed()
+signal starting_new_game()
 
 
 # Dealing with enemies
@@ -18,6 +19,7 @@ signal tower_clicked_on(tower: Node2D)
 signal displaying_tower_stats()
 signal displaying_tower_placement_cost()
 signal tower_deleted(tower: Node2D)
+signal change_menu_screen_button_pressed(chosen_screen: GameTypes.MenuScreen)
 
 
 # Dealing with resources

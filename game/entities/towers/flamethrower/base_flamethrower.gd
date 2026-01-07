@@ -33,13 +33,13 @@ func _physics_process(delta: float) -> void:
 
 func stop_shooting() -> void:
 	fire_node.process_mode = Node.PROCESS_MODE_DISABLED
-	fire_node.visible = false
+	fire_node.hide()
 	projectile_sound.stop()
 	is_shooting = false
 
 
 func start_shooting() -> void:
 	fire_node.process_mode = Node.PROCESS_MODE_INHERIT
-	fire_node.visible = true
+	fire_node.show()
 	projectile_sound.play()
 	is_shooting = true

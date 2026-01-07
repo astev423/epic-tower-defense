@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://blwfow37ffdo1"]
 
 [ext_resource type="PackedScene" uid="uid://bo5rrx1lu6px2" path="res://game/entities/enemies/base_enemy.tscn" id="1_yj6k8"]
-[ext_resource type="Resource" uid="uid://cg67esjp2uupd" path="res://resources/stats/enemies/data/glug.tres" id="2_71leu"]
+[ext_resource type="Resource" uid="uid://cg67esjp2uupd" path="res://game/entities/enemies/data/stats/glug.tres" id="2_71leu"]
 [ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/images/entities/enemies/enemies_spritesheet-hyptosis.png" id="2_a1h4y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_71leu"]

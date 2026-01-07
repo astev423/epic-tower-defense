@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b76138tmbmchy"]
 
-[ext_resource type="Shader" uid="uid://6mcxn8m75s8j" path="res://game/ui/menu_screens/MenuBackground.gdshader" id="1_qehsp"]
-[ext_resource type="PackedScene" uid="uid://8s02pbcrvkyw" path="res://game/ui/menu_screens/main_menu_screen.tscn" id="1_x5sjy"]
+[ext_resource type="Shader" uid="uid://6mcxn8m75s8j" path="res://game/menu/MenuBackground.gdshader" id="1_qehsp"]
 [ext_resource type="AudioStream" uid="uid://c5kxkh1sidldn" path="res://assets/music/retro-8bit-happy-videogame-music.mp3" id="2_ah1fo"]
+[ext_resource type="PackedScene" uid="uid://c2kfcx6lhvcav" path="res://game/menu/menu_root.tscn" id="2_qehsp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6mg3c"]
 shader = ExtResource("1_qehsp")
@@ -39,13 +39,8 @@ color = Color(6.112605e-06, 0.75939333, 0.44310054, 1)
 anchor_mode = 0
 zoom = Vector2(0.6, 0.6)
 
-[node name="MainMenuScreen" parent="." instance=ExtResource("1_x5sjy")]
-offset_right = 1920.0
-offset_bottom = 1080.0
-
 [node name="MenuBGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ah1fo")
 autoplay = true
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
-oversampling_override = 1.0
+[node name="MenuRoot" parent="." instance=ExtResource("2_qehsp")]
