@@ -5,6 +5,7 @@ extends Control
 # PATHS INSTEAD OF PRELOAD TO PREVENT RECURSION, THIS IS THE BASE CASE RIGHT HERE
 @export_file("*.tscn") var home_menu_screen_path: String
 @export_file("*.tscn") var level_selection_screen_path: String
+@export_file("*.tscn") var menu_tutorial_screen_path: String
 @export_file("*.tscn") var victory_screen_path: String
 @export_file("*.tscn") var game_over_screen_path: String
 var current_screen_type: GameTypes.MenuScreen
@@ -19,6 +20,7 @@ func _ready() -> void:
 	screen_paths = {
 		GameTypes.MenuScreen.HOME: home_menu_screen_path,
 		GameTypes.MenuScreen.LEVEL_SELECTION: level_selection_screen_path,
+		GameTypes.MenuScreen.TUTORIAL: menu_tutorial_screen_path,
 		GameTypes.MenuScreen.VICTORY_SCREEN: victory_screen_path,
 		GameTypes.MenuScreen.GAME_OVER: game_over_screen_path,
 	}

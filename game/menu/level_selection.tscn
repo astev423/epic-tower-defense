@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://db3jj6kepantd"]
+[gd_scene load_steps=11 format=3 uid="uid://db3jj6kepantd"]
 
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="1_4mhyn"]
 [ext_resource type="Script" uid="uid://djvba0enysvld" path="res://game/menu/level_selection.gd" id="1_e2uwu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bqw8nxkertcjt" path="res://assets/images/level/previews/dungeon.png" id="5_nktaa"]
 [ext_resource type="Texture2D" uid="uid://cd8mwb4in3y3k" path="res://assets/images/ui/checkmark.png" id="6_72caj"]
 [ext_resource type="Texture2D" uid="uid://dqbyavu174itt" path="res://assets/images/ui/x.png" id="7_4pcfj"]
+[ext_resource type="Texture2D" uid="uid://bc400six03f6j" path="res://assets/images/TreasuresAndCollectibles-Sheet.png" id="10_b38gn"]
 
 [node name="LevelSelection" type="Control"]
 layout_mode = 3
@@ -152,6 +153,16 @@ theme_override_font_sizes/font_size = 39
 text = "Select starting 
 wave (1-40)"
 
+[node name="SpawnpointSpriteExplainerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 27.0
+offset_right = 765.0
+offset_bottom = 146.568
+theme_override_fonts/font = ExtResource("1_4mhyn")
+theme_override_font_sizes/font_size = 39
+text = "= spawnpoint of enemies"
+
 [node name="ChangeWaveNum" type="LineEdit" parent="."]
 layout_mode = 0
 offset_left = 109.0
@@ -199,6 +210,34 @@ texture = ExtResource("6_72caj")
 position = Vector2(1804, 1012)
 scale = Vector2(0.3064831, 0.3064831)
 texture = ExtResource("7_4pcfj")
+
+[node name="SpawnpointIndicatorSprite" type="Sprite2D" parent="."]
+position = Vector2(19, 616)
+scale = Vector2(1.9962754, 1.9962754)
+texture = ExtResource("10_b38gn")
+region_enabled = true
+region_rect = Rect2(0, 176, 15, 16)
+
+[node name="SpawnpointIndicatorSprite3" type="Sprite2D" parent="."]
+position = Vector2(722.00006, 335.99997)
+scale = Vector2(1.9962754, 1.9962754)
+texture = ExtResource("10_b38gn")
+region_enabled = true
+region_rect = Rect2(0, 176, 15, 16)
+
+[node name="SpawnpointIndicatorSprite4" type="Sprite2D" parent="."]
+position = Vector2(1371, 463)
+scale = Vector2(1.9962754, 1.9962754)
+texture = ExtResource("10_b38gn")
+region_enabled = true
+region_rect = Rect2(0, 176, 15, 16)
+
+[node name="SpawnpointIndicatorSprite2" type="Sprite2D" parent="."]
+position = Vector2(47, 48)
+scale = Vector2(4.8435683, 4.8435683)
+texture = ExtResource("10_b38gn")
+region_enabled = true
+region_rect = Rect2(0, 176, 15, 16)
 
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Dunes/SelectDunesButton" to="." method="_on_select_dunes_button_pressed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/Plains/SelectPlainsButton" to="." method="_on_select_plains_button_pressed"]

@@ -12,5 +12,6 @@ grow_vertical = 2
 script = ExtResource("1_tgsmq")
 home_menu_screen_path = "uid://8s02pbcrvkyw"
 level_selection_screen_path = "uid://db3jj6kepantd"
+menu_tutorial_screen_path = "uid://uexad51jeric"
 victory_screen_path = "uid://blegd57or21co"
 game_over_screen_path = "uid://lv5ggu8jyil7"

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://blegd57or21co"]
+[gd_scene load_steps=7 format=3 uid="uid://blegd57or21co"]
 
 [ext_resource type="Script" uid="uid://qf1e6fmuwwcm" path="res://game/menu/victory_screen.gd" id="1_ige8o"]
 [ext_resource type="PackedScene" uid="uid://c2kfcx6lhvcav" path="res://game/menu/menu_root.tscn" id="2_scwue"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="2_y3dsx"]
 [ext_resource type="AudioStream" uid="uid://b45p72sbandbu" path="res://assets/music/2021-08-17_-_8_Bit_Nostalgia_-_www.FesliyanStudios.com.mp3" id="3_17a2w"]
 [ext_resource type="PackedScene" uid="uid://d1ulows2ch8xy" path="res://game/shared/fireworks.tscn" id="3_kgoc5"]
+[ext_resource type="Texture2D" uid="uid://bc400six03f6j" path="res://assets/images/TreasuresAndCollectibles-Sheet.png" id="4_d2442"]
 
 [node name="VictoryScreen" type="Control"]
 layout_mode = 3
@@ -26,6 +27,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.90673256, 0.80072236, 0.5871629, 1)
+
+[node name="CrossSprite" type="Sprite2D" parent="."]
+position = Vector2(89.00006, 130)
+scale = Vector2(12.050501, 12.050501)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(3, 112, 10, 16)
+
+[node name="CrossSprite2" type="Sprite2D" parent="."]
+position = Vector2(1795, 130)
+scale = Vector2(12.050501, 12.050501)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(3, 112, 10, 16)
 
 [node name="CenterTitle" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -84,6 +99,62 @@ text = " Quit"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_17a2w")
 autoplay = true
+
+[node name="GoldCupSprite" type="Sprite2D" parent="."]
+position = Vector2(277, 900.6833)
+scale = Vector2(25.669039, 25.669039)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(113, 18, 14, 14)
+
+[node name="GoldCupSprite2" type="Sprite2D" parent="."]
+position = Vector2(1635, 900.6833)
+scale = Vector2(25.669039, 25.669039)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(113, 18, 14, 14)
+
+[node name="GoldCoinsSprite" type="Sprite2D" parent="."]
+position = Vector2(538.99994, 976.99994)
+scale = Vector2(8.225022, 8.225022)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(82, 96, 13, 16)
+
+[node name="GoldCoinsSprite2" type="Sprite2D" parent="."]
+position = Vector2(732.00006, 939)
+scale = Vector2(8.225022, 8.225022)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(82, 96, 13, 16)
+
+[node name="GoldCoinsSprite3" type="Sprite2D" parent="."]
+position = Vector2(135.00012, 522)
+scale = Vector2(8.225022, 8.225022)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(82, 96, 13, 16)
+
+[node name="GoldCoinsSprite4" type="Sprite2D" parent="."]
+position = Vector2(959.99994, 982)
+scale = Vector2(8.225022, 8.225022)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(82, 96, 13, 16)
+
+[node name="GoldCoinsSprite5" type="Sprite2D" parent="."]
+position = Vector2(1288, 973)
+scale = Vector2(8.225022, 8.225022)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(82, 96, 13, 16)
+
+[node name="GoldCoinsSprite6" type="Sprite2D" parent="."]
+position = Vector2(1826, 544)
+scale = Vector2(8.225022, 8.225022)
+texture = ExtResource("4_d2442")
+region_enabled = true
+region_rect = Rect2(82, 96, 13, 16)
 
 [connection signal="pressed" from="CenterButtons/VBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenterButtons/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

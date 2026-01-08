@@ -4,6 +4,7 @@ class_name GameTypes
 enum MenuScreen {
 	HOME,
 	LEVEL_SELECTION,
+	TUTORIAL,
 	GAME_OVER,
 	VICTORY_SCREEN,
 }

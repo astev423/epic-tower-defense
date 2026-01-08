@@ -126,6 +126,13 @@ theme_override_fonts/font = ExtResource("1_awi11")
 theme_override_font_sizes/font_size = 151
 text = " Play"
 
+[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("1_awi11")
+theme_override_font_sizes/font_size = 151
+text = " tutorial"
+
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
@@ -165,7 +172,7 @@ region_enabled = true
 region_rect = Rect2(477, 513, 24, 27)
 
 [node name="UltraTankSprite" type="Sprite2D" parent="Sprites"]
-position = Vector2(1450, 342)
+position = Vector2(1515, 342)
 scale = Vector2(2, 2)
 texture = ExtResource("5_5jvnm")
 flip_h = true
@@ -185,11 +192,12 @@ rotation = -2.3561945
 texture = ExtResource("6_qc18r")
 
 [node name="LogoSprite" type="Sprite2D" parent="Sprites"]
-position = Vector2(968.99994, 888.99994)
-scale = Vector2(0.34549493, 0.34549493)
+position = Vector2(968.99994, 938.00006)
+scale = Vector2(0.29113483, 0.29113483)
 texture = ExtResource("7_5jvnm")
 region_enabled = true
 region_rect = Rect2(664, 240, 724, 714)
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
