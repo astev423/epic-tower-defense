@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_select"):
+	if event.is_action_pressed("ui_select") and not GameState.get_is_boss_dying_animation_playing():
 		EventBus.spacebar_pressed.emit()
 
 

@@ -3,6 +3,7 @@ extends Node
 var _cur_money: int
 var _cur_lives: int
 var _cur_wave: int
+var _is_boss_dying_animation_playing := false
 
 
 ## Tries to buy tower, if not then return false, if it does buy then decrease money and display it
@@ -51,9 +52,15 @@ func get_cur_lives_num() -> int:
 	return _cur_lives
 func get_cur_wave_num() -> int:
 	return _cur_wave
+func get_is_boss_dying_animation_playing() -> bool:
+	return _is_boss_dying_animation_playing
 
 
 func set_variables(lives: int, money: int, wave: int) -> void:
 	_cur_lives = lives
 	_cur_money = money
 	_cur_wave = wave
+
+
+func set_dying_animation(is_dying: bool) -> void:
+	_is_boss_dying_animation_playing = is_dying

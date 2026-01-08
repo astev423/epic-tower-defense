@@ -143,9 +143,12 @@ func try_show_victory_screen() -> void:
 	if GameState.get_cur_lives_num() <= 0:
 		return
 
+	Engine.time_scale = 1.0
 	EventBus.game_timescale_changed.emit("1X")
+	GameState.set_dying_animation(true)
 	# Wait for monster death animation and sfx to finish
 	await get_tree().create_timer(11.0).timeout
+	GameState.set_dying_animation(false)
 	var victory_screen_node: Control = victory_screen_scene.instantiate()
 	victory_screen_node.size = Vector2(1920, 1080)
 	get_node("/root/GameRoot").add_child(victory_screen_node)

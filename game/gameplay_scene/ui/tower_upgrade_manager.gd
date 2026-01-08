@@ -60,6 +60,8 @@ func despawn_old_spawn_upgraded_tower() -> void:
 
 func get_upgraded_tower_node() -> Node2D:
 	var upgraded_tower: Node2D
+	# Instead of all of this I could just store the upgrade scene in the cannon or set it to null,
+	# then just check if its null, if so return, otherwise spawn upgrade if enough money
 	if current_tower_highlighted.stats.type == GameTypes.TowerType.CANNON1:
 		upgraded_tower = tower_scenes.cannon_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.CANNON2:
@@ -79,7 +81,7 @@ func get_upgraded_tower_node() -> Node2D:
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.MACHINE_GUN1:
 		upgraded_tower = tower_scenes.machine_gun_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.MACHINE_GUN2:
-		upgraded_tower = tower_scenes.machine_gun_2.instantiate()
+		upgraded_tower = tower_scenes.machine_gun_3.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.FLAMETHROWER1:
 		upgraded_tower = tower_scenes.flamethrower_2.instantiate()
 	elif current_tower_highlighted.stats.type == GameTypes.TowerType.FLAMETHROWER2:

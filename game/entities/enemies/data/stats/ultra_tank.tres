@@ -11,8 +11,8 @@ damage_modifiers = Dictionary[int, float]({
 4: 1.3
 })
 movement_speed = 25.0
-lives_taken_if_reach_finish = 20
-money_awarded_if_killed = 400
+lives_taken_if_reach_finish = 50
+money_awarded_if_killed = 1000
 health = 5000.0
 health_bar_offset = Vector2(-25, -40)
 type = 3

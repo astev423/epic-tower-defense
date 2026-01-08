@@ -259,6 +259,7 @@ color = Color(0, 0, 0, 0.26666668)
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("24_6m1oc")
+volume_db = -10.0
 autoplay = true
 
 [editable path="EnemySpawner"]
