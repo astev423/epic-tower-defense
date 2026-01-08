@@ -38,6 +38,7 @@ text = "Basic idea
 Enemies spawn on the leftside of the map, they follow the dirt path until reaching the rightmost end of
  the path. If they reach the end then they take away varying amount of your lives. Place towers and 
 upgrade those towers to kill enemies. Get money for more towers by killing enemies and passing waves.
+VERy important: enemies have huge weaknesses and strengths to things, click on the enemy to see this info
 
 
 Controls

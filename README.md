@@ -4,12 +4,10 @@ Simple tower defense game inspired by BTD5
 # Game info
 
 ## Basic idea
-Enemies spawn on the leftside of the map, they follow the dirt path until reaching the rightmost end of the path. If they reach
-the end then they take away varying amount of your lives. Place towers and upgrade those towers to kill enemies. Get money for
-more towers by killing enemies and passing waves.
+Enemies spawn on the leftside of the map, they follow the dirt path until reaching the end of the path. If they reach the end then they take away a varying amount of your lives. Place towers and upgrade those towers to kill enemies. Get money for more towers by killing enemies and passing waves. Enemies have weaknesses and strengths to certain towers, you can find out different towers affect them by clicking on that enemy during the game
 
 ## Controls
--Left mouse button can click on towers and upgrade them
+-Left mouse button can click on towers and place/upgrade them. Left mouse also can click on enemies to reveal their stats and weaknesses/strengths
 
 -Right mouse button can click on towers to sell them for 1/2 their purchase price
 
@@ -24,14 +22,14 @@ more towers by killing enemies and passing waves.
 
 -Machine gunner: General all purpose tower, more expensive than cannon but better dps and has some basic AOE mechanics, deals piercing damage
 
--Crystal: Extremely expensive but shoots a beam that extreme deals continuous damage to a single target after done charging, tier 3 does far more dps than other other tower but also costs far more, deals energy damage
+-Crystal: Extremely expensive but shoots a beam that deals extreme continuous damage to a single target after done charging, tier 3 does far more dps than other other tower but also costs far more, deals energy damage
 
 -Flamethrower: Heavy AOE damage but very short radius, deals fire damage
 
 -Rocket launcher: Medium AOE damage but large radius, deals explosive damage
 
 # Design
--Important functions at the top, functions called by those functions near the bottom.
+-Important functions at the top, functions called by those functions near the bottom
 
 -Event driven design (_input), instead of using _process and polling
 
