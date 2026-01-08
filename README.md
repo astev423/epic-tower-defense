@@ -1,33 +1,34 @@
 # Epic Tower Defense
 Simple tower defense game inspired by BTD5
 
-# Controls
+# Game info
+
+## Basic idea
+Enemies spawn on the leftside of the map, they follow the dirt path until reaching the rightmost end of the path. If they reach
+the end then they take away varying amount of your lives. Place towers and upgrade those towers to kill enemies. Get money for
+more towers by killing enemies and passing waves.
+
+## Controls
 -Left mouse button can click on towers and upgrade them
 
 -Right mouse button can click on towers to sell them for 1/2 their purchase price
 
 -Spacebar to pause/unpause game
 
-# Game info
+-Press esc to cancel action/unhighlight tower
+
 ## Towers
 -Cannon: Solid all around, good dps per dollar, decent range, can deal with most enemies, deals blunt damage
 
--Crossbow: Slow to attack but deals massive damage and has large range, deals piercing damage
-
--Crystal: Extremely expensive but shoots a beam that extreme deals continuous damage to a single target after done charging, tier 3 does far more dps than other other tower but also costs far more, deals typeless damage
-
--Flamethrower: Heavy AOE damage but very short radius, deals fire damage
+-Crossbow: Slow to attack but deals big damage and has large range, deals piercing damage
 
 -Machine gunner: General all purpose tower, more expensive than cannon but better dps and has some basic AOE mechanics, deals piercing damage
 
+-Crystal: Extremely expensive but shoots a beam that extreme deals continuous damage to a single target after done charging, tier 3 does far more dps than other other tower but also costs far more, deals energy damage
+
+-Flamethrower: Heavy AOE damage but very short radius, deals fire damage
+
 -Rocket launcher: Medium AOE damage but large radius, deals explosive damage
-
-## Monsters
--Weakling: Standard enemy, very weak, nothing special
-
--Fast weakling: Weakling but 4x faster
-
--Bubba: Big brown orc with medium health and is very slow
 
 # Design
 -Important functions at the top, functions called by those functions near the bottom.
