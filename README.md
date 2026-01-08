@@ -1,10 +1,12 @@
 # Epic Tower Defense
 Simple tower defense game inspired by BTD5
 
+![Game preview](./game_preview.png)
+
 # Game info
 
 ## Basic idea
-Enemies spawn on the leftside of the map, they follow the dirt path until reaching the end of the path. If they reach the end then they take away a varying amount of your lives. Place towers and upgrade those towers to kill enemies. Get money for more towers by killing enemies and passing waves. Enemies have weaknesses and strengths to certain towers, you can find out different towers affect them by clicking on that enemy during the game
+Enemies spawn on the left side of the map, they follow the dirt path until reaching the end of the path. If they reach the end then they take away a varying amount of your lives. Place towers and upgrade those towers to kill enemies. Get money for more towers by killing enemies and passing waves. Enemies have weaknesses and strengths to certain towers, you can find out different towers affect them by clicking on that enemy during the game
 
 ## Controls
 -Left mouse button can click on towers and place/upgrade them. Left mouse also can click on enemies to reveal their stats and weaknesses/strengths

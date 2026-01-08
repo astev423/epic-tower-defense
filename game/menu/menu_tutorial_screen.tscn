@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://uexad51jeric"]
+[gd_scene load_steps=4 format=3 uid="uid://uexad51jeric"]
 
 [ext_resource type="Script" uid="uid://ctqiqrb48hr8a" path="res://game/menu/menu_tutorial_screen.gd" id="1_fvdao"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="1_m4lwp"]
+[ext_resource type="Texture2D" uid="uid://c0qnxgrmpur7m" path="res://assets/images/preview.png" id="3_smfhv"]
 
 [node name="MenuTutorialScreen" type="Control"]
 layout_mode = 3
@@ -35,8 +36,8 @@ scale = Vector2(0.6955949, 0.6955949)
 theme_override_fonts/font = ExtResource("1_m4lwp")
 theme_override_font_sizes/font_size = 35
 text = "Basic idea
-Enemies spawn on the leftside of the map, they follow the dirt path until reaching the rightmost end of
- the path. If they reach the end then they take away varying amount of your lives. Place towers and 
+Enemies spawn on the left side of the map, they follow the dirt path until reaching the rightmost end of
+ the path. If they reach the end then they take away a varying amount of your lives. Place towers and 
 upgrade those towers to kill enemies. Get money for more towers by killing enemies and passing waves.
 VERy important: enemies have huge weaknesses and strengths to things, click on the enemy to see this info
 
@@ -73,13 +74,18 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -322.66663
-offset_bottom = 110.0
+offset_left = -260.0
+offset_bottom = 90.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_m4lwp")
 theme_override_font_sizes/font_size = 46
 text = " Back"
+
+[node name="GamePreviewSprite" type="Sprite2D" parent="."]
+position = Vector2(1743, 482)
+scale = Vector2(0.6963868, 0.6963868)
+texture = ExtResource("3_smfhv")
 
 [connection signal="pressed" from="GoBackButton" to="." method="_on_go_back_button_pressed"]
