@@ -14,14 +14,14 @@ texture = ExtResource("2_54r01")
 centered = false
 
 [node name="StatsLabel" type="Label" parent="."]
-offset_left = 57.0
+offset_left = 61.0
 offset_top = 16.0
-offset_right = 1287.0
+offset_right = 1291.0
 offset_bottom = 106.6
 scale = Vector2(1, 1.2)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_bgl2h")
 theme_override_font_sizes/font_size = 20
-text = "Health: 40000    Movement speed: 400   kill award: 50000
+text = "Name: Armored grunt   Health: 40000    Movement speed: 400   kill award: 50000
 Weaknesses: Crystal (150%), cannon (300%), fire (200%)
 Strengths: Rockets (50%), machine gun (50%), crossbow (50%) "

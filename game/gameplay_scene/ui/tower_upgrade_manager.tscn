@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://rj47bvxvmw4l"]
 
-[ext_resource type="Script" uid="uid://bfhmrdaetjkdl" path="res://game/managers/towers/tower_upgrade_manager.gd" id="1_recls"]
+[ext_resource type="Script" uid="uid://bfhmrdaetjkdl" path="res://game/gameplay_scene/ui/tower_upgrade_manager.gd" id="1_recls"]
 [ext_resource type="Texture2D" uid="uid://uyqwu86vlr6g" path="res://assets/images/ui/button_rectangle_border.png" id="2_hvo7u"]
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="2_plkjl"]
 [ext_resource type="Resource" uid="uid://cqtpvbf76cv44" path="res://game/entities/towers/data/tower_scenes.tres" id="2_xsgdk"]

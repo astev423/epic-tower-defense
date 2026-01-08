@@ -27,9 +27,10 @@ func display_stats_for_enemy(enemy: CharacterBody2D) -> void:
 		print_debug("too many weaknesses/strengths to display on card")
 		get_tree().quit()
 
-	stats_label.text = "Health: %d   Movement speed: %d   kill award: %d
+	stats_label.text = "Name: %s   Health: %d   Movement speed: %d   kill award: %d
 			Weaknesses: %s
 			Strengths: %s" % [
+				enemy.stats.name,
 				enemy.stats.health,
 				enemy.stats.movement_speed,
 				enemy.stats.money_awarded_if_killed,

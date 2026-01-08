@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bs8g4s5l46lau"]
 
-[ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/managers/towers/tower_placement_manager.gd" id="1_ikrvu"]
+[ext_resource type="Script" uid="uid://cy66efh3nhuba" path="res://game/gameplay_scene/ui/tower_placement_manager.gd" id="1_ikrvu"]
 [ext_resource type="Resource" uid="uid://cqtpvbf76cv44" path="res://game/entities/towers/data/tower_scenes.tres" id="2_7lfe8"]
 [ext_resource type="Texture2D" uid="uid://dknkg0jk1r7xw" path="res://assets/images/entities/towers/cannon/cannon1.png" id="2_lksn0"]
 [ext_resource type="Texture2D" uid="uid://coctix6nji1er" path="res://assets/images/entities/towers/rocket_launcher/launcher1.png" id="3_stjyg"]
@@ -116,15 +116,15 @@ centered = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TowerCostInfo"]
 layout_mode = 0
-offset_left = 46.999985
-offset_top = 32.0
-offset_right = 304.78973
-offset_bottom = 53.977654
+offset_left = 44.752964
+offset_top = 31.768953
+offset_right = 315.79007
+offset_bottom = 47.76895
 scale = Vector2(1.5865644, 2.8593369)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("5_acdrx")
-theme_override_font_sizes/normal_font_size = 17
-text = "Tower cost: "
+theme_override_font_sizes/normal_font_size = 14
+text = "Rocket Launcher cost: 1000"
 fit_content = true
 
 [connection signal="pressed" from="SelectCannon" to="." method="_on_select_cannon_pressed"]

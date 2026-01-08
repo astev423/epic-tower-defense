@@ -8,3 +8,4 @@ class_name EnemyStats
 @export var health: float
 @export var health_bar_offset: Vector2
 @export var type: GameTypes.EnemyType
+@export var name: String

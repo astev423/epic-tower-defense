@@ -16,4 +16,5 @@ money_awarded_if_killed = 400
 health = 5000.0
 health_bar_offset = Vector2(-25, -40)
 type = 3
+name = "Ultra Tank"
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"

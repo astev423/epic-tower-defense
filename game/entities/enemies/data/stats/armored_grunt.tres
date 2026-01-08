@@ -16,4 +16,5 @@ money_awarded_if_killed = 50
 health = 200.0
 health_bar_offset = Vector2(-25, -25)
 type = 6
+name = "Armored Grunt"
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"

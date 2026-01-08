@@ -17,6 +17,7 @@ money_awarded_if_killed = 200
 health = 3000.0
 health_bar_offset = Vector2(-25, -25)
 type = 7
+name = "Watery"
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1k0tv"]

@@ -16,4 +16,5 @@ money_awarded_if_killed = 500
 health = 8000.0
 health_bar_offset = Vector2(-37, -60)
 type = 8
+name = "Glug"
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"

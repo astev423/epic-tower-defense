@@ -15,4 +15,5 @@ money_awarded_if_killed = 50000
 health = 50000.0
 health_bar_offset = Vector2(-60, -80)
 type = 9
+name = "Bossman"
 metadata/_custom_type_script = "uid://c62ujyiciu3gv"

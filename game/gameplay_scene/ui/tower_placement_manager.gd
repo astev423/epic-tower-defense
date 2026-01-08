@@ -5,6 +5,7 @@ extends Node2D
 @export var tower_scenes: TowerScenes
 var tile_map_layer: TileMapLayer
 var held_tower_node: Node2D = null
+var held_tower_type_str: String
 var used_tiles: Dictionary[Vector2i, Node2D] = {}
 
 
@@ -91,16 +92,22 @@ func get_tower_instantiation(held_tower_type: GameTypes.TowerType) -> Node2D:
 
 	if held_tower_type == GameTypes.TowerType.CANNON1:
 		tower_node = tower_scenes.cannon_1.instantiate()
+		held_tower_type_str = "Cannon"
 	elif held_tower_type == GameTypes.TowerType.ROCKET_LAUNCHER1:
 		tower_node = tower_scenes.rocket_launcher_1.instantiate()
+		held_tower_type_str = "Rocket Launcher"
 	elif held_tower_type == GameTypes.TowerType.CROSSBOW1:
 		tower_node = tower_scenes.crossbow_1.instantiate()
+		held_tower_type_str = "Crossbow"
 	elif held_tower_type == GameTypes.TowerType.CRYSTAL1:
 		tower_node = tower_scenes.crystal_1.instantiate()
+		held_tower_type_str = "Crystal"
 	elif held_tower_type == GameTypes.TowerType.MACHINE_GUN1:
 		tower_node = tower_scenes.machine_gun_1.instantiate()
+		held_tower_type_str = "Machine Gun"
 	elif held_tower_type == GameTypes.TowerType.FLAMETHROWER1:
 		tower_node = tower_scenes.flamethrower_1.instantiate()
+		held_tower_type_str = "Flamethrower"
 	else:
 		print_debug("trying to get tower that doesn't exist")
 		tower_node = null
@@ -146,5 +153,5 @@ func try_deselect_held_tower() -> void:
 
 
 func show_tower_cost_info() -> void:
-	tower_cost_info_label.text = "Tower Cost: %s" % held_tower_node.stats.tower_cost
+	tower_cost_info_label.text = "%s Cost: %s" % [held_tower_type_str, held_tower_node.stats.tower_cost]
 	tower_cost_info.show()

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="WaveGroup" load_steps=2 format=3 uid="uid://d2q2dtp63sh6i"]
 
-[ext_resource type="Script" uid="uid://gbstxpjh4csp" path="res://game/managers/enemies/data/spawning/wave_group.gd" id="1_8j31p"]
+[ext_resource type="Script" uid="uid://gbstxpjh4csp" path="res://game/managers/enemies/data/waves/wave_group.gd" id="1_8j31p"]
 
 [resource]
 script = ExtResource("1_8j31p")
