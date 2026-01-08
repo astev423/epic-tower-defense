@@ -37,10 +37,11 @@ color = Color(6.112605e-06, 0.75939333, 0.44310054, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
-zoom = Vector2(0.6, 0.6)
 
 [node name="MenuBGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ah1fo")
 autoplay = true
 
-[node name="MenuRoot" parent="." instance=ExtResource("2_qehsp")]
+[node name="MenuUI" type="CanvasLayer" parent="."]
+
+[node name="MenuRoot" parent="MenuUI" instance=ExtResource("2_qehsp")]

@@ -36,26 +36,11 @@ func change_menu_screen_to(screen_to_change_to: GameTypes.MenuScreen) -> void:
 		current_screen_node.hide()
 
 	if not screen_nodes_cache.has(screen_to_change_to):
-		instantiate_screen_and_add_to_cache(screen_to_change_to)
+		screen_nodes_cache[screen_to_change_to] = load(screen_paths[screen_to_change_to]).instantiate()
 
 	current_screen_type = screen_to_change_to
 	current_screen_node = screen_nodes_cache[screen_to_change_to]
 	current_screen_node.process_mode = Node.PROCESS_MODE_INHERIT
 	current_screen_node.show()
-	current_screen_node.size = Vector2(1920, 1080)
 	if not current_screen_node.is_inside_tree():
 		add_child(current_screen_node)
-
-
-func instantiate_screen_and_add_to_cache(screen_to_change_to: GameTypes.MenuScreen) -> void:
-	if screen_to_change_to == GameTypes.MenuScreen.HOME:
-		screen_nodes_cache[screen_to_change_to] = load(screen_paths[GameTypes.MenuScreen.HOME]).instantiate()
-	elif screen_to_change_to == GameTypes.MenuScreen.LEVEL_SELECTION:
-		screen_nodes_cache[screen_to_change_to] = load(screen_paths[GameTypes.MenuScreen.LEVEL_SELECTION]).instantiate()
-	elif screen_to_change_to == GameTypes.MenuScreen.VICTORY_SCREEN:
-		screen_nodes_cache[screen_to_change_to] = load(screen_paths[GameTypes.MenuScreen.VICTORY_SCREEN]).instantiate()
-	elif screen_to_change_to == GameTypes.MenuScreen.GAME_OVER:
-		screen_nodes_cache[screen_to_change_to] = load(screen_paths[GameTypes.MenuScreen.GAME_OVER]).instantiate()
-	else:
-		print_debug("Unexpected screen change, crashing")
-		get_tree().quit()

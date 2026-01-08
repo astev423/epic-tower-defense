@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _on_return_to_menu_button_pressed() -> void:
 	var menu_root_node: Control = menu_root_scene.instantiate()
-	get_node("/root/GameRoot").add_child(menu_root_node)
+	get_node("/root/GameRoot/MenuUI").add_child(menu_root_node)
 	get_node("/root/GameRoot/MenuBGM").play()
 
 	get_node("/root/GameRoot/GameplayScene").queue_free()

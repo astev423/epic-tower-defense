@@ -5,7 +5,7 @@ extends Control
 
 func _on_play_button_pressed() -> void:
 	var menu_root_node: Control = menu_root_scene.instantiate()
-	get_node("/root/GameRoot").add_child(menu_root_node)
+	get_node("/root/GameRoot/MenuUI").add_child(menu_root_node)
 
 	queue_free()
 

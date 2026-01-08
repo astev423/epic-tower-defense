@@ -60,7 +60,6 @@ func create_moveable_tower_for_ui(tower_clicked_on: GameTypes.TowerType) -> void
 
 
 func update_ui_for_dragged_tower() -> void:
-	# Unhighlight tower to hide the stats of previous highlighted since we selected new one
 	EventBus.displaying_tower_placement_cost.emit()
 	show_tower_cost_info()
 

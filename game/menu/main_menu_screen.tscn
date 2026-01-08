@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://8s02pbcrvkyw"]
+[gd_scene load_steps=17 format=3 uid="uid://8s02pbcrvkyw"]
 
 [ext_resource type="FontFile" uid="uid://cudqsbu5ahhbr" path="res://assets/fonts/Kenney Future.ttf" id="1_awi11"]
 [ext_resource type="Script" uid="uid://71h7inn7cqh" path="res://game/menu/main_menu_screen.gd" id="1_y5sr0"]
+[ext_resource type="Texture2D" uid="uid://cdvvggd677hcy" path="res://assets/images/ui/8666420.jpg" id="2_c6yh7"]
 [ext_resource type="Texture2D" uid="uid://cm8pymm3x7k6l" path="res://assets/images/entities/towers/crossbow/Tower 01 - Level 01 - Weapon.png" id="3_eqsh7"]
 [ext_resource type="Texture2D" uid="uid://dwa0f8otrw8aq" path="res://assets/images/entities/towers/machine_gunner/machine_gun_skins.png" id="4_qc18r"]
 [ext_resource type="Texture2D" uid="uid://qdqnkhlpgdb4" path="res://assets/images/entities/enemies/enemies_spritesheet-hyptosis.png" id="5_5jvnm"]
@@ -75,54 +76,69 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 768.0
-offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y5sr0")
 
-[node name="CenterTitle" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -520.5
-offset_top = 93.0
-offset_right = 520.5
-offset_bottom = 178.728
-grow_horizontal = 2
-
-[node name="Title" type="Label" parent="CenterTitle"]
-layout_mode = 2
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 275.5
+offset_top = 83.0
+offset_right = 1644.5
+offset_bottom = 195.8
 theme_override_fonts/font = ExtResource("1_awi11")
-theme_override_font_sizes/font_size = 91
+theme_override_font_sizes/font_size = 100
 text = "Epic Tower Defense"
 
-[node name="CenterButtons" type="CenterContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
+offset_left = 337.0
+offset_right = 1583.0
+offset_bottom = 80.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 164.275)
+layout_mode = 0
+offset_left = 337.0
+offset_top = 84.0
+offset_right = 1583.0
+offset_bottom = 248.275
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -279.0
+offset_top = -181.0
+offset_right = 279.0
+offset_bottom = 181.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterButtons"]
-layout_mode = 2
-theme_override_constants/separation = 23
-
-[node name="PlayButton" type="Button" parent="CenterButtons/VBoxContainer2"]
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_awi11")
 theme_override_font_sizes/font_size = 151
 text = " Play"
 
-[node name="QuitButton" type="Button" parent="CenterButtons/VBoxContainer2"]
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("1_awi11")
 theme_override_font_sizes/font_size = 151
-text = " Quit"
+text = " Quit "
+
+[node name="SkyImage" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.07058824)
+position = Vector2(0, -137.99997)
+scale = Vector2(0.9599528, 0.6115262)
+texture = ExtResource("2_c6yh7")
+centered = false
 
 [node name="Sprites" type="Node2D" parent="."]
 
@@ -175,5 +191,5 @@ texture = ExtResource("7_5jvnm")
 region_enabled = true
 region_rect = Rect2(664, 240, 724, 714)
 
-[connection signal="pressed" from="CenterButtons/VBoxContainer2/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="CenterButtons/VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

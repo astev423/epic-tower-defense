@@ -63,8 +63,11 @@ func spawn_level() -> void:
 	GameState.set_variables(NUM_LIVES_FOR_WAVE, get_starting_money(), starting_wave_num)
 	add_level_to_scene()
 
-	var tower_placement_manager := gameplay_node.get_node("GameplayUI/TowerPlacementManager")
-	tower_placement_manager.tile_map_layer = level_node.get_node("TileMapLayer")
+	var tower_placement_manager: Node2D = gameplay_node.get_node("GameplayUI/TowerPlacementManager")
+	var tower_upgrade_manager: Node2D = gameplay_node.get_node("GameplayUI/TowerUpgradeManager")
+	var tile_map_layer: TileMapLayer = level_node.get_node("TileMapLayer")
+	tower_placement_manager.tile_map_layer = tile_map_layer
+	tower_upgrade_manager.tile_map_layer = level_node.get_node("TileMapLayer")
 
 	get_node("/root/GameRoot").add_child(gameplay_node)
 	get_node("/root/GameRoot/MenuBGM").stop()

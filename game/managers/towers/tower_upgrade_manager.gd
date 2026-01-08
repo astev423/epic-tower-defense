@@ -5,6 +5,7 @@ extends Node2D
 @onready var upgrade_cost_label: RichTextLabel = $"UpgradeTower/RichTextLabel"
 @export var tower_scenes: TowerScenes
 var current_tower_highlighted: Node2D = null
+var tile_map_layer: TileMapLayer
 
 
 func _ready() -> void:
@@ -51,8 +52,8 @@ func despawn_old_spawn_upgraded_tower() -> void:
 	upgraded_tower.clickbox.show()
 	upgraded_tower.can_fire = true
 	update_display_tower_info(upgraded_tower)
-	var cell: Vector2i = tower_placement_manager.tile_map_layer.local_to_map(
-		tower_placement_manager.tile_map_layer.to_local(upgraded_tower.global_position)
+	var cell: Vector2i = tile_map_layer.local_to_map(
+		tile_map_layer.to_local(upgraded_tower.global_position)
 	)
 	tower_placement_manager.used_tiles[cell] = upgraded_tower
 
